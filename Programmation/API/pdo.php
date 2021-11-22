@@ -3,10 +3,10 @@
 session_start();
 
 //Constantes
-define("DB_HOST", "localhost");
-define("DB_NAME", "WavContact");
-define("DB_USER", "waview");
-define("DB_PASSWORD", "Waview2019_!");
+define("DB_HOST", "waview.ch.mysql");
+define("DB_NAME", "waview_chcontact");
+define("DB_USER", "waview_chcontact");
+define("DB_PASSWORD", "Waview2021_!");
 
 function database(){
     static $dbc = null;
