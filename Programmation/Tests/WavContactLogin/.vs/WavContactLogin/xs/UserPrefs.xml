@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{8C8B5F02-24AF-4CB1-B857-F07164BFC59E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WavContactLogin/Program.cs">
+    <Files>
+      <File FileName="WavContactLogin/User.cs" Line="1" Column="1" />
+      <File FileName="WavContactLogin/Program.cs" Line="32" Column="10" />
+      <File FileName="WavContactLogin/WavContactPDO.cs" Line="62" Column="14" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WavContactLogin" expanded="True">
+            <Node name="WavContactLogin" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.WavContactLogin PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WavContactLogin
 {
@@ -8,21 +9,49 @@ namespace WavContactLogin
         {
 
             string email = "constantin@waview.ch";
-            string password = "motdepasse";
+            string real_password = "motdepasse";
+            List<string> passwords = new List<string>();
 
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Login into WavContact with account : ");
-            Console.WriteLine("Email : " + email);
-            Console.WriteLine("Password : " + password);
+            passwords.Add(real_password);
+            passwords.Add("12345");
+            passwords.Add("-");
 
-            Console.WriteLine("---------------------------");
+            foreach (string item in passwords)
+            {
+                DisplayTest(email, item);
+            }
 
+            DisplayTest("coco", real_password);
 
-            User u = WavContactPDO.LoginAsync(email, password).Result;
-
-            Console.WriteLine("Login OK : " + u.ToString());
+            
 
             Console.ReadKey();
+        }
+
+        static void DisplayTest(string e, string p)
+        {
+
+            User u = WavContactPDO.Login(e, p);
+
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Login into WavContact with account : ");
+            Console.WriteLine("Email : " + e);
+            Console.WriteLine("Password : " + p);
+
+            if (u != null)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Login OK : " + u.ToString());
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("FAIL IN LOGIN");
+            }
+
+            Console.WriteLine("");
+
+            
         }
     }
 }
