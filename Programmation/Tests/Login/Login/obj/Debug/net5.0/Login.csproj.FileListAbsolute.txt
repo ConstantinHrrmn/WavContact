@@ -15,3 +15,4 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\Login\Login\
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\Login\Login\obj\Debug\net5.0\ref\Login.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\Login\Login\obj\Debug\net5.0\Login.pdb
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\Login\Login\obj\Debug\net5.0\Login.genruntimeconfig.cache
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\Login\Login\obj\Debug\net5.0\Login.csproj.AssemblyReference.cache
