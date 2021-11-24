@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ryp0EZ5yDGurpoK1JIthH399tVeOCjCuG/eUMGk3+yzzOhvMTOm1QltAmlpcsONW3xabOpsfQtmebxweng8f7w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Constantin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
