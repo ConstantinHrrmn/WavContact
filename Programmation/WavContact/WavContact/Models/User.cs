@@ -10,15 +10,23 @@ namespace WavContact.Models
     {
         private string firstname;
         private string lastname;
+        private List<Project> projets;
 
         public User(string fn, string ln)
         {
             this.Firstname = fn;
             this.Lastname = ln;
+            this.Projets = new List<Project>();
         }
 
         public string Firstname { get => firstname; set => firstname = value; }
         public string Lastname { get => lastname; set => lastname = value; }
+        public List<Project> Projets { get => projets; set => projets = value; }
+
+        public void AddProject(Project p)
+        {
+            this.Projets.Add(p);
+        }
 
         public override string ToString()
         {

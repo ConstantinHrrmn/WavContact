@@ -4,6 +4,9 @@
     <Compile Update="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmProjectWaviewMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmWaviewMember.cs">
       <SubType>Form</SubType>
     </Compile>

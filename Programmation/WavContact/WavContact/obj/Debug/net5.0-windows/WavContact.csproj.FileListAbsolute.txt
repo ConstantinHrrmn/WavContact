@@ -46,3 +46,4 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\WavContact\W
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.genruntimeconfig.cache
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\bin\Debug\net5.0-windows\System.Net.Http.Formatting.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\bin\Debug\net5.0-windows\Newtonsoft.Json.Bson.dll
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmProjectWaviewMember.resources

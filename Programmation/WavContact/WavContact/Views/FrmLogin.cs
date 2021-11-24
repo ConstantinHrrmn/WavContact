@@ -88,20 +88,26 @@ namespace WavContact
 
         public void SwitchMode()
         {
-            this.tbxEmail.BackColor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
-            this.tbxPassword.BackColor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
+            Color backcolor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
+            Color invertedColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
 
-            this.tbxEmail.ForeColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
-            this.tbxPassword.ForeColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
+            this.BackColor = backcolor;
 
-            this.btnLogin.BackColor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
-            this.btnLogin.ForeColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
+            foreach (Control item in this.Controls)
+            {
+                item.BackColor = backcolor;
+                item.ForeColor = invertedColor;
 
-            this.BackColor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
-            this.btnSwitchMode.ForeColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
+                if (item.Name == "btnClose")
+                {
+                    item.ForeColor = Color.Red;
+                }
 
-            this.pbLogo.Image = Properties.Settings.Default.darkmode ? Properties.Resources.blanc_vide_full : Properties.Resources.new_noir_bleu;
-            this.btnSwitchMode.Text = Properties.Settings.Default.darkmode ? "Light" : "Dark";
+                if (item.Name == "btnSwitchMode")
+                {
+                    item.Text = Properties.Settings.Default.darkmode ? "Light" : "Dark";
+                }
+            }
         }
 
         private void btnSwitchMode_Click(object sender, EventArgs e)

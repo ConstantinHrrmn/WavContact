@@ -78,12 +78,61 @@ namespace WavContact.Views
         }
         #endregion
 
+        /// <summary>
+        /// Passage du darkmode au lightmode et vice versa
+        /// </summary>
         public void SwitchMode()
         {
-            this.btnSwitchMode.Text = Properties.Settings.Default.darkmode ? "Light" : "Dark";
-            this.lblWelcome.ForeColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
-            this.btnSwitchMode.ForeColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
-            this.BackColor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
+            Color backcolor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
+            Color invertedColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
+
+            this.BackColor = backcolor;
+
+            foreach (Control item in this.Controls)
+            {
+                item.BackColor = backcolor;
+                item.ForeColor = invertedColor;
+
+                if (item.Name == "btnClose")
+                {
+                    item.ForeColor = Color.Red;
+                }
+
+                if (item.Name == "btnSwitchMode")
+                {
+                    item.Text = Properties.Settings.Default.darkmode ? "Light" : "Dark";
+                }
+            }
+        }
+
+        public void LoadClients(List<User> clients)
+        {
+            this.lbClients.Items.Clear();
+
+            foreach (User item in clients)
+            {
+                this.lbClients.Items.Add(item);
+            }
+        }
+
+        public void LoadProjectsForClient(List<Project> projects)
+        {
+            this.lbProjets.Items.Clear();
+
+            foreach (Project item in projects)
+            {
+                this.lbProjets.Items.Add(item);
+            }
+        }
+
+        private void lbClients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lbClients.SelectedItem as User));
+        }
+
+        private void lbProjets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ctrl.LoadProjectPage(this.lbProjets.SelectedItem as Project);
         }
     }
 }

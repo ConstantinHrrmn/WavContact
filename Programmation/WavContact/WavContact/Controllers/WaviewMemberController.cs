@@ -18,6 +18,8 @@ namespace WavContact.Controllers
         #region Variables privées
         private FrmWaviewMember frm;
         private User connectedUser;
+
+        private List<User> clients;
         #endregion
 
         #region GETTER / SETTER
@@ -33,12 +35,26 @@ namespace WavContact.Controllers
         {
             this.frm = a_frm;
             this.ConnectedUser = a_connectedUser;
+            this.clients = new List<User>();
+            this.clients = WavContact.DB.WavContactPDO.Clients();
+
+            this.frm.LoadClients(this.clients);
+        }
+
+        public List<Project> GetProjectsForUser(User u)
+        {
+            return u.Projets;
         }
 
         public void Logout()
         {
             PropertiesManager.Logout();
-            
+        }
+
+        public void LoadProjectPage(Project p)
+        {
+            FrmProjectWaviewMember frm = new FrmProjectWaviewMember();
+            frm.ShowDialog();
         }
 
 
