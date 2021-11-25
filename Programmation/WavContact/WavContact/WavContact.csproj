@@ -38,4 +38,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Clients\" />
+    <Folder Include="Views\Client\" />
+  </ItemGroup>
+
 </Project>
