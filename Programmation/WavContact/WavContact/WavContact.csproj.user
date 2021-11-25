@@ -4,10 +4,13 @@
     <Compile Update="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FrmProjectWaviewMember.cs">
+    <Compile Update="Views\Member\FrmProjectWaviewMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FrmWaviewMember.cs">
+    <Compile Update="Views\Member\FrmWaviewChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewMember.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

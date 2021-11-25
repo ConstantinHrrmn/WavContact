@@ -88,26 +88,7 @@ namespace WavContact
 
         public void SwitchMode()
         {
-            Color backcolor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
-            Color invertedColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
-
-            this.BackColor = backcolor;
-
-            foreach (Control item in this.Controls)
-            {
-                item.BackColor = backcolor;
-                item.ForeColor = invertedColor;
-
-                if (item.Name == "btnClose")
-                {
-                    item.ForeColor = Color.Red;
-                }
-
-                if (item.Name == "btnSwitchMode")
-                {
-                    item.Text = Properties.Settings.Default.darkmode ? "Light" : "Dark";
-                }
-            }
+            this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
 
         private void btnSwitchMode_Click(object sender, EventArgs e)
