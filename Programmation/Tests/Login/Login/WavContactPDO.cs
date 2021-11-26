@@ -25,21 +25,25 @@ namespace WavContactLogin
         /// <param name="email">L'email de l'utilisateur</param>
         /// <param name="non_encrypted_password">Le mot de passe brut de l'utilisateur</param>
         /// <returns>L'utilisateur si il est connecté, null si non</returns>
-        private static async Task<User> LoginAsync(string email, string non_encrypted_password)
+        private static User LoginAsync(string email, string non_encrypted_password)
         {
             string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
 
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("Email", email);
             hc.DefaultRequestHeaders.Add("Password", hashedPassword);
+            var response = hc.GetAsync(BASE_URL + "/user/login").Result;
 
-            var response = await hc.GetAsync(BASE_URL + "/user/login");
-            response.EnsureSuccessStatusCode();
+            // On vérifie que le code de retour est bien 200 => OK
+            if (response.IsSuccessStatusCode)
+            {
+                // Le .Result fait en sorte qu'on attende la réponse du serveur avant de continuer
+                var a = response.Content.ReadAsStringAsync().Result;
+                JObject jo = JObject.Parse(a);
+                return new User((string)jo["first_name"], (string)jo["last_name"]);
+            }
 
-            var a = await response.Content.ReadAsStringAsync();
-
-            JObject jo = JObject.Parse(a);
-            return new User((string)jo["first_name"], (string)jo["last_name"]);
+            return null;
         }
 
         #endregion
@@ -56,7 +60,7 @@ namespace WavContactLogin
         {
             try
             {
-                return LoginAsync(email, non_encrypted_password).Result;
+                return LoginAsync(email, non_encrypted_password);
             }
             catch (Exception ex)
             {
