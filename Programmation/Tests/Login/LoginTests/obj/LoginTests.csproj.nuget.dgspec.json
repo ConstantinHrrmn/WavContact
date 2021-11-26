@@ -1,35 +1,91 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\LoginTests.csproj": {}
+    "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/LoginTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\LoginTests.csproj": {
+    "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\LoginTests.csproj",
-        "projectName": "LoginTests",
-        "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\LoginTests.csproj",
-        "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\obj\\",
+        "projectUniqueName": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj",
+        "projectName": "Login",
+        "projectPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj",
+        "packagesPath": "/Users/constantin/.nuget/packages/",
+        "outputPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/constantin/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/LoginTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/LoginTests.csproj",
+        "projectName": "LoginTests",
+        "projectPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/LoginTests.csproj",
+        "packagesPath": "/Users/constantin/.nuget/packages/",
+        "outputPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/constantin/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          ".NETCoreApp,Version=v5.0"
+        ],
+        "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": ".NETCoreApp,Version=v5.0",
             "projectReferences": {
-              "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj": {
-                "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj"
+              "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj": {
+                "projectPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj"
               }
             }
           }
@@ -76,67 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj",
-        "projectName": "Login",
-        "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj",
-        "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }

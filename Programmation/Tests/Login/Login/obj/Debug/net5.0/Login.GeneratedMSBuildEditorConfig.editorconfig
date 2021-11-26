@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Login
-build_property.ProjectDir = C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\Tests\Login\Login\
+build_property.ProjectDir = /Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/

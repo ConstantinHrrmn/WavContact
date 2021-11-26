@@ -5840,34 +5840,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Constantin\\.nuget\\packages\\": {}
+    "/Users/constantin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\LoginTests.csproj",
+      "projectUniqueName": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/LoginTests.csproj",
       "projectName": "LoginTests",
-      "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\LoginTests.csproj",
-      "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\LoginTests\\obj\\",
+      "projectPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/LoginTests.csproj",
+      "packagesPath": "/Users/constantin/.nuget/packages/",
+      "outputPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/LoginTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/constantin/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        ".NETCoreApp,Version=v5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj": {
-              "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\Tests\\Login\\Login\\Login.csproj"
+            "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj": {
+              "projectPath": "/Users/constantin/Documents/GitHub/WavContact/Programmation/Tests/Login/Login/Login.csproj"
             }
           }
         }
@@ -5914,7 +5912,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
