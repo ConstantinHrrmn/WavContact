@@ -2,19 +2,20 @@
   <MonoDevelop.Ide.ItemProperties.LoginTests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Login/WavContactPDO.cs">
     <Files>
-      <File FileName="LoginTests/WavContactPDOTests.cs" Line="21" Column="43" />
+      <File FileName="LoginTests/WavContactPDOTests.cs" Line="39" Column="2" />
       <File FileName="Login/WavHash.cs" Line="1" Column="1" />
-      <File FileName="Login/WavContactPDO.cs" Line="63" Column="14" />
+      <File FileName="Login/WavContactPDO.cs" Line="59" Column="78" />
       <File FileName="Login/User.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Login" expanded="True">
-            <Node name="Login" expanded="True" />
+            <Node name="Login" expanded="True">
+              <Node name="WavContactPDO.cs" selected="True" />
+            </Node>
             <Node name="LoginTests" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="WavContactPDOTests.cs" selected="True" />
             </Node>
           </Node>
         </State>
