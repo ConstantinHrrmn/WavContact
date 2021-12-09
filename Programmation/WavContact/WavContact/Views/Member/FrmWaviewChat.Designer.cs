@@ -30,62 +30,61 @@ namespace WavContact.Views.Member
         private void InitializeComponent()
         {
             this.btnClose = new System.Windows.Forms.Button();
-            this.lbClients = new System.Windows.Forms.ListBox();
             this.lblClients = new System.Windows.Forms.Label();
             this.btnGhost = new System.Windows.Forms.Button();
             this.tbxMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.lbMessages = new System.Windows.Forms.ListBox();
+            this.cboSelectionProjet = new System.Windows.Forms.ComboBox();
+            this.btnSelectionner = new System.Windows.Forms.Button();
+            this.btnEnvoye = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(586, 12);
+            this.btnClose.Location = new System.Drawing.Point(940, 14);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 29);
+            this.btnClose.Size = new System.Drawing.Size(50, 48);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lbClients
-            // 
-            this.lbClients.FormattingEnabled = true;
-            this.lbClients.ItemHeight = 15;
-            this.lbClients.Location = new System.Drawing.Point(12, 68);
-            this.lbClients.Name = "lbClients";
-            this.lbClients.Size = new System.Drawing.Size(169, 634);
-            this.lbClients.TabIndex = 6;
             // 
             // lblClients
             // 
             this.lblClients.AutoSize = true;
             this.lblClients.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblClients.ForeColor = System.Drawing.Color.Black;
-            this.lblClients.Location = new System.Drawing.Point(12, 43);
+            this.lblClients.Location = new System.Drawing.Point(267, 74);
+            this.lblClients.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClients.Name = "lblClients";
-            this.lblClients.Size = new System.Drawing.Size(74, 22);
+            this.lblClients.Size = new System.Drawing.Size(112, 34);
             this.lblClients.TabIndex = 10;
             this.lblClients.Text = "Clients";
             // 
             // btnGhost
             // 
             this.btnGhost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGhost.Location = new System.Drawing.Point(187, 667);
+            this.btnGhost.Location = new System.Drawing.Point(267, 1112);
+            this.btnGhost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGhost.Name = "btnGhost";
-            this.btnGhost.Size = new System.Drawing.Size(58, 35);
+            this.btnGhost.Size = new System.Drawing.Size(83, 58);
             this.btnGhost.TabIndex = 11;
             this.btnGhost.Text = "Ghost";
             this.btnGhost.UseVisualStyleBackColor = true;
             // 
             // tbxMessage
             // 
-            this.tbxMessage.Location = new System.Drawing.Point(251, 667);
+            this.tbxMessage.Location = new System.Drawing.Point(359, 1112);
+            this.tbxMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxMessage.Multiline = true;
             this.tbxMessage.Name = "tbxMessage";
-            this.tbxMessage.Size = new System.Drawing.Size(287, 35);
+            this.tbxMessage.Size = new System.Drawing.Size(408, 56);
             this.tbxMessage.TabIndex = 12;
             this.tbxMessage.TextChanged += new System.EventHandler(this.tbxMessage_TextChanged);
             // 
@@ -95,9 +94,10 @@ namespace WavContact.Views.Member
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSend.ForeColor = System.Drawing.Color.Black;
-            this.btnSend.Location = new System.Drawing.Point(544, 666);
+            this.btnSend.Location = new System.Drawing.Point(777, 1110);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(77, 36);
+            this.btnSend.Size = new System.Drawing.Size(110, 60);
             this.btnSend.TabIndex = 13;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
@@ -105,26 +105,78 @@ namespace WavContact.Views.Member
             // lbMessages
             // 
             this.lbMessages.FormattingEnabled = true;
-            this.lbMessages.ItemHeight = 15;
-            this.lbMessages.Location = new System.Drawing.Point(187, 68);
+            this.lbMessages.ItemHeight = 25;
+            this.lbMessages.Location = new System.Drawing.Point(267, 163);
+            this.lbMessages.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbMessages.Name = "lbMessages";
-            this.lbMessages.Size = new System.Drawing.Size(434, 589);
+            this.lbMessages.Size = new System.Drawing.Size(723, 829);
             this.lbMessages.TabIndex = 14;
+            // 
+            // cboSelectionProjet
+            // 
+            this.cboSelectionProjet.FormattingEnabled = true;
+            this.cboSelectionProjet.Items.AddRange(new object[] {
+            "ON VA METTRE LA LISTE DES PROJETS"});
+            this.cboSelectionProjet.Location = new System.Drawing.Point(267, 119);
+            this.cboSelectionProjet.Name = "cboSelectionProjet";
+            this.cboSelectionProjet.Size = new System.Drawing.Size(487, 33);
+            this.cboSelectionProjet.TabIndex = 15;
+            // 
+            // btnSelectionner
+            // 
+            this.btnSelectionner.Location = new System.Drawing.Point(760, 119);
+            this.btnSelectionner.Name = "btnSelectionner";
+            this.btnSelectionner.Size = new System.Drawing.Size(125, 34);
+            this.btnSelectionner.TabIndex = 16;
+            this.btnSelectionner.Text = "Sélectionner";
+            this.btnSelectionner.UseVisualStyleBackColor = true;
+            // 
+            // btnEnvoye
+            // 
+            this.btnEnvoye.Location = new System.Drawing.Point(856, 999);
+            this.btnEnvoye.Name = "btnEnvoye";
+            this.btnEnvoye.Size = new System.Drawing.Size(134, 49);
+            this.btnEnvoye.TabIndex = 17;
+            this.btnEnvoye.Text = "Envoyer";
+            this.btnEnvoye.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(267, 999);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(583, 49);
+            this.textBox1.TabIndex = 18;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(12, 119);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(248, 929);
+            this.listBox1.TabIndex = 19;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // FrmWaviewChat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(633, 721);
+            this.ClientSize = new System.Drawing.Size(1003, 1060);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnEnvoye);
+            this.Controls.Add(this.btnSelectionner);
+            this.Controls.Add(this.cboSelectionProjet);
             this.Controls.Add(this.lbMessages);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.tbxMessage);
             this.Controls.Add(this.btnGhost);
             this.Controls.Add(this.lblClients);
-            this.Controls.Add(this.lbClients);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmWaviewChat";
             this.Text = "FrmWaviewChat";
             this.Load += new System.EventHandler(this.FrmWaviewChat_Load);
@@ -139,11 +191,15 @@ namespace WavContact.Views.Member
         #endregion
 
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ListBox lbClients;
         private System.Windows.Forms.Label lblClients;
         private System.Windows.Forms.Button btnGhost;
         private System.Windows.Forms.TextBox tbxMessage;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.ListBox lbMessages;
+        private System.Windows.Forms.ComboBox cboSelectionProjet;
+        private System.Windows.Forms.Button btnSelectionner;
+        private System.Windows.Forms.Button btnEnvoye;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
