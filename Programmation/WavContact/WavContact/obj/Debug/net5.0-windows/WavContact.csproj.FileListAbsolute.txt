@@ -74,3 +74,12 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact\WavCont
 \\Mac\Home\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\ref\WavContact.dll
 \\Mac\Home\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.pdb
 \\Mac\Home\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.genruntimeconfig.cache
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.csprojAssemblyReference.cache
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.FrmLogin.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmProjectWaviewMember.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Member.FrmWaviewChat.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmWaviewMember.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.csproj.GenerateResource.cache
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.dll
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\ref\WavContact.dll
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.pdb

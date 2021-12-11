@@ -19,17 +19,19 @@ namespace WavContact.Views.Member
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        
+        private void FrmWaviewChat_Load(object sender, EventArgs e)
         {
-            this.Close();
+            this.SwitchMode();
         }
+
 
         public void LoadClientsList(List<User> clients)
         {
-            this.lbClients.Items.Clear();
+            this.lstListeClient.Items.Clear();
             foreach (User item in clients)
             {
-                this.lbClients.Items.Add(item);
+                this.lstListeClient.Items.Add(item);
             }
         }
 
@@ -60,15 +62,7 @@ namespace WavContact.Views.Member
             this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
 
-        private void FrmWaviewChat_Load(object sender, EventArgs e)
-        {
-            this.SwitchMode();
-        }
 
-        private void tbxMessage_TextChanged(object sender, EventArgs e)
-        {
-            Size size = TextRenderer.MeasureText(tbxMessage.Text, tbxMessage.Font);
-            //tbxMessage.Height = size.Height;
-        }
+
     }
 }
