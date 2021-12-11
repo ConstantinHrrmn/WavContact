@@ -44,20 +44,21 @@ namespace WavContact.Views.Member
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(709, 12);
+            this.btnClose.Location = new System.Drawing.Point(620, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(35, 29);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSelectionner
             // 
             this.btnSelectionner.BackColor = System.Drawing.Color.Black;
             this.btnSelectionner.ForeColor = System.Drawing.Color.White;
-            this.btnSelectionner.Location = new System.Drawing.Point(602, 84);
+            this.btnSelectionner.Location = new System.Drawing.Point(568, 72);
             this.btnSelectionner.Name = "btnSelectionner";
-            this.btnSelectionner.Size = new System.Drawing.Size(87, 23);
+            this.btnSelectionner.Size = new System.Drawing.Size(87, 24);
             this.btnSelectionner.TabIndex = 7;
             this.btnSelectionner.Text = "Sélectionner";
             this.btnSelectionner.UseVisualStyleBackColor = false;
@@ -67,7 +68,7 @@ namespace WavContact.Views.Member
             this.txtListeMessage.BackColor = System.Drawing.Color.Black;
             this.txtListeMessage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtListeMessage.ForeColor = System.Drawing.Color.White;
-            this.txtListeMessage.Location = new System.Drawing.Point(270, 113);
+            this.txtListeMessage.Location = new System.Drawing.Point(236, 102);
             this.txtListeMessage.Multiline = true;
             this.txtListeMessage.Name = "txtListeMessage";
             this.txtListeMessage.ReadOnly = true;
@@ -79,10 +80,11 @@ namespace WavContact.Views.Member
             this.cboListeProjet.BackColor = System.Drawing.Color.Black;
             this.cboListeProjet.ForeColor = System.Drawing.Color.White;
             this.cboListeProjet.FormattingEnabled = true;
-            this.cboListeProjet.Location = new System.Drawing.Point(270, 84);
+            this.cboListeProjet.Location = new System.Drawing.Point(236, 73);
             this.cboListeProjet.Name = "cboListeProjet";
             this.cboListeProjet.Size = new System.Drawing.Size(326, 23);
             this.cboListeProjet.TabIndex = 9;
+            this.cboListeProjet.SelectedIndexChanged += new System.EventHandler(this.cboListeProjet_SelectedIndexChanged);
             // 
             // lstListeClient
             // 
@@ -90,7 +92,7 @@ namespace WavContact.Views.Member
             this.lstListeClient.ForeColor = System.Drawing.Color.White;
             this.lstListeClient.FormattingEnabled = true;
             this.lstListeClient.ItemHeight = 15;
-            this.lstListeClient.Location = new System.Drawing.Point(46, 84);
+            this.lstListeClient.Location = new System.Drawing.Point(12, 73);
             this.lstListeClient.Name = "lstListeClient";
             this.lstListeClient.Size = new System.Drawing.Size(218, 424);
             this.lstListeClient.TabIndex = 10;
@@ -98,7 +100,7 @@ namespace WavContact.Views.Member
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(270, 476);
+            this.textBox1.Location = new System.Drawing.Point(236, 465);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(326, 32);
@@ -108,7 +110,7 @@ namespace WavContact.Views.Member
             // 
             this.btnEnvoye.BackColor = System.Drawing.Color.Black;
             this.btnEnvoye.ForeColor = System.Drawing.Color.White;
-            this.btnEnvoye.Location = new System.Drawing.Point(602, 476);
+            this.btnEnvoye.Location = new System.Drawing.Point(568, 465);
             this.btnEnvoye.Name = "btnEnvoye";
             this.btnEnvoye.Size = new System.Drawing.Size(87, 32);
             this.btnEnvoye.TabIndex = 12;
@@ -119,11 +121,11 @@ namespace WavContact.Views.Member
             // 
             this.lblClient.AutoSize = true;
             this.lblClient.BackColor = System.Drawing.Color.Transparent;
-            this.lblClient.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblClient.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblClient.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblClient.Location = new System.Drawing.Point(270, 34);
+            this.lblClient.Location = new System.Drawing.Point(236, 33);
             this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(185, 47);
+            this.lblClient.Size = new System.Drawing.Size(145, 37);
             this.lblClient.TabIndex = 13;
             this.lblClient.Text = "NomClient";
             // 
@@ -132,7 +134,7 @@ namespace WavContact.Views.Member
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(756, 575);
+            this.ClientSize = new System.Drawing.Size(667, 511);
             this.Controls.Add(this.lblClient);
             this.Controls.Add(this.btnEnvoye);
             this.Controls.Add(this.textBox1);

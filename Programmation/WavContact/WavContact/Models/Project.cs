@@ -22,6 +22,6 @@ namespace WavContact.Models
             return this.name;
         }
 
-
+       
     }
 }

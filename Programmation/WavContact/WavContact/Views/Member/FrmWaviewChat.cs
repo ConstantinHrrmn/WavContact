@@ -62,7 +62,14 @@ namespace WavContact.Views.Member
             this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void cboListeProjet_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

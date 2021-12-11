@@ -47,6 +47,16 @@ namespace WavContact.Views
             this.mf.MouseUp();
         }
         #endregion
+        
+        #region SWITCHMODE
+        /// <summary>
+        /// Change between dark and light mode
+        /// </summary>
+        public void SwitchMode()
+        {
+            this.BackColor = Darkmode.ChangeMode(this.Controls);
+        }
+        #endregion
 
         #region BUTTONS
         private void btnClose_Click(object sender, EventArgs e)
@@ -65,14 +75,7 @@ namespace WavContact.Views
             this.lblProjectName.Text = project.Name;
         }
 
-        /// <summary>
-        /// Change between dark and light mode
-        /// </summary>
-        public void SwitchMode()
-        {
-            this.BackColor = Darkmode.ChangeMode(this.Controls);
-        }
-
         
+
     }
 }
