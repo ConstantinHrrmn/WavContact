@@ -88,7 +88,6 @@ namespace WavContact.Views.Member
             this.cboListeProjet.Name = "cboListeProjet";
             this.cboListeProjet.Size = new System.Drawing.Size(464, 33);
             this.cboListeProjet.TabIndex = 9;
-            this.cboListeProjet.SelectedIndexChanged += new System.EventHandler(this.cboListeProjet_SelectedIndexChanged);
             // 
             // lstListeClient
             // 

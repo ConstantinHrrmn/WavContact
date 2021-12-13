@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WavContact.Views.Member
+namespace WavContact.Views
 {
-    public partial class FrmWaviewGestionReservation : Form
+    public partial class FrmParametre : Form
     {
-        public FrmWaviewGestionReservation()
+        public FrmParametre()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

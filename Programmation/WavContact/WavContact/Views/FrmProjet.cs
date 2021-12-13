@@ -7,32 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WavContact.Controllers;
 using WavContact.Metier;
-using WavContact.Models;
 
-namespace WavContact.Views.Member
+namespace WavContact.Views.Client
 {
-    public partial class FrmWaviewChat : Form
+    public partial class FrmProjet : Form
     {
-        public FrmWaviewChat()
+        public FrmProjet()
         {
             InitializeComponent();
         }
 
-        
-        private void FrmWaviewChat_Load(object sender, EventArgs e)
+        private void FrmClientProjet_Load(object sender, EventArgs e)
         {
             this.SwitchMode();
-        }
-
-
-        public void LoadClientsList(List<User> clients)
-        {
-            this.lstListeClient.Items.Clear();
-            foreach (User item in clients)
-            {
-                this.lstListeClient.Items.Add(item);
-            }
         }
 
         #region MouseMoving
@@ -62,9 +51,17 @@ namespace WavContact.Views.Member
             this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
 
+        private void btnSwitchMode_Click(object sender, EventArgs e)
+        {
+            PropertiesManager.ChangeTheme();
+            this.SwitchMode();
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+       
     }
 }

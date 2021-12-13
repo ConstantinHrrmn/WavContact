@@ -7,32 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WavContact.Controllers;
 using WavContact.Metier;
-using WavContact.Models;
 
-namespace WavContact.Views.Member
+namespace WavContact.Views.Client
 {
-    public partial class FrmWaviewChat : Form
+    public partial class FrmMotDePasseOublie : Form
     {
-        public FrmWaviewChat()
+        public FrmMotDePasseOublie()
         {
             InitializeComponent();
         }
 
-        
-        private void FrmWaviewChat_Load(object sender, EventArgs e)
+        public void SwitchMode()
         {
-            this.SwitchMode();
+            this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
 
-
-        public void LoadClientsList(List<User> clients)
+        private void btnSwitchMode_Click(object sender, EventArgs e)
         {
-            this.lstListeClient.Items.Clear();
-            foreach (User item in clients)
-            {
-                this.lstListeClient.Items.Add(item);
-            }
+            PropertiesManager.ChangeTheme();
+            this.SwitchMode();
         }
 
         #region MouseMoving
@@ -53,14 +48,6 @@ namespace WavContact.Views.Member
             this.mf.MouseUp();
         }
         #endregion
-
-        /// <summary>
-        /// Passage du darkmode au lightmode et vice versa
-        /// </summary>
-        public void SwitchMode()
-        {
-            this.BackColor = Darkmode.ChangeMode(this.Controls);
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
