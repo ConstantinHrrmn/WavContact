@@ -16,7 +16,7 @@ namespace WavContact.Controllers
     class WaviewMemberController
     {
         #region Variables privées
-        private FrmWaviewMember frm;
+        private FrmWaviewPagePrincipale frm;
         private User connectedUser;
 
         private List<User> clients;
@@ -31,7 +31,7 @@ namespace WavContact.Controllers
         /// </summary>
         /// <param name="a_frm">la form que controlle le controlleur</param>
         /// <param name="a_connectedUser">L'utilisateur connecté</param>
-        public WaviewMemberController(FrmWaviewMember a_frm, User a_connectedUser)
+        public WaviewMemberController(FrmWaviewPagePrincipale a_frm, User a_connectedUser)
         {
             this.frm = a_frm;
             this.ConnectedUser = a_connectedUser;
@@ -53,7 +53,7 @@ namespace WavContact.Controllers
 
         public void LoadProjectPage(Project p)
         {
-            FrmProjectWaviewMember frm = new FrmProjectWaviewMember(p);
+            FrmWaviewProjet frm = new FrmWaviewProjet(p);
             frm.Show();
         }
 

@@ -11,10 +11,10 @@ namespace WavContact.Controllers
 {
     class ProjectWaviewMemberController
     {
-        private FrmProjectWaviewMember frm;
+        private FrmWaviewProjet frm;
         private Project project;
 
-        public ProjectWaviewMemberController(FrmProjectWaviewMember a_frm, Project a_project)
+        public ProjectWaviewMemberController(FrmWaviewProjet a_frm, Project a_project)
         {
             this.frm = a_frm;
             this.project = a_project;

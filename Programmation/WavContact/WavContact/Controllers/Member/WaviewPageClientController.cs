@@ -46,7 +46,7 @@ namespace WavContact.Controllers.Waview
 
         public void LoadProjectPage(Project p)
         {
-            FrmProjectWaviewMember frm = new FrmProjectWaviewMember(p);
+            FrmWaviewProjet frm = new FrmWaviewProjet(p);
             frm.Show();
         }
     }

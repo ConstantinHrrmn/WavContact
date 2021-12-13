@@ -26,7 +26,7 @@ namespace WavContact
             }
             else
             {
-                Application.Run(new FrmWaviewMember(WavContactPDO.Login(Properties.Settings.Default.email, Properties.Settings.Default.password)));
+                Application.Run(new FrmWaviewPagePrincipale(WavContactPDO.Login(Properties.Settings.Default.email, Properties.Settings.Default.password)));
             }
             
         }

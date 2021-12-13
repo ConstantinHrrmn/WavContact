@@ -17,7 +17,7 @@ using WavContact.Views.Member;
 
 namespace WavContact.Views
 {
-    public partial class FrmWaviewMember : Form
+    public partial class FrmWaviewPagePrincipale : Form
     {
         #region Variables privées
         private WaviewMemberController ctrl;
@@ -27,7 +27,7 @@ namespace WavContact.Views
         /// Constructeur par défaut de la form de gestion d'un membre de waview
         /// </summary>
         /// <param name="u">Le membre de waview connecté</param>
-        public FrmWaviewMember(User u)
+        public FrmWaviewPagePrincipale(User u)
         {
             InitializeComponent();
             // Initialisation du controlleur
@@ -83,12 +83,12 @@ namespace WavContact.Views
         #region SelectedIndexChange
         private void lbClients_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lbClients.SelectedItem as User));
+            this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
         }
 
         private void lbProjets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ctrl.LoadProjectPage(this.lbProjets.SelectedItem as Project);
+            this.ctrl.LoadProjectPage(this.lstListeProjets.SelectedItem as Project);
         }
         #endregion
 
@@ -106,11 +106,11 @@ namespace WavContact.Views
         /// <param name="clients">La liste de clients (user) à afficher dans la vue</param>
         public void LoadClients(List<User> clients)
         {
-            this.lbClients.Items.Clear();
+            this.lstListeClients.Items.Clear();
 
             foreach (User item in clients)
             {
-                this.lbClients.Items.Add(item);
+                this.lstListeClients.Items.Add(item);
             }
         }
 
@@ -120,11 +120,11 @@ namespace WavContact.Views
         /// <param name="projects">Les projets a afficher</param>
         public void LoadProjectsForClient(List<Project> projects)
         {
-            this.lbProjets.Items.Clear();
+            this.lstListeProjets.Items.Clear();
 
             foreach (Project item in projects)
             {
-                this.lbProjets.Items.Add(item);
+                this.lstListeProjets.Items.Add(item);
             }
         }
 

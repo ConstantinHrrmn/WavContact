@@ -33,7 +33,7 @@ namespace WavContact.Controllers
             {
                 PropertiesManager.Login(email, password);
 
-                FrmWaviewMember viewMember = new FrmWaviewMember(loggedInUser);
+                FrmWaviewPagePrincipale viewMember = new FrmWaviewPagePrincipale(loggedInUser);
                 viewMember.Show(); 
                 
             }
