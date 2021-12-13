@@ -16,6 +16,5 @@ namespace WavContact.Views.Member
         {
             InitializeComponent();
         }
-
     }
 }

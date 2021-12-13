@@ -36,7 +36,7 @@ namespace WavContact.Views.Member
             this.lstListeClient = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnEnvoye = new System.Windows.Forms.Button();
-            this.lblClient = new System.Windows.Forms.Label();
+            this.lblChat = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
@@ -44,9 +44,10 @@ namespace WavContact.Views.Member
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(620, 12);
+            this.btnClose.Location = new System.Drawing.Point(886, 20);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 29);
+            this.btnClose.Size = new System.Drawing.Size(50, 48);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@ namespace WavContact.Views.Member
             // 
             this.btnSelectionner.BackColor = System.Drawing.Color.Black;
             this.btnSelectionner.ForeColor = System.Drawing.Color.White;
-            this.btnSelectionner.Location = new System.Drawing.Point(568, 72);
+            this.btnSelectionner.Location = new System.Drawing.Point(811, 120);
+            this.btnSelectionner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectionner.Name = "btnSelectionner";
-            this.btnSelectionner.Size = new System.Drawing.Size(87, 24);
+            this.btnSelectionner.Size = new System.Drawing.Size(124, 40);
             this.btnSelectionner.TabIndex = 7;
             this.btnSelectionner.Text = "Sélectionner";
             this.btnSelectionner.UseVisualStyleBackColor = false;
@@ -68,11 +70,12 @@ namespace WavContact.Views.Member
             this.txtListeMessage.BackColor = System.Drawing.Color.Black;
             this.txtListeMessage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtListeMessage.ForeColor = System.Drawing.Color.White;
-            this.txtListeMessage.Location = new System.Drawing.Point(236, 102);
+            this.txtListeMessage.Location = new System.Drawing.Point(337, 170);
+            this.txtListeMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtListeMessage.Multiline = true;
             this.txtListeMessage.Name = "txtListeMessage";
             this.txtListeMessage.ReadOnly = true;
-            this.txtListeMessage.Size = new System.Drawing.Size(419, 357);
+            this.txtListeMessage.Size = new System.Drawing.Size(597, 592);
             this.txtListeMessage.TabIndex = 8;
             // 
             // cboListeProjet
@@ -80,9 +83,10 @@ namespace WavContact.Views.Member
             this.cboListeProjet.BackColor = System.Drawing.Color.Black;
             this.cboListeProjet.ForeColor = System.Drawing.Color.White;
             this.cboListeProjet.FormattingEnabled = true;
-            this.cboListeProjet.Location = new System.Drawing.Point(236, 73);
+            this.cboListeProjet.Location = new System.Drawing.Point(337, 122);
+            this.cboListeProjet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboListeProjet.Name = "cboListeProjet";
-            this.cboListeProjet.Size = new System.Drawing.Size(326, 23);
+            this.cboListeProjet.Size = new System.Drawing.Size(464, 33);
             this.cboListeProjet.TabIndex = 9;
             this.cboListeProjet.SelectedIndexChanged += new System.EventHandler(this.cboListeProjet_SelectedIndexChanged);
             // 
@@ -91,51 +95,55 @@ namespace WavContact.Views.Member
             this.lstListeClient.BackColor = System.Drawing.Color.Black;
             this.lstListeClient.ForeColor = System.Drawing.Color.White;
             this.lstListeClient.FormattingEnabled = true;
-            this.lstListeClient.ItemHeight = 15;
-            this.lstListeClient.Location = new System.Drawing.Point(12, 73);
+            this.lstListeClient.ItemHeight = 25;
+            this.lstListeClient.Location = new System.Drawing.Point(17, 122);
+            this.lstListeClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstListeClient.Name = "lstListeClient";
-            this.lstListeClient.Size = new System.Drawing.Size(218, 424);
+            this.lstListeClient.Size = new System.Drawing.Size(310, 704);
             this.lstListeClient.TabIndex = 10;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(236, 465);
+            this.textBox1.Location = new System.Drawing.Point(337, 775);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 32);
+            this.textBox1.Size = new System.Drawing.Size(464, 51);
             this.textBox1.TabIndex = 11;
             // 
             // btnEnvoye
             // 
             this.btnEnvoye.BackColor = System.Drawing.Color.Black;
             this.btnEnvoye.ForeColor = System.Drawing.Color.White;
-            this.btnEnvoye.Location = new System.Drawing.Point(568, 465);
+            this.btnEnvoye.Location = new System.Drawing.Point(811, 775);
+            this.btnEnvoye.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEnvoye.Name = "btnEnvoye";
-            this.btnEnvoye.Size = new System.Drawing.Size(87, 32);
+            this.btnEnvoye.Size = new System.Drawing.Size(124, 53);
             this.btnEnvoye.TabIndex = 12;
             this.btnEnvoye.Text = "Envoyer";
             this.btnEnvoye.UseVisualStyleBackColor = false;
             // 
-            // lblClient
+            // lblChat
             // 
-            this.lblClient.AutoSize = true;
-            this.lblClient.BackColor = System.Drawing.Color.Transparent;
-            this.lblClient.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClient.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblClient.Location = new System.Drawing.Point(236, 33);
-            this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(145, 37);
-            this.lblClient.TabIndex = 13;
-            this.lblClient.Text = "NomClient";
+            this.lblChat.AutoSize = true;
+            this.lblChat.BackColor = System.Drawing.Color.Transparent;
+            this.lblChat.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblChat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblChat.Location = new System.Drawing.Point(17, 20);
+            this.lblChat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblChat.Name = "lblChat";
+            this.lblChat.Size = new System.Drawing.Size(107, 55);
+            this.lblChat.TabIndex = 13;
+            this.lblChat.Text = "Chat";
             // 
             // FrmWaviewChat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(667, 511);
-            this.Controls.Add(this.lblClient);
+            this.ClientSize = new System.Drawing.Size(953, 852);
+            this.Controls.Add(this.lblChat);
             this.Controls.Add(this.btnEnvoye);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lstListeClient);
@@ -144,6 +152,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.btnSelectionner);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmWaviewChat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmWaviewChat";
@@ -162,6 +171,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.ListBox lstListeClient;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnEnvoye;
-        private System.Windows.Forms.Label lblClient;
+        private System.Windows.Forms.Label lblChat;
     }
 }

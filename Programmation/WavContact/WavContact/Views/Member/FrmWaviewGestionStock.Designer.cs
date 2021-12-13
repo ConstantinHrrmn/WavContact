@@ -30,14 +30,19 @@ namespace WavContact.Views.Member
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblGestionStock = new System.Windows.Forms.Label();
             this.dtgStock = new System.Windows.Forms.DataGridView();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Moins = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supprimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Moins = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Plus = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +71,16 @@ namespace WavContact.Views.Member
             // 
             // dtgStock
             // 
+            this.dtgStock.BackgroundColor = System.Drawing.Color.Black;
+            this.dtgStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nom,
@@ -73,6 +88,7 @@ namespace WavContact.Views.Member
             this.Moins,
             this.Plus,
             this.Supprimer});
+            this.dtgStock.GridColor = System.Drawing.Color.White;
             this.dtgStock.Location = new System.Drawing.Point(12, 70);
             this.dtgStock.Name = "dtgStock";
             this.dtgStock.RowHeadersWidth = 62;
@@ -82,6 +98,11 @@ namespace WavContact.Views.Member
             // 
             // Nom
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.Nom.DefaultCellStyle = dataGridViewCellStyle2;
             this.Nom.HeaderText = "Nom";
             this.Nom.MinimumWidth = 8;
             this.Nom.Name = "Nom";
@@ -89,6 +110,11 @@ namespace WavContact.Views.Member
             // 
             // Nombre
             // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
@@ -96,26 +122,49 @@ namespace WavContact.Views.Member
             // 
             // Moins
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.Moins.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Moins.HeaderText = "";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.Moins.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Moins.HeaderText = "-";
             this.Moins.MinimumWidth = 8;
             this.Moins.Name = "Moins";
+            this.Moins.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Moins.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Moins.Width = 150;
             // 
             // Plus
             // 
-            this.Plus.HeaderText = "";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.Plus.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Plus.HeaderText = "+";
             this.Plus.MinimumWidth = 8;
             this.Plus.Name = "Plus";
+            this.Plus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Plus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Plus.Width = 150;
             // 
             // Supprimer
             // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.Supprimer.DefaultCellStyle = dataGridViewCellStyle6;
             this.Supprimer.HeaderText = "Supprimer";
             this.Supprimer.MinimumWidth = 8;
             this.Supprimer.Name = "Supprimer";
+            this.Supprimer.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Supprimer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Supprimer.Text = "Supprimer";
+            this.Supprimer.UseColumnTextForButtonValue = true;
             this.Supprimer.Width = 150;
             // 
             // FrmWaviewGestionStock
@@ -145,8 +194,8 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.DataGridView dtgStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Moins;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Plus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Supprimer;
+        private System.Windows.Forms.DataGridViewButtonColumn Moins;
+        private System.Windows.Forms.DataGridViewButtonColumn Plus;
+        private System.Windows.Forms.DataGridViewButtonColumn Supprimer;
     }
 }
