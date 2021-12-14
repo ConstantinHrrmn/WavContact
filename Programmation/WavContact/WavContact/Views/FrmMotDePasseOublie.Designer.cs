@@ -62,7 +62,7 @@ namespace WavContact.Views.Client
             this.lblMotDePasseOublie.BackColor = System.Drawing.Color.Transparent;
             this.lblMotDePasseOublie.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMotDePasseOublie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMotDePasseOublie.Location = new System.Drawing.Point(264, 139);
+            this.lblMotDePasseOublie.Location = new System.Drawing.Point(252, 140);
             this.lblMotDePasseOublie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMotDePasseOublie.Name = "lblMotDePasseOublie";
             this.lblMotDePasseOublie.Size = new System.Drawing.Size(389, 55);

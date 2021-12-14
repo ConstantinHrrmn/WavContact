@@ -63,7 +63,7 @@ namespace WavContact.Views.Client
            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnParametre_Click(object sender, EventArgs e)
         {
             FrmParametre frm = new FrmParametre();
             frm.ShowDialog();

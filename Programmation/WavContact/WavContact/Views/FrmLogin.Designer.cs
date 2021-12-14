@@ -42,12 +42,12 @@ namespace WavContact
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.Black;
             this.tbxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxEmail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
             this.tbxEmail.Location = new System.Drawing.Point(79, 184);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.PlaceholderText = "Email";
-            this.tbxEmail.Size = new System.Drawing.Size(308, 22);
+            this.tbxEmail.Size = new System.Drawing.Size(308, 33);
             this.tbxEmail.TabIndex = 1;
             this.tbxEmail.Text = "constantin@waview.ch";
             this.tbxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -67,12 +67,12 @@ namespace WavContact
             // 
             this.tbxPassword.BackColor = System.Drawing.Color.Black;
             this.tbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxPassword.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxPassword.ForeColor = System.Drawing.Color.White;
             this.tbxPassword.Location = new System.Drawing.Point(80, 227);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PlaceholderText = "Password";
-            this.tbxPassword.Size = new System.Drawing.Size(308, 22);
+            this.tbxPassword.Size = new System.Drawing.Size(308, 33);
             this.tbxPassword.TabIndex = 2;
             this.tbxPassword.Text = "motdepasse";
             this.tbxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -82,7 +82,7 @@ namespace WavContact
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.Location = new System.Drawing.Point(160, 305);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(146, 34);
@@ -117,7 +117,7 @@ namespace WavContact
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(476, 362);
@@ -127,7 +127,7 @@ namespace WavContact
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.tbxEmail);
-            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FrmLogin";

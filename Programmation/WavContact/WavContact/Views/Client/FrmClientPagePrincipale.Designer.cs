@@ -32,11 +32,11 @@ namespace WavContact.Views.Client
             this.btnSwitchMode = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
-            this.lstListeProjet = new System.Windows.Forms.ListBox();
+            this.lstProjet = new System.Windows.Forms.ListBox();
             this.lblRecapProjet = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstDerniereModifProjet = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnChat = new System.Windows.Forms.Button();
             this.btnProjet = new System.Windows.Forms.Button();
@@ -48,9 +48,9 @@ namespace WavContact.Views.Client
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(779, 14);
+            this.btnSwitchMode.Location = new System.Drawing.Point(774, 14);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(59, 48);
+            this.btnSwitchMode.Size = new System.Drawing.Size(64, 48);
             this.btnSwitchMode.TabIndex = 30;
             this.btnSwitchMode.Text = "Light";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
@@ -82,17 +82,17 @@ namespace WavContact.Views.Client
             this.lblMenuPrincipal.TabIndex = 31;
             this.lblMenuPrincipal.Text = "Bonjour X !";
             // 
-            // lstListeProjet
+            // lstProjet
             // 
-            this.lstListeProjet.BackColor = System.Drawing.Color.Black;
-            this.lstListeProjet.ForeColor = System.Drawing.Color.White;
-            this.lstListeProjet.FormattingEnabled = true;
-            this.lstListeProjet.ItemHeight = 25;
-            this.lstListeProjet.Location = new System.Drawing.Point(13, 278);
-            this.lstListeProjet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lstListeProjet.Name = "lstListeProjet";
-            this.lstListeProjet.Size = new System.Drawing.Size(310, 429);
-            this.lstListeProjet.TabIndex = 32;
+            this.lstProjet.BackColor = System.Drawing.Color.Black;
+            this.lstProjet.ForeColor = System.Drawing.Color.White;
+            this.lstProjet.FormattingEnabled = true;
+            this.lstProjet.ItemHeight = 25;
+            this.lstProjet.Location = new System.Drawing.Point(13, 278);
+            this.lstProjet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lstProjet.Name = "lstProjet";
+            this.lstProjet.Size = new System.Drawing.Size(310, 429);
+            this.lstProjet.TabIndex = 32;
             // 
             // lblRecapProjet
             // 
@@ -125,17 +125,17 @@ namespace WavContact.Views.Client
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lstDerniereModifProjet
             // 
-            this.listBox1.BackColor = System.Drawing.Color.Black;
-            this.listBox1.ForeColor = System.Drawing.Color.White;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(376, 278);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(310, 429);
-            this.listBox1.TabIndex = 38;
+            this.lstDerniereModifProjet.BackColor = System.Drawing.Color.Black;
+            this.lstDerniereModifProjet.ForeColor = System.Drawing.Color.White;
+            this.lstDerniereModifProjet.FormattingEnabled = true;
+            this.lstDerniereModifProjet.ItemHeight = 25;
+            this.lstDerniereModifProjet.Location = new System.Drawing.Point(376, 278);
+            this.lstDerniereModifProjet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lstDerniereModifProjet.Name = "lstDerniereModifProjet";
+            this.lstDerniereModifProjet.Size = new System.Drawing.Size(310, 429);
+            this.lstDerniereModifProjet.TabIndex = 38;
             // 
             // label1
             // 
@@ -180,7 +180,7 @@ namespace WavContact.Views.Client
             this.btnParametre.TabIndex = 42;
             this.btnParametre.Text = "Paramètre";
             this.btnParametre.UseVisualStyleBackColor = true;
-            this.btnParametre.Click += new System.EventHandler(this.button1_Click);
+            this.btnParametre.Click += new System.EventHandler(this.btnParametre_Click);
             // 
             // lblRdvClient
             // 
@@ -202,15 +202,16 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.btnProjet);
             this.Controls.Add(this.btnChat);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstDerniereModifProjet);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.lblRecapProjet);
-            this.Controls.Add(this.lstListeProjet);
+            this.Controls.Add(this.lstProjet);
             this.Controls.Add(this.lblMenuPrincipal);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.btnClose);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmClientPagePrincipale";
             this.Load += new System.EventHandler(this.FrmClientPagePrincipale_Load);
             this.ResumeLayout(false);
@@ -223,11 +224,11 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.Button btnSwitchMode;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblMenuPrincipal;
-        private System.Windows.Forms.ListBox lstListeProjet;
+        private System.Windows.Forms.ListBox lstProjet;
         private System.Windows.Forms.Label lblRecapProjet;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstDerniereModifProjet;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnChat;
         private System.Windows.Forms.Button btnProjet;
