@@ -42,16 +42,15 @@ namespace WavContact.Views.Client
             this.lblDescription = new System.Windows.Forms.Label();
             this.lstListeParticipants = new System.Windows.Forms.ListBox();
             this.lstLieux = new System.Windows.Forms.ListBox();
-            this.txtHeure = new System.Windows.Forms.TextBox();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.lblParticipant = new System.Windows.Forms.Label();
-            this.lblHeure = new System.Windows.Forms.Label();
             this.lblLieu = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAsteri = new System.Windows.Forms.Label();
             this.lblTextePrix = new System.Windows.Forms.Label();
             this.btnSwitchMode = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lstDateTournages = new System.Windows.Forms.ListBox();
             this.gpbProjet.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +106,7 @@ namespace WavContact.Views.Client
             // gpbProjet
             // 
             this.gpbProjet.BackColor = System.Drawing.Color.Black;
+            this.gpbProjet.Controls.Add(this.lstDateTournages);
             this.gpbProjet.Controls.Add(this.lblAste);
             this.gpbProjet.Controls.Add(this.lblCHF);
             this.gpbProjet.Controls.Add(this.txtPrix);
@@ -115,10 +115,7 @@ namespace WavContact.Views.Client
             this.gpbProjet.Controls.Add(this.lblDescription);
             this.gpbProjet.Controls.Add(this.lstListeParticipants);
             this.gpbProjet.Controls.Add(this.lstLieux);
-            this.gpbProjet.Controls.Add(this.txtHeure);
-            this.gpbProjet.Controls.Add(this.txtDate);
             this.gpbProjet.Controls.Add(this.lblParticipant);
-            this.gpbProjet.Controls.Add(this.lblHeure);
             this.gpbProjet.Controls.Add(this.lblLieu);
             this.gpbProjet.Controls.Add(this.lblDate);
             this.gpbProjet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -134,7 +131,7 @@ namespace WavContact.Views.Client
             // 
             this.lblAste.AutoSize = true;
             this.lblAste.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAste.Location = new System.Drawing.Point(49, 401);
+            this.lblAste.Location = new System.Drawing.Point(51, 443);
             this.lblAste.Name = "lblAste";
             this.lblAste.Size = new System.Drawing.Size(20, 25);
             this.lblAste.TabIndex = 22;
@@ -144,7 +141,7 @@ namespace WavContact.Views.Client
             // 
             this.lblCHF.AutoSize = true;
             this.lblCHF.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCHF.Location = new System.Drawing.Point(331, 407);
+            this.lblCHF.Location = new System.Drawing.Point(331, 446);
             this.lblCHF.Name = "lblCHF";
             this.lblCHF.Size = new System.Drawing.Size(45, 25);
             this.lblCHF.TabIndex = 21;
@@ -155,7 +152,7 @@ namespace WavContact.Views.Client
             this.txtPrix.BackColor = System.Drawing.Color.Black;
             this.txtPrix.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPrix.ForeColor = System.Drawing.Color.White;
-            this.txtPrix.Location = new System.Drawing.Point(121, 401);
+            this.txtPrix.Location = new System.Drawing.Point(120, 443);
             this.txtPrix.Name = "txtPrix";
             this.txtPrix.ReadOnly = true;
             this.txtPrix.Size = new System.Drawing.Size(198, 31);
@@ -165,7 +162,7 @@ namespace WavContact.Views.Client
             // 
             this.lblPrix.AutoSize = true;
             this.lblPrix.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPrix.Location = new System.Drawing.Point(16, 407);
+            this.lblPrix.Location = new System.Drawing.Point(16, 446);
             this.lblPrix.Name = "lblPrix";
             this.lblPrix.Size = new System.Drawing.Size(40, 25);
             this.lblPrix.TabIndex = 19;
@@ -217,28 +214,6 @@ namespace WavContact.Views.Client
             this.lstLieux.Size = new System.Drawing.Size(198, 104);
             this.lstLieux.TabIndex = 8;
             // 
-            // txtHeure
-            // 
-            this.txtHeure.BackColor = System.Drawing.Color.Black;
-            this.txtHeure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtHeure.ForeColor = System.Drawing.Color.White;
-            this.txtHeure.Location = new System.Drawing.Point(434, 320);
-            this.txtHeure.Name = "txtHeure";
-            this.txtHeure.ReadOnly = true;
-            this.txtHeure.Size = new System.Drawing.Size(198, 31);
-            this.txtHeure.TabIndex = 7;
-            // 
-            // txtDate
-            // 
-            this.txtDate.BackColor = System.Drawing.Color.Black;
-            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDate.ForeColor = System.Drawing.Color.White;
-            this.txtDate.Location = new System.Drawing.Point(120, 320);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(198, 31);
-            this.txtDate.TabIndex = 6;
-            // 
             // lblParticipant
             // 
             this.lblParticipant.AutoSize = true;
@@ -249,21 +224,11 @@ namespace WavContact.Views.Client
             this.lblParticipant.TabIndex = 5;
             this.lblParticipant.Text = "Participants";
             // 
-            // lblHeure
-            // 
-            this.lblHeure.AutoSize = true;
-            this.lblHeure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHeure.Location = new System.Drawing.Point(331, 326);
-            this.lblHeure.Name = "lblHeure";
-            this.lblHeure.Size = new System.Drawing.Size(59, 25);
-            this.lblHeure.TabIndex = 3;
-            this.lblHeure.Text = "Heure";
-            // 
             // lblLieu
             // 
             this.lblLieu.AutoSize = true;
             this.lblLieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLieu.Location = new System.Drawing.Point(10, 162);
+            this.lblLieu.Location = new System.Drawing.Point(16, 162);
             this.lblLieu.Name = "lblLieu";
             this.lblLieu.Size = new System.Drawing.Size(55, 25);
             this.lblLieu.TabIndex = 4;
@@ -273,7 +238,7 @@ namespace WavContact.Views.Client
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(11, 323);
+            this.lblDate.Location = new System.Drawing.Point(16, 302);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(49, 25);
             this.lblDate.TabIndex = 2;
@@ -316,13 +281,37 @@ namespace WavContact.Views.Client
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(928, 14);
+            this.btnSwitchMode.Location = new System.Drawing.Point(729, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(59, 48);
+            this.btnSwitchMode.Size = new System.Drawing.Size(81, 48);
             this.btnSwitchMode.TabIndex = 28;
             this.btnSwitchMode.Text = "Light";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
             this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.Red;
+            this.btnLogout.Location = new System.Drawing.Point(817, 14);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(169, 48);
+            this.btnLogout.TabIndex = 39;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // lstDateTournages
+            // 
+            this.lstDateTournages.BackColor = System.Drawing.Color.Black;
+            this.lstDateTournages.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lstDateTournages.ForeColor = System.Drawing.Color.White;
+            this.lstDateTournages.FormattingEnabled = true;
+            this.lstDateTournages.ItemHeight = 25;
+            this.lstDateTournages.Location = new System.Drawing.Point(120, 302);
+            this.lstDateTournages.Name = "lstDateTournages";
+            this.lstDateTournages.Size = new System.Drawing.Size(198, 104);
+            this.lstDateTournages.TabIndex = 40;
             // 
             // FrmProjet
             // 
@@ -330,6 +319,7 @@ namespace WavContact.Views.Client
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1057, 702);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.lblTextePrix);
             this.Controls.Add(this.lblAsteri);
@@ -363,10 +353,7 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.ListBox lstListeParticipants;
         private System.Windows.Forms.ListBox lstLieux;
-        private System.Windows.Forms.TextBox txtHeure;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label lblParticipant;
-        private System.Windows.Forms.Label lblHeure;
         private System.Windows.Forms.Label lblLieu;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblAste;
@@ -375,5 +362,7 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.Label lblAsteri;
         private System.Windows.Forms.Label lblTextePrix;
         private System.Windows.Forms.Button btnSwitchMode;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.ListBox lstDateTournages;
     }
 }

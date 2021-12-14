@@ -62,5 +62,23 @@ namespace WavContact.Views.Client
         {
            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmParametre frm = new FrmParametre();
+            frm.ShowDialog();
+        }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            FrmClientChat frm = new FrmClientChat();
+            frm.ShowDialog();
+        }
+
+        private void btnProjet_Click(object sender, EventArgs e)
+        {
+            FrmProjet frm = new FrmProjet();
+            frm.ShowDialog();
+        }
     }
 }

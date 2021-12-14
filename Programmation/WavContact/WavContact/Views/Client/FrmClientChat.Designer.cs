@@ -39,6 +39,7 @@ namespace WavContact.Views.Client
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnSwitchMode = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -155,13 +156,25 @@ namespace WavContact.Views.Client
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(802, 14);
+            this.btnSwitchMode.Location = new System.Drawing.Point(611, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(59, 48);
+            this.btnSwitchMode.Size = new System.Drawing.Size(73, 48);
             this.btnSwitchMode.TabIndex = 28;
             this.btnSwitchMode.Text = "Light";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
             this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.Red;
+            this.btnLogout.Location = new System.Drawing.Point(691, 14);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(169, 48);
+            this.btnLogout.TabIndex = 38;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // FrmClientChat
             // 
@@ -169,6 +182,7 @@ namespace WavContact.Views.Client
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(931, 801);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lblRecherche);
@@ -202,5 +216,6 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button btnSwitchMode;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

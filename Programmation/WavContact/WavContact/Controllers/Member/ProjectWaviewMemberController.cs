@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using WavContact.Views;
 using WavContact.Models;
+using WavContact.Views;
 
 namespace WavContact.Controllers
 {

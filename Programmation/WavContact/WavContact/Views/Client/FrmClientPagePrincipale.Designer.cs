@@ -29,17 +29,19 @@ namespace WavContact.Views.Client
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnSwitchMode = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.lstListeProjet = new System.Windows.Forms.ListBox();
             this.lblRecapProjet = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.btnLogout = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnChat = new System.Windows.Forms.Button();
+            this.btnProjet = new System.Windows.Forms.Button();
+            this.btnParametre = new System.Windows.Forms.Button();
+            this.lblRdvClient = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSwitchMode
@@ -101,19 +103,11 @@ namespace WavContact.Views.Client
             this.lblRecapProjet.TabIndex = 33;
             this.lblRecapProjet.Text = "Récapitulatif des projets";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // monthCalendar1
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.Black;
             this.monthCalendar1.ForeColor = System.Drawing.Color.White;
-            this.monthCalendar1.Location = new System.Drawing.Point(751, 278);
+            this.monthCalendar1.Location = new System.Drawing.Point(727, 278);
             this.monthCalendar1.Margin = new System.Windows.Forms.Padding(13, 15, 13, 15);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
@@ -152,12 +146,61 @@ namespace WavContact.Views.Client
             this.label1.TabIndex = 39;
             this.label1.Text = "Dernière modification";
             // 
+            // btnChat
+            // 
+            this.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChat.ForeColor = System.Drawing.Color.White;
+            this.btnChat.Location = new System.Drawing.Point(12, 12);
+            this.btnChat.Name = "btnChat";
+            this.btnChat.Size = new System.Drawing.Size(169, 48);
+            this.btnChat.TabIndex = 40;
+            this.btnChat.Text = "Chat";
+            this.btnChat.UseVisualStyleBackColor = true;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
+            // 
+            // btnProjet
+            // 
+            this.btnProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProjet.ForeColor = System.Drawing.Color.White;
+            this.btnProjet.Location = new System.Drawing.Point(187, 12);
+            this.btnProjet.Name = "btnProjet";
+            this.btnProjet.Size = new System.Drawing.Size(169, 48);
+            this.btnProjet.TabIndex = 41;
+            this.btnProjet.Text = "Projet";
+            this.btnProjet.UseVisualStyleBackColor = true;
+            this.btnProjet.Click += new System.EventHandler(this.btnProjet_Click);
+            // 
+            // btnParametre
+            // 
+            this.btnParametre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParametre.ForeColor = System.Drawing.Color.White;
+            this.btnParametre.Location = new System.Drawing.Point(362, 12);
+            this.btnParametre.Name = "btnParametre";
+            this.btnParametre.Size = new System.Drawing.Size(169, 48);
+            this.btnParametre.TabIndex = 42;
+            this.btnParametre.Text = "Paramètre";
+            this.btnParametre.UseVisualStyleBackColor = true;
+            this.btnParametre.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblRdvClient
+            // 
+            this.lblRdvClient.AutoSize = true;
+            this.lblRdvClient.Location = new System.Drawing.Point(727, 249);
+            this.lblRdvClient.Name = "lblRdvClient";
+            this.lblRdvClient.Size = new System.Drawing.Size(226, 25);
+            this.lblRdvClient.TabIndex = 43;
+            this.lblRdvClient.Text = "Vos prochains rendez-vous";
+            // 
             // FrmClientPagePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1085, 764);
+            this.Controls.Add(this.lblRdvClient);
+            this.Controls.Add(this.btnParametre);
+            this.Controls.Add(this.btnProjet);
+            this.Controls.Add(this.btnChat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnLogout);
@@ -168,7 +211,6 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.btnClose);
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmClientPagePrincipale";
             this.Load += new System.EventHandler(this.FrmClientPagePrincipale_Load);
             this.ResumeLayout(false);
@@ -183,10 +225,13 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.Label lblMenuPrincipal;
         private System.Windows.Forms.ListBox lstListeProjet;
         private System.Windows.Forms.Label lblRecapProjet;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnChat;
+        private System.Windows.Forms.Button btnProjet;
+        private System.Windows.Forms.Button btnParametre;
+        private System.Windows.Forms.Label lblRdvClient;
     }
 }

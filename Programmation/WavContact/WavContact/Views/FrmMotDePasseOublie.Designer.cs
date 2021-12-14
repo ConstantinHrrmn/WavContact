@@ -39,6 +39,7 @@ namespace WavContact.Views.Client
             this.lblConfirmationMotDePasse = new System.Windows.Forms.Label();
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.btnSwitchMode = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -61,7 +62,7 @@ namespace WavContact.Views.Client
             this.lblMotDePasseOublie.BackColor = System.Drawing.Color.Transparent;
             this.lblMotDePasseOublie.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMotDePasseOublie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMotDePasseOublie.Location = new System.Drawing.Point(264, 99);
+            this.lblMotDePasseOublie.Location = new System.Drawing.Point(264, 139);
             this.lblMotDePasseOublie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMotDePasseOublie.Name = "lblMotDePasseOublie";
             this.lblMotDePasseOublie.Size = new System.Drawing.Size(389, 55);
@@ -73,7 +74,7 @@ namespace WavContact.Views.Client
             this.txtEmail.BackColor = System.Drawing.Color.Black;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtEmail.ForeColor = System.Drawing.Color.White;
-            this.txtEmail.Location = new System.Drawing.Point(264, 264);
+            this.txtEmail.Location = new System.Drawing.Point(264, 320);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
@@ -86,7 +87,7 @@ namespace WavContact.Views.Client
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmail.ForeColor = System.Drawing.Color.White;
-            this.lblEmail.Location = new System.Drawing.Point(264, 236);
+            this.lblEmail.Location = new System.Drawing.Point(264, 292);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(54, 25);
             this.lblEmail.TabIndex = 20;
@@ -97,7 +98,7 @@ namespace WavContact.Views.Client
             this.txtNouveauMotDePasse.BackColor = System.Drawing.Color.Black;
             this.txtNouveauMotDePasse.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtNouveauMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.txtNouveauMotDePasse.Location = new System.Drawing.Point(264, 384);
+            this.txtNouveauMotDePasse.Location = new System.Drawing.Point(264, 440);
             this.txtNouveauMotDePasse.Multiline = true;
             this.txtNouveauMotDePasse.Name = "txtNouveauMotDePasse";
             this.txtNouveauMotDePasse.ReadOnly = true;
@@ -110,7 +111,7 @@ namespace WavContact.Views.Client
             this.lblNouveauMotDePasse.AutoSize = true;
             this.lblNouveauMotDePasse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNouveauMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.lblNouveauMotDePasse.Location = new System.Drawing.Point(264, 356);
+            this.lblNouveauMotDePasse.Location = new System.Drawing.Point(264, 412);
             this.lblNouveauMotDePasse.Name = "lblNouveauMotDePasse";
             this.lblNouveauMotDePasse.Size = new System.Drawing.Size(196, 25);
             this.lblNouveauMotDePasse.TabIndex = 22;
@@ -121,7 +122,7 @@ namespace WavContact.Views.Client
             this.txtConfirmationMotDePasse.BackColor = System.Drawing.Color.Black;
             this.txtConfirmationMotDePasse.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtConfirmationMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.txtConfirmationMotDePasse.Location = new System.Drawing.Point(264, 500);
+            this.txtConfirmationMotDePasse.Location = new System.Drawing.Point(264, 556);
             this.txtConfirmationMotDePasse.Multiline = true;
             this.txtConfirmationMotDePasse.Name = "txtConfirmationMotDePasse";
             this.txtConfirmationMotDePasse.ReadOnly = true;
@@ -134,7 +135,7 @@ namespace WavContact.Views.Client
             this.lblConfirmationMotDePasse.AutoSize = true;
             this.lblConfirmationMotDePasse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblConfirmationMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmationMotDePasse.Location = new System.Drawing.Point(264, 472);
+            this.lblConfirmationMotDePasse.Location = new System.Drawing.Point(264, 528);
             this.lblConfirmationMotDePasse.Name = "lblConfirmationMotDePasse";
             this.lblConfirmationMotDePasse.Size = new System.Drawing.Size(302, 25);
             this.lblConfirmationMotDePasse.TabIndex = 24;
@@ -156,13 +157,25 @@ namespace WavContact.Views.Client
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(802, 14);
+            this.btnSwitchMode.Location = new System.Drawing.Point(617, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(59, 48);
+            this.btnSwitchMode.Size = new System.Drawing.Size(67, 48);
             this.btnSwitchMode.TabIndex = 27;
             this.btnSwitchMode.Text = "Light";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
             this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.Red;
+            this.btnLogout.Location = new System.Drawing.Point(691, 14);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(169, 48);
+            this.btnLogout.TabIndex = 38;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // FrmMotDePasseOublie
             // 
@@ -170,6 +183,7 @@ namespace WavContact.Views.Client
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(931, 820);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.txtConfirmationMotDePasse);
@@ -200,5 +214,6 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.Label lblConfirmationMotDePasse;
         private System.Windows.Forms.Button btnEnregistrer;
         private System.Windows.Forms.Button btnSwitchMode;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
