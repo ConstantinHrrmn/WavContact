@@ -96,5 +96,11 @@ namespace WavContact
             PropertiesManager.ChangeTheme();
             this.SwitchMode();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Views.Client.FrmMotDePasseOublie frm = new Views.Client.FrmMotDePasseOublie();
+            frm.ShowDialog();
+        }
     }
 }

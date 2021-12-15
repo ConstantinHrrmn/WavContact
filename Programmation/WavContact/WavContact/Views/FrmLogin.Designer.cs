@@ -35,6 +35,7 @@ namespace WavContact
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSwitchMode = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,12 +116,24 @@ namespace WavContact
             this.btnSwitchMode.UseVisualStyleBackColor = true;
             this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(136, 263);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(185, 22);
+            this.linkLabel1.TabIndex = 9;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Mot de passe oublié ?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(476, 362);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
@@ -132,7 +145,7 @@ namespace WavContact
             this.MaximizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login WavContact";
+            this.Text = "Mot de passe oublié ?";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseMove);
@@ -151,6 +164,7 @@ namespace WavContact
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSwitchMode;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
