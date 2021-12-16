@@ -128,16 +128,33 @@ namespace WavContact.Views
             }
         }
 
+        private void btnChats_Click(object sender, EventArgs e)
+        {
+            Member.FrmWaviewChat frm = new Member.FrmWaviewChat();
+            frm.ShowDialog();
+        }
 
-        private void picParametre_Click(object sender, EventArgs e)
+        private void btnParametre_Click(object sender, EventArgs e)
         {
             FrmParametre parametre = new FrmParametre();
             parametre.ShowDialog();
         }
 
-        private void btnChats_Click(object sender, EventArgs e)
+        private void btnProjet_Click(object sender, EventArgs e)
         {
-            Member.FrmWaviewChat frm = new Member.FrmWaviewChat();
+            FrmWaviewGestionProjet frm = new FrmWaviewGestionProjet();
+            frm.ShowDialog();
+        }
+
+        private void btnClient_Click(object sender, EventArgs e)
+        {
+            FrmWaviewPageClient frm = new FrmWaviewPageClient();
+            frm.ShowDialog();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            FrmWaviewGestionStock frm = new FrmWaviewGestionStock();
             frm.ShowDialog();
         }
     }

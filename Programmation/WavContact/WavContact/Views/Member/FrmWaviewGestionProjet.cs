@@ -21,7 +21,7 @@ namespace WavContact.Views.Member
     {
         private ProjectWaviewMemberController ctrl;
 
-        public FrmWaviewGestionReservation()
+        public FrmWaviewGestionReservation(Project project)
         {
             InitializeComponent();
             this.ctrl = new ProjectWaviewMemberController(this, project);
@@ -29,6 +29,8 @@ namespace WavContact.Views.Member
 
         private void FrmWaviewGestionReservation_Load(object sender, EventArgs e)
         {
+            // Affiche le nom du projet
+            this.lblGestionProjet.Text = string.Format("Gestion du projet {0} !", this.ctrl.GetProjectsForUser(this.ctrl.ConnectedUser));
             this.SwitchMode();
         }
 

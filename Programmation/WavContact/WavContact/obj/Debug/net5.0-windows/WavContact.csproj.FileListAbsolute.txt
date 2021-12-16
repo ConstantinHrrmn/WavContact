@@ -130,3 +130,4 @@ C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\Wav
 C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Member.FrmWaviewGestionStock.resources
 C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmWaviewPagePrincipale.resources
 C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmWaviewProjet.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Member.FrmWaviewReservation.resources
