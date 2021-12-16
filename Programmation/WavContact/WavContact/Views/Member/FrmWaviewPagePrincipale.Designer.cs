@@ -29,6 +29,13 @@ namespace WavContact.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewPagePrincipale));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
@@ -40,13 +47,24 @@ namespace WavContact.Views
             this.lstListeProjets = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dgvModification = new System.Windows.Forms.DataGridView();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Projet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qui = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Heure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModification)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(1611, 20);
+            this.btnClose.Location = new System.Drawing.Point(1007, 20);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 48);
@@ -57,9 +75,10 @@ namespace WavContact.Views
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(1434, 20);
+            this.btnLogout.Location = new System.Drawing.Point(830, 20);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(169, 48);
@@ -82,9 +101,10 @@ namespace WavContact.Views
             // 
             // btnSwitchMode
             // 
+            this.btnSwitchMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(1341, 20);
+            this.btnSwitchMode.Location = new System.Drawing.Point(684, 20);
             this.btnSwitchMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSwitchMode.Name = "btnSwitchMode";
             this.btnSwitchMode.Size = new System.Drawing.Size(84, 48);
@@ -107,7 +127,7 @@ namespace WavContact.Views
             this.lstListeClients.Location = new System.Drawing.Point(13, 127);
             this.lstListeClients.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstListeClients.Name = "lstListeClients";
-            this.lstListeClients.Size = new System.Drawing.Size(352, 927);
+            this.lstListeClients.Size = new System.Drawing.Size(352, 352);
             this.lstListeClients.TabIndex = 8;
             this.lstListeClients.SelectedIndexChanged += new System.EventHandler(this.lbClients_SelectedIndexChanged);
             // 
@@ -125,9 +145,10 @@ namespace WavContact.Views
             // 
             // monthCalendar1
             // 
+            this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar1.BackColor = System.Drawing.Color.Black;
             this.monthCalendar1.ForeColor = System.Drawing.Color.White;
-            this.monthCalendar1.Location = new System.Drawing.Point(1349, 222);
+            this.monthCalendar1.Location = new System.Drawing.Point(745, 222);
             this.monthCalendar1.Margin = new System.Windows.Forms.Padding(13, 15, 13, 15);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
@@ -155,29 +176,150 @@ namespace WavContact.Views
             this.lstListeProjets.Location = new System.Drawing.Point(379, 127);
             this.lstListeProjets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstListeProjets.Name = "lstListeProjets";
-            this.lstListeProjets.Size = new System.Drawing.Size(352, 927);
+            this.lstListeProjets.Size = new System.Drawing.Size(352, 352);
             this.lstListeProjets.TabIndex = 13;
             this.lstListeProjets.SelectedIndexChanged += new System.EventHandler(this.lbProjets_SelectedIndexChanged);
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1353, 127);
+            this.button1.Location = new System.Drawing.Point(745, 127);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(308, 75);
+            this.button1.Size = new System.Drawing.Size(312, 86);
             this.button1.TabIndex = 14;
             this.button1.Text = "Chats";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dgvModification
+            // 
+            this.dgvModification.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvModification.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvModification.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvModification.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvModification.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvModification.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvModification.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvModification.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvModification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvModification.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Client,
+            this.Projet,
+            this.Modification,
+            this.Qui,
+            this.Date,
+            this.Heure});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvModification.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvModification.GridColor = System.Drawing.Color.White;
+            this.dgvModification.Location = new System.Drawing.Point(13, 487);
+            this.dgvModification.Name = "dgvModification";
+            this.dgvModification.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvModification.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvModification.RowHeadersWidth = 70;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvModification.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvModification.RowTemplate.Height = 33;
+            this.dgvModification.Size = new System.Drawing.Size(1044, 174);
+            this.dgvModification.TabIndex = 15;
+            // 
+            // Client
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.Client.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Client.HeaderText = "Client";
+            this.Client.MinimumWidth = 8;
+            this.Client.Name = "Client";
+            this.Client.ReadOnly = true;
+            // 
+            // Projet
+            // 
+            this.Projet.HeaderText = "Projet";
+            this.Projet.MinimumWidth = 8;
+            this.Projet.Name = "Projet";
+            this.Projet.ReadOnly = true;
+            // 
+            // Modification
+            // 
+            this.Modification.HeaderText = "Modification";
+            this.Modification.MinimumWidth = 8;
+            this.Modification.Name = "Modification";
+            this.Modification.ReadOnly = true;
+            // 
+            // Qui
+            // 
+            this.Qui.HeaderText = "Qui";
+            this.Qui.MinimumWidth = 8;
+            this.Qui.Name = "Qui";
+            this.Qui.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 8;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Heure
+            // 
+            this.Heure.HeaderText = "Heure";
+            this.Heure.MinimumWidth = 8;
+            this.Heure.Name = "Heure";
+            this.Heure.ReadOnly = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(775, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1679, 1064);
+            this.ClientSize = new System.Drawing.Size(1075, 673);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dgvModification);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lstListeProjets);
             this.Controls.Add(this.lblProjets);
@@ -197,6 +339,8 @@ namespace WavContact.Views
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frm_MouseUp);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModification)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +359,13 @@ namespace WavContact.Views
         private System.Windows.Forms.ListBox lstListeProjets;
         private System.Windows.Forms.Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridView dgvModification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Client;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Projet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qui;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Heure;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

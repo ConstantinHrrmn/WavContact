@@ -30,6 +30,8 @@ namespace WavContact.Views.Member
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,7 +53,7 @@ namespace WavContact.Views.Member
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(737, 14);
+            this.btnClose.Location = new System.Drawing.Point(1037, 14);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 48);
@@ -71,6 +73,11 @@ namespace WavContact.Views.Member
             // 
             // dtgStock
             // 
+            this.dtgStock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgStock.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgStock.BackgroundColor = System.Drawing.Color.Black;
             this.dtgStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -88,12 +95,28 @@ namespace WavContact.Views.Member
             this.Moins,
             this.Plus,
             this.Supprimer});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgStock.DefaultCellStyle = dataGridViewCellStyle7;
             this.dtgStock.GridColor = System.Drawing.Color.White;
             this.dtgStock.Location = new System.Drawing.Point(12, 70);
             this.dtgStock.Name = "dtgStock";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtgStock.RowHeadersWidth = 62;
             this.dtgStock.RowTemplate.Height = 33;
-            this.dtgStock.Size = new System.Drawing.Size(775, 368);
+            this.dtgStock.Size = new System.Drawing.Size(1075, 579);
             this.dtgStock.TabIndex = 8;
             // 
             // Nom
@@ -106,7 +129,6 @@ namespace WavContact.Views.Member
             this.Nom.HeaderText = "Nom";
             this.Nom.MinimumWidth = 8;
             this.Nom.Name = "Nom";
-            this.Nom.Width = 150;
             // 
             // Nombre
             // 
@@ -118,7 +140,6 @@ namespace WavContact.Views.Member
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 150;
             // 
             // Moins
             // 
@@ -133,7 +154,6 @@ namespace WavContact.Views.Member
             this.Moins.Name = "Moins";
             this.Moins.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Moins.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Moins.Width = 150;
             // 
             // Plus
             // 
@@ -148,7 +168,6 @@ namespace WavContact.Views.Member
             this.Plus.Name = "Plus";
             this.Plus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Plus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Plus.Width = 150;
             // 
             // Supprimer
             // 
@@ -165,14 +184,13 @@ namespace WavContact.Views.Member
             this.Supprimer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseColumnTextForButtonValue = true;
-            this.Supprimer.Width = 150;
             // 
             // FrmWaviewGestionStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1100, 661);
             this.Controls.Add(this.dtgStock);
             this.Controls.Add(this.lblGestionStock);
             this.Controls.Add(this.btnClose);

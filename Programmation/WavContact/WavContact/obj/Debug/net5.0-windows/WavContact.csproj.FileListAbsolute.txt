@@ -123,3 +123,12 @@ C:\Users\angel\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\o
 C:\Users\angel\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.dll
 C:\Users\angel\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\ref\WavContact.dll
 C:\Users\angel\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.pdb
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.csproj.AssemblyReference.cache
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Client.FrmClientChat.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Client.FrmClientPagePrincipale.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Client.FrmMotDePasseOublie.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmParametre.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Client.FrmProjet.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Member.FrmWaviewGestionReservation.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Member.FrmWaviewGestionStock.resources
+C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact\WavContact\obj\Debug\net5.0-windows\WavContact.Views.FrmWaviewPagePrincipale.resources

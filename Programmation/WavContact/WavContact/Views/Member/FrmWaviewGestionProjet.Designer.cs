@@ -54,7 +54,7 @@ namespace WavContact.Views.Member
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(1016, 14);
+            this.btnClose.Location = new System.Drawing.Point(926, 14);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 48);
@@ -86,7 +86,7 @@ namespace WavContact.Views.Member
             // lblListeMateriel
             // 
             this.lblListeMateriel.AutoSize = true;
-            this.lblListeMateriel.Location = new System.Drawing.Point(6, 372);
+            this.lblListeMateriel.Location = new System.Drawing.Point(12, 334);
             this.lblListeMateriel.Name = "lblListeMateriel";
             this.lblListeMateriel.Size = new System.Drawing.Size(191, 32);
             this.lblListeMateriel.TabIndex = 1;
@@ -96,7 +96,7 @@ namespace WavContact.Views.Member
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.Location = new System.Drawing.Point(11, 323);
+            this.lblDate.Location = new System.Drawing.Point(12, 279);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(49, 25);
             this.lblDate.TabIndex = 2;
@@ -106,7 +106,7 @@ namespace WavContact.Views.Member
             // 
             this.lblLieu.AutoSize = true;
             this.lblLieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLieu.Location = new System.Drawing.Point(10, 162);
+            this.lblLieu.Location = new System.Drawing.Point(12, 142);
             this.lblLieu.Name = "lblLieu";
             this.lblLieu.Size = new System.Drawing.Size(55, 25);
             this.lblLieu.TabIndex = 4;
@@ -116,7 +116,7 @@ namespace WavContact.Views.Member
             // 
             this.lblHeure.AutoSize = true;
             this.lblHeure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHeure.Location = new System.Drawing.Point(330, 323);
+            this.lblHeure.Location = new System.Drawing.Point(330, 279);
             this.lblHeure.Name = "lblHeure";
             this.lblHeure.Size = new System.Drawing.Size(59, 25);
             this.lblHeure.TabIndex = 3;
@@ -126,7 +126,7 @@ namespace WavContact.Views.Member
             // 
             this.lblParticipant.AutoSize = true;
             this.lblParticipant.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblParticipant.Location = new System.Drawing.Point(331, 162);
+            this.lblParticipant.Location = new System.Drawing.Point(330, 142);
             this.lblParticipant.Name = "lblParticipant";
             this.lblParticipant.Size = new System.Drawing.Size(102, 25);
             this.lblParticipant.TabIndex = 5;
@@ -137,7 +137,7 @@ namespace WavContact.Views.Member
             this.txtDate.BackColor = System.Drawing.Color.Black;
             this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDate.ForeColor = System.Drawing.Color.White;
-            this.txtDate.Location = new System.Drawing.Point(120, 320);
+            this.txtDate.Location = new System.Drawing.Point(120, 276);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
             this.txtDate.Size = new System.Drawing.Size(198, 31);
@@ -148,7 +148,7 @@ namespace WavContact.Views.Member
             this.txtHeure.BackColor = System.Drawing.Color.Black;
             this.txtHeure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtHeure.ForeColor = System.Drawing.Color.White;
-            this.txtHeure.Location = new System.Drawing.Point(434, 320);
+            this.txtHeure.Location = new System.Drawing.Point(434, 276);
             this.txtHeure.Name = "txtHeure";
             this.txtHeure.ReadOnly = true;
             this.txtHeure.Size = new System.Drawing.Size(198, 31);
@@ -161,7 +161,7 @@ namespace WavContact.Views.Member
             this.lstLieux.ForeColor = System.Drawing.Color.White;
             this.lstLieux.FormattingEnabled = true;
             this.lstLieux.ItemHeight = 25;
-            this.lstLieux.Location = new System.Drawing.Point(121, 162);
+            this.lstLieux.Location = new System.Drawing.Point(120, 142);
             this.lstLieux.Name = "lstLieux";
             this.lstLieux.Size = new System.Drawing.Size(198, 104);
             this.lstLieux.TabIndex = 8;
@@ -185,7 +185,7 @@ namespace WavContact.Views.Member
             this.gpbProjet.ForeColor = System.Drawing.Color.White;
             this.gpbProjet.Location = new System.Drawing.Point(331, 105);
             this.gpbProjet.Name = "gpbProjet";
-            this.gpbProjet.Size = new System.Drawing.Size(685, 626);
+            this.gpbProjet.Size = new System.Drawing.Size(645, 592);
             this.gpbProjet.TabIndex = 13;
             this.gpbProjet.TabStop = false;
             this.gpbProjet.Text = "Projet";
@@ -219,7 +219,7 @@ namespace WavContact.Views.Member
             this.lstListeParticipants.ForeColor = System.Drawing.Color.White;
             this.lstListeParticipants.FormattingEnabled = true;
             this.lstListeParticipants.ItemHeight = 25;
-            this.lstListeParticipants.Location = new System.Drawing.Point(434, 162);
+            this.lstListeParticipants.Location = new System.Drawing.Point(434, 142);
             this.lstListeParticipants.Name = "lstListeParticipants";
             this.lstListeParticipants.Size = new System.Drawing.Size(198, 104);
             this.lstListeParticipants.TabIndex = 11;
@@ -231,7 +231,7 @@ namespace WavContact.Views.Member
             this.lstMateriel.ForeColor = System.Drawing.Color.White;
             this.lstMateriel.FormattingEnabled = true;
             this.lstMateriel.ItemHeight = 25;
-            this.lstMateriel.Location = new System.Drawing.Point(11, 407);
+            this.lstMateriel.Location = new System.Drawing.Point(11, 369);
             this.lstMateriel.Name = "lstMateriel";
             this.lstMateriel.Size = new System.Drawing.Size(621, 204);
             this.lstMateriel.TabIndex = 10;
@@ -246,7 +246,7 @@ namespace WavContact.Views.Member
             this.lstListeProjets.Location = new System.Drawing.Point(13, 120);
             this.lstListeProjets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstListeProjets.Name = "lstListeProjets";
-            this.lstListeProjets.Size = new System.Drawing.Size(311, 477);
+            this.lstListeProjets.Size = new System.Drawing.Size(311, 577);
             this.lstListeProjets.TabIndex = 14;
             // 
             // FrmWaviewGestionReservation
@@ -254,7 +254,7 @@ namespace WavContact.Views.Member
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1079, 758);
+            this.ClientSize = new System.Drawing.Size(989, 711);
             this.Controls.Add(this.lstListeProjets);
             this.Controls.Add(this.gpbProjet);
             this.Controls.Add(this.lblListeProjets);
