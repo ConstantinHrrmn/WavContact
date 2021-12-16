@@ -4569,11 +4569,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact\\WavContact\\WavContact.csproj",
+      "projectUniqueName": "C:\\Users\\Constantin\\Desktop\\WavContact\\WavContact\\WavContact.csproj",
       "projectName": "WavContact",
-      "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact\\WavContact\\WavContact.csproj",
+      "projectPath": "C:\\Users\\Constantin\\Desktop\\WavContact\\WavContact\\WavContact.csproj",
       "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact\\WavContact\\obj\\",
+      "outputPath": "C:\\Users\\Constantin\\Desktop\\WavContact\\WavContact\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3/5xX0ha9HFV+YvPvgfyiHx2xqulqIUplV7dyIYXxUaMRRS033aRZZLl7kO20fGqkX0n/OO6SEa8UacHnVte8A==",
+  "dgSpecHash": "FS2jdNktvJ+VDV2343M8KN0oWjy0pKumj7vGg4vBlUEY6/rKCytgyr0xQqyhfvTrwzf3juzWKf/25LBbpx6otQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact\\WavContact\\WavContact.csproj",
+  "projectFilePath": "C:\\Users\\Constantin\\Desktop\\WavContact\\WavContact\\WavContact.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Constantin\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\Constantin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
