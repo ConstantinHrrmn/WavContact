@@ -26,9 +26,11 @@ namespace WavContact.DB
         {
             string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
 
+
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("Email", email);
             hc.DefaultRequestHeaders.Add("Password", hashedPassword);
+
             var response = hc.GetAsync(BASE_URL + "/user/login").Result;
 
             // On vérifie que le code de retour est bien 200 => OK

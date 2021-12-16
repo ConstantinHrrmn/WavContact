@@ -41,13 +41,13 @@ namespace WavContact
             // tbxEmail
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.Black;
-            this.tbxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
             this.tbxEmail.Location = new System.Drawing.Point(93, 180);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.PlaceholderText = "Email";
-            this.tbxEmail.Size = new System.Drawing.Size(308, 22);
+            this.tbxEmail.Size = new System.Drawing.Size(308, 29);
             this.tbxEmail.TabIndex = 1;
             this.tbxEmail.Text = "constantin@waview.ch";
             this.tbxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -69,13 +69,13 @@ namespace WavContact
             // tbxPassword
             // 
             this.tbxPassword.BackColor = System.Drawing.Color.Black;
-            this.tbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxPassword.ForeColor = System.Drawing.Color.White;
             this.tbxPassword.Location = new System.Drawing.Point(93, 225);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PlaceholderText = "Password";
-            this.tbxPassword.Size = new System.Drawing.Size(308, 22);
+            this.tbxPassword.Size = new System.Drawing.Size(308, 29);
             this.tbxPassword.TabIndex = 2;
             this.tbxPassword.Text = "motdepasse";
             this.tbxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

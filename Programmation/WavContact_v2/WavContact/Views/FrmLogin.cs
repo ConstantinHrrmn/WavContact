@@ -89,6 +89,14 @@ namespace WavContact
         public void SwitchMode()
         {
             this.BackColor = Darkmode.ChangeMode(this.Controls);
+            if (this.BackColor == Color.Black)
+            {
+                this.pbLogo.Image = Properties.Resources.blanc_vide_full;
+            }
+            else
+            {
+                this.pbLogo.Image = Properties.Resources.new_noir_bleu;
+            }
         }
 
         private void btnSwitchMode_Click(object sender, EventArgs e)
