@@ -328,6 +328,7 @@ namespace WavContact.Views.Member
             this.btnReserver.TabIndex = 20;
             this.btnReserver.Text = "Réserver";
             this.btnReserver.UseVisualStyleBackColor = false;
+            this.btnReserver.Click += new System.EventHandler(this.btnReserver_Click);
             // 
             // grpMateriaux
             // 
@@ -354,7 +355,7 @@ namespace WavContact.Views.Member
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(197, 48);
             this.btnSupprimer.TabIndex = 21;
-            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.Text = "Supprimer le matériel";
             this.btnSupprimer.UseVisualStyleBackColor = false;
             // 
             // FrmWaviewGestionReservation

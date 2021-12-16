@@ -7,8 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+#region WAVCONTACT using
+using WavContact.Controllers;
 using WavContact.Metier;
 using WavContact.Models;
+using WavContact.Views;
+#endregion
 
 namespace WavContact.Views.Member
 {
@@ -54,17 +59,26 @@ namespace WavContact.Views.Member
         }
         #endregion
 
+        #region SWITCHMODE
         /// <summary>
-        /// Passage du darkmode au lightmode et vice versa
+        /// Change between dark and light mode
         /// </summary>
         public void SwitchMode()
         {
             this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
+        #endregion
 
+        #region BUTTONS
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void btnOpenChatWaview_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

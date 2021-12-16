@@ -104,7 +104,7 @@ namespace WavContact.Views.Member
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgStock.DefaultCellStyle = dataGridViewCellStyle7;
             this.dtgStock.GridColor = System.Drawing.Color.White;
-            this.dtgStock.Location = new System.Drawing.Point(12, 70);
+            this.dtgStock.Location = new System.Drawing.Point(12, 82);
             this.dtgStock.Name = "dtgStock";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
@@ -116,7 +116,7 @@ namespace WavContact.Views.Member
             this.dtgStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtgStock.RowHeadersWidth = 62;
             this.dtgStock.RowTemplate.Height = 33;
-            this.dtgStock.Size = new System.Drawing.Size(1075, 579);
+            this.dtgStock.Size = new System.Drawing.Size(1075, 567);
             this.dtgStock.TabIndex = 8;
             // 
             // Nom
@@ -199,6 +199,7 @@ namespace WavContact.Views.Member
             this.Name = "FrmWaviewGestionStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmWaviewGestionStock";
+            this.Load += new System.EventHandler(this.FrmWaviewGestionStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -196,7 +196,7 @@ namespace WavContact.Views
             this.btnChats.TabIndex = 14;
             this.btnChats.Text = "Chats";
             this.btnChats.UseVisualStyleBackColor = true;
-            this.btnChats.Click += new System.EventHandler(this.button1_Click);
+            this.btnChats.Click += new System.EventHandler(this.btnChats_Click);
             // 
             // dgvModification
             // 

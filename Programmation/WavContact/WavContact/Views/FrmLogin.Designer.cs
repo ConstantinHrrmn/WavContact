@@ -127,7 +127,7 @@ namespace WavContact
             this.lklMdpOublie.TabStop = true;
             this.lklMdpOublie.Text = "Mot de passe oublié ?";
             this.lklMdpOublie.VisitedLinkColor = System.Drawing.Color.Red;
-            this.lklMdpOublie.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lklMdpOublie.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklMdpOublie_LinkClicked);
             // 
             // FrmLogin
             // 

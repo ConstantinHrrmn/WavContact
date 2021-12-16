@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+#region WAVCONTACT using
 using WavContact.Controllers;
 using WavContact.Metier;
 using WavContact.Models;
+using WavContact.Views;
+#endregion
 
 namespace WavContact.Views.Member
 {
@@ -78,6 +81,12 @@ namespace WavContact.Views.Member
         private void btnChat_Click(object sender, EventArgs e)
         {
             FrmWaviewChat frm = new FrmWaviewChat();
+            frm.ShowDialog();
+        }
+
+        private void btnReserver_Click(object sender, EventArgs e)
+        {
+            FrmWaviewReservation frm = new FrmWaviewReservation();
             frm.ShowDialog();
         }
     }

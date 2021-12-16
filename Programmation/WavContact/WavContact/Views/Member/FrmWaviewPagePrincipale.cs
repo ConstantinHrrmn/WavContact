@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using WavContact.Controllers;
 using WavContact.Metier;
 using WavContact.Models;
-using WavContact.Views.Member;
+using WavContact.Views;
 #endregion
 
 namespace WavContact.Views
@@ -128,16 +128,17 @@ namespace WavContact.Views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmWaviewChat chat = new FrmWaviewChat();
-            chat.ShowDialog();
-        }
 
         private void picParametre_Click(object sender, EventArgs e)
         {
             FrmParametre parametre = new FrmParametre();
             parametre.ShowDialog();
+        }
+
+        private void btnChats_Click(object sender, EventArgs e)
+        {
+            Member.FrmWaviewChat frm = new Member.FrmWaviewChat();
+            frm.ShowDialog();
         }
     }
 }
