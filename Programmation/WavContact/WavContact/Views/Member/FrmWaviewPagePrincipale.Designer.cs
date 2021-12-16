@@ -42,10 +42,10 @@ namespace WavContact.Views
             this.btnSwitchMode = new System.Windows.Forms.Button();
             this.lstListeClients = new System.Windows.Forms.ListBox();
             this.lblClients = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.mtcDate = new System.Windows.Forms.MonthCalendar();
             this.lblProjets = new System.Windows.Forms.Label();
             this.lstListeProjets = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChats = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dgvModification = new System.Windows.Forms.DataGridView();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +54,10 @@ namespace WavContact.Views
             this.Qui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Heure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picParametre = new System.Windows.Forms.PictureBox();
+            this.lblActivite = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModification)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picParametre)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -78,7 +79,7 @@ namespace WavContact.Views
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(830, 20);
+            this.btnLogout.Location = new System.Drawing.Point(776, 20);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(169, 48);
@@ -143,16 +144,19 @@ namespace WavContact.Views
             this.lblClients.TabIndex = 9;
             this.lblClients.Text = "Clients";
             // 
-            // monthCalendar1
+            // mtcDate
             // 
-            this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar1.BackColor = System.Drawing.Color.Black;
-            this.monthCalendar1.ForeColor = System.Drawing.Color.White;
-            this.monthCalendar1.Location = new System.Drawing.Point(745, 222);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(13, 15, 13, 15);
-            this.monthCalendar1.MaxSelectionCount = 1;
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 10;
+            this.mtcDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtcDate.BackColor = System.Drawing.Color.Black;
+            this.mtcDate.ForeColor = System.Drawing.Color.White;
+            this.mtcDate.Location = new System.Drawing.Point(745, 222);
+            this.mtcDate.Margin = new System.Windows.Forms.Padding(13, 15, 13, 15);
+            this.mtcDate.MaxSelectionCount = 1;
+            this.mtcDate.Name = "mtcDate";
+            this.mtcDate.TabIndex = 10;
+            this.mtcDate.TitleBackColor = System.Drawing.Color.Black;
+            this.mtcDate.TitleForeColor = System.Drawing.Color.White;
+            this.mtcDate.TrailingForeColor = System.Drawing.Color.White;
             // 
             // lblProjets
             // 
@@ -180,19 +184,19 @@ namespace WavContact.Views
             this.lstListeProjets.TabIndex = 13;
             this.lstListeProjets.SelectedIndexChanged += new System.EventHandler(this.lbProjets_SelectedIndexChanged);
             // 
-            // button1
+            // btnChats
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(745, 127);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(312, 86);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Chats";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnChats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChats.ForeColor = System.Drawing.Color.White;
+            this.btnChats.Location = new System.Drawing.Point(745, 127);
+            this.btnChats.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnChats.Name = "btnChats";
+            this.btnChats.Size = new System.Drawing.Size(312, 86);
+            this.btnChats.TabIndex = 14;
+            this.btnChats.Text = "Chats";
+            this.btnChats.UseVisualStyleBackColor = true;
+            this.btnChats.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvModification
             // 
@@ -234,7 +238,7 @@ namespace WavContact.Views
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvModification.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvModification.GridColor = System.Drawing.Color.White;
-            this.dgvModification.Location = new System.Drawing.Point(13, 487);
+            this.dgvModification.Location = new System.Drawing.Point(13, 558);
             this.dgvModification.Name = "dgvModification";
             this.dgvModification.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -252,7 +256,7 @@ namespace WavContact.Views
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvModification.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvModification.RowTemplate.Height = 33;
-            this.dgvModification.Size = new System.Drawing.Size(1044, 174);
+            this.dgvModification.Size = new System.Drawing.Size(1044, 145);
             this.dgvModification.TabIndex = 15;
             // 
             // Client
@@ -302,28 +306,42 @@ namespace WavContact.Views
             this.Heure.Name = "Heure";
             this.Heure.ReadOnly = true;
             // 
-            // pictureBox1
+            // picParametre
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(775, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.picParametre.Image = ((System.Drawing.Image)(resources.GetObject("picParametre.Image")));
+            this.picParametre.Location = new System.Drawing.Point(952, 20);
+            this.picParametre.Name = "picParametre";
+            this.picParametre.Size = new System.Drawing.Size(48, 48);
+            this.picParametre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picParametre.TabIndex = 16;
+            this.picParametre.TabStop = false;
+            this.picParametre.Click += new System.EventHandler(this.picParametre_Click);
+            // 
+            // lblActivite
+            // 
+            this.lblActivite.AutoSize = true;
+            this.lblActivite.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblActivite.ForeColor = System.Drawing.Color.White;
+            this.lblActivite.Location = new System.Drawing.Point(13, 521);
+            this.lblActivite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActivite.Name = "lblActivite";
+            this.lblActivite.Size = new System.Drawing.Size(135, 34);
+            this.lblActivite.TabIndex = 17;
+            this.lblActivite.Text = "Activités";
             // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1075, 673);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1075, 715);
+            this.Controls.Add(this.lblActivite);
+            this.Controls.Add(this.picParametre);
             this.Controls.Add(this.dgvModification);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnChats);
             this.Controls.Add(this.lstListeProjets);
             this.Controls.Add(this.lblProjets);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.mtcDate);
             this.Controls.Add(this.lblClients);
             this.Controls.Add(this.lstListeClients);
             this.Controls.Add(this.btnSwitchMode);
@@ -340,7 +358,7 @@ namespace WavContact.Views
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvModification)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picParametre)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,10 +372,10 @@ namespace WavContact.Views
         private System.Windows.Forms.Button btnSwitchMode;
         private System.Windows.Forms.ListBox lstListeClients;
         private System.Windows.Forms.Label lblClients;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar mtcDate;
         private System.Windows.Forms.Label lblProjets;
         private System.Windows.Forms.ListBox lstListeProjets;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnChats;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dgvModification;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
@@ -366,6 +384,7 @@ namespace WavContact.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn Qui;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Heure;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picParametre;
+        private System.Windows.Forms.Label lblActivite;
     }
 }

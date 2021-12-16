@@ -133,5 +133,11 @@ namespace WavContact.Views
             FrmWaviewChat chat = new FrmWaviewChat();
             chat.ShowDialog();
         }
+
+        private void picParametre_Click(object sender, EventArgs e)
+        {
+            FrmParametre parametre = new FrmParametre();
+            parametre.ShowDialog();
+        }
     }
 }

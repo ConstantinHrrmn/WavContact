@@ -35,7 +35,7 @@ namespace WavContact
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSwitchMode = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lklMdpOublie = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@ namespace WavContact
             this.tbxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
-            this.tbxEmail.Location = new System.Drawing.Point(79, 184);
+            this.tbxEmail.Location = new System.Drawing.Point(96, 213);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.PlaceholderText = "Email";
             this.tbxEmail.Size = new System.Drawing.Size(308, 33);
@@ -57,7 +57,7 @@ namespace WavContact
             // pbLogo
             // 
             this.pbLogo.Image = global::WavContact.Properties.Resources.blanc_vide_full;
-            this.pbLogo.Location = new System.Drawing.Point(79, 52);
+            this.pbLogo.Location = new System.Drawing.Point(97, 81);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(309, 92);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -70,7 +70,7 @@ namespace WavContact
             this.tbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxPassword.ForeColor = System.Drawing.Color.White;
-            this.tbxPassword.Location = new System.Drawing.Point(80, 227);
+            this.tbxPassword.Location = new System.Drawing.Point(97, 256);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PlaceholderText = "Password";
             this.tbxPassword.Size = new System.Drawing.Size(308, 33);
@@ -84,9 +84,9 @@ namespace WavContact
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(160, 305);
+            this.btnLogin.Location = new System.Drawing.Point(177, 334);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(146, 34);
+            this.btnLogin.Size = new System.Drawing.Size(150, 39);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -96,9 +96,9 @@ namespace WavContact
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(429, 12);
+            this.btnClose.Location = new System.Drawing.Point(436, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 29);
+            this.btnClose.Size = new System.Drawing.Size(50, 48);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -108,32 +108,34 @@ namespace WavContact
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(364, 12);
+            this.btnSwitchMode.Location = new System.Drawing.Point(356, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(59, 29);
+            this.btnSwitchMode.Size = new System.Drawing.Size(74, 48);
             this.btnSwitchMode.TabIndex = 8;
             this.btnSwitchMode.Text = "Light";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
             this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
             // 
-            // linkLabel1
+            // lklMdpOublie
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(136, 263);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(185, 22);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Mot de passe oublié ?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lklMdpOublie.AutoSize = true;
+            this.lklMdpOublie.LinkColor = System.Drawing.Color.White;
+            this.lklMdpOublie.Location = new System.Drawing.Point(153, 292);
+            this.lklMdpOublie.Name = "lklMdpOublie";
+            this.lklMdpOublie.Size = new System.Drawing.Size(185, 22);
+            this.lklMdpOublie.TabIndex = 9;
+            this.lklMdpOublie.TabStop = true;
+            this.lklMdpOublie.Text = "Mot de passe oublié ?";
+            this.lklMdpOublie.VisitedLinkColor = System.Drawing.Color.Red;
+            this.lklMdpOublie.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(476, 362);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(498, 386);
+            this.Controls.Add(this.lklMdpOublie);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
@@ -164,7 +166,7 @@ namespace WavContact
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSwitchMode;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lklMdpOublie;
     }
 }
 

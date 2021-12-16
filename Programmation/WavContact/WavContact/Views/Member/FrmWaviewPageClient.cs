@@ -20,9 +20,6 @@ namespace WavContact.Views.Member
 {
     public partial class FrmWaviewPageClient : Form
     {
-        #region Variables privées
-        private WaviewPageClientController ctrl;
-        #endregion
 
 
         /// <summary>
@@ -31,12 +28,10 @@ namespace WavContact.Views.Member
         public FrmWaviewPageClient(User u)
         {
             InitializeComponent();
-            this.ctrl = new WaviewPageClientController(this, u);
         }
 
         private void FrmWaviewPageClient_Load(object sender, EventArgs e)
         {   
-            this.lblNomClient.Text = string.Format("{0}", this.ctrl.ConnectedUser);
             this.SwitchMode();
             
         }
@@ -89,7 +84,6 @@ namespace WavContact.Views.Member
 
         private void lstListeProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ctrl.LoadProjectPage(this.lstListeProjet.SelectedItem as Project);
         }
         
     }
