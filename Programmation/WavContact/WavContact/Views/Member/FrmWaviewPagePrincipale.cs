@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using WavContact.Controllers;
 using WavContact.Metier;
 using WavContact.Models;
-using WavContact.Views;
+using WavContact.Views.Member;
 #endregion
 
 namespace WavContact.Views
@@ -128,34 +128,22 @@ namespace WavContact.Views
             }
         }
 
-        private void btnChats_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Member.FrmWaviewChat frm = new Member.FrmWaviewChat();
-            frm.ShowDialog();
+            FrmWaviewChat chat = new FrmWaviewChat();
+            chat.ShowDialog();
         }
 
-        private void btnParametre_Click(object sender, EventArgs e)
+        private void btnInfosClients_Click(object sender, EventArgs e)
         {
-            FrmParametre parametre = new FrmParametre();
-            parametre.ShowDialog();
+            FrmWaviewPageClient frmC = new FrmWaviewPageClient(this.lstListeClients.SelectedItem as User);
+            frmC.ShowDialog();
         }
 
-        private void btnProjet_Click(object sender, EventArgs e)
+        private void btnGestionMateriel_Click(object sender, EventArgs e)
         {
-            FrmWaviewGestionProjet frm = new FrmWaviewGestionProjet();
-            frm.ShowDialog();
-        }
-
-        private void btnClient_Click(object sender, EventArgs e)
-        {
-            FrmWaviewPageClient frm = new FrmWaviewPageClient();
-            frm.ShowDialog();
-        }
-
-        private void btnStock_Click(object sender, EventArgs e)
-        {
-            FrmWaviewGestionStock frm = new FrmWaviewGestionStock();
-            frm.ShowDialog();
+            FrmWaviewGestionStock frmG = new FrmWaviewGestionStock();
+            frmG.Show();
         }
     }
 }

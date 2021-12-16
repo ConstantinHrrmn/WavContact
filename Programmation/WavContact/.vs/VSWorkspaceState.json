@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WavContact",
-    "\\WavContact\\Views\\Member"
+    "\\WavContact"
   ],
-  "SelectedNode": "\\WavContact\\Views",
+  "SelectedNode": "\\WavContact.sln",
   "PreviewInSolutionExplorer": false
 }

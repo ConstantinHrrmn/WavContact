@@ -13,68 +13,43 @@ using WavContact.Controllers;
 using WavContact.Controllers.Waview;
 using WavContact.Metier;
 using WavContact.Models;
-using WavContact.Views;
+using WavContact.Views.Member;
 #endregion
 
 namespace WavContact.Views.Member
 {
     public partial class FrmWaviewPageClient : Form
     {
+        #region Variables privées
+        private WaviewPageClientController ctrl;
+        #endregion
+
+
         /// <summary>
         /// Constructeur par défaut de la form de la page du client
         /// </summary>
         public FrmWaviewPageClient(User u)
         {
             InitializeComponent();
+            this.ctrl = new WaviewPageClientController(this, u);
         }
 
         private void FrmWaviewPageClient_Load(object sender, EventArgs e)
         {   
+            this.lblNomClient.Text = string.Format("{0}", this.ctrl.SelectedClient);
             this.SwitchMode();
             
         }
 
-        #region MouseMoving
-        private MovingForms mf = new MovingForms();
-        private void frm_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.mf.MouseDown(this.Location);
-        }
-
-        private void frm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (this.mf.CanDrag())
-                this.Location = this.mf.MouseMove(sender, e);
-        }
-
-        private void frm_MouseUp(object sender, MouseEventArgs e)
-        {
-            this.mf.MouseUp();
-        }
-        #endregion
-
-        #region SWITCHMODE
+        #region SWTICHMODE
         /// <summary>
-        /// Change between dark and light mode
+        /// Passage du darkmode au lightmode et vice versa
         /// </summary>
         public void SwitchMode()
         {
             this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
         #endregion
-
-        #region BUTTONS
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnOpenChatWaview_Click(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
-
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
@@ -101,10 +76,22 @@ namespace WavContact.Views.Member
             
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnChat_Click(object sender, EventArgs e)
         {
             FrmWaviewChat chat = new FrmWaviewChat();
             chat.ShowDialog();
-        }        
+        }
+
+
+        private void lstListeProjet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //this.ctrl.LoadProjectPage(this.lstListeProjet.SelectedItem as Project);
+        }
+        
     }
 }

@@ -9,6 +9,7 @@ using WavContact.Controllers;
 using WavContact.Metier;
 using WavContact.Views;
 using WavContact.Models;
+using WavContact.Views.Member;
 #endregion
 
 namespace WavContact.Controllers
@@ -53,7 +54,7 @@ namespace WavContact.Controllers
 
         public void LoadProjectPage(Project p)
         {
-            FrmWaviewGestionProjet frm = new FrmWaviewGestionProjet(p);
+            FrmWaviewProject frm = new FrmWaviewProject(p);
             frm.Show();
         }
 

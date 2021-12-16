@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using WavContact.Controllers;
 using WavContact.Metier;
 using WavContact.Views;
+using WavContact.Views.Client;
 using WavContact.Models;
 using WavContact.DB;
 #endregion
@@ -33,8 +34,17 @@ namespace WavContact.Controllers
             {
                 PropertiesManager.Login(email, password);
 
-                FrmWaviewPagePrincipale viewMember = new FrmWaviewPagePrincipale(loggedInUser);
-                viewMember.Show(); 
+                if (loggedInUser.Role_id == 2)
+                {
+                    FrmWaviewPagePrincipale viewMember = new FrmWaviewPagePrincipale(loggedInUser);
+                    viewMember.Show();
+                }
+                else if(loggedInUser.Role_id == 3)
+                {
+                    FrmClientPagePrincipale viewClient = new FrmClientPagePrincipale(loggedInUser);
+                    viewClient.Show();
+                }
+                
                 
             }
             else

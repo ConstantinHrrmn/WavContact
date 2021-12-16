@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WavContact.Controllers;
 using WavContact.Metier;
+using WavContact.Models;
 
 namespace WavContact.Views.Client
 {
     public partial class FrmClientPagePrincipale : Form
     {
-        public FrmClientPagePrincipale()
+        public FrmClientPagePrincipale(User u)
         {
             InitializeComponent();
         }
@@ -77,8 +78,8 @@ namespace WavContact.Views.Client
 
         private void btnProjet_Click(object sender, EventArgs e)
         {
-            FrmProjet frm = new FrmProjet();
-            frm.ShowDialog();
+            //FrmProjet frm = new FrmProjet();
+            //frm.ShowDialog();
         }
     }
 }

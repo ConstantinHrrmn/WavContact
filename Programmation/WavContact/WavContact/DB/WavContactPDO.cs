@@ -36,7 +36,7 @@ namespace WavContact.DB
             {
                 var a = response.Content.ReadAsStringAsync().Result;
                 JObject jo = JObject.Parse(a);
-                return new User((string)jo["first_name"], (string)jo["last_name"]);
+                return new User((string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["idRole"]));
             }
 
             return null;
@@ -83,7 +83,7 @@ namespace WavContact.DB
 
             for (int i = 0; i < rnd.Next(5,20); i++)
             {
-                User u = new User(GenerateName(rnd.Next(5, 10)), GenerateName(rnd.Next(5, 10)));
+                User u = new User(GenerateName(rnd.Next(5, 10)), GenerateName(rnd.Next(5, 10)), 3);
                 u.Projets = GetProjectsForUser(u);
                 users.Add(u);
             }

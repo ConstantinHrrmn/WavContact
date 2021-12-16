@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 using WavContact.Models;
 using WavContact.Views.Member;
 
-
 namespace WavContact.Controllers
 {
     class ProjectWaviewMemberController
     {
-        private FrmWaviewGestionProjet frm;
+        private FrmWaviewProject frm;
         private Project project;
 
-        public ProjectWaviewMemberController(FrmWaviewGestionProjet a_frm, Project a_project)
+        public ProjectWaviewMemberController(FrmWaviewProject a_frm, Project a_project)
         {
             this.frm = a_frm;
             this.project = a_project;
@@ -24,7 +23,7 @@ namespace WavContact.Controllers
 
         public void DisplayProjectInformationsInForm()
         {
-            this.frm.DisplayProjectInformations(this.project);
+            //this.frm.DisplayProjectInformations(this.project);
         }
     }
 }

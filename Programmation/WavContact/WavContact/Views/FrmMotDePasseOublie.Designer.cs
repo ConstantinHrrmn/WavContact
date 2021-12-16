@@ -29,8 +29,6 @@ namespace WavContact.Views.Client
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblMotDePasseOublie = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNouveauMotDePasse = new System.Windows.Forms.TextBox();
@@ -38,47 +36,20 @@ namespace WavContact.Views.Client
             this.txtConfirmationMotDePasse = new System.Windows.Forms.TextBox();
             this.lblConfirmationMotDePasse = new System.Windows.Forms.Label();
             this.btnEnregistrer = new System.Windows.Forms.Button();
-            this.btnSwitchMode = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblMotDePasseOublie = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(297, 14);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(50, 48);
-            this.btnClose.TabIndex = 18;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblMotDePasseOublie
-            // 
-            this.lblMotDePasseOublie.AutoSize = true;
-            this.lblMotDePasseOublie.BackColor = System.Drawing.Color.Transparent;
-            this.lblMotDePasseOublie.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMotDePasseOublie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMotDePasseOublie.Location = new System.Drawing.Point(13, 101);
-            this.lblMotDePasseOublie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMotDePasseOublie.Name = "lblMotDePasseOublie";
-            this.lblMotDePasseOublie.Size = new System.Drawing.Size(342, 48);
-            this.lblMotDePasseOublie.TabIndex = 19;
-            this.lblMotDePasseOublie.Text = "Mot de passe oublié";
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.Black;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtEmail.ForeColor = System.Drawing.Color.White;
-            this.txtEmail.Location = new System.Drawing.Point(13, 209);
+            this.txtEmail.Location = new System.Drawing.Point(115, 111);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(331, 35);
+            this.txtEmail.Size = new System.Drawing.Size(250, 23);
             this.txtEmail.TabIndex = 21;
             this.txtEmail.Text = "exemple@gmail.com";
             // 
@@ -87,9 +58,10 @@ namespace WavContact.Views.Client
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmail.ForeColor = System.Drawing.Color.White;
-            this.lblEmail.Location = new System.Drawing.Point(13, 181);
+            this.lblEmail.Location = new System.Drawing.Point(115, 94);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(54, 25);
+            this.lblEmail.Size = new System.Drawing.Size(36, 15);
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "Email";
             // 
@@ -98,11 +70,12 @@ namespace WavContact.Views.Client
             this.txtNouveauMotDePasse.BackColor = System.Drawing.Color.Black;
             this.txtNouveauMotDePasse.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtNouveauMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.txtNouveauMotDePasse.Location = new System.Drawing.Point(13, 329);
+            this.txtNouveauMotDePasse.Location = new System.Drawing.Point(115, 183);
+            this.txtNouveauMotDePasse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNouveauMotDePasse.Multiline = true;
             this.txtNouveauMotDePasse.Name = "txtNouveauMotDePasse";
             this.txtNouveauMotDePasse.ReadOnly = true;
-            this.txtNouveauMotDePasse.Size = new System.Drawing.Size(331, 35);
+            this.txtNouveauMotDePasse.Size = new System.Drawing.Size(250, 23);
             this.txtNouveauMotDePasse.TabIndex = 23;
             this.txtNouveauMotDePasse.Text = "veuillez saisir votre nouveau mot de passe";
             // 
@@ -111,9 +84,10 @@ namespace WavContact.Views.Client
             this.lblNouveauMotDePasse.AutoSize = true;
             this.lblNouveauMotDePasse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNouveauMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.lblNouveauMotDePasse.Location = new System.Drawing.Point(13, 301);
+            this.lblNouveauMotDePasse.Location = new System.Drawing.Point(115, 166);
+            this.lblNouveauMotDePasse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNouveauMotDePasse.Name = "lblNouveauMotDePasse";
-            this.lblNouveauMotDePasse.Size = new System.Drawing.Size(196, 25);
+            this.lblNouveauMotDePasse.Size = new System.Drawing.Size(128, 15);
             this.lblNouveauMotDePasse.TabIndex = 22;
             this.lblNouveauMotDePasse.Text = "Nouveau mot de passe";
             // 
@@ -122,11 +96,12 @@ namespace WavContact.Views.Client
             this.txtConfirmationMotDePasse.BackColor = System.Drawing.Color.Black;
             this.txtConfirmationMotDePasse.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtConfirmationMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.txtConfirmationMotDePasse.Location = new System.Drawing.Point(13, 445);
+            this.txtConfirmationMotDePasse.Location = new System.Drawing.Point(115, 253);
+            this.txtConfirmationMotDePasse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtConfirmationMotDePasse.Multiline = true;
             this.txtConfirmationMotDePasse.Name = "txtConfirmationMotDePasse";
             this.txtConfirmationMotDePasse.ReadOnly = true;
-            this.txtConfirmationMotDePasse.Size = new System.Drawing.Size(331, 35);
+            this.txtConfirmationMotDePasse.Size = new System.Drawing.Size(250, 23);
             this.txtConfirmationMotDePasse.TabIndex = 25;
             this.txtConfirmationMotDePasse.Text = "veuillez saisir le mot de passe précédent";
             // 
@@ -135,59 +110,42 @@ namespace WavContact.Views.Client
             this.lblConfirmationMotDePasse.AutoSize = true;
             this.lblConfirmationMotDePasse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblConfirmationMotDePasse.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmationMotDePasse.Location = new System.Drawing.Point(13, 417);
+            this.lblConfirmationMotDePasse.Location = new System.Drawing.Point(115, 236);
+            this.lblConfirmationMotDePasse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirmationMotDePasse.Name = "lblConfirmationMotDePasse";
-            this.lblConfirmationMotDePasse.Size = new System.Drawing.Size(302, 25);
+            this.lblConfirmationMotDePasse.Size = new System.Drawing.Size(200, 15);
             this.lblConfirmationMotDePasse.TabIndex = 24;
             this.lblConfirmationMotDePasse.Text = "Confirmation nouveau mot de passe";
             // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnregistrer.BackColor = System.Drawing.Color.Black;
             this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
-            this.btnEnregistrer.Location = new System.Drawing.Point(93, 522);
-            this.btnEnregistrer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEnregistrer.Location = new System.Drawing.Point(285, 306);
             this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(169, 53);
+            this.btnEnregistrer.Size = new System.Drawing.Size(80, 32);
             this.btnEnregistrer.TabIndex = 26;
             this.btnEnregistrer.Text = "Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = false;
             // 
-            // btnSwitchMode
+            // lblMotDePasseOublie
             // 
-            this.btnSwitchMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(46, 14);
-            this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(67, 48);
-            this.btnSwitchMode.TabIndex = 27;
-            this.btnSwitchMode.Text = "Light";
-            this.btnSwitchMode.UseVisualStyleBackColor = true;
-            this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(120, 14);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(169, 48);
-            this.btnLogout.TabIndex = 38;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.lblMotDePasseOublie.AutoSize = true;
+            this.lblMotDePasseOublie.BackColor = System.Drawing.Color.Transparent;
+            this.lblMotDePasseOublie.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMotDePasseOublie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblMotDePasseOublie.Location = new System.Drawing.Point(107, 28);
+            this.lblMotDePasseOublie.Name = "lblMotDePasseOublie";
+            this.lblMotDePasseOublie.Size = new System.Drawing.Size(258, 37);
+            this.lblMotDePasseOublie.TabIndex = 19;
+            this.lblMotDePasseOublie.Text = "Mot de passe oublié";
             // 
             // FrmMotDePasseOublie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(360, 609);
-            this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.btnSwitchMode);
+            this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.txtConfirmationMotDePasse);
             this.Controls.Add(this.lblConfirmationMotDePasse);
@@ -196,19 +154,17 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblMotDePasseOublie);
-            this.Controls.Add(this.btnClose);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "FrmMotDePasseOublie";
-            this.Text = "FrmMotDePasseOublie";
+            this.Text = "Mot de passe oublié";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblMotDePasseOublie;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtNouveauMotDePasse;
@@ -216,7 +172,6 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.TextBox txtConfirmationMotDePasse;
         private System.Windows.Forms.Label lblConfirmationMotDePasse;
         private System.Windows.Forms.Button btnEnregistrer;
-        private System.Windows.Forms.Button btnSwitchMode;
-        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblMotDePasseOublie;
     }
 }

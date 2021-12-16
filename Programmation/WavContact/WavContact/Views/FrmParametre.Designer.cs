@@ -45,8 +45,6 @@ namespace WavContact.Views
             this.lblNouveauMdP = new System.Windows.Forms.Label();
             this.lblAncienMDP = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.txtNumTelephone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -54,6 +52,8 @@ namespace WavContact.Views
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -61,10 +61,9 @@ namespace WavContact.Views
             // 
             // btnSwitchMode
             // 
-            this.btnSwitchMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(440, 14);
+            this.btnSwitchMode.Location = new System.Drawing.Point(744, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
             this.btnSwitchMode.Size = new System.Drawing.Size(66, 48);
             this.btnSwitchMode.TabIndex = 29;
@@ -76,7 +75,7 @@ namespace WavContact.Views
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(690, 14);
+            this.btnClose.Location = new System.Drawing.Point(997, 14);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 48);
@@ -99,10 +98,9 @@ namespace WavContact.Views
             // 
             // btnLogout
             // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(513, 14);
+            this.btnLogout.Location = new System.Drawing.Point(817, 12);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(169, 48);
@@ -114,7 +112,7 @@ namespace WavContact.Views
             // 
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
-            this.btnEnregistrer.Location = new System.Drawing.Point(568, 890);
+            this.btnEnregistrer.Location = new System.Drawing.Point(879, 930);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(169, 48);
             this.btnEnregistrer.TabIndex = 41;
@@ -126,7 +124,7 @@ namespace WavContact.Views
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lblSelectionLangue);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(23, 134);
+            this.groupBox1.Location = new System.Drawing.Point(149, 154);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(714, 191);
             this.groupBox1.TabIndex = 42;
@@ -159,7 +157,7 @@ namespace WavContact.Views
             this.groupBox2.Controls.Add(this.lblNouveauMdP);
             this.groupBox2.Controls.Add(this.lblAncienMDP);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(23, 378);
+            this.groupBox2.Location = new System.Drawing.Point(149, 398);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(714, 206);
             this.groupBox2.TabIndex = 43;
@@ -231,28 +229,12 @@ namespace WavContact.Views
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.lblNom);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(23, 641);
+            this.groupBox3.Location = new System.Drawing.Point(149, 661);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(714, 191);
             this.groupBox3.TabIndex = 44;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Compte";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(479, 121);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(208, 31);
-            this.txtEmail.TabIndex = 50;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(396, 121);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(54, 25);
-            this.lblEmail.TabIndex = 49;
-            this.lblEmail.Text = "Email";
             // 
             // txtNumTelephone
             // 
@@ -302,12 +284,28 @@ namespace WavContact.Views
             this.lblNom.TabIndex = 1;
             this.lblNom.Text = "Nom";
             // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(396, 121);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(54, 25);
+            this.lblEmail.TabIndex = 49;
+            this.lblEmail.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(479, 121);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(208, 31);
+            this.txtEmail.TabIndex = 50;
+            // 
             // FrmParametre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(753, 954);
+            this.ClientSize = new System.Drawing.Size(1060, 990);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

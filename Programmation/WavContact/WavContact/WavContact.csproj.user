@@ -10,16 +10,10 @@
     <Compile Update="Views\FrmParametre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FrmProjet.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\FrmMotDePasseOublie.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Member\FrmWaviewGestionProjet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Member\FrmWaviewGestionStock.cs">
@@ -34,7 +28,7 @@
     <Compile Update="Views\Member\FrmWaviewPagePrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Member\FrmWaviewReservation.cs">
+    <Compile Update="Views\Member\FrmWaviewProject.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
