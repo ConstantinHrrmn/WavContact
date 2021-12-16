@@ -75,11 +75,6 @@ namespace WavContact.Views.Member
             this.gpbProjet.Text = project.Name;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnChat_Click(object sender, EventArgs e)
         {
             FrmWaviewChat frm = new FrmWaviewChat();

@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using WavContact.Models;
-using WavContact.Views;
+using WavContact.Views.Member;
 
 
 namespace WavContact.Controllers
 {
     class ProjectWaviewMemberController
     {
-        private FrmWaviewProjet frm;
+        private FrmWaviewGestionProjet frm;
         private Project project;
 
-        public ProjectWaviewMemberController(FrmWaviewProjet a_frm, Project a_project)
+        public ProjectWaviewMemberController(FrmWaviewGestionProjet a_frm, Project a_project)
         {
             this.frm = a_frm;
             this.project = a_project;

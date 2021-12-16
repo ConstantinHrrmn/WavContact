@@ -34,5 +34,8 @@
     <Compile Update="Views\Member\FrmWaviewPagePrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Member\FrmWaviewReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

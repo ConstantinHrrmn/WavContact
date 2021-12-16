@@ -187,7 +187,6 @@ namespace WavContact.Views.Member
             this.gpbProjet.TabIndex = 13;
             this.gpbProjet.TabStop = false;
             this.gpbProjet.Text = "Information du projet";
-            this.gpbProjet.Enter += new System.EventHandler(this.gpbProjet_Enter);
             // 
             // textBox1
             // 
