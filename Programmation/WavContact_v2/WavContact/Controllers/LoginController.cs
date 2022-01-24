@@ -11,6 +11,7 @@ using WavContact.Views;
 using WavContact.Views.Client;
 using WavContact.Models;
 using WavContact.DB;
+using System.Diagnostics;
 #endregion
 
 namespace WavContact.Controllers
@@ -24,8 +25,10 @@ namespace WavContact.Controllers
             this.frm = a_frm;
         }
 
-        public void PerformLogin(string email, string password)
+        public bool PerformLogin(string email, string password)
         {
+            
+
             User loggedInUser = WavContactPDO.Login(email, password);
 
             //System.Diagnostics.Debug.WriteLine(loggedInUser);
@@ -34,23 +37,30 @@ namespace WavContact.Controllers
             {
                 PropertiesManager.Login(email, password);
 
-                if (loggedInUser.Role_id == 2)
+                if (loggedInUser.IdRole == 2)
                 {
                     FrmWaviewPagePrincipale viewMember = new FrmWaviewPagePrincipale(loggedInUser);
                     viewMember.Show();
+                    return true;
                 }
-                else if(loggedInUser.Role_id == 3)
+                else if(loggedInUser.IdRole == 3)
                 {
                     FrmClientPagePrincipale viewClient = new FrmClientPagePrincipale(loggedInUser);
                     viewClient.Show();
+                    return true;
                 }
+
+                
                 
                 
             }
             else
             {
                 this.frm.DisplayMessage("Mot de passe ou utilisateur éronné...");
+                return false;
             }
+
+            return false;
         }
     }
 }

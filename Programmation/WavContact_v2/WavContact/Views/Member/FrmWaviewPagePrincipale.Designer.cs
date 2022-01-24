@@ -29,7 +29,6 @@ namespace WavContact.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewPagePrincipale));
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnSwitchMode = new System.Windows.Forms.Button();
@@ -40,12 +39,10 @@ namespace WavContact.Views
             this.lstListeProjets = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNewClient = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnInfosClients = new System.Windows.Forms.Button();
             this.btnGestionMateriel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -152,24 +149,13 @@ namespace WavContact.Views
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(961, 53);
+            this.button1.Location = new System.Drawing.Point(881, 9);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 52);
+            this.button1.Size = new System.Drawing.Size(118, 29);
             this.button1.TabIndex = 14;
             this.button1.Text = "Chats";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(961, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
             // 
             // btnNewClient
             // 
@@ -213,9 +199,9 @@ namespace WavContact.Views
             this.btnGestionMateriel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGestionMateriel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionMateriel.ForeColor = System.Drawing.Color.White;
-            this.btnGestionMateriel.Location = new System.Drawing.Point(728, 53);
+            this.btnGestionMateriel.Location = new System.Drawing.Point(692, 9);
             this.btnGestionMateriel.Name = "btnGestionMateriel";
-            this.btnGestionMateriel.Size = new System.Drawing.Size(227, 52);
+            this.btnGestionMateriel.Size = new System.Drawing.Size(183, 29);
             this.btnGestionMateriel.TabIndex = 20;
             this.btnGestionMateriel.Text = "Gestion du matériel";
             this.btnGestionMateriel.UseVisualStyleBackColor = true;
@@ -231,7 +217,6 @@ namespace WavContact.Views
             this.Controls.Add(this.btnInfosClients);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnNewClient);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lstListeProjets);
             this.Controls.Add(this.lblProjets);
@@ -249,7 +234,6 @@ namespace WavContact.Views
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frm_MouseUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +250,6 @@ namespace WavContact.Views
         private System.Windows.Forms.ListBox lstListeProjets;
         private System.Windows.Forms.Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnNewClient;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnInfosClients;

@@ -35,15 +35,15 @@ namespace WavContact.Views.Member
             this.lblAdresseRue = new System.Windows.Forms.Label();
             this.lblAdresseCP = new System.Windows.Forms.Label();
             this.lblAdresseVille = new System.Windows.Forms.Label();
-            this.txtNomMandant = new System.Windows.Forms.TextBox();
+            this.tbxPrenom = new System.Windows.Forms.TextBox();
             this.btnSauvegarder = new System.Windows.Forms.Button();
-            this.txtTel = new System.Windows.Forms.TextBox();
+            this.tbxTel = new System.Windows.Forms.TextBox();
             this.lblMail = new System.Windows.Forms.Label();
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.txtAdresseRue = new System.Windows.Forms.TextBox();
-            this.txtAdresseCP = new System.Windows.Forms.TextBox();
-            this.txtAdresseVille = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxMail = new System.Windows.Forms.TextBox();
+            this.tbxAdresseRue = new System.Windows.Forms.TextBox();
+            this.tbxAdresseCP = new System.Windows.Forms.TextBox();
+            this.tbxAdresseVille = new System.Windows.Forms.TextBox();
+            this.tbxNom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -85,7 +85,7 @@ namespace WavContact.Views.Member
             this.lblAdresseRue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAdresseRue.AutoSize = true;
             this.lblAdresseRue.ForeColor = System.Drawing.Color.White;
-            this.lblAdresseRue.Location = new System.Drawing.Point(20, 262);
+            this.lblAdresseRue.Location = new System.Drawing.Point(20, 258);
             this.lblAdresseRue.Name = "lblAdresseRue";
             this.lblAdresseRue.Size = new System.Drawing.Size(48, 15);
             this.lblAdresseRue.TabIndex = 9;
@@ -96,7 +96,7 @@ namespace WavContact.Views.Member
             this.lblAdresseCP.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAdresseCP.AutoSize = true;
             this.lblAdresseCP.ForeColor = System.Drawing.Color.White;
-            this.lblAdresseCP.Location = new System.Drawing.Point(20, 320);
+            this.lblAdresseCP.Location = new System.Drawing.Point(20, 287);
             this.lblAdresseCP.Name = "lblAdresseCP";
             this.lblAdresseCP.Size = new System.Drawing.Size(70, 15);
             this.lblAdresseCP.TabIndex = 10;
@@ -107,29 +107,29 @@ namespace WavContact.Views.Member
             this.lblAdresseVille.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAdresseVille.AutoSize = true;
             this.lblAdresseVille.ForeColor = System.Drawing.Color.White;
-            this.lblAdresseVille.Location = new System.Drawing.Point(212, 320);
+            this.lblAdresseVille.Location = new System.Drawing.Point(212, 287);
             this.lblAdresseVille.Name = "lblAdresseVille";
             this.lblAdresseVille.Size = new System.Drawing.Size(29, 15);
             this.lblAdresseVille.TabIndex = 11;
             this.lblAdresseVille.Text = "Ville";
             // 
-            // txtNomMandant
+            // tbxPrenom
             // 
-            this.txtNomMandant.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNomMandant.BackColor = System.Drawing.Color.Black;
-            this.txtNomMandant.ForeColor = System.Drawing.Color.White;
-            this.txtNomMandant.Location = new System.Drawing.Point(128, 96);
-            this.txtNomMandant.Name = "txtNomMandant";
-            this.txtNomMandant.ReadOnly = true;
-            this.txtNomMandant.Size = new System.Drawing.Size(285, 23);
-            this.txtNomMandant.TabIndex = 16;
+            this.tbxPrenom.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxPrenom.BackColor = System.Drawing.Color.Black;
+            this.tbxPrenom.ForeColor = System.Drawing.Color.White;
+            this.tbxPrenom.Location = new System.Drawing.Point(128, 96);
+            this.tbxPrenom.Name = "tbxPrenom";
+            this.tbxPrenom.ReadOnly = true;
+            this.tbxPrenom.Size = new System.Drawing.Size(285, 23);
+            this.tbxPrenom.TabIndex = 16;
             // 
             // btnSauvegarder
             // 
             this.btnSauvegarder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSauvegarder.BackColor = System.Drawing.Color.Black;
             this.btnSauvegarder.ForeColor = System.Drawing.Color.White;
-            this.btnSauvegarder.Location = new System.Drawing.Point(311, 357);
+            this.btnSauvegarder.Location = new System.Drawing.Point(311, 324);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(102, 29);
             this.btnSauvegarder.TabIndex = 17;
@@ -137,16 +137,16 @@ namespace WavContact.Views.Member
             this.btnSauvegarder.UseVisualStyleBackColor = false;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
-            // txtTel
+            // tbxTel
             // 
-            this.txtTel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTel.BackColor = System.Drawing.Color.Black;
-            this.txtTel.ForeColor = System.Drawing.Color.White;
-            this.txtTel.Location = new System.Drawing.Point(128, 153);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.ReadOnly = true;
-            this.txtTel.Size = new System.Drawing.Size(285, 23);
-            this.txtTel.TabIndex = 18;
+            this.tbxTel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxTel.BackColor = System.Drawing.Color.Black;
+            this.tbxTel.ForeColor = System.Drawing.Color.White;
+            this.tbxTel.Location = new System.Drawing.Point(128, 153);
+            this.tbxTel.Name = "tbxTel";
+            this.tbxTel.ReadOnly = true;
+            this.tbxTel.Size = new System.Drawing.Size(285, 23);
+            this.tbxTel.TabIndex = 18;
             // 
             // lblMail
             // 
@@ -159,60 +159,60 @@ namespace WavContact.Views.Member
             this.lblMail.TabIndex = 19;
             this.lblMail.Text = "Mail";
             // 
-            // txtMail
+            // tbxMail
             // 
-            this.txtMail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMail.BackColor = System.Drawing.Color.Black;
-            this.txtMail.ForeColor = System.Drawing.Color.White;
-            this.txtMail.Location = new System.Drawing.Point(128, 207);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.ReadOnly = true;
-            this.txtMail.Size = new System.Drawing.Size(285, 23);
-            this.txtMail.TabIndex = 20;
+            this.tbxMail.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxMail.BackColor = System.Drawing.Color.Black;
+            this.tbxMail.ForeColor = System.Drawing.Color.White;
+            this.tbxMail.Location = new System.Drawing.Point(128, 202);
+            this.tbxMail.Name = "tbxMail";
+            this.tbxMail.ReadOnly = true;
+            this.tbxMail.Size = new System.Drawing.Size(285, 23);
+            this.tbxMail.TabIndex = 20;
             // 
-            // txtAdresseRue
+            // tbxAdresseRue
             // 
-            this.txtAdresseRue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtAdresseRue.BackColor = System.Drawing.Color.Black;
-            this.txtAdresseRue.ForeColor = System.Drawing.Color.White;
-            this.txtAdresseRue.Location = new System.Drawing.Point(128, 259);
-            this.txtAdresseRue.Name = "txtAdresseRue";
-            this.txtAdresseRue.ReadOnly = true;
-            this.txtAdresseRue.Size = new System.Drawing.Size(285, 23);
-            this.txtAdresseRue.TabIndex = 21;
+            this.tbxAdresseRue.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxAdresseRue.BackColor = System.Drawing.Color.Black;
+            this.tbxAdresseRue.ForeColor = System.Drawing.Color.White;
+            this.tbxAdresseRue.Location = new System.Drawing.Point(128, 255);
+            this.tbxAdresseRue.Name = "tbxAdresseRue";
+            this.tbxAdresseRue.ReadOnly = true;
+            this.tbxAdresseRue.Size = new System.Drawing.Size(285, 23);
+            this.tbxAdresseRue.TabIndex = 21;
             // 
-            // txtAdresseCP
+            // tbxAdresseCP
             // 
-            this.txtAdresseCP.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtAdresseCP.BackColor = System.Drawing.Color.Black;
-            this.txtAdresseCP.ForeColor = System.Drawing.Color.White;
-            this.txtAdresseCP.Location = new System.Drawing.Point(128, 317);
-            this.txtAdresseCP.Name = "txtAdresseCP";
-            this.txtAdresseCP.ReadOnly = true;
-            this.txtAdresseCP.Size = new System.Drawing.Size(78, 23);
-            this.txtAdresseCP.TabIndex = 22;
+            this.tbxAdresseCP.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxAdresseCP.BackColor = System.Drawing.Color.Black;
+            this.tbxAdresseCP.ForeColor = System.Drawing.Color.White;
+            this.tbxAdresseCP.Location = new System.Drawing.Point(128, 284);
+            this.tbxAdresseCP.Name = "tbxAdresseCP";
+            this.tbxAdresseCP.ReadOnly = true;
+            this.tbxAdresseCP.Size = new System.Drawing.Size(78, 23);
+            this.tbxAdresseCP.TabIndex = 22;
             // 
-            // txtAdresseVille
+            // tbxAdresseVille
             // 
-            this.txtAdresseVille.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtAdresseVille.BackColor = System.Drawing.Color.Black;
-            this.txtAdresseVille.ForeColor = System.Drawing.Color.White;
-            this.txtAdresseVille.Location = new System.Drawing.Point(247, 317);
-            this.txtAdresseVille.Name = "txtAdresseVille";
-            this.txtAdresseVille.ReadOnly = true;
-            this.txtAdresseVille.Size = new System.Drawing.Size(166, 23);
-            this.txtAdresseVille.TabIndex = 23;
+            this.tbxAdresseVille.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxAdresseVille.BackColor = System.Drawing.Color.Black;
+            this.tbxAdresseVille.ForeColor = System.Drawing.Color.White;
+            this.tbxAdresseVille.Location = new System.Drawing.Point(247, 284);
+            this.tbxAdresseVille.Name = "tbxAdresseVille";
+            this.tbxAdresseVille.ReadOnly = true;
+            this.tbxAdresseVille.Size = new System.Drawing.Size(166, 23);
+            this.tbxAdresseVille.TabIndex = 23;
             // 
-            // textBox1
+            // tbxNom
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(128, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(285, 23);
-            this.textBox1.TabIndex = 24;
+            this.tbxNom.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxNom.BackColor = System.Drawing.Color.Black;
+            this.tbxNom.ForeColor = System.Drawing.Color.White;
+            this.tbxNom.Location = new System.Drawing.Point(128, 67);
+            this.tbxNom.Name = "tbxNom";
+            this.tbxNom.ReadOnly = true;
+            this.tbxNom.Size = new System.Drawing.Size(285, 23);
+            this.tbxNom.TabIndex = 24;
             // 
             // label1
             // 
@@ -232,15 +232,15 @@ namespace WavContact.Views.Member
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(434, 398);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtAdresseVille);
-            this.Controls.Add(this.txtAdresseCP);
-            this.Controls.Add(this.txtAdresseRue);
-            this.Controls.Add(this.txtMail);
+            this.Controls.Add(this.tbxNom);
+            this.Controls.Add(this.tbxAdresseVille);
+            this.Controls.Add(this.tbxAdresseCP);
+            this.Controls.Add(this.tbxAdresseRue);
+            this.Controls.Add(this.tbxMail);
             this.Controls.Add(this.lblMail);
-            this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.tbxTel);
             this.Controls.Add(this.btnSauvegarder);
-            this.Controls.Add(this.txtNomMandant);
+            this.Controls.Add(this.tbxPrenom);
             this.Controls.Add(this.lblAdresseVille);
             this.Controls.Add(this.lblAdresseCP);
             this.Controls.Add(this.lblAdresseRue);
@@ -264,15 +264,15 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.Label lblAdresseRue;
         private System.Windows.Forms.Label lblAdresseCP;
         private System.Windows.Forms.Label lblAdresseVille;
-        private System.Windows.Forms.TextBox txtNomMandant;
+        private System.Windows.Forms.TextBox tbxPrenom;
         private System.Windows.Forms.Button btnSauvegarder;
-        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.TextBox tbxTel;
         private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.TextBox txtAdresseRue;
-        private System.Windows.Forms.TextBox txtAdresseCP;
-        private System.Windows.Forms.TextBox txtAdresseVille;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxMail;
+        private System.Windows.Forms.TextBox tbxAdresseRue;
+        private System.Windows.Forms.TextBox tbxAdresseCP;
+        private System.Windows.Forms.TextBox tbxAdresseVille;
+        private System.Windows.Forms.TextBox tbxNom;
         private System.Windows.Forms.Label label1;
     }
 }

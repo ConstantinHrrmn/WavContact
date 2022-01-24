@@ -67,9 +67,8 @@ namespace WavContact
             if (this.tbxEmail.Text.Length > 0 && this.tbxPassword.Text.Length > 0)
             {
                 //System.Diagnostics.Debug.WriteLine(WavContactPDO.Login(this.tbxEmail.Text, this.tbxPassword.Text));
-                
-                this.ctrl.PerformLogin(this.tbxEmail.Text, this.tbxPassword.Text);
-                this.Hide();
+                if (this.ctrl.PerformLogin(this.tbxEmail.Text, this.tbxPassword.Text))
+                    this.Hide();
             }
             else
             {
@@ -91,11 +90,11 @@ namespace WavContact
             this.BackColor = Darkmode.ChangeMode(this.Controls);
             if (this.BackColor == Color.Black)
             {
-                this.pbLogo.Image = Properties.Resources.blanc_vide_full;
+                this.pbLogo.Image = Properties.Resources.Illustration_sans_titre_2;
             }
             else
             {
-                this.pbLogo.Image = Properties.Resources.new_noir_bleu;
+                this.pbLogo.Image = Properties.Resources.Illustration_sans_titre;
             }
         }
 

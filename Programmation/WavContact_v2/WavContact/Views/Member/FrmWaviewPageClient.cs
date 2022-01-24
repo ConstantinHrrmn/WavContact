@@ -35,8 +35,13 @@ namespace WavContact.Views.Member
         }
 
         private void FrmWaviewPageClient_Load(object sender, EventArgs e)
-        {   
-            this.lblNomClient.Text = string.Format("{0}", this.ctrl.SelectedClient);
+        {
+            User u = this.ctrl.SelectedClient;
+            this.lblNomClient.Text = string.Format("{0}", u.ToString());
+            this.tbxNom.Text = u.Last_name;
+            this.tbxPrenom.Text = u.First_name;
+            this.tbxMail.Text = u.Email;
+            this.tbxTel.Text = u.Phone;
             this.SwitchMode();
             
         }
@@ -53,12 +58,12 @@ namespace WavContact.Views.Member
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            txtNomMandant.Enabled = true;
-            txtMail.Enabled = true;
-            txtTel.Enabled = true;
-            txtAdresseRue.Enabled = true;
-            txtAdresseVille.Enabled = true;
-            txtAdresseCP.Enabled = true;
+            tbxPrenom.Enabled = true;
+            tbxMail.Enabled = true;
+            tbxTel.Enabled = true;
+            tbxAdresseRue.Enabled = true;
+            tbxAdresseVille.Enabled = true;
+            tbxAdresseCP.Enabled = true;
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
@@ -66,12 +71,12 @@ namespace WavContact.Views.Member
             DialogResult res = MessageBox.Show("Modification d'éléments", "Es-tu sûr d'apporter ces modications ?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (res.Equals(DialogResult.Yes))
             {
-                txtNomMandant.Enabled = true;
-                txtMail.Enabled = true;
-                txtTel.Enabled = true;
-                txtAdresseRue.Enabled = true;
-                txtAdresseVille.Enabled = true;
-                txtAdresseCP.Enabled = true;
+                tbxPrenom.Enabled = true;
+                tbxMail.Enabled = true;
+                tbxTel.Enabled = true;
+                tbxAdresseRue.Enabled = true;
+                tbxAdresseVille.Enabled = true;
+                tbxAdresseCP.Enabled = true;
             }
             
         }

@@ -23,7 +23,7 @@ namespace WavContact.Controllers
 
         public void DisplayProjectInformationsInForm()
         {
-            //this.frm.DisplayProjectInformations(this.project);
+            this.frm.ShowData(this.project);
         }
     }
 }

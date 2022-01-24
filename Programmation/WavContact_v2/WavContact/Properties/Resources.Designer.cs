@@ -160,6 +160,26 @@ namespace WavContact.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Illustration_sans_titre {
+            get {
+                object obj = ResourceManager.GetObject("Illustration_sans_titre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Illustration_sans_titre_2 {
+            get {
+                object obj = ResourceManager.GetObject("Illustration_sans_titre 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] intro_waview {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WavContact.Controllers.Waview;
 using WavContact.Metier;
 using WavContact.Models;
 
@@ -14,9 +15,12 @@ namespace WavContact.Views.Member
 {
     public partial class FrmWaviewChat : Form
     {
+        private WaviewChatController wcc;
+
         public FrmWaviewChat()
         {
             InitializeComponent();
+            this.wcc = new WaviewChatController(this);
         }
 
         

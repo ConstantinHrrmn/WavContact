@@ -35,6 +35,24 @@ namespace WavContact.Views.Member
         public void SwitchMode()
         {
             this.BackColor = Darkmode.ChangeMode(this.Controls);
+
+            Color backcolor = Properties.Settings.Default.darkmode ? Color.Black : Color.White;
+            Color invertedColor = Properties.Settings.Default.darkmode ? Color.White : Color.Black;
+
+            tbxDescription.BackColor = backcolor;
+            tbxDescription.ForeColor = invertedColor;
+
+            lstLieux.BackColor = backcolor;
+            lstLieux.ForeColor = invertedColor;
+
+            lstDateTournages.BackColor = backcolor;
+            lstDateTournages.ForeColor = invertedColor;
+        }
+
+        public void ShowData(Project p)
+        {
+            this.lblProjectName.Text = p.Name;
+            this.tbxDescription.Text = p.Description;
         }
 
         private void btnOpenChatWaview_Click(object sender, EventArgs e)

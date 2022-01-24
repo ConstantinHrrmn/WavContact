@@ -30,11 +30,11 @@ namespace WavContact
         private void InitializeComponent()
         {
             this.tbxEmail = new System.Windows.Forms.TextBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSwitchMode = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,9 +42,9 @@ namespace WavContact
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.Black;
             this.tbxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxEmail.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
-            this.tbxEmail.Location = new System.Drawing.Point(93, 180);
+            this.tbxEmail.Location = new System.Drawing.Point(396, 171);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.PlaceholderText = "Email";
             this.tbxEmail.Size = new System.Drawing.Size(308, 29);
@@ -53,26 +53,13 @@ namespace WavContact
             this.tbxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxEmail.TextChanged += new System.EventHandler(this.textBoxes_TextChanged);
             // 
-            // pbLogo
-            // 
-            this.pbLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLogo.Image = global::WavContact.Properties.Resources.blanc_vide_full;
-            this.pbLogo.Location = new System.Drawing.Point(92, 49);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(309, 92);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 1;
-            this.pbLogo.TabStop = false;
-            // 
             // tbxPassword
             // 
             this.tbxPassword.BackColor = System.Drawing.Color.Black;
             this.tbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxPassword.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxPassword.ForeColor = System.Drawing.Color.White;
-            this.tbxPassword.Location = new System.Drawing.Point(93, 225);
+            this.tbxPassword.Location = new System.Drawing.Point(396, 216);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PlaceholderText = "Password";
             this.tbxPassword.Size = new System.Drawing.Size(308, 29);
@@ -85,12 +72,12 @@ namespace WavContact
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(172, 315);
+            this.btnLogin.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Location = new System.Drawing.Point(475, 304);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(146, 34);
+            this.btnLogin.Size = new System.Drawing.Size(146, 36);
             this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "LOGIN";
+            this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -98,7 +85,7 @@ namespace WavContact
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(413, 12);
+            this.btnSwitchMode.Location = new System.Drawing.Point(645, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
             this.btnSwitchMode.Size = new System.Drawing.Size(59, 29);
             this.btnSwitchMode.TabIndex = 8;
@@ -108,27 +95,38 @@ namespace WavContact
             // 
             // linkLabel1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(182, 282);
+            this.linkLabel1.LinkColor = System.Drawing.Color.Gray;
+            this.linkLabel1.Location = new System.Drawing.Point(475, 423);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(128, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(146, 15);
             this.linkLabel1.TabIndex = 9;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Mot de passe oublié ?";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Image = global::WavContact.Properties.Resources.Illustration_sans_titre_2;
+            this.pbLogo.Location = new System.Drawing.Point(-2, -3);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(724, 451);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 10;
+            this.pbLogo.TabStop = false;
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.ClientSize = new System.Drawing.Size(716, 447);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnSwitchMode);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbxPassword);
-            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.tbxEmail);
+            this.Controls.Add(this.pbLogo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -149,11 +147,11 @@ namespace WavContact
         #endregion
 
         private System.Windows.Forms.TextBox tbxEmail;
-        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSwitchMode;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
 

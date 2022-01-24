@@ -30,17 +30,18 @@ namespace WavContact.Views.Member
         private void InitializeComponent()
         {
             this.lblGestionStock = new System.Windows.Forms.Label();
-            this.lstListeClient = new System.Windows.Forms.ListBox();
+            this.lbMateriel = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxQuantite = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxPrix = new System.Windows.Forms.TextBox();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
+            this.cmbCategorie = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblGestionStock
@@ -54,16 +55,17 @@ namespace WavContact.Views.Member
             this.lblGestionStock.TabIndex = 7;
             this.lblGestionStock.Text = "Gestion des stocks";
             // 
-            // lstListeClient
+            // lbMateriel
             // 
-            this.lstListeClient.BackColor = System.Drawing.Color.Black;
-            this.lstListeClient.ForeColor = System.Drawing.Color.White;
-            this.lstListeClient.FormattingEnabled = true;
-            this.lstListeClient.ItemHeight = 15;
-            this.lstListeClient.Location = new System.Drawing.Point(8, 58);
-            this.lstListeClient.Name = "lstListeClient";
-            this.lstListeClient.Size = new System.Drawing.Size(289, 439);
-            this.lstListeClient.TabIndex = 11;
+            this.lbMateriel.BackColor = System.Drawing.Color.Black;
+            this.lbMateriel.ForeColor = System.Drawing.Color.White;
+            this.lbMateriel.FormattingEnabled = true;
+            this.lbMateriel.ItemHeight = 15;
+            this.lbMateriel.Location = new System.Drawing.Point(8, 58);
+            this.lbMateriel.Name = "lbMateriel";
+            this.lbMateriel.Size = new System.Drawing.Size(289, 439);
+            this.lbMateriel.TabIndex = 11;
+            this.lbMateriel.SelectedIndexChanged += new System.EventHandler(this.lbMateriel_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -76,16 +78,16 @@ namespace WavContact.Views.Member
             this.label1.TabIndex = 27;
             this.label1.Text = "Nom d\'affichage";
             // 
-            // textBox1
+            // tbxName
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(447, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(285, 23);
-            this.textBox1.TabIndex = 26;
+            this.tbxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxName.BackColor = System.Drawing.Color.Black;
+            this.tbxName.ForeColor = System.Drawing.Color.White;
+            this.tbxName.Location = new System.Drawing.Point(447, 139);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.ReadOnly = true;
+            this.tbxName.Size = new System.Drawing.Size(285, 23);
+            this.tbxName.TabIndex = 26;
             // 
             // label2
             // 
@@ -98,16 +100,16 @@ namespace WavContact.Views.Member
             this.label2.TabIndex = 29;
             this.label2.Text = "Description";
             // 
-            // textBox2
+            // tbxDescription
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.BackColor = System.Drawing.Color.Black;
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(447, 184);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(285, 23);
-            this.textBox2.TabIndex = 28;
+            this.tbxDescription.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxDescription.BackColor = System.Drawing.Color.Black;
+            this.tbxDescription.ForeColor = System.Drawing.Color.White;
+            this.tbxDescription.Location = new System.Drawing.Point(447, 184);
+            this.tbxDescription.Name = "tbxDescription";
+            this.tbxDescription.ReadOnly = true;
+            this.tbxDescription.Size = new System.Drawing.Size(285, 23);
+            this.tbxDescription.TabIndex = 28;
             // 
             // label3
             // 
@@ -120,16 +122,16 @@ namespace WavContact.Views.Member
             this.label3.TabIndex = 31;
             this.label3.Text = "Quantité";
             // 
-            // textBox3
+            // tbxQuantite
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox3.BackColor = System.Drawing.Color.Black;
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(447, 251);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(285, 23);
-            this.textBox3.TabIndex = 30;
+            this.tbxQuantite.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxQuantite.BackColor = System.Drawing.Color.Black;
+            this.tbxQuantite.ForeColor = System.Drawing.Color.White;
+            this.tbxQuantite.Location = new System.Drawing.Point(447, 251);
+            this.tbxQuantite.Name = "tbxQuantite";
+            this.tbxQuantite.ReadOnly = true;
+            this.tbxQuantite.Size = new System.Drawing.Size(285, 23);
+            this.tbxQuantite.TabIndex = 30;
             // 
             // label4
             // 
@@ -142,16 +144,16 @@ namespace WavContact.Views.Member
             this.label4.TabIndex = 33;
             this.label4.Text = "Prix";
             // 
-            // textBox4
+            // tbxPrix
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox4.BackColor = System.Drawing.Color.Black;
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(447, 295);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(285, 23);
-            this.textBox4.TabIndex = 32;
+            this.tbxPrix.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbxPrix.BackColor = System.Drawing.Color.Black;
+            this.tbxPrix.ForeColor = System.Drawing.Color.White;
+            this.tbxPrix.Location = new System.Drawing.Point(447, 295);
+            this.tbxPrix.Name = "tbxPrix";
+            this.tbxPrix.ReadOnly = true;
+            this.tbxPrix.Size = new System.Drawing.Size(285, 23);
+            this.tbxPrix.TabIndex = 32;
             // 
             // btnAjouter
             // 
@@ -177,31 +179,41 @@ namespace WavContact.Views.Member
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = false;
             // 
+            // cmbCategorie
+            // 
+            this.cmbCategorie.FormattingEnabled = true;
+            this.cmbCategorie.Location = new System.Drawing.Point(447, 341);
+            this.cmbCategorie.Name = "cmbCategorie";
+            this.cmbCategorie.Size = new System.Drawing.Size(285, 23);
+            this.cmbCategorie.TabIndex = 36;
+            // 
             // FrmWaviewGestionStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.cmbCategorie);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbxPrix);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbxQuantite);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbxDescription);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lstListeClient);
+            this.Controls.Add(this.tbxName);
+            this.Controls.Add(this.lbMateriel);
             this.Controls.Add(this.lblGestionStock);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewGestionStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion du stock matériel";
+            this.Load += new System.EventHandler(this.FrmWaviewGestionStock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,16 +221,17 @@ namespace WavContact.Views.Member
 
         #endregion
         private System.Windows.Forms.Label lblGestionStock;
-        private System.Windows.Forms.ListBox lstListeClient;
+        private System.Windows.Forms.ListBox lbMateriel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbxQuantite;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxPrix;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.ComboBox cmbCategorie;
     }
 }

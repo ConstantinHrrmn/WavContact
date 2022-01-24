@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 using WavContact.Models;
+using WavContact.Metier;
+using Nancy.Json;
 
 namespace WavContact.DB
 {
@@ -26,6 +28,8 @@ namespace WavContact.DB
         {
             string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
 
+            Debug.WriteLine("email : " + email);
+            Debug.WriteLine("pass : " + hashedPassword);
 
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("Email", email);
@@ -38,7 +42,7 @@ namespace WavContact.DB
             {
                 var a = response.Content.ReadAsStringAsync().Result;
                 JObject jo = JObject.Parse(a);
-                return new User((string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["idRole"]));
+                return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["idRole"]), (string)jo["phone"]);
             }
 
             return null;
@@ -46,14 +50,117 @@ namespace WavContact.DB
 
         private static List<Project> GetProjectsForUser(User u)
         {
-            List<Project> projects = new List<Project>();
-            Random rnd = new Random();
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Person", u.Id.ToString());
 
-            for (int i = 0; i < rnd.Next(10); i++)
-                projects.Add(new Project(string.Format("Projet de {0} n°{1}", u.Firstname, i)));
+            var response = hc.GetAsync(BASE_URL + "/project/").Result;
 
-            return projects;
+            // On vérifie que le code de retour est bien 200 => OK
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                //JObject jo = JObject.Parse(a);
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Project[] p = js.Deserialize<Project[]>(a);
+
+                List<Project> projects = new List<Project>();
+
+                foreach (Project item in p)
+                {
+                    projects.Add(item);
+                }
+
+                return projects;
+
+            }
+
+            return null;
         }
+
+        /// <summary>
+        /// Récupère tous les utilisateurs de la BDD
+        /// </summary>
+        /// <returns>Une liste d'utilisateurs</returns>
+        private static List<User> GetAllUsers()
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("All", "all");
+
+            var response = hc.GetAsync(BASE_URL + "/user").Result;
+
+            // On vérifie que le code de retour est bien 200 => OK
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                User[] persons = js.Deserialize<User[]>(a);
+
+                List<User> clients = new List<User>();
+
+                foreach (User item in persons)
+                {
+                    item.Projets = GetProjectsForUser(item);
+                    clients.Add(item);
+                }
+
+                return clients;
+            }
+
+            return null;
+        }
+
+        private static List<Materiel> GetAllMateriel()
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("All", "all");
+
+            var response = hc.GetAsync(BASE_URL + "/materiel").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Materiel[] matos = js.Deserialize<Materiel[]>(a);
+                //User[] persons = js.Deserialize<User[]>(a);
+
+                //List<User> clients = new List<User>();
+                List<Materiel> materiel = new List<Materiel>();
+
+                foreach (Materiel item in matos)
+                    materiel.Add(item);
+
+                return materiel;
+            }
+
+            return null;
+        }
+
+        private static List<CategorieMateriel> GetAllCategories()
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("All", "all");
+
+            var response = hc.GetAsync(BASE_URL + "/categoriemateriel").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                CategorieMateriel[] cate = js.Deserialize<CategorieMateriel[]>(a);
+                //User[] persons = js.Deserialize<User[]>(a);
+
+                //List<User> clients = new List<User>();
+                List<CategorieMateriel> categories = new List<CategorieMateriel>();
+
+                foreach (CategorieMateriel item in cate)
+                    categories.Add(item);
+
+                return categories;
+            }
+
+            return null;
+        }
+
 
         #endregion
 
@@ -80,17 +187,17 @@ namespace WavContact.DB
 
         public static List<User> Clients()
         {
-            List<User> users = new List<User>();
-            Random rnd = new Random();
+            return GetAllUsers();
+        }
 
-            for (int i = 0; i < rnd.Next(5,20); i++)
-            {
-                User u = new User(GenerateName(rnd.Next(5, 10)), GenerateName(rnd.Next(5, 10)), 3);
-                u.Projets = GetProjectsForUser(u);
-                users.Add(u);
-            }
+        public static List<Materiel> GetMateriel()
+        {
+            return GetAllMateriel();
+        }
 
-            return users;
+        public static List<CategorieMateriel> GetCategories()
+        {
+            return GetAllCategories();
         }
 
         public static string GenerateName(int len)
@@ -111,11 +218,35 @@ namespace WavContact.DB
             }
 
             return Name;
-
-
         }
 
+        public static string GenerateCode(int len)
+        {
+            Random r = new Random();
+            string[] consonants = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            string Name = "";
+            int b = 0; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
+            while (b < len)
+            {
+                Name += consonants[r.Next(consonants.Length)];
+                b++;
+            }
 
+            return Name;
+        }
+
+        /// <summary>
+        /// Permet d'envoyer un code par mail à l'utilisateur afin de pouvoir réinitialiser son mot de passe
+        /// </summary>
+        /// <param name="u">L'utilisateur à qui on souahite enovoyer le code</param>
+        /// <returns>Le code attendu par l'application / celui envoyé au client</returns>
+        public static int SendCodeEmail(string email)
+        {
+            string code = GenerateCode(4);
+            Debug.WriteLine(string.Format("Email => {0} || Code => {1}", email, code));
+            Mailing.SendMail(email);
+            return 0;
+        }
 
         #endregion
     }

@@ -36,7 +36,7 @@ namespace WavContact.Views.Member
             this.button1 = new System.Windows.Forms.Button();
             this.gpbProjet = new System.Windows.Forms.GroupBox();
             this.lstDateTournages = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lstLieux = new System.Windows.Forms.ListBox();
             this.lblLieu = new System.Windows.Forms.Label();
@@ -72,9 +72,9 @@ namespace WavContact.Views.Member
             // 
             this.btnOpenChatWaview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenChatWaview.ForeColor = System.Drawing.Color.White;
-            this.btnOpenChatWaview.Location = new System.Drawing.Point(381, 11);
+            this.btnOpenChatWaview.Location = new System.Drawing.Point(685, 11);
             this.btnOpenChatWaview.Name = "btnOpenChatWaview";
-            this.btnOpenChatWaview.Size = new System.Drawing.Size(391, 60);
+            this.btnOpenChatWaview.Size = new System.Drawing.Size(87, 60);
             this.btnOpenChatWaview.TabIndex = 12;
             this.btnOpenChatWaview.Text = "Ouvrir chat";
             this.btnOpenChatWaview.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@ namespace WavContact.Views.Member
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(293, 11);
+            this.button1.Location = new System.Drawing.Point(597, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 60);
             this.button1.TabIndex = 15;
@@ -106,7 +106,7 @@ namespace WavContact.Views.Member
             // 
             this.gpbProjet.BackColor = System.Drawing.Color.Black;
             this.gpbProjet.Controls.Add(this.lstDateTournages);
-            this.gpbProjet.Controls.Add(this.textBox1);
+            this.gpbProjet.Controls.Add(this.tbxDescription);
             this.gpbProjet.Controls.Add(this.lblDescription);
             this.gpbProjet.Controls.Add(this.lstLieux);
             this.gpbProjet.Controls.Add(this.lblLieu);
@@ -136,18 +136,18 @@ namespace WavContact.Views.Member
             this.lstDateTournages.Size = new System.Drawing.Size(360, 64);
             this.lstDateTournages.TabIndex = 40;
             // 
-            // textBox1
+            // tbxDescription
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(84, 23);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(360, 48);
-            this.textBox1.TabIndex = 13;
+            this.tbxDescription.BackColor = System.Drawing.Color.Black;
+            this.tbxDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxDescription.ForeColor = System.Drawing.Color.White;
+            this.tbxDescription.Location = new System.Drawing.Point(84, 23);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxDescription.Multiline = true;
+            this.tbxDescription.Name = "tbxDescription";
+            this.tbxDescription.ReadOnly = true;
+            this.tbxDescription.Size = new System.Drawing.Size(360, 48);
+            this.tbxDescription.TabIndex = 13;
             // 
             // lblDescription
             // 
@@ -233,6 +233,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.lblProjectName);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewProject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmWaviewProject";
             this.Load += new System.EventHandler(this.FrmWaviewProject_Load);
             this.gpbProjet.ResumeLayout(false);
@@ -251,7 +252,7 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox gpbProjet;
         private System.Windows.Forms.ListBox lstDateTournages;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.ListBox lstLieux;
         private System.Windows.Forms.Label lblLieu;

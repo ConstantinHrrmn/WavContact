@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WavContact.Views;
 using WavContact.DB;
+using System.Diagnostics;
 
 namespace WavContact
 {
@@ -19,6 +20,9 @@ namespace WavContact
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Debug.WriteLine(Properties.Settings.Default.email);
+            Debug.WriteLine(Properties.Settings.Default.password);
 
             if (Properties.Settings.Default.email == "")
             {

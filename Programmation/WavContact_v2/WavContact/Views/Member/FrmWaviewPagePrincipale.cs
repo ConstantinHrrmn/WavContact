@@ -88,7 +88,11 @@ namespace WavContact.Views
 
         private void lbProjets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ctrl.LoadProjectPage(this.lstListeProjets.SelectedItem as Project);
+            if (this.lstListeProjets.SelectedItem != null)
+            {
+                this.ctrl.LoadProjectPage(this.lstListeProjets.SelectedItem as Project);
+            }
+            
         }
         #endregion
 

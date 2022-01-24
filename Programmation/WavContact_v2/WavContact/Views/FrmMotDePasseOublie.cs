@@ -17,6 +17,7 @@ namespace WavContact.Views.Client
         public FrmMotDePasseOublie()
         {
             InitializeComponent();
+            this.SwitchMode();
         }
 
         public void SwitchMode()
@@ -52,6 +53,49 @@ namespace WavContact.Views.Client
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSendCode_Click(object sender, EventArgs e)
+        {
+            this.ChangeSecondPart();
+            WavContact.DB.WavContactPDO.SendCodeEmail(this.tbxEmail.Text);
+        }
+
+        private void ChangeButtonSendStatus()
+        {
+            this.btnSendCode.Enabled = this.tbxEmail.Text.Length > 1;
+        }
+
+        private void ChangeSecondPart()
+        {
+            this.lblCode.Enabled = true;
+            this.tbxCode.Enabled = true;
+
+            this.tbxMdp1.Enabled = true;
+            this.tbxMdp2.Enabled = true;
+
+            this.lblNouveauMotDePasse.Enabled = true;
+            this.lblConfirmationMotDePasse.Enabled = true;
+        }
+
+        private void ChangeValidateButton()
+        {
+            this.btnEnregistrer.Enabled = this.tbxCode.Text.Length > 1 && this.tbxMdp1.Text.Length > 1 && this.tbxMdp2.Text.Length > 1;
+        }
+
+        private void tbxCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.ChangeValidateButton();
+        }
+
+        private void tbxEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.ChangeButtonSendStatus();
+        }
+
+        private void FrmMotDePasseOublie_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
