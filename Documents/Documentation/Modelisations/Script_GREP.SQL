@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS RESERVATION
  
  ALTER TABLE RESERVATION
   ADD FOREIGN KEY (FK_PROJET_ID) 
-      REFERENCES PROJET (PROJET_ID) ;
+      REFERENCES PROJET (PROJET_ID) ;   
 
 # -----------------------------------------------------------------------------
 #       TABLE : DOCUMENT
