@@ -1,12 +1,17 @@
 DROP TABLE IF EXISTS LIEU;  
 
-DROP TABLE IF EXISTS POSITION;  
+DROP TABLE IF EXISTS PHOTO;
 
 DROP TABLE IF EXISTS TAG;  
 
+DROP TABLE IF EXISTS LIEU_HAS_TAG;
+
+DROP TABLE IF EXISTS LIEU_HAS_PHOTO; 
+
+
 
 # -----------------------------------------------------------------------------
-#       TABLE : TAG  -- on pourrait utiliser plusieurs fois un même tag
+#       TABLE : TAG
 # -----------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS TAG
@@ -19,42 +24,73 @@ CREATE TABLE IF NOT EXISTS TAG
 
 
 # -----------------------------------------------------------------------------
-#       TABLE : POSITION  -- on pourrait avoir plusieurs lieu pour une même position
+#       TABLE : PHOTO 
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS POSITION
+CREATE TABLE IF NOT EXISTS PHOTO
 (
-   POSITION_ID INTEGER NOT NULL AUTO_INCREMENT  ,
-   POSITION_LATITUDE DECIMAL(10)  , -- EN DEGRÉ DÉCIMAUX (PEUT ÊTRE NÉGATIF)
-   POSITION_LONGITUDE DECIMAL(10)  ,-- EN DEGRÉ DÉCIMAUX (PEUT ÊTRE NÉGATIF)
+   PHOTO_ID INTEGER NOT NULL AUTO_INCREMENT  ,
+   PHOTO_PATH VARCHAR(100)  ,
    PRIMARY KEY (POSITION_ID)
 );
 
 
 
 # -----------------------------------------------------------------------------
-#       TABLE : LIEU  -- TABLE fait
+#       TABLE : LIEU
 # -----------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS LIEU
 (
    LIEU_ID INTEGER NOT NULL AUTO_INCREMENT  ,
-   FK_POSITION_ID  INTEGER NOT NULL  ,
-   TYPE FK_TAG IS VARRAY(10) OF TAG.TAG_ID%TYPE,  -- Liste des types de lieu
    LIEU_NOM VARCHAR(60) NOT NULL  ,
    LIEU_DESCRIPTION VARCHAR(500) NOT NULL  ,
+   LIEU_LATITUDE DECIMAL(10)  , -- EN DEGRÉ DÉCIMAUX (PEUT ÊTRE NÉGATIF)
+   LIEU_LONGITUDE DECIMAL(10)  ,-- EN DEGRÉ DÉCIMAUX (PEUT ÊTRE NÉGATIF)
    LIEU_STATUT INTEGER NOT NULL  , -- 0 = inactif, 1 = actif, 2 = en attente
-   TYPE LIEU_PHOTO IS VARRAY(10) OF VARCHAR(100),  -- Liste de photos
    PRIMARY KEY (LIEU_ID)
 );
 
-ALTER TABLE LIEU
-  ADD FOREIGN KEY (FK_POSITION_ID)
-      REFERENCES POSITION (POSITION_ID) ;
-      
--- Je sais pas comment faire avec les VARRAY et je sais pas s'il y en a besoin
-    
-      
+
+# -----------------------------------------------------------------------------
+#       TABLE : LIEU_HAS_TAG
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS LIEU_HAS_TAG
+(
+   PK_FK_LIEU_ID INTEGER NOT NULL  ,
+   PK_FK_TAG_ID INTEGER NOT NULL  ,
+   PRIMARY KEY (PK_FK_LIEU_ID, PK_FK_TAG_ID)
+);
+
+ALTER TABLE LIEU_HAS_TAG
+   ADD FOREIGN KEY (PK_FK_LIEU_ID)
+       REFERENCES LIEU(PK_FK_LIEU_ID);
+       
+ALTER TABLE LIEU_HAS_TAG
+   ADD FOREIGN KEY (PK_FK_TAG_ID)
+       REFERENCES TAG(PK_FK_LIEU_ID);
+       
+       
+# -----------------------------------------------------------------------------
+#       TABLE : LIEU_HAS_PHOTO
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS LIEU_HAS_PHOTO
+(
+   PK_FK_LIEU_ID INTEGER NOT NULL  ,
+   PK_FK_PHOTO_ID INTEGER NOT NULL  ,
+   PRIMARY KEY (PK_FK_LIEU_ID, PK_FK_PHOTO_ID)
+);
+
+ALTER TABLE LIEU_HAS_PHOTO
+   ADD FOREIGN KEY (PK_FK_LIEU_ID)
+       REFERENCES LIEU(PK_FK_LIEU_ID);
+       
+ALTER TABLE LIEU_HAS_PHOTO
+   ADD FOREIGN KEY (PK_FK_PHOTO_ID)
+       REFERENCES TAG(PK_FK_LIEU_ID);
+     
 
 # -----------------------------------------------------------------------------
 #      INSERTIONS
