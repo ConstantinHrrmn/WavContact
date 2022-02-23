@@ -37,13 +37,13 @@ namespace WavContact.Controllers
             {
                 PropertiesManager.Login(email, password);
 
-                if (loggedInUser.IdRole == 2)
+                if (loggedInUser.IdRole == 0)
                 {
                     FrmWaviewPagePrincipale viewMember = new FrmWaviewPagePrincipale(loggedInUser);
                     viewMember.Show();
                     return true;
                 }
-                else if(loggedInUser.IdRole == 3)
+                else if(loggedInUser.IdRole == 1)
                 {
                     FrmClientPagePrincipale viewClient = new FrmClientPagePrincipale(loggedInUser);
                     viewClient.Show();

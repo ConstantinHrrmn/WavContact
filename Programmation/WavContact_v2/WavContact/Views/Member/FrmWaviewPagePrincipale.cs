@@ -112,10 +112,14 @@ namespace WavContact.Views
         {
             this.lstListeClients.Items.Clear();
 
-            foreach (User item in clients)
+            if (clients != null)
             {
-                this.lstListeClients.Items.Add(item);
+                foreach (User item in clients)
+                {
+                    this.lstListeClients.Items.Add(item);
+                }
             }
+            
         }
 
         /// <summary>

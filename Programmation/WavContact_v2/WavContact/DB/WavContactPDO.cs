@@ -13,7 +13,7 @@ namespace WavContact.DB
     public class WavContactPDO
     {
         #region VARIABLES
-        private static string BASE_URL = "https://waview.ch/wavcontact/api";
+        private static string BASE_URL = "https://waview.ch/wavcontact/apiv2";
         #endregion
 
         #region PRIVEES
@@ -28,22 +28,30 @@ namespace WavContact.DB
         {
             string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
 
+            Debug.WriteLine(hashedPassword);
+
             Debug.WriteLine("email : " + email);
             Debug.WriteLine("pass : " + hashedPassword);
 
             HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Login", "hey");
             hc.DefaultRequestHeaders.Add("Email", email);
             hc.DefaultRequestHeaders.Add("Password", hashedPassword);
 
-            var response = hc.GetAsync(BASE_URL + "/user/login").Result;
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
 
+            Debug.WriteLine(response);
+
+            
             // On vérifie que le code de retour est bien 200 => OK
             if (response.IsSuccessStatusCode)
             {
                 var a = response.Content.ReadAsStringAsync().Result;
+                Debug.WriteLine(a);
                 JObject jo = JObject.Parse(a);
-                return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["idRole"]), (string)jo["phone"]);
+                return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["roleNumber"]), (string)jo["phone"]);
             }
+            
 
             return null;
         }
