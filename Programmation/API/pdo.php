@@ -8,6 +8,7 @@ define("DB_NAME", "waview_chcontact");
 define("DB_USER", "waview_chcontact");
 define("DB_PASSWORD", "Waview2021_!");
 
+// PDO
 function database(){
     static $dbc = null;
 
