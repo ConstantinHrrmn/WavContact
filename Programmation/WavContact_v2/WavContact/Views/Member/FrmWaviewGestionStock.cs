@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using WavContact.Metier;
 using WavContact.Controllers.Member;
 using WavContact.Models;
+using System.Diagnostics;
 
 namespace WavContact.Views.Member
 {
@@ -33,38 +34,66 @@ namespace WavContact.Views.Member
         {
             this.lbMateriel.Items.Clear();
 
-            foreach (Materiel item in matos)
-                this.lbMateriel.Items.Add(item);
+            if(matos != null)
+            {
+                foreach (Materiel item in matos)
+                    this.lbMateriel.Items.Add(item);
+            }
+            
         }
 
         public void UpdateCatergories(List<CategorieMateriel> cate)
         {
             this.cmbCategorie.Items.Clear();
+            this.cmbFiltre.Items.Clear();
 
-            foreach (CategorieMateriel item in cate)
-                this.cmbCategorie.Items.Add(item);
+            if(cate != null)
+            {
+                this.cmbFiltre.Items.Add(new CategorieMateriel(0, "Tout"));
+                foreach (CategorieMateriel item in cate)
+                {
+                    this.cmbCategorie.Items.Add(item);
+                    this.cmbFiltre.Items.Add(item);
+                }
+                    
+            } 
         }
 
-        public void ShowMateriel(Materiel m)
+        public void ShowMateriel(Materiel m, int indexCate)
         {
             this.tbxName.Text = m.Nom;
             this.tbxDescription.Text = m.Description;
             this.tbxPrix.Text = m.Prix.ToString();
             this.tbxQuantite.Text = m.Quantite.ToString();
+
+            this.cmbCategorie.SelectedIndex = indexCate;
+
         }
 
         private void lbMateriel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Tuple<Materiel, CategorieMateriel, int> t = this.ctrl.SelectMateriel(this.lbMateriel.SelectedIndex);
+            //Tuple<Materiel, CategorieMateriel, int> t = this.ctrl.SelectMateriel(this.lbMateriel.SelectedIndex);
+            Tuple<Materiel, CategorieMateriel, int> t = this.ctrl.SelectMateriel(this.lbMateriel.SelectedItem as Materiel);
 
             Materiel m = t.Item1;
             CategorieMateriel cm = t.Item2;
             int index = t.Item3;
 
+            Debug.WriteLine(t);
+
             if (m != null)
             {
-                this.ShowMateriel(m);
+                this.ShowMateriel(m, index);
             }
+        }
+
+        private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ctrl.Filtrer(this.cmbFiltre.SelectedIndex);
+        }
+
+        private void lbMateriel_SelectedValueChanged(object sender, EventArgs e)
+        {
         }
     }
 }

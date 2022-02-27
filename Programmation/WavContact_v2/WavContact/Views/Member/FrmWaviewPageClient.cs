@@ -22,6 +22,8 @@ namespace WavContact.Views.Member
     {
         #region Variables privées
         private WaviewPageClientController ctrl;
+
+        private bool newClient;
         #endregion
 
 
@@ -32,17 +34,26 @@ namespace WavContact.Views.Member
         {
             InitializeComponent();
             this.ctrl = new WaviewPageClientController(this, u);
-        }
+            this.newClient = false;
 
-        private void FrmWaviewPageClient_Load(object sender, EventArgs e)
-        {
-            User u = this.ctrl.SelectedClient;
+            u = this.ctrl.SelectedClient;
             this.lblNomClient.Text = string.Format("{0}", u.ToString());
             this.tbxNom.Text = u.Last_name;
             this.tbxPrenom.Text = u.First_name;
             this.tbxMail.Text = u.Email;
             this.tbxTel.Text = u.Phone;
             this.SwitchMode();
+        }
+
+        public FrmWaviewPageClient()
+        {
+            InitializeComponent();
+            this.newClient = true;
+            this.SwitchMode();
+        }
+
+        private void FrmWaviewPageClient_Load(object sender, EventArgs e)
+        {
             
         }
 
@@ -68,16 +79,30 @@ namespace WavContact.Views.Member
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Modification d'éléments", "Es-tu sûr d'apporter ces modications ?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            if (res.Equals(DialogResult.Yes))
+            if(this.newClient == false)
             {
-                tbxPrenom.Enabled = true;
-                tbxMail.Enabled = true;
-                tbxTel.Enabled = true;
-                tbxAdresseRue.Enabled = true;
-                tbxAdresseVille.Enabled = true;
-                tbxAdresseCP.Enabled = true;
+                DialogResult res = MessageBox.Show("Modification d'éléments", "Es-tu sûr d'apporter ces modications ?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (res.Equals(DialogResult.Yes))
+                {
+                    tbxPrenom.Enabled = true;
+                    tbxMail.Enabled = true;
+                    tbxTel.Enabled = true;
+                    tbxAdresseRue.Enabled = true;
+                    tbxAdresseVille.Enabled = true;
+                    tbxAdresseCP.Enabled = true;
+                }
             }
+            else
+            {
+                DialogResult res = MessageBox.Show("Nouveau client", "Ajouter le nouveau client ?", MessageBoxButtons.OKCancel);
+                if (res.Equals(DialogResult.OK))
+                {
+                    
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            
             
         }
 

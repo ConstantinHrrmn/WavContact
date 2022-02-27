@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -83,7 +84,8 @@ namespace WavContact.Views
         #region SelectedIndexChange
         private void lbClients_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
+            if (this.lstListeClients.SelectedItem != null)
+                this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
         }
 
         private void lbProjets_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,6 +154,13 @@ namespace WavContact.Views
         {
             FrmWaviewGestionStock frmG = new FrmWaviewGestionStock();
             frmG.Show();
+        }
+
+        private void btnNewClient_Click(object sender, EventArgs e)
+        {
+            FrmWaviewPageClient frmC = new FrmWaviewPageClient();
+            DialogResult dr = frmC.ShowDialog();
+            Debug.WriteLine(dr);
         }
     }
 }

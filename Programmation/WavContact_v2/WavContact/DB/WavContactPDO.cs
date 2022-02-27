@@ -59,9 +59,9 @@ namespace WavContact.DB
         private static List<Project> GetProjectsForUser(User u)
         {
             HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Person", u.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Userid", u.Id.ToString());
 
-            var response = hc.GetAsync(BASE_URL + "/project/").Result;
+            var response = hc.GetAsync(BASE_URL + "/PROJET/read").Result;
 
             // On vérifie que le code de retour est bien 200 => OK
             if (response.IsSuccessStatusCode)
@@ -89,12 +89,12 @@ namespace WavContact.DB
         /// Récupère tous les utilisateurs de la BDD
         /// </summary>
         /// <returns>Une liste d'utilisateurs</returns>
-        private static List<User> GetAllUsers()
+        private static List<User> GetAllClients()
         {
             HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("All", "all");
+            hc.DefaultRequestHeaders.Add("All", "yes");
 
-            var response = hc.GetAsync(BASE_URL + "/user").Result;
+            var response = hc.GetAsync(BASE_URL + "/CLIENT/read").Result;
 
             // On vérifie que le code de retour est bien 200 => OK
             if (response.IsSuccessStatusCode)
@@ -122,7 +122,7 @@ namespace WavContact.DB
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("All", "all");
 
-            var response = hc.GetAsync(BASE_URL + "/materiel").Result;
+            var response = hc.GetAsync(BASE_URL + "/MATERIEL/read").Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -148,7 +148,7 @@ namespace WavContact.DB
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("All", "all");
 
-            var response = hc.GetAsync(BASE_URL + "/categoriemateriel").Result;
+            var response = hc.GetAsync(BASE_URL + "/CATEGORIE/read").Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -169,7 +169,10 @@ namespace WavContact.DB
             return null;
         }
 
-
+        private static User NewUser(User u)
+        {
+            return null;
+        }
         #endregion
 
         #region PUBLIQUES
@@ -195,7 +198,7 @@ namespace WavContact.DB
 
         public static List<User> Clients()
         {
-            return GetAllUsers();
+            return GetAllClients();
         }
 
         public static List<Materiel> GetMateriel()

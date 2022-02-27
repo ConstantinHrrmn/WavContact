@@ -31,25 +31,20 @@ namespace WavContact.Controllers.Member
             this.Frame.UpdateMateriel(this.Materiels);
         }
 
-        public Tuple<Materiel, CategorieMateriel, int> SelectMateriel(int index)
+        public Tuple<Materiel, CategorieMateriel, int> SelectMateriel(Materiel m)
         {
-            if (index >= 0 && index < this.Materiels.Count)
-            {
-                CategorieMateriel cm = GetCategorie(this.Materiels[index]);
+                CategorieMateriel cm = GetCategorie(m);
 
                 int i = 0;
 
                 if (cm != null)
                     i = this.Categories.IndexOf(cm);
                 else
-                    this.Materiels[index].IdCat = this.Categories[0].Id;
+                    m.IdCat = this.Categories[0].Id;
 
-                return Tuple.Create(this.Materiels[index], cm, i);
-            }
-            return null;
+                return Tuple.Create(m, cm, i);
+    
         }
-
-        
 
         public CategorieMateriel GetCategorie(Materiel m)
         {
@@ -68,6 +63,31 @@ namespace WavContact.Controllers.Member
         {
             this.Categories = WavContactPDO.GetCategories();
             this.Frame.UpdateCatergories(this.Categories);
+        }
+
+        public void Filtrer(int index)
+        {
+            CategorieMateriel categorie = null;
+            if (index == 0)
+            {
+                this.Frame.UpdateMateriel(this.Materiels);
+            }
+            else
+            {
+                categorie = this.Categories[index-1];
+
+                List<Materiel> filtered = new List<Materiel>();
+                foreach (Materiel item in this.Materiels)
+                {
+                    if (item.IdCat == categorie.Id)
+                    {
+                        filtered.Add(item);
+                    }
+                }
+
+                this.Frame.UpdateMateriel(filtered);
+            }
+           
         }
 
         public FrmWaviewGestionStock Frame { get => _frame; set => _frame = value; }
