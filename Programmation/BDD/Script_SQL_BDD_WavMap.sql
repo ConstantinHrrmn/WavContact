@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS TAG
 (
    TAG_ID INTEGER NOT NULL AUTO_INCREMENT  ,
    TAG_NOM VARCHAR(20)  ,
-   PRIMARY KEY (TYPE_LIEU_ID)
+   PRIMARY KEY (TAG_ID)
 );
 
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS PHOTO
 (
    PHOTO_ID INTEGER NOT NULL AUTO_INCREMENT  ,
    PHOTO_PATH VARCHAR(100)  ,
-   PRIMARY KEY (POSITION_ID)
+   PRIMARY KEY (PHOTO_ID)
 );
 
 
@@ -65,11 +65,11 @@ CREATE TABLE IF NOT EXISTS LIEU_HAS_TAG
 
 ALTER TABLE LIEU_HAS_TAG
    ADD FOREIGN KEY (PK_FK_LIEU_ID)
-       REFERENCES LIEU(PK_FK_LIEU_ID);
+       REFERENCES LIEU(LIEU_ID);
        
 ALTER TABLE LIEU_HAS_TAG
    ADD FOREIGN KEY (PK_FK_TAG_ID)
-       REFERENCES TAG(PK_FK_LIEU_ID);
+       REFERENCES TAG(TAG_ID);
        
        
 # -----------------------------------------------------------------------------
@@ -85,15 +85,10 @@ CREATE TABLE IF NOT EXISTS LIEU_HAS_PHOTO
 
 ALTER TABLE LIEU_HAS_PHOTO
    ADD FOREIGN KEY (PK_FK_LIEU_ID)
-       REFERENCES LIEU(PK_FK_LIEU_ID);
+       REFERENCES LIEU(LIEU_ID);
        
 ALTER TABLE LIEU_HAS_PHOTO
    ADD FOREIGN KEY (PK_FK_PHOTO_ID)
-       REFERENCES TAG(PK_FK_LIEU_ID);
+       REFERENCES TAG(TAG_ID);
      
-
-# -----------------------------------------------------------------------------
-#      INSERTIONS
-# -----------------------------------------------------------------------------
-
 
