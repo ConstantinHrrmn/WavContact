@@ -23,6 +23,15 @@ namespace WavContact.Models
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i">Id de la database</param>
+        /// <param name="em">Email</param>
+        /// <param name="fn">prenom</param>
+        /// <param name="ln">nom</param>
+        /// <param name="ri">Role de l'id</param>
+        /// <param name="ph">telephone</param>
         public User(int i, string em, string fn, string ln, int ri, string ph)
         {
             this.First_name = fn;

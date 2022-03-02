@@ -24,6 +24,9 @@ namespace WavContact.Views.Member
         private WaviewPageClientController ctrl;
 
         private bool newClient;
+        private User _client;
+
+        public User Client { get => _client; set => _client = value; }
         #endregion
 
 
@@ -97,13 +100,21 @@ namespace WavContact.Views.Member
                 DialogResult res = MessageBox.Show("Nouveau client", "Ajouter le nouveau client ?", MessageBoxButtons.OKCancel);
                 if (res.Equals(DialogResult.OK))
                 {
-                    
+                    string nom = tbxNom.Text;
+                    string prenom = tbxPrenom.Text;
+                    string email = tbxMail.Text;
+                    string tel = tbxTel.Text;
+                    string adresse = tbxAdresseRue.Text;
+                    string CP = tbxAdresseCP.Text;
+                    string ville = tbxAdresseVille.Text;
+
+                  
+                    this.Client = new User(-1, email, prenom, nom, 1, tel);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
+              
                 }
             }
-            
-            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -122,6 +133,10 @@ namespace WavContact.Views.Member
         {
             //this.ctrl.LoadProjectPage(this.lstListeProjet.SelectedItem as Project);
         }
-        
+
+        private void tbx_change(object sender, EventArgs e)
+        {
+            this.btnSauvegarder.Enabled = this.tbxNom.Text.Trim().Length > 0 && this.tbxPrenom.Text.Trim().Length > 0 && this.tbxMail.Text.Trim().Length > 0;
+        }
     }
 }

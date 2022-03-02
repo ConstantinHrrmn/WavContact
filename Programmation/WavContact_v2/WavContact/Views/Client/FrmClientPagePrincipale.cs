@@ -18,6 +18,7 @@ namespace WavContact.Views.Client
         public FrmClientPagePrincipale(User u)
         {
             InitializeComponent();
+            this.SwitchMode();
         }
 
         #region MouseMoving

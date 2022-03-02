@@ -128,7 +128,8 @@ namespace WavContact.Views.Member
             this.tbxPrenom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxPrenom.Name = "tbxPrenom";
             this.tbxPrenom.Size = new System.Drawing.Size(405, 31);
-            this.tbxPrenom.TabIndex = 16;
+            this.tbxPrenom.TabIndex = 2;
+            this.tbxPrenom.TextChanged += new System.EventHandler(this.tbx_change);
             // 
             // btnSauvegarder
             // 
@@ -139,7 +140,7 @@ namespace WavContact.Views.Member
             this.btnSauvegarder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(146, 48);
-            this.btnSauvegarder.TabIndex = 17;
+            this.btnSauvegarder.TabIndex = 8;
             this.btnSauvegarder.Text = "Sauvegarder";
             this.btnSauvegarder.UseVisualStyleBackColor = false;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
@@ -153,7 +154,7 @@ namespace WavContact.Views.Member
             this.tbxTel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxTel.Name = "tbxTel";
             this.tbxTel.Size = new System.Drawing.Size(405, 31);
-            this.tbxTel.TabIndex = 18;
+            this.tbxTel.TabIndex = 3;
             // 
             // lblMail
             // 
@@ -176,7 +177,8 @@ namespace WavContact.Views.Member
             this.tbxMail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxMail.Name = "tbxMail";
             this.tbxMail.Size = new System.Drawing.Size(405, 31);
-            this.tbxMail.TabIndex = 20;
+            this.tbxMail.TabIndex = 4;
+            this.tbxMail.TextChanged += new System.EventHandler(this.tbx_change);
             // 
             // tbxAdresseRue
             // 
@@ -187,7 +189,7 @@ namespace WavContact.Views.Member
             this.tbxAdresseRue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxAdresseRue.Name = "tbxAdresseRue";
             this.tbxAdresseRue.Size = new System.Drawing.Size(405, 31);
-            this.tbxAdresseRue.TabIndex = 21;
+            this.tbxAdresseRue.TabIndex = 5;
             // 
             // tbxAdresseCP
             // 
@@ -198,7 +200,7 @@ namespace WavContact.Views.Member
             this.tbxAdresseCP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxAdresseCP.Name = "tbxAdresseCP";
             this.tbxAdresseCP.Size = new System.Drawing.Size(110, 31);
-            this.tbxAdresseCP.TabIndex = 22;
+            this.tbxAdresseCP.TabIndex = 6;
             // 
             // tbxAdresseVille
             // 
@@ -209,7 +211,7 @@ namespace WavContact.Views.Member
             this.tbxAdresseVille.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxAdresseVille.Name = "tbxAdresseVille";
             this.tbxAdresseVille.Size = new System.Drawing.Size(235, 31);
-            this.tbxAdresseVille.TabIndex = 23;
+            this.tbxAdresseVille.TabIndex = 7;
             // 
             // tbxNom
             // 
@@ -220,7 +222,8 @@ namespace WavContact.Views.Member
             this.tbxNom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxNom.Name = "tbxNom";
             this.tbxNom.Size = new System.Drawing.Size(405, 31);
-            this.tbxNom.TabIndex = 24;
+            this.tbxNom.TabIndex = 1;
+            this.tbxNom.TextChanged += new System.EventHandler(this.tbx_change);
             // 
             // label1
             // 

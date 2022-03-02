@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 #region WAVCONTACT using
 using WavContact.Controllers;
+using WavContact.DB;
 using WavContact.Metier;
 using WavContact.Models;
 using WavContact.Views.Member;
@@ -160,7 +161,10 @@ namespace WavContact.Views
         {
             FrmWaviewPageClient frmC = new FrmWaviewPageClient();
             DialogResult dr = frmC.ShowDialog();
-            Debug.WriteLine(dr);
+            WavContactPDO.CreateClient(frmC.Client);
+
+            this.ctrl.UpdateClients();
+            Debug.WriteLine(frmC.Client);
         }
     }
 }

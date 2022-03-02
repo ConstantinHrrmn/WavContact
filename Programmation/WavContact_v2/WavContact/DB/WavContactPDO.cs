@@ -49,6 +49,7 @@ namespace WavContact.DB
                 var a = response.Content.ReadAsStringAsync().Result;
                 Debug.WriteLine(a);
                 JObject jo = JObject.Parse(a);
+                Debug.WriteLine(jo["roleNumber"]);
                 return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["roleNumber"]), (string)jo["phone"]);
             }
             
@@ -71,12 +72,17 @@ namespace WavContact.DB
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Project[] p = js.Deserialize<Project[]>(a);
 
+                
                 List<Project> projects = new List<Project>();
 
-                foreach (Project item in p)
+                if (p != null)
                 {
-                    projects.Add(item);
+                    foreach (Project item in p)
+                    {
+                        projects.Add(item);
+                    }
                 }
+                
 
                 return projects;
 
@@ -169,8 +175,18 @@ namespace WavContact.DB
             return null;
         }
 
-        private static User NewUser(User u)
+        private static User NewClient(User u)
         {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Nom", u.Last_name);
+            hc.DefaultRequestHeaders.Add("Prenom", u.First_name);
+            hc.DefaultRequestHeaders.Add("Email", u.Email);
+            hc.DefaultRequestHeaders.Add("Tel", u.Phone);
+            hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour"+u.Email));
+            hc.DefaultRequestHeaders.Add("Role", "1");
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
             return null;
         }
         #endregion
@@ -209,6 +225,11 @@ namespace WavContact.DB
         public static List<CategorieMateriel> GetCategories()
         {
             return GetAllCategories();
+        }
+
+        public static User CreateClient(User user)
+        {
+            return NewClient(user);
         }
 
         public static string GenerateName(int len)

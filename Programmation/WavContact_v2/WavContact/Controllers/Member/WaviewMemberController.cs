@@ -58,6 +58,11 @@ namespace WavContact.Controllers
             frm.Show();
         }
 
+        public void UpdateClients()
+        {
+            this.clients = WavContact.DB.WavContactPDO.Clients();
+            this.frm.LoadClients(this.clients);
+        }
 
     }
 }
