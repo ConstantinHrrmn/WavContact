@@ -45,10 +45,9 @@ namespace WavContact.Views.Client
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(622, 7);
-            this.btnSwitchMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSwitchMode.Location = new System.Drawing.Point(889, 12);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(45, 29);
+            this.btnSwitchMode.Size = new System.Drawing.Size(64, 48);
             this.btnSwitchMode.TabIndex = 30;
             this.btnSwitchMode.Text = "Light";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
@@ -60,9 +59,10 @@ namespace WavContact.Views.Client
             this.lblMenuPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.lblMenuPrincipal.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMenuPrincipal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMenuPrincipal.Location = new System.Drawing.Point(9, 77);
+            this.lblMenuPrincipal.Location = new System.Drawing.Point(13, 128);
+            this.lblMenuPrincipal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMenuPrincipal.Name = "lblMenuPrincipal";
-            this.lblMenuPrincipal.Size = new System.Drawing.Size(148, 37);
+            this.lblMenuPrincipal.Size = new System.Drawing.Size(224, 55);
             this.lblMenuPrincipal.TabIndex = 31;
             this.lblMenuPrincipal.Text = "Bonjour X !";
             // 
@@ -71,19 +71,19 @@ namespace WavContact.Views.Client
             this.lstProjet.BackColor = System.Drawing.Color.Black;
             this.lstProjet.ForeColor = System.Drawing.Color.White;
             this.lstProjet.FormattingEnabled = true;
-            this.lstProjet.ItemHeight = 15;
-            this.lstProjet.Location = new System.Drawing.Point(9, 167);
+            this.lstProjet.ItemHeight = 25;
+            this.lstProjet.Location = new System.Drawing.Point(13, 278);
+            this.lstProjet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstProjet.Name = "lstProjet";
-            this.lstProjet.Size = new System.Drawing.Size(218, 409);
+            this.lstProjet.Size = new System.Drawing.Size(310, 679);
             this.lstProjet.TabIndex = 32;
             // 
             // lblRecapProjet
             // 
             this.lblRecapProjet.AutoSize = true;
-            this.lblRecapProjet.Location = new System.Drawing.Point(9, 149);
-            this.lblRecapProjet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRecapProjet.Location = new System.Drawing.Point(13, 248);
             this.lblRecapProjet.Name = "lblRecapProjet";
-            this.lblRecapProjet.Size = new System.Drawing.Size(133, 15);
+            this.lblRecapProjet.Size = new System.Drawing.Size(201, 25);
             this.lblRecapProjet.TabIndex = 33;
             this.lblRecapProjet.Text = "Récapitulatif des projets";
             // 
@@ -91,7 +91,8 @@ namespace WavContact.Views.Client
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.Black;
             this.monthCalendar1.ForeColor = System.Drawing.Color.White;
-            this.monthCalendar1.Location = new System.Drawing.Point(562, 167);
+            this.monthCalendar1.Location = new System.Drawing.Point(803, 278);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(13, 15, 13, 15);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 35;
@@ -100,21 +101,22 @@ namespace WavContact.Views.Client
             // 
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(672, 7);
+            this.btnLogout.Location = new System.Drawing.Point(960, 12);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(118, 29);
+            this.btnLogout.Size = new System.Drawing.Size(169, 48);
             this.btnLogout.TabIndex = 37;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnChat
             // 
             this.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChat.ForeColor = System.Drawing.Color.White;
-            this.btnChat.Location = new System.Drawing.Point(8, 7);
-            this.btnChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChat.Location = new System.Drawing.Point(11, 12);
             this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(118, 29);
+            this.btnChat.Size = new System.Drawing.Size(169, 48);
             this.btnChat.TabIndex = 40;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = true;
@@ -124,10 +126,9 @@ namespace WavContact.Views.Client
             // 
             this.btnProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProjet.ForeColor = System.Drawing.Color.White;
-            this.btnProjet.Location = new System.Drawing.Point(131, 7);
-            this.btnProjet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProjet.Location = new System.Drawing.Point(187, 12);
             this.btnProjet.Name = "btnProjet";
-            this.btnProjet.Size = new System.Drawing.Size(118, 29);
+            this.btnProjet.Size = new System.Drawing.Size(169, 48);
             this.btnProjet.TabIndex = 41;
             this.btnProjet.Text = "Projet";
             this.btnProjet.UseVisualStyleBackColor = true;
@@ -137,10 +138,9 @@ namespace WavContact.Views.Client
             // 
             this.btnParametre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParametre.ForeColor = System.Drawing.Color.White;
-            this.btnParametre.Location = new System.Drawing.Point(253, 7);
-            this.btnParametre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnParametre.Location = new System.Drawing.Point(361, 12);
             this.btnParametre.Name = "btnParametre";
-            this.btnParametre.Size = new System.Drawing.Size(118, 29);
+            this.btnParametre.Size = new System.Drawing.Size(169, 48);
             this.btnParametre.TabIndex = 42;
             this.btnParametre.Text = "Paramètre";
             this.btnParametre.UseVisualStyleBackColor = true;
@@ -149,19 +149,18 @@ namespace WavContact.Views.Client
             // lblRdvClient
             // 
             this.lblRdvClient.AutoSize = true;
-            this.lblRdvClient.Location = new System.Drawing.Point(562, 149);
-            this.lblRdvClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRdvClient.Location = new System.Drawing.Point(803, 248);
             this.lblRdvClient.Name = "lblRdvClient";
-            this.lblRdvClient.Size = new System.Drawing.Size(148, 15);
+            this.lblRdvClient.Size = new System.Drawing.Size(226, 25);
             this.lblRdvClient.TabIndex = 43;
             this.lblRdvClient.Text = "Vos prochains rendez-vous";
             // 
             // FrmClientPagePrincipale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(1143, 1000);
             this.Controls.Add(this.lblRdvClient);
             this.Controls.Add(this.btnParametre);
             this.Controls.Add(this.btnProjet);
@@ -174,7 +173,6 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.btnSwitchMode);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "FrmClientPagePrincipale";
             this.Text = "Waview Client";

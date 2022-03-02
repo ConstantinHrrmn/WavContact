@@ -21,6 +21,7 @@ namespace WavContact.Views
 
         private void FrmParametre_Load(object sender, EventArgs e)
         {
+            this.SwitchMode();
         }
 
         #region MouseMoving

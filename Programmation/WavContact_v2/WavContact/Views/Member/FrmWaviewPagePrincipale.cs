@@ -86,7 +86,17 @@ namespace WavContact.Views
         private void lbClients_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.lstListeClients.SelectedItem != null)
+            {
                 this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
+                this.btnNewProject.Enabled = true;
+                this.btnInfosClients.Enabled = true;
+            }
+            else
+            {
+                this.btnNewProject.Enabled = false;
+                this.btnInfosClients.Enabled = false;
+            }
+                
         }
 
         private void lbProjets_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,10 +171,28 @@ namespace WavContact.Views
         {
             FrmWaviewPageClient frmC = new FrmWaviewPageClient();
             DialogResult dr = frmC.ShowDialog();
-            WavContactPDO.CreateClient(frmC.Client);
 
-            this.ctrl.UpdateClients();
-            Debug.WriteLine(frmC.Client);
+            if (dr == DialogResult.OK)
+            {
+                WavContactPDO.CreateClient(frmC.Client);
+
+                this.ctrl.UpdateClients();
+                Debug.WriteLine(frmC.Client);
+            }
+            
+        }
+
+        private void btnNewProject_Click(object sender, EventArgs e)
+        {
+            FrmWaviewNewProject frm = new FrmWaviewNewProject();
+            DialogResult dr = frm.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                Debug.WriteLine(frm.NouveauProjet);
+                WavContactPDO.CreateProject(frm.NouveauProjet, this.lstListeClients.SelectedItem as User);
+                this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
+            }
         }
     }
 }

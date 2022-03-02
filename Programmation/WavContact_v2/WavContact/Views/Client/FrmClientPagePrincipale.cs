@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WavContact.Controllers;
+using WavContact.Controllers.Clients;
 using WavContact.Metier;
 using WavContact.Models;
 
@@ -15,10 +16,11 @@ namespace WavContact.Views.Client
 {
     public partial class FrmClientPagePrincipale : Form
     {
+        private ClientPagePrincipaleControlleur ctrl;
         public FrmClientPagePrincipale(User u)
         {
             InitializeComponent();
-            this.SwitchMode();
+            this.ctrl = new ClientPagePrincipaleControlleur(this, u);
         }
 
         #region MouseMoving
@@ -49,6 +51,11 @@ namespace WavContact.Views.Client
             this.BackColor = Darkmode.ChangeMode(this.Controls);
         }
 
+        public void UpdateForm()
+        {
+            this.lblMenuPrincipal.Text = "Bonjour " + this.ctrl.ConnectedUser.First_name + " !";
+        }
+
         private void btnSwitchMode_Click(object sender, EventArgs e)
         {
             PropertiesManager.ChangeTheme();
@@ -62,7 +69,22 @@ namespace WavContact.Views.Client
 
         private void FrmClientPagePrincipale_Load(object sender, EventArgs e)
         {
-           
+            this.SwitchMode();
+            this.UpdateForm();
+            this.ctrl.UpdateProjects();
+        }
+
+        public void UpdateProjectList(List<Project> projets)
+        {
+            this.lstProjet.Items.Clear();
+
+            if (projets != null)
+            {
+                foreach (Project item in projets)
+                {
+                    this.lstProjet.Items.Add(item);
+                }
+            }
         }
 
         private void btnParametre_Click(object sender, EventArgs e)
@@ -81,6 +103,12 @@ namespace WavContact.Views.Client
         {
             //FrmProjet frm = new FrmProjet();
             //frm.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.ctrl.Logout();
+            Application.Restart();
         }
     }
 }

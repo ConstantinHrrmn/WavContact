@@ -40,7 +40,7 @@ namespace WavContact.Views
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnNewClient = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNewProject = new System.Windows.Forms.Button();
             this.btnInfosClients = new System.Windows.Forms.Button();
             this.btnGestionMateriel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -180,22 +180,25 @@ namespace WavContact.Views
             this.btnNewClient.UseVisualStyleBackColor = true;
             this.btnNewClient.Click += new System.EventHandler(this.btnNewClient_Click);
             // 
-            // button2
+            // btnNewProject
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(611, 1240);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 48);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Nouveau";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnNewProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewProject.Enabled = false;
+            this.btnNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewProject.ForeColor = System.Drawing.Color.White;
+            this.btnNewProject.Location = new System.Drawing.Point(611, 1240);
+            this.btnNewProject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNewProject.Name = "btnNewProject";
+            this.btnNewProject.Size = new System.Drawing.Size(120, 48);
+            this.btnNewProject.TabIndex = 18;
+            this.btnNewProject.Text = "Nouveau";
+            this.btnNewProject.UseVisualStyleBackColor = true;
+            this.btnNewProject.Click += new System.EventHandler(this.btnNewProject_Click);
             // 
             // btnInfosClients
             // 
             this.btnInfosClients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInfosClients.Enabled = false;
             this.btnInfosClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfosClients.ForeColor = System.Drawing.Color.White;
             this.btnInfosClients.Location = new System.Drawing.Point(13, 1240);
@@ -229,7 +232,7 @@ namespace WavContact.Views
             this.ClientSize = new System.Drawing.Size(1714, 1333);
             this.Controls.Add(this.btnGestionMateriel);
             this.Controls.Add(this.btnInfosClients);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnNewProject);
             this.Controls.Add(this.btnNewClient);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lstListeProjets);
@@ -266,7 +269,7 @@ namespace WavContact.Views
         private System.Windows.Forms.Button button1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnNewClient;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Button btnInfosClients;
         private System.Windows.Forms.Button btnGestionMateriel;
     }

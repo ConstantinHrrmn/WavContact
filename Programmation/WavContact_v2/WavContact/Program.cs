@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WavContact.Views;
 using WavContact.DB;
+using WavContact.Models;
 using System.Diagnostics;
+using WavContact.Views.Client;
 
 namespace WavContact
 {
@@ -30,7 +32,17 @@ namespace WavContact
             }
             else
             {
-                Application.Run(new FrmWaviewPagePrincipale(WavContactPDO.Login(Properties.Settings.Default.email, Properties.Settings.Default.password)));
+                User u = WavContactPDO.Login(Properties.Settings.Default.email, Properties.Settings.Default.password);
+
+                if (u.IdRole == 0)
+                {
+                    Application.Run(new FrmWaviewPagePrincipale(u));
+                }
+                else if(u.IdRole == 1)
+                {
+                    Application.Run(new FrmClientPagePrincipale(u));
+                }
+                
             }
         }
     }

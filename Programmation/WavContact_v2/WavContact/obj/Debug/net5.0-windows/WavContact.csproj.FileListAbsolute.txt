@@ -177,3 +177,4 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavC
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\Nancy.dll
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net5.0-windows\WavContact.Views.Member.FrmWaviewNewProject.resources

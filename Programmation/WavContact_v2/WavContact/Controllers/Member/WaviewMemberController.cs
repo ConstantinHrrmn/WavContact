@@ -44,6 +44,7 @@ namespace WavContact.Controllers
 
         public List<Project> GetProjectsForUser(User u)
         {
+            u.Projets = WavContact.DB.WavContactPDO.ProjectsForUser(u);
             return u.Projets;
         }
 

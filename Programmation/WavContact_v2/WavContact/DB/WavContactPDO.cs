@@ -189,6 +189,18 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
             return null;
         }
+
+        private static void NewProject(Project p, User owner)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Nom", p.Name);
+            hc.DefaultRequestHeaders.Add("Description", p.Description);
+            hc.DefaultRequestHeaders.Add("Client", owner.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Valider", p.Valider.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PROJET/create").Result;
+        }
         #endregion
 
         #region PUBLIQUES
@@ -231,6 +243,10 @@ namespace WavContact.DB
         {
             return NewClient(user);
         }
+        public static void CreateProject(Project p, User owner)
+        {
+            NewProject(p, owner);
+        }
 
         public static string GenerateName(int len)
         {
@@ -265,6 +281,11 @@ namespace WavContact.DB
             }
 
             return Name;
+        }
+
+        public static List<Project> ProjectsForUser(User u)
+        {
+            return GetProjectsForUser(u);
         }
 
         /// <summary>
