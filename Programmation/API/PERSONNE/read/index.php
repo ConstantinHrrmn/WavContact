@@ -16,6 +16,10 @@ else if (isset($headers['Allandroles'])) {
     echo json_encode(GetAllPersonsWithRole());
 }
 
+else if (isset($headers['Id'])){
+  echo json_encode(GetUserById($headers['Id']));
+}
+
 else if(isset($headers['Login'])){
     $emailOk = false;
     $passOk = false;

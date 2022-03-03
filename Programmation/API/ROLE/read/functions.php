@@ -7,7 +7,7 @@ include_once "../../pdo.php";
 // Photographe 2
 
 $r_Collaborateur = "SELECT * FROM `COLLABORATEUR` WHERE `FK_PERSONNE_ID` = ";
-$r_Client = "SELECT * FROM `CLIENT` WHERE `CLIENT_VALIDER` = 1 AND `FK_PERSONNE_ID` = ";
+$r_Client = "SELECT * FROM `CLIENT` WHERE `FK_PERSONNE_ID` = ";
 $r_Photographe = "SELECT * FROM `PHOTOGRAPHE` WHERE `FK_PERSONNE_ID` = ";
 
 $requetes = array(

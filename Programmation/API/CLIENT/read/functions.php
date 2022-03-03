@@ -44,3 +44,16 @@ function GetAllClients(){
     return $final;
   }
 }
+
+function GetClientId($idPerson){
+  $req = "SELECT `CLIENT_ID` as id FROM `CLIENT` WHERE `FK_PERSONNE_ID` = :id";
+  $query = database()->prepare($req);
+  $query->bindParam(':id', $idPerson, PDO::PARAM_STR);
+  $query->execute();
+  $matches = $query->fetch(PDO::FETCH_ASSOC);
+  if($matches == null){
+    return null;
+  }else{
+    return $matches['id'];
+  }
+}
