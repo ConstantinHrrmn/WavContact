@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "f74a38ce-93ea-4307-9fcb-a3d089012138",
+		"name": "WaveContact",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All persons and roles",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "allandroles",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://www.waview.ch/wavcontact/apiv2/PERSONNE/read/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"waview",
+						"ch"
+					],
+					"path": [
+						"wavcontact",
+						"apiv2",
+						"PERSONNE",
+						"read",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User with id 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Id",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://www.waview.ch/wavcontact/apiv2/PERSONNE/read/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"waview",
+						"ch"
+					],
+					"path": [
+						"wavcontact",
+						"apiv2",
+						"PERSONNE",
+						"read",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create client",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Nom",
+						"value": "Test",
+						"type": "default"
+					},
+					{
+						"key": "Prenom",
+						"value": "Test",
+						"type": "default"
+					},
+					{
+						"key": "Email",
+						"value": "test@test.test",
+						"type": "default"
+					},
+					{
+						"key": "Tel",
+						"value": "0123456789",
+						"type": "default"
+					},
+					{
+						"key": "Password",
+						"value": "CeciEstUnMotDePasseQuiNeVaPasFonctionner",
+						"type": "default"
+					},
+					{
+						"key": "Role",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://www.waview.ch/wavcontact/apiv2/PERSONNE/create/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"waview",
+						"ch"
+					],
+					"path": [
+						"wavcontact",
+						"apiv2",
+						"PERSONNE",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all clients and their projects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "All",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://www.waview.ch/wavcontact/apiv2/CLIENT/read/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"waview",
+						"ch"
+					],
+					"path": [
+						"wavcontact",
+						"apiv2",
+						"CLIENT",
+						"read",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create project for client with id 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Nom",
+						"value": "Mon super projet",
+						"type": "default"
+					},
+					{
+						"key": "Description",
+						"value": "Ceci est mon super projet du futur",
+						"type": "default"
+					},
+					{
+						"key": "Client",
+						"value": "2",
+						"type": "default"
+					},
+					{
+						"key": "Valider",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://www.waview.ch/wavcontact/apiv2/PROJET/create/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"waview",
+						"ch"
+					],
+					"path": [
+						"wavcontact",
+						"apiv2",
+						"PROJET",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all equipement",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "All",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://www.waview.ch/wavcontact/apiv2/MATERIEL/read/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"waview",
+						"ch"
+					],
+					"path": [
+						"wavcontact",
+						"apiv2",
+						"MATERIEL",
+						"read",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

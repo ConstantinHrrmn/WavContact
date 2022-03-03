@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "WavContact/1.0.0": {
         "dependencies": {
+          "FluentEmail.Core": "3.0.0",
           "FluentEmail.Smtp": "3.0.0",
           "Microsoft.AspNet.WebApi.Client": "5.2.7",
           "Nancy": "2.0.0",

@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj": {}
+    "C:\\Users\\coral\\OneDrive\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj": {
+    "C:\\Users\\coral\\OneDrive\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
+        "projectUniqueName": "C:\\Users\\coral\\OneDrive\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
         "projectName": "WavContact",
-        "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
-        "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\obj\\",
+        "projectPath": "C:\\Users\\coral\\OneDrive\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
+        "packagesPath": "C:\\Users\\coral\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\coral\\OneDrive\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\coral\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +45,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "FluentEmail.Core": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "FluentEmail.Smtp": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -75,7 +84,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
