@@ -14,7 +14,7 @@ using WavContact.Views.Member;
 
 namespace WavContact.Controllers
 {
-    class WaviewMemberController
+    public class WaviewMemberController
     {
         #region Variables privées
         private FrmWaviewPagePrincipale frm;

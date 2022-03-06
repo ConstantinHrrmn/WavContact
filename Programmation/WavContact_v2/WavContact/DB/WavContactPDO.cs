@@ -219,6 +219,7 @@ namespace WavContact.DB
             }
             catch (Exception ex)
             {
+                
                 return null;
             }
 
@@ -297,7 +298,7 @@ namespace WavContact.DB
         {
             string code = GenerateCode(4);
             Debug.WriteLine(string.Format("Email => {0} || Code => {1}", email, code));
-            Mailing.SendMail(email);
+            Mailing.SendMail(email, code);
             return 0;
         }
 

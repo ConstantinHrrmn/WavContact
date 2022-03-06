@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WavContact.Controllers
 {
-    class PropertiesManager
+    public class PropertiesManager
     {
         public static void Login(string email, string password)
         {

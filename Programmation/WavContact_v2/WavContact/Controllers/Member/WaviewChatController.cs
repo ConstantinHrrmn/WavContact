@@ -10,7 +10,7 @@ using WavContact.Models;
 
 namespace WavContact.Controllers.Waview
 {
-    class WaviewChatController
+    public class WaviewChatController
     {
         private FrmWaviewChat frm;
         private List<User> clients;

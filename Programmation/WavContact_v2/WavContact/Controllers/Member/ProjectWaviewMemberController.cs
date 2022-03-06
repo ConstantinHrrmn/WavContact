@@ -9,7 +9,7 @@ using WavContact.Views.Member;
 
 namespace WavContact.Controllers
 {
-    class ProjectWaviewMemberController
+    public class ProjectWaviewMemberController
     {
         private FrmWaviewProject frm;
         private Project project;

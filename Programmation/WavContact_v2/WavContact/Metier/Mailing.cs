@@ -12,27 +12,31 @@ using FluentEmail.Core;
 
 namespace WavContact.Metier
 {
-    class Mailing
+    public class Mailing
     {
 
-        public static void SendMail(string to)
+        public static void SendMail(string to, string pass)
         {
-            SmtpClient smtpClient = new SmtpClient("send.one.com", 465);
+            SmtpClient smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new System.Net.NetworkCredential("waviewrecovery@gmail.com", "Waview2022_!")
+            };
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("backup@waview.ch", "WaviewBackup");
-            // smtpClient.UseDefaultCredentials = true; // uncomment if you don't want to use the network credentials
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.EnableSsl = true;
             MailMessage mail = new MailMessage();
 
             //Setting From , To and CC
-            mail.From = new MailAddress("backup@waview.ch", "waview.ch");
+            mail.From = new MailAddress("waviewrecovery@gmail.com", "Waview Recovery");
             mail.To.Add(new MailAddress(to));
             mail.Subject = "Votre mot de passe";
-            mail.Body = "HELLO WORLD";
+            mail.Body = "Le code est : " + pass;
 
             
-            smtpClient.Send(mail);
+            smtp.Send(mail);
         }
     }
 }

@@ -16,7 +16,7 @@ using System.Diagnostics;
 
 namespace WavContact.Controllers
 {
-    class LoginController
+    public class LoginController
     {
         private FrmLogin frm;
 

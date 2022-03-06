@@ -15,6 +15,8 @@ namespace WavContact
         #region Variables privées
         private MovingForms mf;
         private LoginController ctrl;
+
+        public LoginController Ctrl { get => ctrl; set => ctrl = value; }
         #endregion
 
         /// <summary>
@@ -23,7 +25,7 @@ namespace WavContact
         public FrmLogin()
         {
             InitializeComponent();
-            this.ctrl = new LoginController(this);
+            this.Ctrl = new LoginController(this);
             this.mf = new MovingForms();
         }
 
@@ -63,11 +65,15 @@ namespace WavContact
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            this.PerformLogin();
+        }
+
+        public void PerformLogin()
+        {
             if (this.tbxEmail.Text.Length > 0 && this.tbxPassword.Text.Length > 0)
             {
                 //System.Diagnostics.Debug.WriteLine(WavContactPDO.Login(this.tbxEmail.Text, this.tbxPassword.Text));
-                if (this.ctrl.PerformLogin(this.tbxEmail.Text, this.tbxPassword.Text))
+                if (this.Ctrl.PerformLogin(this.tbxEmail.Text, this.tbxPassword.Text))
                     this.Hide();
             }
             else

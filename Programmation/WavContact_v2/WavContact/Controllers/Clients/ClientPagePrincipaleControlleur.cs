@@ -10,7 +10,7 @@ using WavContact.Views.Client;
 
 namespace WavContact.Controllers.Clients
 {
-    class ClientPagePrincipaleControlleur
+    public class ClientPagePrincipaleControlleur
     {
         private FrmClientPagePrincipale _form;
         private User _connectedUser;

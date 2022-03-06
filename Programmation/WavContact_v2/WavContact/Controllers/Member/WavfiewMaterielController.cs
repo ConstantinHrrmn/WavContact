@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace WavContact.Controllers.Member
 {
-    class WavfiewMaterielController
+    public class WavfiewMaterielController
     {
         private FrmWaviewGestionStock _frame;
         private List<Materiel> _materiels;

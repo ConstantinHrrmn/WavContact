@@ -143,7 +143,6 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavC
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\WavContact.runtimeconfig.json
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\WavContact.runtimeconfig.dev.json
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\WavContact.dll
-C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\ref\WavContact.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\WavContact.pdb
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\System.Net.Http.Formatting.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
@@ -218,3 +217,4 @@ C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact_v2\
 C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net5.0-windows\WavContact.csproj.CoreCompileInputs.cache
 C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net5.0-windows\WavContact.csproj.CopyComplete
 C:\Users\coral\OneDrive\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net5.0-windows\WavContact.genruntimeconfig.cache
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net5.0-windows\refint\WavContact.dll
