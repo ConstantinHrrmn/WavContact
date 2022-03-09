@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WavContact.Controllers;
 using WavContact.Metier;
+using WavContact.DB;
 
 namespace WavContact.Views.Client
 {
     public partial class FrmMotDePasseOublie : Form
     {
+
+        private string code = null;
+
         public FrmMotDePasseOublie()
         {
             InitializeComponent();
@@ -57,8 +61,17 @@ namespace WavContact.Views.Client
 
         private void btnSendCode_Click(object sender, EventArgs e)
         {
-            this.ChangeSecondPart();
-            WavContact.DB.WavContactPDO.SendCodeEmail(this.tbxEmail.Text);
+            if (WavContactPDO.UserExists(this.tbxEmail.Text))
+            {
+                this.ChangeSecondPart();
+
+                //Génération du code à envoyer au client + stockage du code
+                this.code = WavContactPDO.SendCodeEmail(this.tbxEmail.Text);
+            }
+            else
+            {
+                MessageBox.Show("Email doesn't match with any account...");
+            }
         }
 
         private void ChangeButtonSendStatus()
@@ -76,6 +89,9 @@ namespace WavContact.Views.Client
 
             this.lblNouveauMotDePasse.Enabled = true;
             this.lblConfirmationMotDePasse.Enabled = true;
+
+            this.tbxEmail.Enabled = false;
+            this.btnSendCode.Enabled=false;
         }
 
         private void ChangeValidateButton()
@@ -94,6 +110,11 @@ namespace WavContact.Views.Client
         }
 
         private void FrmMotDePasseOublie_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEnregistrer_Click(object sender, EventArgs e)
         {
 
         }
