@@ -57,6 +57,11 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère tous les projets d'un utilisateur
+        /// </summary>
+        /// <param name="u">L'utilisateur</param>
+        /// <returns>La liste de projets</returns>
         private static List<Project> GetProjectsForUser(User u)
         {
             HttpClient hc = new HttpClient();
@@ -201,6 +206,25 @@ namespace WavContact.DB
 
             var response = hc.GetAsync(BASE_URL + "/PROJET/create").Result;
         }
+
+        private static bool DoesUserExists(string email)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Email", email);
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                
+                if (a == "null")
+                    return false;
+            }
+            
+            return true;
+        }
+
         #endregion
 
         #region PUBLIQUES
@@ -225,6 +249,11 @@ namespace WavContact.DB
 
         }
 
+        public static bool UserExists(string email)
+        {
+            return DoesUserExists((string)email);
+        }
+
         public static List<User> Clients()
         {
             return GetAllClients();
@@ -244,6 +273,7 @@ namespace WavContact.DB
         {
             return NewClient(user);
         }
+
         public static void CreateProject(Project p, User owner)
         {
             NewProject(p, owner);
@@ -269,6 +299,11 @@ namespace WavContact.DB
             return Name;
         }
 
+        /// <summary>
+        /// Genère un code a chiffre avec un longueur donnée
+        /// </summary>
+        /// <param name="len">la longueur du code</param>
+        /// <returns>le string avec le code</returns>
         public static string GenerateCode(int len)
         {
             Random r = new Random();
@@ -284,6 +319,11 @@ namespace WavContact.DB
             return Name;
         }
 
+        /// <summary>
+        /// Récupère tous les projets pour un utilisateur
+        /// </summary>
+        /// <param name="u">L'utilisateur</param>
+        /// <returns>Une liste de projets</returns>
         public static List<Project> ProjectsForUser(User u)
         {
             return GetProjectsForUser(u);
@@ -294,12 +334,14 @@ namespace WavContact.DB
         /// </summary>
         /// <param name="u">L'utilisateur à qui on souahite enovoyer le code</param>
         /// <returns>Le code attendu par l'application / celui envoyé au client</returns>
-        public static int SendCodeEmail(string email)
+        public static string SendCodeEmail(string email)
         {
-            string code = GenerateCode(4);
+            string code = GenerateCode(6);
+
             Debug.WriteLine(string.Format("Email => {0} || Code => {1}", email, code));
             Mailing.SendMail(email, code);
-            return 0;
+
+            return code;
         }
 
         #endregion
