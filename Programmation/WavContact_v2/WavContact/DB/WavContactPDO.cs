@@ -207,6 +207,34 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/PROJET/create").Result;
         }
 
+        /// <summary>
+        /// Permet de mettre a jour le mot de passe d'un utilisateur avec son email
+        /// </summary>
+        /// <param name="email">l'email de l'utilisateur</param>
+        /// <param name="non_encrypted_password">le mot de passe non encrypté</param>
+        /// <returns>True si le mot de passe a bien été changé, False si non</returns>
+        private static bool UpdateUserPassword(string email, string non_encrypted_password)
+        {
+            string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
+
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Reset", "password");
+            hc.DefaultRequestHeaders.Add("Email", email);
+            hc.DefaultRequestHeaders.Add("Password", hashedPassword);
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/update/").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                Debug.WriteLine(a);
+
+                return a == "true";
+            }
+
+            return false;
+        }
+
         private static bool DoesUserExists(string email)
         {
             HttpClient hc = new HttpClient();
@@ -228,6 +256,17 @@ namespace WavContact.DB
         #endregion
 
         #region PUBLIQUES
+
+        /// <summary>
+        /// Permet de mettre a jour le mot de passe d'un utilisateur avec son email
+        /// </summary>
+        /// <param name="email">l'email de l'utilisateur</param>
+        /// <param name="non_encrypted_password">le mot de passe non encrypté</param>
+        /// <returns>True si le mot de passe a bien été changé, False si non</returns>
+        public static bool ResetUserPassword(string email, string non_encrypted_password)
+        {
+            return UpdateUserPassword(email, non_encrypted_password);
+        }
 
         /// <summary>
         /// Login utilisateur WavContact

@@ -9,19 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WavContact.Controllers;
 using WavContact.Metier;
+using WavContact.Models;
 
 namespace WavContact.Views
 {
     public partial class FrmParametre : Form
     {
-        public FrmParametre()
+        User user = null;
+        public FrmParametre(User u)
         {
             InitializeComponent();
+            this.user = u;
         }
 
         private void FrmParametre_Load(object sender, EventArgs e)
         {
             this.SwitchMode();
+
+            this.tbxNom.Text = this.user.Last_name;
+            this.tbxPrenom.Text = this.user.First_name;
+            this.tbxEmail.Text = this.user.Email;
+            this.tbxNumTelephone.Text = this.user.Phone;
         }
 
         #region MouseMoving

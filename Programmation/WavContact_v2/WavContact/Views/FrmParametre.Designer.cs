@@ -30,7 +30,6 @@ namespace WavContact.Views
         private void InitializeComponent()
         {
             this.lblParametre = new System.Windows.Forms.Label();
-            this.btnEnregistrer = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblSelectionLangue = new System.Windows.Forms.Label();
@@ -42,15 +41,17 @@ namespace WavContact.Views
             this.lblNouveauMdP = new System.Windows.Forms.Label();
             this.lblAncienMDP = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txtNumTelephone = new System.Windows.Forms.TextBox();
+            this.tbxNumTelephone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxPrenom = new System.Windows.Forms.TextBox();
             this.lblPrénom = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxNom = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,17 +69,6 @@ namespace WavContact.Views
             this.lblParametre.Size = new System.Drawing.Size(224, 55);
             this.lblParametre.TabIndex = 30;
             this.lblParametre.Text = "Paramètres";
-            // 
-            // btnEnregistrer
-            // 
-            this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
-            this.btnEnregistrer.Location = new System.Drawing.Point(558, 840);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(169, 48);
-            this.btnEnregistrer.TabIndex = 41;
-            this.btnEnregistrer.Text = "Enregistrer";
-            this.btnEnregistrer.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -112,6 +102,7 @@ namespace WavContact.Views
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnEnregistrer);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.txtNouveauMdp);
@@ -119,9 +110,9 @@ namespace WavContact.Views
             this.groupBox2.Controls.Add(this.lblNouveauMdP);
             this.groupBox2.Controls.Add(this.lblAncienMDP);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(13, 343);
+            this.groupBox2.Location = new System.Drawing.Point(13, 309);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(714, 206);
+            this.groupBox2.Size = new System.Drawing.Size(714, 259);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Changer mot de passe";
@@ -182,28 +173,29 @@ namespace WavContact.Views
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtEmail);
+            this.groupBox3.Controls.Add(this.tbxEmail);
             this.groupBox3.Controls.Add(this.lblEmail);
-            this.groupBox3.Controls.Add(this.txtNumTelephone);
+            this.groupBox3.Controls.Add(this.tbxNumTelephone);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.tbxPrenom);
             this.groupBox3.Controls.Add(this.lblPrénom);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.tbxNom);
             this.groupBox3.Controls.Add(this.lblNom);
+            this.groupBox3.Enabled = false;
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(13, 606);
+            this.groupBox3.Location = new System.Drawing.Point(13, 590);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(714, 191);
             this.groupBox3.TabIndex = 44;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Compte";
             // 
-            // txtEmail
+            // tbxEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(479, 121);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(208, 31);
-            this.txtEmail.TabIndex = 50;
+            this.tbxEmail.Location = new System.Drawing.Point(479, 121);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(208, 31);
+            this.tbxEmail.TabIndex = 50;
             // 
             // lblEmail
             // 
@@ -214,12 +206,12 @@ namespace WavContact.Views
             this.lblEmail.TabIndex = 49;
             this.lblEmail.Text = "Email";
             // 
-            // txtNumTelephone
+            // tbxNumTelephone
             // 
-            this.txtNumTelephone.Location = new System.Drawing.Point(153, 121);
-            this.txtNumTelephone.Name = "txtNumTelephone";
-            this.txtNumTelephone.Size = new System.Drawing.Size(204, 31);
-            this.txtNumTelephone.TabIndex = 48;
+            this.tbxNumTelephone.Location = new System.Drawing.Point(153, 121);
+            this.tbxNumTelephone.Name = "tbxNumTelephone";
+            this.tbxNumTelephone.Size = new System.Drawing.Size(204, 31);
+            this.tbxNumTelephone.TabIndex = 48;
             // 
             // label1
             // 
@@ -230,12 +222,12 @@ namespace WavContact.Views
             this.label1.TabIndex = 47;
             this.label1.Text = "N° téléphone";
             // 
-            // textBox2
+            // tbxPrenom
             // 
-            this.textBox2.Location = new System.Drawing.Point(479, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 31);
-            this.textBox2.TabIndex = 46;
+            this.tbxPrenom.Location = new System.Drawing.Point(479, 64);
+            this.tbxPrenom.Name = "tbxPrenom";
+            this.tbxPrenom.Size = new System.Drawing.Size(208, 31);
+            this.tbxPrenom.TabIndex = 46;
             // 
             // lblPrénom
             // 
@@ -246,12 +238,12 @@ namespace WavContact.Views
             this.lblPrénom.TabIndex = 45;
             this.lblPrénom.Text = "Prénom";
             // 
-            // textBox1
+            // tbxNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 31);
-            this.textBox1.TabIndex = 2;
+            this.tbxNom.Location = new System.Drawing.Point(153, 64);
+            this.tbxNom.Name = "tbxNom";
+            this.tbxNom.Size = new System.Drawing.Size(204, 31);
+            this.tbxNom.TabIndex = 2;
             // 
             // lblNom
             // 
@@ -262,16 +254,36 @@ namespace WavContact.Views
             this.lblNom.TabIndex = 1;
             this.lblNom.Text = "Nom";
             // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
+            this.btnEnregistrer.Location = new System.Drawing.Point(518, 192);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(169, 48);
+            this.btnEnregistrer.TabIndex = 42;
+            this.btnEnregistrer.Text = "Enregistrer";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 797);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(618, 25);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Afin de modifier vos informations, merci de contacter constantin@waview.ch";
+            // 
             // FrmParametre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(740, 907);
+            this.ClientSize = new System.Drawing.Size(740, 851);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.lblParametre);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -291,7 +303,6 @@ namespace WavContact.Views
 
         #endregion
         private System.Windows.Forms.Label lblParametre;
-        private System.Windows.Forms.Button btnEnregistrer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtNouveauMdp;
@@ -300,17 +311,19 @@ namespace WavContact.Views
         private System.Windows.Forms.Label lblAncienMDP;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblPrénom;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxNom;
         private System.Windows.Forms.Label lblNom;
-        private System.Windows.Forms.TextBox txtNumTelephone;
+        private System.Windows.Forms.TextBox tbxNumTelephone;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxPrenom;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblSelectionLangue;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Button btnEnregistrer;
+        private System.Windows.Forms.Label label3;
     }
 }

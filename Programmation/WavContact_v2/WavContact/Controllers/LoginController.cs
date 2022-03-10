@@ -31,8 +31,6 @@ namespace WavContact.Controllers
 
             User loggedInUser = WavContactPDO.Login(email, password);
 
-            Debug.WriteLine(loggedInUser.IdRole);
-
             //System.Diagnostics.Debug.WriteLine(loggedInUser);
 
             if (loggedInUser != null)

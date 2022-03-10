@@ -27,18 +27,6 @@ namespace Tests
             Assert.IsNotNull(u);
         }
 
-        /// <summary>
-        /// Le fait de ce connecter avec le mauvais mot de passe ou email retourne "NULL"
-        /// </summary>
-        [TestMethod]
-        public void LoginUserIncorrectReturnNull()
-        {
-            string email = "constantin@waview.ch";
-            string password = "thisisawrongpassword";
-            User u = WavContactPDO.Login(email, password);
-
-            Assert.IsNull(u);
-        }
         #endregion
 
         [TestMethod]
@@ -48,5 +36,21 @@ namespace Tests
 
             Assert.IsNotNull(clients);
         }
-    }
+
+        [TestMethod]
+        public void UserExists()
+        {
+            bool yes = WavContactPDO.UserExists("constantin@waview.ch");
+
+            Assert.IsTrue(yes);
+        }
+
+        [TestMethod]
+        public void ResetUserPassword()
+        {
+            bool yes = WavContactPDO.ResetUserPassword("luna@waview.ch", "yesyes");
+
+            Assert.IsTrue(yes);
+        }
+    } 
 }

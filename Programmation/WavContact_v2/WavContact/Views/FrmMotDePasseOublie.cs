@@ -116,7 +116,18 @@ namespace WavContact.Views.Client
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-
+            if (tbxCode.Text == this.code)
+            {
+                if (tbxMdp1.Text == tbxMdp2.Text)
+                {
+                    WavContactPDO.ResetUserPassword(tbxEmail.Text, tbxMdp1.Text);
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Code dosen't match... Try again");
+            }
         }
     }
 }

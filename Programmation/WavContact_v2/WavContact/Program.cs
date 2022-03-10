@@ -34,15 +34,21 @@ namespace WavContact
             {
                 User u = WavContactPDO.Login(Properties.Settings.Default.email, Properties.Settings.Default.password);
 
-                if (u.IdRole == 0)
+                if (u == null)
                 {
-                    Application.Run(new FrmWaviewPagePrincipale(u));
+                    Application.Run(new FrmLogin());
                 }
-                else if(u.IdRole == 1)
+                else
                 {
-                    Application.Run(new FrmClientPagePrincipale(u));
+                    if (u.IdRole == 0)
+                    {
+                        Application.Run(new FrmWaviewPagePrincipale(u));
+                    }
+                    else if (u.IdRole == 1)
+                    {
+                        Application.Run(new FrmClientPagePrincipale(u));
+                    }
                 }
-                
             }
         }
     }
