@@ -8,6 +8,10 @@ DROP TABLE IF EXISTS LIEU_HAS_TAG;
 
 DROP TABLE IF EXISTS LIEU_HAS_PHOTO; 
 
+DROP TABLE IF EXISTS CATEGORIE;
+
+DROP TABLE IF EXISTS STATUT;
+
 
 
 # -----------------------------------------------------------------------------
@@ -17,7 +21,7 @@ DROP TABLE IF EXISTS LIEU_HAS_PHOTO;
 CREATE TABLE IF NOT EXISTS CATEGORIE
 (
    CATEGORIE_ID INTEGER NOT NULL AUTO_INCREMENT  ,
-   CATEGORIE NOM VARCHAR(200) NOT NULL  ,
+   CATEGORIE_NOM VARCHAR(200) NOT NULL  ,
    PRIMARY KEY (CATEGORIE_ID)
 );
 
@@ -54,6 +58,17 @@ CREATE TABLE IF NOT EXISTS PHOTO
 );
 
 
+# -----------------------------------------------------------------------------
+#       TABLE : STATUT
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS STATUT
+(
+   STATUT_ID INTEGER NOT NULL AUTO_INCREMENT  ,
+   STATUT_NOM VARCHAR(200) NOT NULL  ,
+   PRIMARY KEY (STATUT_ID)
+);
+
 
 # -----------------------------------------------------------------------------
 #       TABLE : LIEU
@@ -62,14 +77,17 @@ CREATE TABLE IF NOT EXISTS PHOTO
 CREATE TABLE IF NOT EXISTS LIEU
 (
    LIEU_ID INTEGER NOT NULL AUTO_INCREMENT  ,
+   FK_LIEU_STATUT INTEGER NOT NULL  , -- 0 = inactif, 1 = actif, 2 = en attente
    LIEU_NOM VARCHAR(60) NOT NULL  ,
    LIEU_DESCRIPTION VARCHAR(500) NOT NULL  ,
    LIEU_LATITUDE DECIMAL(10)  , -- EN DEGRÉ DÉCIMAUX (PEUT ÊTRE NÉGATIF)
    LIEU_LONGITUDE DECIMAL(10)  ,-- EN DEGRÉ DÉCIMAUX (PEUT ÊTRE NÉGATIF)
-   LIEU_STATUT INTEGER NOT NULL  , -- 0 = inactif, 1 = actif, 2 = en attente
    PRIMARY KEY (LIEU_ID)
 );
 
+ALTER TABLE LIEU
+   ADD FOREIGN KEY (FK_LIEU_STATUT)
+       REFERENCES STATUT(STATUT_ID);
 
 
 # -----------------------------------------------------------------------------
