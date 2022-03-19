@@ -11,15 +11,34 @@ DROP TABLE IF EXISTS LIEU_HAS_PHOTO;
 
 
 # -----------------------------------------------------------------------------
+#       TABLE : CATEGORIE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS CATEGORIE
+(
+   CATEGORIE_ID INTEGER NOT NULL AUTO_INCREMENT  ,
+   CATEGORIE NOM VARCHAR(200) NOT NULL  ,
+   PRIMARY KEY (CATEGORIE_ID)
+);
+
+
+
+# -----------------------------------------------------------------------------
 #       TABLE : TAG
 # -----------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS TAG
 (
    TAG_ID INTEGER NOT NULL AUTO_INCREMENT  ,
+   FK_CATEGORIE_ID INTEGER(11) NOT NULL  ,
    TAG_NOM VARCHAR(20)  ,
    PRIMARY KEY (TAG_ID)
 );
+
+
+ALTER TABLE TAG
+   ADD FOREIGN KEY (FK_CATEGORIE_ID)
+       REFERENCES CATEGORIE(CATEGORIE_ID);
 
 
 
@@ -50,6 +69,7 @@ CREATE TABLE IF NOT EXISTS LIEU
    LIEU_STATUT INTEGER NOT NULL  , -- 0 = inactif, 1 = actif, 2 = en attente
    PRIMARY KEY (LIEU_ID)
 );
+
 
 
 # -----------------------------------------------------------------------------
@@ -91,4 +111,7 @@ ALTER TABLE LIEU_HAS_PHOTO
    ADD FOREIGN KEY (PK_FK_PHOTO_ID)
        REFERENCES TAG(TAG_ID);
      
+
+
+
 
