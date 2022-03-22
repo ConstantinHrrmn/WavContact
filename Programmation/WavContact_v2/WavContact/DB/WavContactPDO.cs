@@ -16,53 +16,172 @@ namespace WavContact.DB
         private static string BASE_URL = "https://waview.ch/wavcontact/apiv2";
         #endregion
 
-        #region PRIVEES
+        #region PUBLIQUES
+
+
+
+        #region SECURITY
 
         /// <summary>
-        /// Faire le login PRIVER d'une personne sur le serveur de WavContact
+        /// Permet de mettre a jour le mot de passe d'un utilisateur avec son email
         /// </summary>
-        /// <param name="email">L'email de l'utilisateur</param>
-        /// <param name="non_encrypted_password">Le mot de passe brut de l'utilisateur</param>
-        /// <returns>L'utilisateur si il est connecté, null si non</returns>
-        private static User LoginAsync(string email, string non_encrypted_password)
+        /// <param name="email">l'email de l'utilisateur</param>
+        /// <param name="non_encrypted_password">le mot de passe non encrypté</param>
+        /// <returns>True si le mot de passe a bien été changé, False si non</returns>
+        public static bool ResetUserPassword(string email, string non_encrypted_password)
         {
             string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
 
-            Debug.WriteLine(hashedPassword);
-
-            Debug.WriteLine("email : " + email);
-            Debug.WriteLine("pass : " + hashedPassword);
-
             HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Login", "hey");
+            hc.DefaultRequestHeaders.Add("Reset", "password");
             hc.DefaultRequestHeaders.Add("Email", email);
             hc.DefaultRequestHeaders.Add("Password", hashedPassword);
 
-            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/update/").Result;
 
-            Debug.WriteLine(response);
-
-            
-            // On vérifie que le code de retour est bien 200 => OK
             if (response.IsSuccessStatusCode)
             {
                 var a = response.Content.ReadAsStringAsync().Result;
                 Debug.WriteLine(a);
-                JObject jo = JObject.Parse(a);
-                Debug.WriteLine(jo["roleNumber"]);
-                return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["roleNumber"]), (string)jo["phone"]);
-            }
-            
 
+                return a == "true";
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Permet d'envoyer un code par mail à l'utilisateur afin de pouvoir réinitialiser son mot de passe
+        /// </summary>
+        /// <param name="u">L'utilisateur à qui on souahite enovoyer le code</param>
+        /// <returns>Le code attendu par l'application / celui envoyé au client</returns>
+        public static string SendCodeEmail(string email)
+        {
+            string code = GenerateCode(6);
+
+            Debug.WriteLine(string.Format("Email => {0} || Code => {1}", email, code));
+            Mailing.SendMail(email, code);
+
+            return code;
+        }
+
+        /// <summary>
+        /// Login utilisateur WavContact
+        /// </summary>
+        /// <param name="email">L'email de l'utilisateur</param>
+        /// <param name="non_encrypted_password">Le mot de passe de l'utilisateur</param>
+        /// <returns>User si il est trouvé, NULL si le login à échoué</returns>
+        public static User Login(string email, string non_encrypted_password)
+        {
+            try
+            {
+                string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
+
+                Debug.WriteLine(hashedPassword);
+
+                Debug.WriteLine("email : " + email);
+                Debug.WriteLine("pass : " + hashedPassword);
+
+                HttpClient hc = new HttpClient();
+                hc.DefaultRequestHeaders.Add("Login", "hey");
+                hc.DefaultRequestHeaders.Add("Email", email);
+                hc.DefaultRequestHeaders.Add("Password", hashedPassword);
+
+                var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+
+                Debug.WriteLine(response);
+
+
+                // On vérifie que le code de retour est bien 200 => OK
+                if (response.IsSuccessStatusCode)
+                {
+                    var a = response.Content.ReadAsStringAsync().Result;
+                    Debug.WriteLine(a);
+                    JObject jo = JObject.Parse(a);
+                    Debug.WriteLine(jo["roleNumber"]);
+                    return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["roleNumber"]), (string)jo["phone"]);
+                }
+
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                
+                return null;
+            }
+
+        }
+
+        #endregion
+
+
+
+
+        #region CREATE
+
+        /// <summary>
+        /// Création d'un utilisteur
+        /// </summary>
+        /// <param name="user">L'utilistateur à ajouter dans la BDD</param>
+        /// <returns>NULL</returns>
+        public static User CreateClient(User user)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Nom", user.Last_name);
+            hc.DefaultRequestHeaders.Add("Prenom", user.First_name);
+            hc.DefaultRequestHeaders.Add("Email", user.Email);
+            hc.DefaultRequestHeaders.Add("Tel", user.Phone);
+            hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour" + user.Email));
+            hc.DefaultRequestHeaders.Add("Role", "1");
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
             return null;
         }
 
         /// <summary>
-        /// Récupère tous les projets d'un utilisateur
+        /// Cération d'un projet pour un utilistateur
+        /// </summary>
+        /// <param name="p">le projet</param>
+        /// <param name="owner">l'utilisateur</param>
+        public static void CreateProject(Project p, User owner)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Nom", p.Name);
+            hc.DefaultRequestHeaders.Add("Description", p.Description);
+            hc.DefaultRequestHeaders.Add("Client", owner.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Valider", p.Valider.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PROJET/create").Result;
+        }
+        #endregion
+
+
+
+        #region UPDATE
+
+        /// <summary>
+        /// Met a jour l'utilistateur avec les nouvelles informations
+        /// </summary>
+        /// <param name="user">l'utilisateur à mettre à jour</param>
+        public static void UpdateUser(User user)
+        {
+
+        }
+
+        #endregion
+
+
+
+        #region GET
+        /// <summary>
+        /// Récupère tous les projets pour un utilisateur
         /// </summary>
         /// <param name="u">L'utilisateur</param>
-        /// <returns>La liste de projets</returns>
-        private static List<Project> GetProjectsForUser(User u)
+        /// <returns>Une liste de projets</returns>
+        public static List<Project> ProjectsForUser(User u)
         {
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("Userid", u.Id.ToString());
@@ -77,7 +196,7 @@ namespace WavContact.DB
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Project[] p = js.Deserialize<Project[]>(a);
 
-                
+
                 List<Project> projects = new List<Project>();
 
                 if (p != null)
@@ -87,7 +206,7 @@ namespace WavContact.DB
                         projects.Add(item);
                     }
                 }
-                
+
 
                 return projects;
 
@@ -97,10 +216,10 @@ namespace WavContact.DB
         }
 
         /// <summary>
-        /// Récupère tous les utilisateurs de la BDD
+        /// Récupère tous les clients
         /// </summary>
-        /// <returns>Une liste d'utilisateurs</returns>
-        private static List<User> GetAllClients()
+        /// <returns>La liste de tous les clients sous forme de list<User></returns>
+        public static List<User> Clients()
         {
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("All", "yes");
@@ -118,7 +237,7 @@ namespace WavContact.DB
 
                 foreach (User item in persons)
                 {
-                    item.Projets = GetProjectsForUser(item);
+                    item.Projets = ProjectsForUser(item);
                     clients.Add(item);
                 }
 
@@ -128,7 +247,11 @@ namespace WavContact.DB
             return null;
         }
 
-        private static List<Materiel> GetAllMateriel()
+        /// <summary>
+        /// Récupère la liste de tout le matériel
+        /// </summary>
+        /// <returns>La liste du matériel</returns>
+        public static List<Materiel> GetMateriel()
         {
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("All", "all");
@@ -154,7 +277,11 @@ namespace WavContact.DB
             return null;
         }
 
-        private static List<CategorieMateriel> GetAllCategories()
+        /// <summary>
+        /// Récupère la liste de toutes les catégories de matériel
+        /// </summary>
+        /// <returns>La liste des catégories</returns>
+        public static List<CategorieMateriel> GetCategories()
         {
             HttpClient hc = new HttpClient();
             hc.DefaultRequestHeaders.Add("All", "all");
@@ -179,145 +306,15 @@ namespace WavContact.DB
 
             return null;
         }
-
-        private static User NewClient(User u)
-        {
-            HttpClient hc = new HttpClient();
-
-            hc.DefaultRequestHeaders.Add("Nom", u.Last_name);
-            hc.DefaultRequestHeaders.Add("Prenom", u.First_name);
-            hc.DefaultRequestHeaders.Add("Email", u.Email);
-            hc.DefaultRequestHeaders.Add("Tel", u.Phone);
-            hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour"+u.Email));
-            hc.DefaultRequestHeaders.Add("Role", "1");
-
-            var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
-            return null;
-        }
-
-        private static void NewProject(Project p, User owner)
-        {
-            HttpClient hc = new HttpClient();
-
-            hc.DefaultRequestHeaders.Add("Nom", p.Name);
-            hc.DefaultRequestHeaders.Add("Description", p.Description);
-            hc.DefaultRequestHeaders.Add("Client", owner.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Valider", p.Valider.ToString());
-
-            var response = hc.GetAsync(BASE_URL + "/PROJET/create").Result;
-        }
-
-        /// <summary>
-        /// Permet de mettre a jour le mot de passe d'un utilisateur avec son email
-        /// </summary>
-        /// <param name="email">l'email de l'utilisateur</param>
-        /// <param name="non_encrypted_password">le mot de passe non encrypté</param>
-        /// <returns>True si le mot de passe a bien été changé, False si non</returns>
-        private static bool UpdateUserPassword(string email, string non_encrypted_password)
-        {
-            string hashedPassword = WavHash.ComputeSha256Hash(non_encrypted_password + email);
-
-            HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Reset", "password");
-            hc.DefaultRequestHeaders.Add("Email", email);
-            hc.DefaultRequestHeaders.Add("Password", hashedPassword);
-
-            var response = hc.GetAsync(BASE_URL + "/PERSONNE/update/").Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-                var a = response.Content.ReadAsStringAsync().Result;
-                Debug.WriteLine(a);
-
-                return a == "true";
-            }
-
-            return false;
-        }
-
-        private static bool DoesUserExists(string email)
-        {
-            HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Email", email);
-
-            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-                var a = response.Content.ReadAsStringAsync().Result;
-                
-                if (a == "null")
-                    return false;
-            }
-            
-            return true;
-        }
-
         #endregion
 
-        #region PUBLIQUES
+
 
         /// <summary>
-        /// Permet de mettre a jour le mot de passe d'un utilisateur avec son email
+        /// Génrère un nom aléatoire
         /// </summary>
-        /// <param name="email">l'email de l'utilisateur</param>
-        /// <param name="non_encrypted_password">le mot de passe non encrypté</param>
-        /// <returns>True si le mot de passe a bien été changé, False si non</returns>
-        public static bool ResetUserPassword(string email, string non_encrypted_password)
-        {
-            return UpdateUserPassword(email, non_encrypted_password);
-        }
-
-        /// <summary>
-        /// Login utilisateur WavContact
-        /// </summary>
-        /// <param name="email">L'email de l'utilisateur</param>
-        /// <param name="non_encrypted_password">Le mot de passe de l'utilisateur</param>
-        /// <returns>User si il est trouvé, NULL si le login à échoué</returns>
-        public static User Login(string email, string non_encrypted_password)
-        {
-            try
-            {
-                return LoginAsync(email, non_encrypted_password);
-            }
-            catch (Exception ex)
-            {
-                
-                return null;
-            }
-
-        }
-
-        public static bool UserExists(string email)
-        {
-            return DoesUserExists((string)email);
-        }
-
-        public static List<User> Clients()
-        {
-            return GetAllClients();
-        }
-
-        public static List<Materiel> GetMateriel()
-        {
-            return GetAllMateriel();
-        }
-
-        public static List<CategorieMateriel> GetCategories()
-        {
-            return GetAllCategories();
-        }
-
-        public static User CreateClient(User user)
-        {
-            return NewClient(user);
-        }
-
-        public static void CreateProject(Project p, User owner)
-        {
-            NewProject(p, owner);
-        }
-
+        /// <param name="len">la longueur du nom</param>
+        /// <returns>le nom généré</returns>
         public static string GenerateName(int len)
         {
             Random r = new Random();
@@ -359,29 +356,28 @@ namespace WavContact.DB
         }
 
         /// <summary>
-        /// Récupère tous les projets pour un utilisateur
+        /// Vérifie si un utilisateur éxiste en fonction de son email 
         /// </summary>
-        /// <param name="u">L'utilisateur</param>
-        /// <returns>Une liste de projets</returns>
-        public static List<Project> ProjectsForUser(User u)
+        /// <param name="email">l'email à vérifier</param>
+        /// <returns>True si l'utilisateur existe, False si non</returns>
+        public static bool UserExists(string email)
         {
-            return GetProjectsForUser(u);
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Email", email);
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+
+                if (a == "null")
+                    return false;
+            }
+
+            return true;
         }
 
-        /// <summary>
-        /// Permet d'envoyer un code par mail à l'utilisateur afin de pouvoir réinitialiser son mot de passe
-        /// </summary>
-        /// <param name="u">L'utilisateur à qui on souahite enovoyer le code</param>
-        /// <returns>Le code attendu par l'application / celui envoyé au client</returns>
-        public static string SendCodeEmail(string email)
-        {
-            string code = GenerateCode(6);
-
-            Debug.WriteLine(string.Format("Email => {0} || Code => {1}", email, code));
-            Mailing.SendMail(email, code);
-
-            return code;
-        }
 
         #endregion
     }

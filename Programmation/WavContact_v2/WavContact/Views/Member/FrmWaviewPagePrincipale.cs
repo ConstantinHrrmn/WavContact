@@ -158,7 +158,12 @@ namespace WavContact.Views
         private void btnInfosClients_Click(object sender, EventArgs e)
         {
             FrmWaviewPageClient frmC = new FrmWaviewPageClient(this.lstListeClients.SelectedItem as User);
-            frmC.ShowDialog();
+            DialogResult dr = frmC.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                Debug.WriteLine(frmC.Client);
+            }
         }
 
         private void btnGestionMateriel_Click(object sender, EventArgs e)

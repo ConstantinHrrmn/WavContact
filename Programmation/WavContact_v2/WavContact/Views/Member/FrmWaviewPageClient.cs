@@ -39,7 +39,7 @@ namespace WavContact.Views.Member
             this.ctrl = new WaviewPageClientController(this, u);
             this.newClient = false;
 
-            u = this.ctrl.SelectedClient;
+            this.Client = this.ctrl.SelectedClient;
             this.lblNomClient.Text = string.Format("{0}", u.ToString());
             this.tbxNom.Text = u.Last_name;
             this.tbxPrenom.Text = u.First_name;
@@ -87,12 +87,18 @@ namespace WavContact.Views.Member
                 DialogResult res = MessageBox.Show("Modification d'éléments", "Es-tu sûr d'apporter ces modications ?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (res.Equals(DialogResult.Yes))
                 {
-                    tbxPrenom.Enabled = true;
-                    tbxMail.Enabled = true;
-                    tbxTel.Enabled = true;
-                    tbxAdresseRue.Enabled = true;
-                    tbxAdresseVille.Enabled = true;
-                    tbxAdresseCP.Enabled = true;
+                    this.Client.Last_name = tbxNom.Text;
+                    this.Client.First_name = tbxPrenom.Text;
+                    this.Client.Email = tbxMail.Text;
+                    this.Client.Phone = tbxTel.Text;
+
+                    string adresse = tbxAdresseRue.Text;
+                    string CP = tbxAdresseCP.Text;
+                    string ville = tbxAdresseVille.Text;
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                    
                 }
             }
             else
