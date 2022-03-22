@@ -40,11 +40,12 @@ namespace WavContact.Views.Member
             this.txtListeMessage.BackColor = System.Drawing.Color.Black;
             this.txtListeMessage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtListeMessage.ForeColor = System.Drawing.Color.White;
-            this.txtListeMessage.Location = new System.Drawing.Point(236, 12);
+            this.txtListeMessage.Location = new System.Drawing.Point(337, 20);
+            this.txtListeMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtListeMessage.Multiline = true;
             this.txtListeMessage.Name = "txtListeMessage";
             this.txtListeMessage.ReadOnly = true;
-            this.txtListeMessage.Size = new System.Drawing.Size(419, 692);
+            this.txtListeMessage.Size = new System.Drawing.Size(597, 1151);
             this.txtListeMessage.TabIndex = 8;
             // 
             // lstListeClient
@@ -52,49 +53,53 @@ namespace WavContact.Views.Member
             this.lstListeClient.BackColor = System.Drawing.Color.Black;
             this.lstListeClient.ForeColor = System.Drawing.Color.White;
             this.lstListeClient.FormattingEnabled = true;
-            this.lstListeClient.ItemHeight = 15;
-            this.lstListeClient.Location = new System.Drawing.Point(12, 12);
+            this.lstListeClient.ItemHeight = 25;
+            this.lstListeClient.Location = new System.Drawing.Point(17, 20);
+            this.lstListeClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstListeClient.Name = "lstListeClient";
-            this.lstListeClient.Size = new System.Drawing.Size(218, 769);
+            this.lstListeClient.Size = new System.Drawing.Size(310, 1279);
             this.lstListeClient.TabIndex = 10;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(236, 749);
+            this.textBox1.Location = new System.Drawing.Point(337, 1248);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 32);
+            this.textBox1.Size = new System.Drawing.Size(464, 51);
             this.textBox1.TabIndex = 11;
             // 
             // btnEnvoye
             // 
             this.btnEnvoye.BackColor = System.Drawing.Color.Black;
             this.btnEnvoye.ForeColor = System.Drawing.Color.White;
-            this.btnEnvoye.Location = new System.Drawing.Point(568, 749);
+            this.btnEnvoye.Location = new System.Drawing.Point(811, 1248);
+            this.btnEnvoye.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEnvoye.Name = "btnEnvoye";
-            this.btnEnvoye.Size = new System.Drawing.Size(87, 32);
+            this.btnEnvoye.Size = new System.Drawing.Size(124, 53);
             this.btnEnvoye.TabIndex = 12;
             this.btnEnvoye.Text = "Envoyer";
             this.btnEnvoye.UseVisualStyleBackColor = false;
             // 
             // FrmWaviewChat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(675, 800);
+            this.ClientSize = new System.Drawing.Size(964, 1050);
             this.Controls.Add(this.btnEnvoye);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lstListeClient);
             this.Controls.Add(this.txtListeMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewChat";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chat";
+            this.Text = "Chats";
             this.Load += new System.EventHandler(this.FrmWaviewChat_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

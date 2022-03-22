@@ -171,10 +171,10 @@ namespace WavContact.Views.Member
             this.btnAjouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjouter.BackColor = System.Drawing.Color.Black;
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
-            this.btnAjouter.Location = new System.Drawing.Point(279, 838);
+            this.btnAjouter.Location = new System.Drawing.Point(244, 838);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(146, 48);
+            this.btnAjouter.Size = new System.Drawing.Size(181, 48);
             this.btnAjouter.TabIndex = 34;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = false;
@@ -184,10 +184,10 @@ namespace WavContact.Views.Member
             this.btnSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSupprimer.BackColor = System.Drawing.Color.Black;
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
-            this.btnSupprimer.Location = new System.Drawing.Point(124, 838);
+            this.btnSupprimer.Location = new System.Drawing.Point(58, 838);
             this.btnSupprimer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(146, 48);
+            this.btnSupprimer.Size = new System.Drawing.Size(178, 48);
             this.btnSupprimer.TabIndex = 35;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = false;
@@ -249,7 +249,7 @@ namespace WavContact.Views.Member
             this.MaximizeBox = false;
             this.Name = "FrmWaviewGestionStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestion du stock matériel";
+            this.Text = "Gestion du matériel";
             this.Load += new System.EventHandler(this.FrmWaviewGestionStock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

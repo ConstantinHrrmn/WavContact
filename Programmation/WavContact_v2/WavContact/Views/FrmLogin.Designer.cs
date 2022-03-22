@@ -42,7 +42,7 @@ namespace WavContact
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.Black;
             this.tbxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxEmail.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
             this.tbxEmail.Location = new System.Drawing.Point(396, 171);
             this.tbxEmail.Name = "tbxEmail";
@@ -57,7 +57,7 @@ namespace WavContact
             // 
             this.tbxPassword.BackColor = System.Drawing.Color.Black;
             this.tbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxPassword.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxPassword.ForeColor = System.Drawing.Color.White;
             this.tbxPassword.Location = new System.Drawing.Point(396, 216);
             this.tbxPassword.Name = "tbxPassword";
@@ -72,10 +72,10 @@ namespace WavContact
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.Location = new System.Drawing.Point(475, 304);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLogin.Location = new System.Drawing.Point(443, 304);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(146, 44);
+            this.btnLogin.Size = new System.Drawing.Size(178, 44);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;

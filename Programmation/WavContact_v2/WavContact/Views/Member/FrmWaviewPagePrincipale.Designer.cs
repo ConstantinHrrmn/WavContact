@@ -37,7 +37,7 @@ namespace WavContact.Views
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.lblProjets = new System.Windows.Forms.Label();
             this.lstListeProjets = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChats = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnNewClient = new System.Windows.Forms.Button();
             this.btnNewProject = new System.Windows.Forms.Button();
@@ -51,12 +51,12 @@ namespace WavContact.Views
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(1529, 15);
+            this.btnLogout.Location = new System.Drawing.Point(1523, 15);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(169, 48);
+            this.btnLogout.Size = new System.Drawing.Size(178, 48);
             this.btnLogout.TabIndex = 5;
-            this.btnLogout.Text = "Logout";
+            this.btnLogout.Text = "Déconnexion";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -77,12 +77,12 @@ namespace WavContact.Views
             this.btnSwitchMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(1436, 15);
+            this.btnSwitchMode.Location = new System.Drawing.Point(1346, 15);
             this.btnSwitchMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSwitchMode.Name = "btnSwitchMode";
-            this.btnSwitchMode.Size = new System.Drawing.Size(84, 48);
+            this.btnSwitchMode.Size = new System.Drawing.Size(169, 48);
             this.btnSwitchMode.TabIndex = 7;
-            this.btnSwitchMode.Text = "Light";
+            this.btnSwitchMode.Text = "Clair";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
             this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
             // 
@@ -153,19 +153,19 @@ namespace WavContact.Views
             this.lstListeProjets.TabIndex = 13;
             this.lstListeProjets.SelectedIndexChanged += new System.EventHandler(this.lbProjets_SelectedIndexChanged);
             // 
-            // button1
+            // btnChats
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1259, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 48);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Chats";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnChats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChats.ForeColor = System.Drawing.Color.White;
+            this.btnChats.Location = new System.Drawing.Point(1169, 14);
+            this.btnChats.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnChats.Name = "btnChats";
+            this.btnChats.Size = new System.Drawing.Size(169, 48);
+            this.btnChats.TabIndex = 14;
+            this.btnChats.Text = "Chats";
+            this.btnChats.UseVisualStyleBackColor = true;
+            this.btnChats.Click += new System.EventHandler(this.btnChats_Click);
             // 
             // btnNewClient
             // 
@@ -216,10 +216,10 @@ namespace WavContact.Views
             this.btnGestionMateriel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGestionMateriel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionMateriel.ForeColor = System.Drawing.Color.White;
-            this.btnGestionMateriel.Location = new System.Drawing.Point(989, 15);
+            this.btnGestionMateriel.Location = new System.Drawing.Point(983, 14);
             this.btnGestionMateriel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGestionMateriel.Name = "btnGestionMateriel";
-            this.btnGestionMateriel.Size = new System.Drawing.Size(261, 48);
+            this.btnGestionMateriel.Size = new System.Drawing.Size(178, 48);
             this.btnGestionMateriel.TabIndex = 20;
             this.btnGestionMateriel.Text = "Gestion du matériel";
             this.btnGestionMateriel.UseVisualStyleBackColor = true;
@@ -230,10 +230,10 @@ namespace WavContact.Views
             this.btnAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnAdmin.Location = new System.Drawing.Point(720, 15);
+            this.btnAdmin.Location = new System.Drawing.Point(797, 14);
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(261, 48);
+            this.btnAdmin.Size = new System.Drawing.Size(178, 48);
             this.btnAdmin.TabIndex = 21;
             this.btnAdmin.Text = "Administration";
             this.btnAdmin.UseVisualStyleBackColor = true;
@@ -243,13 +243,13 @@ namespace WavContact.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1714, 1307);
+            this.ClientSize = new System.Drawing.Size(1714, 1050);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnGestionMateriel);
             this.Controls.Add(this.btnInfosClients);
             this.Controls.Add(this.btnNewProject);
             this.Controls.Add(this.btnNewClient);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnChats);
             this.Controls.Add(this.lstListeProjets);
             this.Controls.Add(this.lblProjets);
             this.Controls.Add(this.monthCalendar1);
@@ -281,7 +281,7 @@ namespace WavContact.Views
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label lblProjets;
         private System.Windows.Forms.ListBox lstListeProjets;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnChats;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnNewClient;
         private System.Windows.Forms.Button btnNewProject;

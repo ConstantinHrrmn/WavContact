@@ -57,12 +57,14 @@ namespace WavContact.Views.Member
 
         private void btnOpenChatWaview_Click(object sender, EventArgs e)
         {
-
+            FrmWaviewChat frmChat = new FrmWaviewChat();
+            frmChat.Show();
         }
 
-        private void gpbProjet_Enter(object sender, EventArgs e)
+        private void btnMateriel_Click(object sender, EventArgs e)
         {
-
+            FrmWaviewGestionStock frmMateriel = new FrmWaviewGestionStock();
+            frmMateriel.Show();
         }
     }
 }

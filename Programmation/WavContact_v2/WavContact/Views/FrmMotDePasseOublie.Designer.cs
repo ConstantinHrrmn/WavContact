@@ -123,10 +123,10 @@ namespace WavContact.Views.Client
             this.btnEnregistrer.BackColor = System.Drawing.Color.Black;
             this.btnEnregistrer.Enabled = false;
             this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
-            this.btnEnregistrer.Location = new System.Drawing.Point(407, 510);
+            this.btnEnregistrer.Location = new System.Drawing.Point(343, 510);
             this.btnEnregistrer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(114, 53);
+            this.btnEnregistrer.Size = new System.Drawing.Size(178, 53);
             this.btnEnregistrer.TabIndex = 26;
             this.btnEnregistrer.Text = "Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = false;
@@ -150,10 +150,10 @@ namespace WavContact.Views.Client
             this.btnSendCode.BackColor = System.Drawing.Color.Black;
             this.btnSendCode.Enabled = false;
             this.btnSendCode.ForeColor = System.Drawing.Color.White;
-            this.btnSendCode.Location = new System.Drawing.Point(376, 200);
+            this.btnSendCode.Location = new System.Drawing.Point(341, 200);
             this.btnSendCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSendCode.Name = "btnSendCode";
-            this.btnSendCode.Size = new System.Drawing.Size(146, 53);
+            this.btnSendCode.Size = new System.Drawing.Size(181, 53);
             this.btnSendCode.TabIndex = 27;
             this.btnSendCode.Text = "Envoyer code";
             this.btnSendCode.UseVisualStyleBackColor = false;

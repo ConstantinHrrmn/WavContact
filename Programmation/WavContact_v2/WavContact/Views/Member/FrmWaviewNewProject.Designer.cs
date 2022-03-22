@@ -41,10 +41,10 @@ namespace WavContact.Views.Member
             this.btnSauvegarder.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSauvegarder.BackColor = System.Drawing.Color.Black;
             this.btnSauvegarder.ForeColor = System.Drawing.Color.White;
-            this.btnSauvegarder.Location = new System.Drawing.Point(435, 248);
+            this.btnSauvegarder.Location = new System.Drawing.Point(403, 248);
             this.btnSauvegarder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSauvegarder.Name = "btnSauvegarder";
-            this.btnSauvegarder.Size = new System.Drawing.Size(146, 48);
+            this.btnSauvegarder.Size = new System.Drawing.Size(178, 48);
             this.btnSauvegarder.TabIndex = 40;
             this.btnSauvegarder.Text = "Sauvegarder";
             this.btnSauvegarder.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@ namespace WavContact.Views.Member
             this.MinimizeBox = false;
             this.Name = "FrmWaviewNewProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New Project";
+            this.Text = "Nouveau projet";
             this.Load += new System.EventHandler(this.FrmWaviewNewProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -34,6 +34,7 @@ namespace WavContact.Views
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblSelectionLangue = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEnregistrer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.txtNouveauMdp = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@ namespace WavContact.Views
             this.tbxNom = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnEnregistrer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -116,6 +116,17 @@ namespace WavContact.Views
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Changer mot de passe";
+            // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
+            this.btnEnregistrer.Location = new System.Drawing.Point(509, 192);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(178, 48);
+            this.btnEnregistrer.TabIndex = 42;
+            this.btnEnregistrer.Text = "Enregistrer";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -253,17 +264,6 @@ namespace WavContact.Views
             this.lblNom.Size = new System.Drawing.Size(52, 25);
             this.lblNom.TabIndex = 1;
             this.lblNom.Text = "Nom";
-            // 
-            // btnEnregistrer
-            // 
-            this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
-            this.btnEnregistrer.Location = new System.Drawing.Point(518, 192);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(169, 48);
-            this.btnEnregistrer.TabIndex = 42;
-            this.btnEnregistrer.Text = "Enregistrer";
-            this.btnEnregistrer.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
