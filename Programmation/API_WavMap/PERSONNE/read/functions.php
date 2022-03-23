@@ -1,17 +1,8 @@
 <?php
 
-include_once "../../pdo.php";
 
-// On inclu les fonctions de Role afin de récupérer les roles
-include_once "../../ROLE/read/functions.php";
 
-// Return data :
-// id
-// last_name
-// first_name
-// email
-// password
-// phone
+
 function GetAllPersons(){
   $req = "SELECT `PERSONNE_ID` as id, `PERSONNE_NOM` as last_name, `PERSONNE_PRENOM` as first_name, `PERSONNE_MAIL` as email, `PERSONNE_MDP` as password, `PERSONNE_TEL` as phone FROM `PERSONNE`";
   $query = database()->prepare($req);

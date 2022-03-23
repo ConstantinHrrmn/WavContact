@@ -16,6 +16,8 @@ if (isset($headers['Email']) && isset($headers['Nom']) && isset($headers['Prenom
 
     $id = database()->lastInsertId();
 
+    var_dump($id);
+
     $idHash = hash("sha256", $id);
     $pass = hash("sha512", $idHash.$password);
 
