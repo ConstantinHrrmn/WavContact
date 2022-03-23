@@ -243,7 +243,7 @@ namespace WavContact.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1714, 1050);
+            this.ClientSize = new System.Drawing.Size(1714, 1301);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnGestionMateriel);
             this.Controls.Add(this.btnInfosClients);

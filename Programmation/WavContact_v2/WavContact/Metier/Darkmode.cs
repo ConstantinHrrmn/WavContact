@@ -27,7 +27,7 @@ namespace WavContact.Metier
 
                 if (item.Name == "btnSwitchMode")
                 {
-                    item.Text = Properties.Settings.Default.darkmode ? "Light" : "Dark";
+                    item.Text = Properties.Settings.Default.darkmode ? "Clair" : "Foncé";
                 }
             }
 
