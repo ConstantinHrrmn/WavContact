@@ -40,11 +40,11 @@ namespace WavContact
                 }
                 else
                 {
-                    if (u.IdRole == 0)
+                    if (u.IdRole == 1)
                     {
                         Application.Run(new FrmWaviewPagePrincipale(u));
                     }
-                    else if (u.IdRole == 1)
+                    else if (u.IdRole == 2)
                     {
                         Application.Run(new FrmClientPagePrincipale(u));
                     }

@@ -30,6 +30,7 @@ namespace Tests
 
             Assert.IsTrue(WavContactPDO.GenerateCode(len).Length == len);
         }
+        
 
         [TestMethod]
         public void SendEmail()
@@ -42,5 +43,7 @@ namespace Tests
 
             Assert.IsTrue(true);
         }
+
+        
     }
 }

@@ -16,10 +16,6 @@ namespace WavContact.DB
         private static string BASE_URL = "https://waview.ch/wavcontact/apiv2";
         #endregion
 
-        #region PUBLIQUES
-
-
-
         #region SECURITY
 
         /// <summary>
@@ -115,9 +111,6 @@ namespace WavContact.DB
 
         #endregion
 
-
-
-
         #region CREATE
 
         /// <summary>
@@ -134,7 +127,7 @@ namespace WavContact.DB
             hc.DefaultRequestHeaders.Add("Email", user.Email);
             hc.DefaultRequestHeaders.Add("Tel", user.Phone);
             hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour" + user.Email));
-            hc.DefaultRequestHeaders.Add("Role", "1");
+            hc.DefaultRequestHeaders.Add("Role", "2");
 
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
             return null;
@@ -156,9 +149,25 @@ namespace WavContact.DB
 
             var response = hc.GetAsync(BASE_URL + "/PROJET/create").Result;
         }
+
+        /// <summary>
+        /// Création d'un nouveau materiel
+        /// </summary>
+        /// <param name="m">Le matériel à ajouter dans la base de données</param>
+        public static void CreateMaterial(Materiel m)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Nom", m.Nom);
+            hc.DefaultRequestHeaders.Add("Description", m.Description);
+            hc.DefaultRequestHeaders.Add("Prix", m.Prix.ToString());
+            hc.DefaultRequestHeaders.Add("Quantite", m.Quantite.ToString());
+            hc.DefaultRequestHeaders.Add("Categorie", m.IdCat.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/MATERIEL/create").Result;
+        }
+       
         #endregion
-
-
 
         #region UPDATE
 
@@ -168,14 +177,85 @@ namespace WavContact.DB
         /// <param name="user">l'utilisateur à mettre à jour</param>
         public static void UpdateUser(User user)
         {
+            // Update user
+            HttpClient hc = new HttpClient();
 
+            hc.DefaultRequestHeaders.Add("Update", "Update");
+            hc.DefaultRequestHeaders.Add("Id", user.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Lastname", user.Last_name);
+            hc.DefaultRequestHeaders.Add("Firstname", user.First_name);
+            hc.DefaultRequestHeaders.Add("Phone", user.Phone);
+            hc.DefaultRequestHeaders.Add("Role", user.IdRole.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/update").Result;
+        }
+
+        // Update project
+        public static void UpdateProject(Project p)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Update", "Update");
+            hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Name", p.Name);
+            hc.DefaultRequestHeaders.Add("Description", p.Description);
+            hc.DefaultRequestHeaders.Add("Valider", p.Valider.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PROJET/update").Result;
+        }
+
+        /// <summary>
+        /// Mise à jour d'un matériel
+        /// </summary>
+        /// <param name="m">Le matériel à mettre a jour</param>
+        public static void UpdateMaterial(Materiel m)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Nom", m.Nom);
+            hc.DefaultRequestHeaders.Add("Description", m.Description);
+            hc.DefaultRequestHeaders.Add("Prix", m.Prix.ToString());
+            hc.DefaultRequestHeaders.Add("Quantite", m.Quantite.ToString());
+            hc.DefaultRequestHeaders.Add("Categorie", m.IdCat.ToString());
+            hc.DefaultRequestHeaders.Add("Id", m.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/MATERIEL/update").Result;
         }
 
         #endregion
 
+        #region DELETE
 
+        /// <summary>
+        /// Supprimer un utilisateur
+        /// </summary>
+        /// <param name="user">L'utilisateur a supprimer</param>
+        public static void DeleteUser(User user)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Id", user.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/delete").Result;
+        }
+
+        /// <summary>
+        /// Suprression d'un matériel
+        /// </summary>
+        /// <param name="m">Le matériel à supprimer</param>
+        public static void DeleteMaterial(Materiel m)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Id", m.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/MATERIEL/delete").Result;
+        }
+
+        #endregion
 
         #region GET
+        
         /// <summary>
         /// Récupère tous les projets pour un utilisateur
         /// </summary>
@@ -306,10 +386,60 @@ namespace WavContact.DB
 
             return null;
         }
+
+        /// <summary>
+        /// Get a user by its email
+        /// </summary>
+        /// <param name="email">The email of the user</param>
+        /// <returns>The user corresponding to the email if found, else NULL</returns>
+        public static User GetUserByEmail(string email)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Email", email);
+            hc.DefaultRequestHeaders.Add("Infos", "Infos");
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+
+            // On vérifie que le code de retour est bien 200 => OK
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                Debug.WriteLine(a);
+                JObject jo = JObject.Parse(a);
+                return new User(Convert.ToInt32((string)jo["id"]), (string)jo["email"], (string)jo["first_name"], (string)jo["last_name"], Convert.ToInt32((string)jo["roleNumber"]), (string)jo["phone"]);
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Vérifie si un utilisateur éxiste en fonction de son email 
+        /// </summary>
+        /// <param name="email">l'email à vérifier</param>
+        /// <returns>True si l'utilisateur existe, False si non</returns>
+        public static bool UserExists(string email)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Email", email);
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+
+                if (a == "null")
+                    return false;
+            }
+
+            return true;
+        }
+        
         #endregion
 
-
-
+        #region Custom Methods
+        
         /// <summary>
         /// Génrère un nom aléatoire
         /// </summary>
@@ -354,30 +484,6 @@ namespace WavContact.DB
 
             return Name;
         }
-
-        /// <summary>
-        /// Vérifie si un utilisateur éxiste en fonction de son email 
-        /// </summary>
-        /// <param name="email">l'email à vérifier</param>
-        /// <returns>True si l'utilisateur existe, False si non</returns>
-        public static bool UserExists(string email)
-        {
-            HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Email", email);
-
-            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-                var a = response.Content.ReadAsStringAsync().Result;
-
-                if (a == "null")
-                    return false;
-            }
-
-            return true;
-        }
-
 
         #endregion
     }

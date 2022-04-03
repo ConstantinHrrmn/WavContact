@@ -95,5 +95,44 @@ namespace WavContact.Views.Member
         private void lbMateriel_SelectedValueChanged(object sender, EventArgs e)
         {
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            // Empty all fields
+            this.tbxName.Text = "";
+            this.tbxDescription.Text = "";
+            this.tbxPrix.Text = "";
+            this.tbxQuantite.Text = "";
+            this.cmbCategorie.SelectedIndex = 0;
+            this.btnSaveNew.Visible = true;
+
+            // Make all fileds editable
+            this.tbxName.ReadOnly = false;
+            this.tbxDescription.ReadOnly = false;
+            this.tbxPrix.ReadOnly = false;
+            this.tbxQuantite.ReadOnly = false;
+            this.cmbCategorie.Enabled = true;
+            
+        }
+
+        private void btnSaveNew_Click(object sender, EventArgs e)
+        {
+            // If all fields are filled
+            if (this.tbxName.Text != "" && this.tbxDescription.Text != "" && this.tbxPrix.Text != "" && this.tbxQuantite.Text != "")
+            {
+                CategorieMateriel categorieMateriel = this.cmbCategorie.SelectedItem as CategorieMateriel;
+                Materiel m = new Materiel(-1, categorieMateriel.Id, this.tbxName.Text, this.tbxDescription.Text, Convert.ToDouble(this.tbxPrix.Text), Convert.ToInt32(this.tbxQuantite.Text));
+
+                // Save materiel in database
+                WavContact.DB.WavContactPDO.CreateMaterial(m);
+
+                //Update Materiel list
+                this.ctrl.UpdateMateriel();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez remplir tous les champs");
+            }
+        }
     }
 }
