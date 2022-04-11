@@ -46,7 +46,7 @@ namespace WavContact
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
             this.tbxEmail.Location = new System.Drawing.Point(292, 165);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.PlaceholderText = "Email";
+            this.tbxEmail.PlaceholderText = "Adresse email";
             this.tbxEmail.Size = new System.Drawing.Size(416, 45);
             this.tbxEmail.TabIndex = 1;
             this.tbxEmail.Text = "constantin@waview.ch";
@@ -61,7 +61,7 @@ namespace WavContact
             this.tbxPassword.ForeColor = System.Drawing.Color.White;
             this.tbxPassword.Location = new System.Drawing.Point(292, 216);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.PlaceholderText = "Password";
+            this.tbxPassword.PlaceholderText = "Mot de passe";
             this.tbxPassword.Size = new System.Drawing.Size(416, 45);
             this.tbxPassword.TabIndex = 2;
             this.tbxPassword.Text = "motdepasse";
@@ -133,7 +133,7 @@ namespace WavContact
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login WavContact";
+            this.Text = "Connexion WavContact";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseMove);

@@ -120,19 +120,42 @@ namespace WavContact.Views.Member
             // If all fields are filled
             if (this.tbxName.Text != "" && this.tbxDescription.Text != "" && this.tbxPrix.Text != "" && this.tbxQuantite.Text != "")
             {
-                CategorieMateriel categorieMateriel = this.cmbCategorie.SelectedItem as CategorieMateriel;
-                Materiel m = new Materiel(-1, categorieMateriel.Id, this.tbxName.Text, this.tbxDescription.Text, Convert.ToDouble(this.tbxPrix.Text), Convert.ToInt32(this.tbxQuantite.Text));
+                double q = 0;
+                if (double.TryParse(this.tbxQuantite.Text, out q))
+                {
+                    if (q > 0)
+                    {
+                        CategorieMateriel categorieMateriel = this.cmbCategorie.SelectedItem as CategorieMateriel;
+                        Materiel m = new Materiel(-1, categorieMateriel.Id, this.tbxName.Text, this.tbxDescription.Text, Convert.ToDouble(this.tbxPrix.Text), Convert.ToInt32(this.tbxQuantite.Text));
 
-                // Save materiel in database
-                WavContact.DB.WavContactPDO.CreateMaterial(m);
+                        // Save materiel in database
+                        WavContact.DB.WavContactPDO.CreateMaterial(m);
 
-                //Update Materiel list
-                this.ctrl.UpdateMateriel();
+                        //Update Materiel list
+                        this.ctrl.UpdateMateriel();
+
+                        MessageBox.Show("Le matériel a été ajouté avec succès", "Ajout matériel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La quantité doit être supérieur à 0");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La quantité doit être un nombre");
+                }
+                
             }
             else
             {
                 MessageBox.Show("Veuillez remplir tous les champs");
             }
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

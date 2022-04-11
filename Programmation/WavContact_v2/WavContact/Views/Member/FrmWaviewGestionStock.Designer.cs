@@ -194,6 +194,7 @@ namespace WavContact.Views.Member
             this.btnSupprimer.TabIndex = 35;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = false;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // cmbCategorie
             // 
