@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using WavContact.Controllers;
+using WavContact.DB;
 using WavContact.Metier;
 using WavContact.Models;
 
@@ -53,6 +54,18 @@ namespace WavContact.Views.Member
         {
             this.lblProjectName.Text = p.Name;
             this.tbxDescription.Text = p.Description;
+
+            
+        }
+
+        public void UpdateDocumentList(List<WavFile> files)
+        {
+            this.lbDocuments.Items.Clear();
+
+            foreach (WavFile f in files)
+            {
+                this.lbDocuments.Items.Add(f.Name);
+            }
         }
 
         private void btnOpenChatWaview_Click(object sender, EventArgs e)
@@ -65,6 +78,19 @@ namespace WavContact.Views.Member
         {
             FrmWaviewGestionStock frmMateriel = new FrmWaviewGestionStock();
             frmMateriel.Show();
+        }
+
+        private void lbDocuments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFolderOpen_Click(object sender, EventArgs e)
+        {
+            if (!this.ctrl.OpenFolderInExplorer())
+            {
+                MessageBox.Show("Ouverture du dossier échouée, dossier inexistant, création en cours...");
+            }
         }
     }
 }
