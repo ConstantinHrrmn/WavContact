@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WavContact.DB;
 using WavContact.Models;
@@ -13,21 +14,37 @@ namespace WavContact.Controllers
     {
         private FrmWaviewProject frm;
         private Project project;
+        private List<WavFile> files;
 
         public ProjectWaviewMemberController(FrmWaviewProject a_frm, Project a_project)
         {
             this.frm = a_frm;
             this.project = a_project;
+            this.files = new List<WavFile>();
+            
             this.DisplayProjectInformationsInForm();
-            this.UpdateDocuments();
-        }
 
-        public void UpdateDocuments()
+            Thread t = new Thread(new ThreadStart(DisplayDocuments));
+            t.Start();
+        }
+        
+        public void DisplayDocuments()
         {
-            this.frm.UpdateDocumentList(WavFTP.listFiles(this.project));
-           
+            this.files = WavFTP.listFiles(this.project);
+            this.frm.UpdateDocumentList(this.files);
+
         }
 
+        public WavFile SelectedFile(int index)
+        {
+            if (index >= 0 && index < this.files.Count)
+            {
+                return this.files[index];
+            }
+
+            return null;
+        }
+           
         public void DisplayProjectInformationsInForm()
         {
             this.frm.ShowData(this.project);

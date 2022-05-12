@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -60,12 +61,16 @@ namespace WavContact.Views.Member
 
         public void UpdateDocumentList(List<WavFile> files)
         {
-            this.lbDocuments.Items.Clear();
-
-            foreach (WavFile f in files)
+            this.lbDocuments.Invoke(() => this.lbDocuments.Items.Clear());
+            if (files != null)
             {
-                this.lbDocuments.Items.Add(f.Name);
+                foreach (WavFile f in files)
+                {
+                    this.lbDocuments.Invoke(() => this.lbDocuments.Items.Add(f.Name));
+                }
             }
+
+            
         }
 
         private void btnOpenChatWaview_Click(object sender, EventArgs e)
@@ -82,7 +87,7 @@ namespace WavContact.Views.Member
 
         private void lbDocuments_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Debug.WriteLine(this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex));
         }
 
         private void btnFolderOpen_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace WavContact.DB
         public static List<WavFile> listFiles(Project project)
         {
             List<WavFile> WavFiles = new List<WavFile>();
-            
+
             using (SftpClient sftp = new SftpClient(host, username, password))
             {
                 try
@@ -34,11 +34,14 @@ namespace WavContact.DB
 
                     var files = sftp.ListDirectory(remoteDirectory + project.Id);
 
-
                     foreach (var file in files)
                     {
-                        WavFiles.Add(new WavFile(file.Name, file.FullName, null));
-                        Debug.WriteLine(file.Name);
+                        if (file.Name != "." && file.Name != "..")
+                        {
+                            WavFiles.Add(new WavFile(file.Name, file.FullName, null));
+                            Debug.WriteLine(file.Name);
+                        }
+
                     }
 
                     sftp.Disconnect();
@@ -51,7 +54,7 @@ namespace WavContact.DB
                 }
             }
         }
-        
+
         public static bool OpenProjectFolder(Project project)
         {
             string path = downloadFolder + "\\" + project.Id.ToString();
@@ -88,6 +91,31 @@ namespace WavContact.DB
                     Debug.WriteLine("An exception has been caught " + e.ToString());
                 }
 
+            }
+        }
+
+        public static void DownloadFile(WavFile fileToDownload, Project project)
+        {
+            
+            using (SftpClient sftp = new SftpClient(host, username, password))
+            {
+                try
+                {
+                    sftp.Connect();
+
+                    Console.WriteLine("Downloading {0}", fileToDownload);
+
+                    using (Stream fileStream = File.OpenWrite(downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name))
+                    {
+                        sftp.DownloadFile(fileToDownload.RemotePath, fileStream);
+                    }
+
+                    sftp.Disconnect();
+                }
+                catch (Exception er)
+                {
+                    Console.WriteLine("An exception has been caught " + er.ToString());
+                }
             }
         }
     }
