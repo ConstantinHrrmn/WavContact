@@ -2,12 +2,22 @@
 
 include_once "pdo.php";
 
-function GetPlacesWithTags($tags){
+session_start();
+
+
+if (isset($_POST['tagSelected'])) {
+  PlacesWithTags($_POST['tagSelected']);
+}
+else{
+  echo json_encode("Pas de tag sélectionné");
+}
+
+
+
+function PlacesWithTags($tags){
   $tagsArr = explode(",", $tags);
 
   $len = count($tagsArr);
-
-
 
   if (count($len) > 0) {
 
@@ -25,24 +35,11 @@ function GetPlacesWithTags($tags){
     $query->execute();
     $matches = $query->fetchAll(PDO::FETCH_ASSOC);
     if($matches == null){
-      return null;
-    }else{
-      return $matches;
+      echo json_encode("Aucun tag existant sélectionné", JSON_INVALID_UTF8_IGNORE);
+    }
+    else{
+      echo json_encode($matches, JSON_INVALID_UTF8_IGNORE);
     }
   }
 
-  return "null";
-
-}
-
-function GetAllPlaces(){
-  $req = "SELECT * FROM `LIEU`";
-  $query = database()->prepare($req);
-  $query->execute();
-  $matches = $query->fetchAll(PDO::FETCH_ASSOC);
-  if($matches == null){
-    return null;
-  }else{
-    return $matches;
-  }
 }

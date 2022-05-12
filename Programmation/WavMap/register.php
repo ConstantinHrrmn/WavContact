@@ -1,45 +1,10 @@
-<?php
-include_once "../apiv2/pdo.php";
-include_once "../apiv2/PERSONNE/read/functions.php";
-include_once "../apiv2/ROLE/read/functions.php";
-
-// Vérification du login
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $password = $_POST['password'];
-    $username = $_POST['username'];
-
-    $hashed_pass = hash("sha256", $password.$username);
-
-    $password = hash("sha256", $hashed_pass);
-    $email = $username;
-
-    $id = GetUserIdByEmail($email);
-
-    if ($id['id'] != null) {
-
-      $idHash = hash("sha256", $id['id']);
-      $pass = hash("sha512", $idHash.$password);
-
-      $login = Login($email, $pass);
-
-      if ($login != null) {
-          // LE LOGIN EST OK
-          $logged_user = GetUserById($id['id']);
-          $_SESSION['user'] = $logged_user;
-
-          header('Location: https://waview.ch/wavcontact/map');
-      }
-      else {
-          // Login pas OK
-      }
-    }
-  }
-?>
+<?php include "searchUser.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
@@ -56,30 +21,28 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       <div class="row">
         <div class="col-sm-12 d-flex justify-content-center">
           <div class="wrapper">
-              <h2>Sign In</h2>
+              <h2>Connexion</h2>
               <form action="" method="post">
                   <div class="form-group">
-                      <label>Email</label>
+                      <label>Adresse mail</label>
                       <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                       <span class="invalid-feedback"><?php echo $username_err; ?></span>
                   </div>
 
                   <div class="form-group">
-                      <label>Password</label>
+                      <label>Mot de passe</label>
                       <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="">
                       <span class="invalid-feedback"><?php echo $password_err; ?></span>
                   </div>
 
                   <div class="form-group">
-                      <input type="submit" class="btn btn-primary" value="Login">
-                      <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                      <input type="submit" class="btn btn-primary" value="Connexion">
+                      <input type="reset" class="btn btn-secondary ml-2" value="Effacer">
                   </div>
-
               </form>
           </div>
         </div>
       </div>
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
