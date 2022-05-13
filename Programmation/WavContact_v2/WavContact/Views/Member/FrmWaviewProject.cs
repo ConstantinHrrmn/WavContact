@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace WavContact.Views.Member
         {
             InitializeComponent();
             this.ctrl = new ProjectWaviewMemberController(this, p);
+            this.btnSupprimerDocument.Enabled = false;
         }
 
         private void FrmWaviewProject_Load(object sender, EventArgs e)
@@ -55,8 +57,6 @@ namespace WavContact.Views.Member
         {
             this.lblProjectName.Text = p.Name;
             this.tbxDescription.Text = p.Description;
-
-            
         }
 
         public void UpdateDocumentList(List<WavFile> files)
@@ -68,9 +68,9 @@ namespace WavContact.Views.Member
                 {
                     this.lbDocuments.Invoke(() => this.lbDocuments.Items.Add(f.Name));
                 }
-            }
 
-            
+                this.btnSupprimerDocument.Invoke(() => this.btnSupprimerDocument.Enabled = true);
+            }
         }
 
         private void btnOpenChatWaview_Click(object sender, EventArgs e)
@@ -87,7 +87,10 @@ namespace WavContact.Views.Member
 
         private void lbDocuments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine(this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex));
+            WavFile file = this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex);
+            this.ctrl.DownloadFile(file);
+
+            this.ctrl.OpenFolderInExplorer();
         }
 
         private void btnFolderOpen_Click(object sender, EventArgs e)
@@ -95,6 +98,17 @@ namespace WavContact.Views.Member
             if (!this.ctrl.OpenFolderInExplorer())
             {
                 MessageBox.Show("Ouverture du dossier échouée, dossier inexistant, création en cours...");
+            }
+        }
+
+        private void btnAjouterDocument_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = this.odf.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                string sourcePath = this.odf.FileName;
+
+                this.ctrl.UploadFile(sourcePath);
             }
         }
     }

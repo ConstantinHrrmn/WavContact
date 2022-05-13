@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -44,6 +45,31 @@ namespace WavContact.Controllers
 
             return null;
         }
+
+        public void DownloadFile(WavFile file)
+        {
+            WavFTP.CreateProjectDirectory(this.project);
+            
+            Thread th = new Thread(new ThreadStart(() =>
+            {
+                WavFTP.DownloadFile(file, this.project);
+            }
+            ));
+            th.Start();
+        }
+
+        public void UploadFile(string sourcePath)
+        {
+            Thread th = new Thread(new ThreadStart(() =>
+            {
+                WavFTP.UploadFile(sourcePath, this.project);
+                this.DisplayDocuments();
+            }
+            ));
+            th.Start();
+        }
+
+        
            
         public void DisplayProjectInformationsInForm()
         {

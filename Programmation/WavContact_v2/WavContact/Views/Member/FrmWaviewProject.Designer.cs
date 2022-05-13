@@ -44,6 +44,7 @@ namespace WavContact.Views.Member
             this.btnAjouterDocument = new System.Windows.Forms.Button();
             this.btnSupprimerDocument = new System.Windows.Forms.Button();
             this.btnFolderOpen = new System.Windows.Forms.Button();
+            this.odf = new System.Windows.Forms.OpenFileDialog();
             this.gpbProjet.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,9 +123,9 @@ namespace WavContact.Views.Member
             this.gpbProjet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpbProjet.ForeColor = System.Drawing.Color.White;
             this.gpbProjet.Location = new System.Drawing.Point(19, 170);
-            this.gpbProjet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbProjet.Margin = new System.Windows.Forms.Padding(4);
             this.gpbProjet.Name = "gpbProjet";
-            this.gpbProjet.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbProjet.Padding = new System.Windows.Forms.Padding(4);
             this.gpbProjet.Size = new System.Drawing.Size(856, 554);
             this.gpbProjet.TabIndex = 19;
             this.gpbProjet.TabStop = false;
@@ -138,7 +139,7 @@ namespace WavContact.Views.Member
             this.lstDateTournages.FormattingEnabled = true;
             this.lstDateTournages.ItemHeight = 30;
             this.lstDateTournages.Location = new System.Drawing.Point(144, 362);
-            this.lstDateTournages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstDateTournages.Margin = new System.Windows.Forms.Padding(4);
             this.lstDateTournages.Name = "lstDateTournages";
             this.lstDateTournages.Size = new System.Drawing.Size(615, 124);
             this.lstDateTournages.TabIndex = 40;
@@ -149,7 +150,7 @@ namespace WavContact.Views.Member
             this.tbxDescription.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxDescription.ForeColor = System.Drawing.Color.White;
             this.tbxDescription.Location = new System.Drawing.Point(144, 46);
-            this.tbxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.ReadOnly = true;
@@ -175,7 +176,7 @@ namespace WavContact.Views.Member
             this.lstLieux.FormattingEnabled = true;
             this.lstLieux.ItemHeight = 30;
             this.lstLieux.Location = new System.Drawing.Point(145, 194);
-            this.lstLieux.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstLieux.Margin = new System.Windows.Forms.Padding(4);
             this.lstLieux.Name = "lstLieux";
             this.lstLieux.Size = new System.Drawing.Size(612, 124);
             this.lstLieux.TabIndex = 8;
@@ -213,6 +214,7 @@ namespace WavContact.Views.Member
             this.btnAjouterDocument.TabIndex = 20;
             this.btnAjouterDocument.Text = "Ajouter";
             this.btnAjouterDocument.UseVisualStyleBackColor = true;
+            this.btnAjouterDocument.Click += new System.EventHandler(this.btnAjouterDocument_Click);
             // 
             // btnSupprimerDocument
             // 
@@ -284,5 +286,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.Button btnAjouterDocument;
         private System.Windows.Forms.Button btnSupprimerDocument;
         private System.Windows.Forms.Button btnFolderOpen;
+        private System.Windows.Forms.OpenFileDialog odf;
     }
 }

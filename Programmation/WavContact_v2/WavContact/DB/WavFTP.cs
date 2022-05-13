@@ -59,21 +59,30 @@ namespace WavContact.DB
         {
             string path = downloadFolder + "\\" + project.Id.ToString();
             
-            if (!Directory.Exists(path))
+            if (Directory.Exists(path))
             {
-                Directory.CreateDirectory(path);
-                return false;
+                Process.Start("Explorer.exe", path);
+                return true;
             }
             else
             {
-                Process.Start("Explorer.exe",path);
-                return true;
+                CreateProjectDirectory(project);
+                return false;
+            }
+        }
+
+        public static void CreateProjectDirectory(Project project)
+        {
+            string path = downloadFolder + "\\" + project.Id.ToString();
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
             }
         }
 
         public static void UploadFile(string filePath, Project project)
         {
-            string destination = remoteDirectory + "\\" + project.Id.ToString();
+            string destination = remoteDirectory + project.Id.ToString();
             string source = filePath;
             
             using (SftpClient sftp = new SftpClient(host, username, password))
@@ -81,10 +90,23 @@ namespace WavContact.DB
                 try
                 {
                     sftp.Connect();
-                    
-                    //FileStream fs = new FileStream()
-                    
-                    //sftp.UploadFile()
+
+                    if (!sftp.Exists(destination))
+                    {
+                        sftp.CreateDirectory(destination);
+                    }
+                        
+                    sftp.ChangeDirectory(destination);
+
+                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
+
+                    {
+
+                        sftp.BufferSize = 4 * 1024;
+
+                        sftp.UploadFile(fs, Path.GetFileName(filePath));
+
+                    }
                 }
                 catch (Exception e)
                 {
@@ -94,18 +116,27 @@ namespace WavContact.DB
             }
         }
 
+        /// <summary>
+        /// Télécharge un fichier unique sur le serveur FTP
+        /// </summary>
+        /// <param name="fileToDownload">Le fichier que l'on souhaite télécharger</param>
+        /// <param name="project">Le projet auquel appartient le fichier</param>
         public static void DownloadFile(WavFile fileToDownload, Project project)
         {
-            
             using (SftpClient sftp = new SftpClient(host, username, password))
             {
                 try
                 {
                     sftp.Connect();
 
-                    Console.WriteLine("Downloading {0}", fileToDownload);
+                    string localpath = downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name;
 
-                    using (Stream fileStream = File.OpenWrite(downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name))
+                    if (File.Exists(localpath))
+                    {
+                        File.Delete(localpath);
+                    }
+
+                    using (Stream fileStream = File.OpenWrite(localpath))
                     {
                         sftp.DownloadFile(fileToDownload.RemotePath, fileStream);
                     }
