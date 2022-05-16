@@ -189,5 +189,42 @@ namespace WavContact.Views.Member
             this.ctrl.UpdateProjectCommentary(this.tbxCommentaires.Text);
             this.btnSaveCommentary.Visible = false;
         }
+
+        public void UpdateDateList(List<Tournage> tournages)
+        {
+            this.lstDateTournages.Invoke(() => this.lstDateTournages.Items.Clear());
+            if (tournages != null)
+            {
+                foreach (Tournage a in tournages)
+                {
+                    this.lstDateTournages.Invoke(() => this.lstDateTournages.Items.Add(a));
+                }
+            }
+        }
+
+        private void btnAddDate_Click(object sender, EventArgs e)
+        {
+            this.ctrl.AddDate();
+        }
+
+        private void btnRemoveDate_Click(object sender, EventArgs e)
+        {
+            if (this.lstDateTournages.SelectedIndex != -1)
+            {
+                Tournage tournage = this.lstDateTournages.SelectedItem as Tournage;
+                this.ctrl.DeleteDate(tournage);
+            }
+        }
+
+        private void lstDateTournages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstDateTournages.SelectedIndex != -1 && lstDateTournages.SelectedIndex >= 0)
+            {
+                this.btnRemoveDate.Visible = true;
+                Tournage selectedDate = this.lstDateTournages.SelectedItem as Tournage;
+
+                this.ctrl.UpdateDate(selectedDate);
+            }
+        }
     }
 }

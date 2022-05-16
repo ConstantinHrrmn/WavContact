@@ -81,3 +81,4 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavC
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\MailKit.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\MimeKit.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net6.0-windows\WavContact.Views.Member.FrmDatePicker.resources

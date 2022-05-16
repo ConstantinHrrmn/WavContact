@@ -28,9 +28,11 @@ namespace WavContact.Controllers
 
             Thread tActivity = new Thread(new ThreadStart(GetActivity));
             Thread tDocuments = new Thread(new ThreadStart(DisplayDocuments));
+            Thread tDates = new Thread(new ThreadStart(GetDates));
 
             tActivity.Start();
             tDocuments.Start();
+            tDates.Start();
         }
 
         public void UpdateProjectDescription(string description)
@@ -52,6 +54,59 @@ namespace WavContact.Controllers
         public void GetActivity()
         {
             this.frm.UpdateActivityList(WavActivity.GetActivities(this.project));
+        }
+        
+        public void AddDate()
+        {
+            FrmDatePicker frmPicker = new FrmDatePicker();
+            if (frmPicker.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                DateTime debut = frmPicker.Debut;
+                DateTime fin = frmPicker.Fin;
+
+                Tournage t = new Tournage();
+                t.Debut = debut;
+                t.Fin = fin;
+
+                WavContactPDO.CreateDateForProject(this.project, t);
+                WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Ajout d'une date");
+                this.GetActivity();
+                
+                this.GetDates();
+                
+            }
+        }
+
+        public void DeleteDate(Tournage date)
+        {
+            WavContactPDO.DeleteDate(date);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Suppression d'une date");
+            this.GetActivity();
+            this.GetDates();
+        }
+
+        public void UpdateDate(Tournage tournage)
+        {
+            FrmDatePicker frmPicker = new FrmDatePicker(tournage.Debut, tournage.Fin);
+            if (frmPicker.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                DateTime debut = frmPicker.Debut;
+                DateTime fin = frmPicker.Fin;
+
+                tournage.Debut = debut;
+                tournage.Fin = fin;
+
+                WavContactPDO.UpdateTournage(tournage);
+                WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Modification de la date du tournage.");
+                this.GetActivity();
+
+                this.GetDates();
+            }
+        }
+
+        public void GetDates()
+        {
+            this.frm.UpdateDateList(WavContactPDO.GetTournageForProject(this.project));
         }
         
         public void DisplayDocuments()

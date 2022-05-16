@@ -16,6 +16,9 @@
     <Compile Update="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Member\FrmDatePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Member\FrmWaviewGestionStock.cs">
       <SubType>Form</SubType>
     </Compile>

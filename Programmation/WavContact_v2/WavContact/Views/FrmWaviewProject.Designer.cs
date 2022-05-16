@@ -35,6 +35,8 @@ namespace WavContact.Views.Member
             this.lblProjectName = new System.Windows.Forms.Label();
             this.btnMateriel = new System.Windows.Forms.Button();
             this.gpbProjet = new System.Windows.Forms.GroupBox();
+            this.btnRemoveDate = new System.Windows.Forms.Button();
+            this.btnAddDate = new System.Windows.Forms.Button();
             this.lstDateTournages = new System.Windows.Forms.ListBox();
             this.tbxDescription = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -62,7 +64,7 @@ namespace WavContact.Views.Member
             this.lbActivity.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lbActivity.Name = "lbActivity";
             this.lbActivity.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbActivity.Size = new System.Drawing.Size(676, 304);
+            this.lbActivity.Size = new System.Drawing.Size(825, 304);
             this.lbActivity.TabIndex = 14;
             // 
             // lbDocuments
@@ -82,7 +84,7 @@ namespace WavContact.Views.Member
             // 
             this.btnOpenChatWaview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenChatWaview.ForeColor = System.Drawing.Color.White;
-            this.btnOpenChatWaview.Location = new System.Drawing.Point(1115, 16);
+            this.btnOpenChatWaview.Location = new System.Drawing.Point(1264, 13);
             this.btnOpenChatWaview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnOpenChatWaview.Name = "btnOpenChatWaview";
             this.btnOpenChatWaview.Size = new System.Drawing.Size(214, 58);
@@ -107,7 +109,7 @@ namespace WavContact.Views.Member
             // 
             this.btnMateriel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMateriel.ForeColor = System.Drawing.Color.White;
-            this.btnMateriel.Location = new System.Drawing.Point(892, 16);
+            this.btnMateriel.Location = new System.Drawing.Point(1041, 13);
             this.btnMateriel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnMateriel.Name = "btnMateriel";
             this.btnMateriel.Size = new System.Drawing.Size(214, 58);
@@ -119,6 +121,8 @@ namespace WavContact.Views.Member
             // gpbProjet
             // 
             this.gpbProjet.BackColor = System.Drawing.Color.Black;
+            this.gpbProjet.Controls.Add(this.btnRemoveDate);
+            this.gpbProjet.Controls.Add(this.btnAddDate);
             this.gpbProjet.Controls.Add(this.lstDateTournages);
             this.gpbProjet.Controls.Add(this.tbxDescription);
             this.gpbProjet.Controls.Add(this.lblDescription);
@@ -136,6 +140,35 @@ namespace WavContact.Views.Member
             this.gpbProjet.TabStop = false;
             this.gpbProjet.Text = "Informations";
             // 
+            // btnRemoveDate
+            // 
+            this.btnRemoveDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveDate.Font = new System.Drawing.Font("Segoe UI", 5.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveDate.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveDate.Location = new System.Drawing.Point(768, 431);
+            this.btnRemoveDate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnRemoveDate.Name = "btnRemoveDate";
+            this.btnRemoveDate.Size = new System.Drawing.Size(79, 55);
+            this.btnRemoveDate.TabIndex = 46;
+            this.btnRemoveDate.Text = "Supp.";
+            this.btnRemoveDate.UseVisualStyleBackColor = true;
+            this.btnRemoveDate.Visible = false;
+            this.btnRemoveDate.Click += new System.EventHandler(this.btnRemoveDate_Click);
+            // 
+            // btnAddDate
+            // 
+            this.btnAddDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDate.Font = new System.Drawing.Font("Segoe UI", 5.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDate.ForeColor = System.Drawing.Color.White;
+            this.btnAddDate.Location = new System.Drawing.Point(768, 362);
+            this.btnAddDate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnAddDate.Name = "btnAddDate";
+            this.btnAddDate.Size = new System.Drawing.Size(79, 55);
+            this.btnAddDate.TabIndex = 45;
+            this.btnAddDate.Text = "Ajouter";
+            this.btnAddDate.UseVisualStyleBackColor = true;
+            this.btnAddDate.Click += new System.EventHandler(this.btnAddDate_Click);
+            // 
             // lstDateTournages
             // 
             this.lstDateTournages.BackColor = System.Drawing.Color.Black;
@@ -148,6 +181,7 @@ namespace WavContact.Views.Member
             this.lstDateTournages.Name = "lstDateTournages";
             this.lstDateTournages.Size = new System.Drawing.Size(615, 124);
             this.lstDateTournages.TabIndex = 40;
+            this.lstDateTournages.SelectedIndexChanged += new System.EventHandler(this.lstDateTournages_SelectedIndexChanged);
             // 
             // tbxDescription
             // 
@@ -204,9 +238,9 @@ namespace WavContact.Views.Member
             this.lblDate.Location = new System.Drawing.Point(17, 360);
             this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(57, 30);
+            this.lblDate.Size = new System.Drawing.Size(71, 30);
             this.lblDate.TabIndex = 2;
-            this.lblDate.Text = "Date";
+            this.lblDate.Text = "Date.s";
             // 
             // btnAjouterDocument
             // 
@@ -256,7 +290,7 @@ namespace WavContact.Views.Member
             this.tbxCommentaires.Margin = new System.Windows.Forms.Padding(4);
             this.tbxCommentaires.Multiline = true;
             this.tbxCommentaires.Name = "tbxCommentaires";
-            this.tbxCommentaires.Size = new System.Drawing.Size(446, 535);
+            this.tbxCommentaires.Size = new System.Drawing.Size(595, 535);
             this.tbxCommentaires.TabIndex = 41;
             this.tbxCommentaires.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCommentaires_KeyPress);
             // 
@@ -264,7 +298,7 @@ namespace WavContact.Views.Member
             // 
             this.btnSaveCommentary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveCommentary.ForeColor = System.Drawing.Color.White;
-            this.btnSaveCommentary.Location = new System.Drawing.Point(1115, 121);
+            this.btnSaveCommentary.Location = new System.Drawing.Point(1264, 118);
             this.btnSaveCommentary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnSaveCommentary.Name = "btnSaveCommentary";
             this.btnSaveCommentary.Size = new System.Drawing.Size(214, 58);
@@ -302,7 +336,7 @@ namespace WavContact.Views.Member
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1344, 1122);
+            this.ClientSize = new System.Drawing.Size(1492, 1122);
             this.Controls.Add(this.lblCommentaires);
             this.Controls.Add(this.btnSaveDescription);
             this.Controls.Add(this.btnSaveCommentary);
@@ -316,6 +350,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.lbDocuments);
             this.Controls.Add(this.btnOpenChatWaview);
             this.Controls.Add(this.lblProjectName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewProject";
@@ -351,5 +386,7 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.Button btnSaveCommentary;
         private System.Windows.Forms.Button btnSaveDescription;
         private System.Windows.Forms.Label lblCommentaires;
+        private System.Windows.Forms.Button btnRemoveDate;
+        private System.Windows.Forms.Button btnAddDate;
     }
 }

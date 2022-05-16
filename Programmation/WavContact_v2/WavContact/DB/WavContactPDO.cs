@@ -166,6 +166,23 @@ namespace WavContact.DB
 
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/create").Result;
         }
+
+        public static void CreateDateForProject(Project p, Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+
+            string debut = t.Debut.ToString("yyyy-M-dd HH:mm:ss.ms");
+            string fin = t.Fin.ToString("yyyy-M-dd HH:mm:ss.ms");
+
+            Debug.WriteLine(debut);
+            Debug.WriteLine(fin);
+
+            hc.DefaultRequestHeaders.Add("Project", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Start", debut);
+            hc.DefaultRequestHeaders.Add("End", fin);
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/create").Result;
+        }
        
         #endregion
 
@@ -195,7 +212,7 @@ namespace WavContact.DB
         {
             string description = p.Description.Replace("\'", "\\'");
             string commentaire = p.Commentaire.Replace("\'", "\\'");
-            commentaire = commentaire.Replace("\r\n", "\\r\\n");
+            commentaire = commentaire.Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
 
             HttpClient hc = new HttpClient();
 
@@ -228,6 +245,23 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/update").Result;
         }
 
+        public static void UpdateTournage(Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+            
+            string debut = t.Debut.ToString("yyyy-M-dd HH:mm:ss.ms");
+            string fin = t.Fin.ToString("yyyy-M-dd HH:mm:ss.ms");
+
+            Debug.WriteLine(debut);
+            Debug.WriteLine(fin);
+
+            hc.DefaultRequestHeaders.Add("Id", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Start", debut) ;
+            hc.DefaultRequestHeaders.Add("End", fin);
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/update").Result;
+        }
+
         #endregion
 
         #region DELETE
@@ -258,10 +292,19 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/delete").Result;
         }
 
+        public static void DeleteDate(Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Id", t.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/delete").Result;
+        } 
+
         #endregion
 
         #region GET
-        
+
         /// <summary>
         /// Récupère tous les projets pour un utilisateur
         /// </summary>
@@ -444,6 +487,43 @@ namespace WavContact.DB
             return true;
         }
 
+        /// <summary>
+        /// Récupère toutes les dates de tournages pour un projet
+        /// </summary>
+        /// <param name="p">Le projet en question</param>
+        /// <returns>Une liste de "Tournages"</returns>
+        public static List<Tournage> GetTournageForProject(Project p)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Project", p.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/read").Result;
+            
+            if (response.IsSuccessStatusCode)
+            {
+                string a = response.Content.ReadAsStringAsync().Result;
+                a.Replace("-", "/");
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Tournage[] tournages = js.Deserialize<Tournage[]>(a);
+
+                List<Tournage> tournagesList = new List<Tournage>();
+
+                if (tournages != null)
+                {
+                    foreach (Tournage item in tournages)
+                        tournagesList.Add(item);
+                    return tournagesList;                    
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region ACTIVITY_LOG
@@ -451,6 +531,8 @@ namespace WavContact.DB
         public static void AddActivityLog(User a_user, Project a_project, string a_log)
         {
             HttpClient hc = new HttpClient();
+
+            a_log = a_log.Replace("'", "\\'");
 
             hc.DefaultRequestHeaders.Add("User", a_user.Id.ToString());
             hc.DefaultRequestHeaders.Add("Project", a_project.Id.ToString());
