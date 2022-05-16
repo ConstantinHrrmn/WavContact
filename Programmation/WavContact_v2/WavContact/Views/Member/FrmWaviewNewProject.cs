@@ -46,7 +46,7 @@ namespace WavContact.Views.Member
         {
             if (this.tbxNom.Text.Trim().Length > 0)
             {
-                this.NouveauProjet = new Project(-1, this.tbxNom.Text.Trim(), this.tbxDescription.Text.Trim(), 0);
+                this.NouveauProjet = new Project(-1, this.tbxNom.Text.Trim(), this.tbxDescription.Text.Trim(), 0, "");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -55,7 +55,7 @@ namespace WavContact.Controllers
 
         public void LoadProjectPage(Project p)
         {
-            FrmWaviewProject frm = new FrmWaviewProject(p);
+            FrmWaviewProject frm = new FrmWaviewProject(p, this.ConnectedUser);
             frm.Show();
         }
 

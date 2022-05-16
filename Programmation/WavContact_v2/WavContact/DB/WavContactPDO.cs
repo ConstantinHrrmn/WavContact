@@ -193,14 +193,20 @@ namespace WavContact.DB
         // Update project
         public static void UpdateProject(Project p)
         {
+            string description = p.Description.Replace("\'", "\\'");
+            string commentaire = p.Commentaire.Replace("\'", "\\'");
+            commentaire = commentaire.Replace("\r\n", "\\r\\n");
+
             HttpClient hc = new HttpClient();
 
             hc.DefaultRequestHeaders.Add("Update", "Update");
             hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Name", p.Name);
-            hc.DefaultRequestHeaders.Add("Description", p.Description);
+            hc.DefaultRequestHeaders.Add("Nom", p.Name);
+            hc.DefaultRequestHeaders.Add("Description", description);
+            hc.DefaultRequestHeaders.Add("Client", p.Owner.Id.ToString());
             hc.DefaultRequestHeaders.Add("Valider", p.Valider.ToString());
-
+            hc.DefaultRequestHeaders.Add("Commentaire", commentaire);
+            
             var response = hc.GetAsync(BASE_URL + "/PROJET/update").Result;
         }
 
@@ -283,7 +289,9 @@ namespace WavContact.DB
                 {
                     foreach (Project item in p)
                     {
+                        item.Owner = u;
                         projects.Add(item);
+                        
                     }
                 }
 
@@ -435,11 +443,53 @@ namespace WavContact.DB
 
             return true;
         }
+
+        #endregion
+
+        #region ACTIVITY_LOG
+
+        public static void AddActivityLog(User a_user, Project a_project, string a_log)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("User", a_user.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Project", a_project.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Activity", a_log);
+
+            var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
+        }
+
+        public static List<Activity> GetActivitiesForProject(Project p)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Activity[] activity = js.Deserialize<Activity[]>(a);
+
+                List<Activity> activities = new List<Activity>();
+
+                if (activity != null)
+                {
+                    foreach (Activity item in activity)
+                        activities.Add(item);
+                }
+
+                return activities;
+            }
+
+            return null;
+        }
         
         #endregion
 
         #region Custom Methods
-        
+
         /// <summary>
         /// Génrère un nom aléatoire
         /// </summary>

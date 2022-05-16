@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,8 +26,32 @@ namespace WavContact.Controllers
             
             this.DisplayProjectInformationsInForm();
 
-            Thread t = new Thread(new ThreadStart(DisplayDocuments));
-            t.Start();
+            Thread tActivity = new Thread(new ThreadStart(GetActivity));
+            Thread tDocuments = new Thread(new ThreadStart(DisplayDocuments));
+
+            tActivity.Start();
+            tDocuments.Start();
+        }
+
+        public void UpdateProjectDescription(string description)
+        {
+            this.project.Description = description;
+            WavContactPDO.UpdateProject(this.project);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Modification de la description.");
+            this.GetActivity();
+        }
+
+        public void UpdateProjectCommentary(string commentary)
+        {
+            this.project.Commentaire = commentary;
+            WavContactPDO.UpdateProject(this.project);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Modification du commentaire.");
+            this.GetActivity();
+        }
+
+        public void GetActivity()
+        {
+            this.frm.UpdateActivityList(WavActivity.GetActivities(this.project));
         }
         
         public void DisplayDocuments()
@@ -64,13 +89,28 @@ namespace WavContact.Controllers
             {
                 WavFTP.UploadFile(sourcePath, this.project);
                 this.DisplayDocuments();
+
+                WavActivity.AjoutDocument(this.frm.LoggedUser, this.project, Path.GetFileName(sourcePath));
+                this.GetActivity();
             }
             ));
             th.Start();
         }
 
-        
-           
+        public void DeleteFile(WavFile file)
+        {
+            Thread th = new Thread(new ThreadStart(() =>
+            {
+                WavFTP.DeleteFile(file, this.project);
+                this.DisplayDocuments();
+
+                WavActivity.SuppressionDocument(this.frm.LoggedUser, this.project, file.Name);
+                this.GetActivity();
+            }
+            ));
+            th.Start();
+        }
+
         public void DisplayProjectInformationsInForm()
         {
             this.frm.ShowData(this.project);

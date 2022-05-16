@@ -10,6 +10,10 @@ using FluentEmail.Smtp;
 using System.Net.Mail;
 using FluentEmail.Core;
 
+/*using MailKit;
+using MimeKit;
+using MailKit.Net.Smtp;*/
+
 namespace WavContact.Metier
 {
     public class Mailing
@@ -19,24 +23,26 @@ namespace WavContact.Metier
         {
             SmtpClient smtp = new SmtpClient
             {
-                Host = "smtp.gmail.com",
+                Host = "smtp-relay.sendinblue.com",
                 Port = 587,
+
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new System.Net.NetworkCredential("waviewrecovery@gmail.com", "Waview2022_!")
+
+                Credentials = new System.Net.NetworkCredential("cocoh2012@gmail.com", "6rgL1WRN4zJdfmMv")
             };
 
             MailMessage mail = new MailMessage();
-
-            //Setting From , To and CC
-            mail.From = new MailAddress("waviewrecovery@gmail.com", "Waview Recovery");
+            
+            mail.From = new MailAddress("backup@waview.ch", "Waview Recovery");
             mail.To.Add(new MailAddress(to));
             mail.Subject = "Votre mot de passe";
             mail.Body = "Le code est : " + pass;
 
             
             smtp.Send(mail);
+
         }
     }
 }

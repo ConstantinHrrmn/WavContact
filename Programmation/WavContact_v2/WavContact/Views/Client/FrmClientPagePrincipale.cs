@@ -110,5 +110,13 @@ namespace WavContact.Views.Client
             this.ctrl.Logout();
             Application.Restart();
         }
+
+        private void lstProjet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.lstProjet.SelectedItem != null)
+            {
+                this.ctrl.LoadProjectPage(this.lstProjet.SelectedItem as Project);
+            }
+        }
     }
 }
