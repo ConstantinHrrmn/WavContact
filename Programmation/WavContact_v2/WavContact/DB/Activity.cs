@@ -12,11 +12,13 @@ namespace WavContact.DB
         private string _prenom;
         private string _content;
         private string _maJ;
+        private string _projet;
 
         public string Id { get => _id; set => _id = value; }
         public string Prenom { get => _prenom; set => _prenom = value; }
         public string Content { get => _content; set => _content = value; }
         public string MaJ { get => _maJ; set => _maJ = value; }
+        public string Projet { get => _projet; set => _projet = value; }
 
         public Activity()
         {
@@ -33,6 +35,11 @@ namespace WavContact.DB
         public override string ToString()
         {
             return String.Format("{0} [{1}] : {2}", this.MaJ, this.Prenom, this.Content);
+        }
+
+        public string MainActivity()
+        {
+            return String.Format("[{0}] {1} - {2} : {3}", this.Projet, this.MaJ, this.Prenom, this.Content);
         }
     }
 }

@@ -123,32 +123,36 @@ namespace WavContact.DB
         /// <param name="project">Le projet auquel appartient le fichier</param>
         public static void DownloadFile(WavFile fileToDownload, Project project)
         {
-            using (SftpClient sftp = new SftpClient(host, username, password))
+            if (fileToDownload != null)
             {
-                try
+                using (SftpClient sftp = new SftpClient(host, username, password))
                 {
-                    sftp.Connect();
-
-                    string localpath = downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name;
-
-                    if (File.Exists(localpath))
+                    try
                     {
-                        File.Delete(localpath);
-                    }
+                        sftp.Connect();
 
-                    using (Stream fileStream = File.OpenWrite(localpath))
+                        string localpath = downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name;
+
+                        if (File.Exists(localpath))
+                        {
+                            File.Delete(localpath);
+                        }
+
+                        using (Stream fileStream = File.OpenWrite(localpath))
+                        {
+                            sftp.DownloadFile(fileToDownload.RemotePath, fileStream);
+                            fileToDownload.LocalPath = localpath;
+                        }
+
+                        sftp.Disconnect();
+                    }
+                    catch (Exception er)
                     {
-                        sftp.DownloadFile(fileToDownload.RemotePath, fileStream);
-                        fileToDownload.LocalPath = localpath;
+                        Console.WriteLine("An exception has been caught " + er.ToString());
                     }
-
-                    sftp.Disconnect();
-                }
-                catch (Exception er)
-                {
-                    Console.WriteLine("An exception has been caught " + er.ToString());
                 }
             }
+            
         }
 
         public static void DeleteFile(WavFile fileToDelete, Project project)

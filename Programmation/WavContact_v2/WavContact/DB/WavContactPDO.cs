@@ -567,7 +567,34 @@ namespace WavContact.DB
 
             return null;
         }
-        
+
+        public static List<Activity> GetLastActivites(int amount)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Last", amount.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Activity[] activity = js.Deserialize<Activity[]>(a);
+
+                List<Activity> activities = new List<Activity>();
+
+                if (activity != null)
+                {
+                    foreach (Activity item in activity)
+                        activities.Add(item);
+                }
+
+                return activities;
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region Custom Methods
