@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using WavContact;
 using WavContact.Models;
 using WavContact.Views.Client;
+using WavContact.Views.Member;
 
 namespace WavContact.Controllers.Clients
 {
@@ -38,6 +39,12 @@ namespace WavContact.Controllers.Clients
         public void Logout()
         {
             PropertiesManager.Logout();
+        }
+
+        public void LoadProjectPage(Project p)
+        {
+            FrmWaviewProject frm = new FrmWaviewProject(p, this.ConnectedUser);
+            frm.Show();
         }
 
         public FrmClientPagePrincipale Form { get => _form; set => _form = value; }

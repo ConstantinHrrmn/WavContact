@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,8 +26,87 @@ namespace WavContact.Controllers
             
             this.DisplayProjectInformationsInForm();
 
-            Thread t = new Thread(new ThreadStart(DisplayDocuments));
-            t.Start();
+            Thread tActivity = new Thread(new ThreadStart(GetActivity));
+            Thread tDocuments = new Thread(new ThreadStart(DisplayDocuments));
+            Thread tDates = new Thread(new ThreadStart(GetDates));
+
+            tActivity.Start();
+            tDocuments.Start();
+            tDates.Start();
+        }
+
+        public void UpdateProjectDescription(string description)
+        {
+            this.project.Description = description;
+            WavContactPDO.UpdateProject(this.project);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Modification de la description.");
+            this.GetActivity();
+        }
+
+        public void UpdateProjectCommentary(string commentary)
+        {
+            this.project.Commentaire = commentary;
+            WavContactPDO.UpdateProject(this.project);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Modification du commentaire.");
+            this.GetActivity();
+        }
+
+        public void GetActivity()
+        {
+            this.frm.UpdateActivityList(WavActivity.GetActivities(this.project));
+        }
+        
+        public void AddDate()
+        {
+            FrmDatePicker frmPicker = new FrmDatePicker();
+            if (frmPicker.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                DateTime debut = frmPicker.Debut;
+                DateTime fin = frmPicker.Fin;
+
+                Tournage t = new Tournage();
+                t.Debut = debut;
+                t.Fin = fin;
+
+                WavContactPDO.CreateDateForProject(this.project, t);
+                WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Ajout d'une date");
+                this.GetActivity();
+                
+                this.GetDates();
+                
+            }
+        }
+
+        public void DeleteDate(Tournage date)
+        {
+            WavContactPDO.DeleteDate(date);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Suppression d'une date");
+            this.GetActivity();
+            this.GetDates();
+        }
+
+        public void UpdateDate(Tournage tournage)
+        {
+            FrmDatePicker frmPicker = new FrmDatePicker(tournage.Debut, tournage.Fin);
+            if (frmPicker.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                DateTime debut = frmPicker.Debut;
+                DateTime fin = frmPicker.Fin;
+
+                tournage.Debut = debut;
+                tournage.Fin = fin;
+
+                WavContactPDO.UpdateTournage(tournage);
+                WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Modification de la date du tournage.");
+                this.GetActivity();
+
+                this.GetDates();
+            }
+        }
+
+        public void GetDates()
+        {
+            this.frm.UpdateDateList(WavContactPDO.GetTournageForProject(this.project));
         }
         
         public void DisplayDocuments()
@@ -64,13 +144,28 @@ namespace WavContact.Controllers
             {
                 WavFTP.UploadFile(sourcePath, this.project);
                 this.DisplayDocuments();
+
+                WavActivity.AjoutDocument(this.frm.LoggedUser, this.project, Path.GetFileName(sourcePath));
+                this.GetActivity();
             }
             ));
             th.Start();
         }
 
-        
-           
+        public void DeleteFile(WavFile file)
+        {
+            Thread th = new Thread(new ThreadStart(() =>
+            {
+                WavFTP.DeleteFile(file, this.project);
+                this.DisplayDocuments();
+
+                WavActivity.SuppressionDocument(this.frm.LoggedUser, this.project, file.Name);
+                this.GetActivity();
+            }
+            ));
+            th.Start();
+        }
+
         public void DisplayProjectInformationsInForm()
         {
             this.frm.ShowData(this.project);

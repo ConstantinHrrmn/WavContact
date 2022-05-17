@@ -123,25 +123,57 @@ namespace WavContact.DB
         /// <param name="project">Le projet auquel appartient le fichier</param>
         public static void DownloadFile(WavFile fileToDownload, Project project)
         {
+            if (fileToDownload != null)
+            {
+                using (SftpClient sftp = new SftpClient(host, username, password))
+                {
+                    try
+                    {
+                        sftp.Connect();
+
+                        string localpath = downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name;
+
+                        if (File.Exists(localpath))
+                        {
+                            File.Delete(localpath);
+                        }
+
+                        using (Stream fileStream = File.OpenWrite(localpath))
+                        {
+                            sftp.DownloadFile(fileToDownload.RemotePath, fileStream);
+                            fileToDownload.LocalPath = localpath;
+                        }
+
+                        sftp.Disconnect();
+                    }
+                    catch (Exception er)
+                    {
+                        Console.WriteLine("An exception has been caught " + er.ToString());
+                    }
+                }
+            }
+            
+        }
+
+        public static void DeleteFile(WavFile fileToDelete, Project project)
+        {
             using (SftpClient sftp = new SftpClient(host, username, password))
             {
                 try
                 {
                     sftp.Connect();
 
-                    string localpath = downloadFolder + "\\" + project.Id.ToString() + "\\" + fileToDownload.Name;
-
-                    if (File.Exists(localpath))
-                    {
-                        File.Delete(localpath);
-                    }
-
-                    using (Stream fileStream = File.OpenWrite(localpath))
-                    {
-                        sftp.DownloadFile(fileToDownload.RemotePath, fileStream);
-                    }
+                    if (sftp.Exists(fileToDelete.RemotePath))
+                        sftp.DeleteFile(fileToDelete.RemotePath);
+                    else
+                        Debug.WriteLine("File doesn't exist");
 
                     sftp.Disconnect();
+
+                    if (File.Exists(fileToDelete.LocalPath))
+                    {
+                        File.Delete(fileToDelete.LocalPath);
+                    }
                 }
                 catch (Exception er)
                 {

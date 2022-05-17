@@ -29,6 +29,7 @@ namespace WavContact.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnSwitchMode = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@ namespace WavContact.Views
             this.btnInfosClients = new System.Windows.Forms.Button();
             this.btnGestionMateriel = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
+            this.lbActivity = new System.Windows.Forms.ListBox();
+            this.ActivityTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnLogout
@@ -226,12 +229,32 @@ namespace WavContact.Views
             this.btnAdmin.Text = "Administration";
             this.btnAdmin.UseVisualStyleBackColor = true;
             // 
+            // lbActivity
+            // 
+            this.lbActivity.BackColor = System.Drawing.Color.Black;
+            this.lbActivity.ForeColor = System.Drawing.Color.White;
+            this.lbActivity.FormattingEnabled = true;
+            this.lbActivity.ItemHeight = 30;
+            this.lbActivity.Location = new System.Drawing.Point(890, 1020);
+            this.lbActivity.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.lbActivity.Name = "lbActivity";
+            this.lbActivity.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbActivity.Size = new System.Drawing.Size(1153, 454);
+            this.lbActivity.TabIndex = 22;
+            // 
+            // ActivityTimer
+            // 
+            this.ActivityTimer.Enabled = true;
+            this.ActivityTimer.Interval = 15000;
+            this.ActivityTimer.Tick += new System.EventHandler(this.ActivityTimer_Tick);
+            // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(2057, 1566);
+            this.Controls.Add(this.lbActivity);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnGestionMateriel);
             this.Controls.Add(this.btnInfosClients);
@@ -274,5 +297,7 @@ namespace WavContact.Views
         private System.Windows.Forms.Button btnInfosClients;
         private System.Windows.Forms.Button btnGestionMateriel;
         private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.ListBox lbActivity;
+        private System.Windows.Forms.Timer ActivityTimer;
     }
 }

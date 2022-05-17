@@ -10,6 +10,8 @@ using WavContact.Metier;
 using WavContact.Views;
 using WavContact.Models;
 using WavContact.Views.Member;
+using WavContact.DB;
+using System.Threading;
 #endregion
 
 namespace WavContact.Controllers
@@ -40,6 +42,8 @@ namespace WavContact.Controllers
             this.clients = WavContact.DB.WavContactPDO.Clients();
 
             this.frm.LoadClients(this.clients);
+            Thread tActivity = new Thread(LoadActivityMonitor);
+            tActivity.Start();
         }
 
         public List<Project> GetProjectsForUser(User u)
@@ -55,8 +59,13 @@ namespace WavContact.Controllers
 
         public void LoadProjectPage(Project p)
         {
-            FrmWaviewProject frm = new FrmWaviewProject(p);
+            FrmWaviewProject frm = new FrmWaviewProject(p, this.ConnectedUser);
             frm.Show();
+        }
+
+        public void LoadActivityMonitor()
+        {
+            this.frm.UpdateActivityMonitor(WavContactPDO.GetLastActivites(15));
         }
 
         public void UpdateClients()

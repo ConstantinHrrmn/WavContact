@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[2.2.7, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.11.0, )"
@@ -127,6 +131,10 @@
             "FluentEmail.Smtp": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             },
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",

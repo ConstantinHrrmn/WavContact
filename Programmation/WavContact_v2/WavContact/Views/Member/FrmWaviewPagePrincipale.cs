@@ -15,6 +15,7 @@ using WavContact.DB;
 using WavContact.Metier;
 using WavContact.Models;
 using WavContact.Views.Member;
+using Activity = WavContact.DB.Activity;
 #endregion
 
 namespace WavContact.Views
@@ -135,6 +136,18 @@ namespace WavContact.Views
             
         }
 
+        public void UpdateActivityMonitor(List<Activity> activites)
+        {
+            this.lbActivity.Invoke(() => this.lbActivity.Items.Clear());
+            if (activites != null)
+            {
+                foreach (Activity a in activites)
+                {
+                    this.lbActivity.Invoke(() => this.lbActivity.Items.Add(a.MainActivity()));
+                }
+            }
+        }
+
         /// <summary>
         /// Charger les projets du clients dans la vue
         /// </summary>
@@ -198,6 +211,12 @@ namespace WavContact.Views
                 WavContactPDO.CreateProject(frm.NouveauProjet, this.lstListeClients.SelectedItem as User);
                 this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
             }
+        }
+
+        private void ActivityTimer_Tick(object sender, EventArgs e)
+        {
+            this.ctrl.LoadActivityMonitor();
+
         }
     }
 }

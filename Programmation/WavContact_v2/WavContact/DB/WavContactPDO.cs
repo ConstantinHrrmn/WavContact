@@ -166,6 +166,23 @@ namespace WavContact.DB
 
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/create").Result;
         }
+
+        public static void CreateDateForProject(Project p, Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+
+            string debut = t.Debut.ToString("yyyy-M-dd HH:mm:ss.ms");
+            string fin = t.Fin.ToString("yyyy-M-dd HH:mm:ss.ms");
+
+            Debug.WriteLine(debut);
+            Debug.WriteLine(fin);
+
+            hc.DefaultRequestHeaders.Add("Project", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Start", debut);
+            hc.DefaultRequestHeaders.Add("End", fin);
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/create").Result;
+        }
        
         #endregion
 
@@ -193,14 +210,20 @@ namespace WavContact.DB
         // Update project
         public static void UpdateProject(Project p)
         {
+            string description = p.Description.Replace("\'", "\\'");
+            string commentaire = p.Commentaire.Replace("\'", "\\'");
+            commentaire = commentaire.Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
+
             HttpClient hc = new HttpClient();
 
             hc.DefaultRequestHeaders.Add("Update", "Update");
             hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Name", p.Name);
-            hc.DefaultRequestHeaders.Add("Description", p.Description);
+            hc.DefaultRequestHeaders.Add("Nom", p.Name);
+            hc.DefaultRequestHeaders.Add("Description", description);
+            hc.DefaultRequestHeaders.Add("Client", p.Owner.Id.ToString());
             hc.DefaultRequestHeaders.Add("Valider", p.Valider.ToString());
-
+            hc.DefaultRequestHeaders.Add("Commentaire", commentaire);
+            
             var response = hc.GetAsync(BASE_URL + "/PROJET/update").Result;
         }
 
@@ -220,6 +243,23 @@ namespace WavContact.DB
             hc.DefaultRequestHeaders.Add("Id", m.Id.ToString());
 
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/update").Result;
+        }
+
+        public static void UpdateTournage(Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+            
+            string debut = t.Debut.ToString("yyyy-M-dd HH:mm:ss.ms");
+            string fin = t.Fin.ToString("yyyy-M-dd HH:mm:ss.ms");
+
+            Debug.WriteLine(debut);
+            Debug.WriteLine(fin);
+
+            hc.DefaultRequestHeaders.Add("Id", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Start", debut) ;
+            hc.DefaultRequestHeaders.Add("End", fin);
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/update").Result;
         }
 
         #endregion
@@ -252,10 +292,19 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/delete").Result;
         }
 
+        public static void DeleteDate(Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Id", t.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/delete").Result;
+        } 
+
         #endregion
 
         #region GET
-        
+
         /// <summary>
         /// Récupère tous les projets pour un utilisateur
         /// </summary>
@@ -283,7 +332,9 @@ namespace WavContact.DB
                 {
                     foreach (Project item in p)
                     {
+                        item.Owner = u;
                         projects.Add(item);
+                        
                     }
                 }
 
@@ -435,11 +486,119 @@ namespace WavContact.DB
 
             return true;
         }
-        
+
+        /// <summary>
+        /// Récupère toutes les dates de tournages pour un projet
+        /// </summary>
+        /// <param name="p">Le projet en question</param>
+        /// <returns>Une liste de "Tournages"</returns>
+        public static List<Tournage> GetTournageForProject(Project p)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Project", p.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/read").Result;
+            
+            if (response.IsSuccessStatusCode)
+            {
+                string a = response.Content.ReadAsStringAsync().Result;
+                a.Replace("-", "/");
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Tournage[] tournages = js.Deserialize<Tournage[]>(a);
+
+                List<Tournage> tournagesList = new List<Tournage>();
+
+                if (tournages != null)
+                {
+                    foreach (Tournage item in tournages)
+                        tournagesList.Add(item);
+                    return tournagesList;                    
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+
+            return null;
+        }
+
+        #endregion
+
+        #region ACTIVITY_LOG
+
+        public static void AddActivityLog(User a_user, Project a_project, string a_log)
+        {
+            HttpClient hc = new HttpClient();
+
+            a_log = a_log.Replace("'", "\\'");
+
+            hc.DefaultRequestHeaders.Add("User", a_user.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Project", a_project.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Activity", a_log);
+
+            var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
+        }
+
+        public static List<Activity> GetActivitiesForProject(Project p)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Activity[] activity = js.Deserialize<Activity[]>(a);
+
+                List<Activity> activities = new List<Activity>();
+
+                if (activity != null)
+                {
+                    foreach (Activity item in activity)
+                        activities.Add(item);
+                }
+
+                return activities;
+            }
+
+            return null;
+        }
+
+        public static List<Activity> GetLastActivites(int amount)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Last", amount.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Activity[] activity = js.Deserialize<Activity[]>(a);
+
+                List<Activity> activities = new List<Activity>();
+
+                if (activity != null)
+                {
+                    foreach (Activity item in activity)
+                        activities.Add(item);
+                }
+
+                return activities;
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region Custom Methods
-        
+
         /// <summary>
         /// Génrère un nom aléatoire
         /// </summary>
