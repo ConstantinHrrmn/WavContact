@@ -127,7 +127,7 @@ namespace WavContact.DB
             hc.DefaultRequestHeaders.Add("Email", user.Email);
             hc.DefaultRequestHeaders.Add("Tel", user.Phone);
             hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour" + user.Email));
-            hc.DefaultRequestHeaders.Add("Role", "2");
+            hc.DefaultRequestHeaders.Add("Role", user.IdRole.ToString());
 
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
             return null;

@@ -45,6 +45,10 @@ namespace WavContact.Views.Member
             this.tbxAdresseVille = new System.Windows.Forms.TextBox();
             this.tbxNom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.rbAdmin = new System.Windows.Forms.RadioButton();
+            this.rbClient = new System.Windows.Forms.RadioButton();
+            this.rbPhoto = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNomClient
@@ -237,12 +241,60 @@ namespace WavContact.Views.Member
             this.label1.TabIndex = 25;
             this.label1.Text = "Nom";
             // 
+            // rbAdmin
+            // 
+            this.rbAdmin.AutoSize = true;
+            this.rbAdmin.Location = new System.Drawing.Point(220, 245);
+            this.rbAdmin.Name = "rbAdmin";
+            this.rbAdmin.Size = new System.Drawing.Size(99, 34);
+            this.rbAdmin.TabIndex = 26;
+            this.rbAdmin.Text = "Admin";
+            this.rbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // rbClient
+            // 
+            this.rbClient.AutoSize = true;
+            this.rbClient.Checked = true;
+            this.rbClient.Location = new System.Drawing.Point(381, 245);
+            this.rbClient.Name = "rbClient";
+            this.rbClient.Size = new System.Drawing.Size(91, 34);
+            this.rbClient.TabIndex = 27;
+            this.rbClient.TabStop = true;
+            this.rbClient.Text = "Client";
+            this.rbClient.UseVisualStyleBackColor = true;
+            // 
+            // rbPhoto
+            // 
+            this.rbPhoto.AutoSize = true;
+            this.rbPhoto.Location = new System.Drawing.Point(540, 245);
+            this.rbPhoto.Name = "rbPhoto";
+            this.rbPhoto.Size = new System.Drawing.Size(158, 34);
+            this.rbPhoto.TabIndex = 28;
+            this.rbPhoto.Text = "Photographe";
+            this.rbPhoto.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(35, 247);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 30);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Role";
+            // 
             // FrmWaviewPageClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(744, 796);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.rbPhoto);
+            this.Controls.Add(this.rbClient);
+            this.Controls.Add(this.rbAdmin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxNom);
             this.Controls.Add(this.tbxAdresseVille);
@@ -287,5 +339,9 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.TextBox tbxAdresseVille;
         private System.Windows.Forms.TextBox tbxNom;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbAdmin;
+        private System.Windows.Forms.RadioButton rbClient;
+        private System.Windows.Forms.RadioButton rbPhoto;
+        private System.Windows.Forms.Label label2;
     }
 }

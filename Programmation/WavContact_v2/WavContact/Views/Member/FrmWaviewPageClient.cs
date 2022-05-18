@@ -91,10 +91,13 @@ namespace WavContact.Views.Member
                     this.Client.First_name = tbxPrenom.Text;
                     this.Client.Email = tbxMail.Text;
                     this.Client.Phone = tbxTel.Text;
-
+                    this.Client.IdRole = this.rbAdmin.Checked ? 1 : this.rbClient.Checked ? 2 : 3;
+                    
                     string adresse = tbxAdresseRue.Text;
                     string CP = tbxAdresseCP.Text;
                     string ville = tbxAdresseVille.Text;
+
+                   
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -113,9 +116,9 @@ namespace WavContact.Views.Member
                     string adresse = tbxAdresseRue.Text;
                     string CP = tbxAdresseCP.Text;
                     string ville = tbxAdresseVille.Text;
+                    int idRole = this.rbAdmin.Checked ? 1 : this.rbClient.Checked ? 2 : 3;
 
-                  
-                    this.Client = new User(-1, email, prenom, nom, 1, tel);
+                    this.Client = new User(-1, email, prenom, nom, idRole, tel);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
               
