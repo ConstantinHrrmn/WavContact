@@ -13,7 +13,7 @@ namespace WavContact.DB
     public class WavContactPDO
     {
         #region VARIABLES
-        private static string BASE_URL = "https://waview.ch/wavcontact/apiv2";
+        public static string BASE_URL = "https://waview.ch/wavcontact/apiv2";
         #endregion
 
         #region SECURITY
@@ -369,6 +369,38 @@ namespace WavContact.DB
                 foreach (User item in persons)
                 {
                     item.Projets = ProjectsForUser(item);
+                    clients.Add(item);
+                }
+
+                return clients;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Récupère tous les clients SANS leurs projets
+        /// </summary>
+        /// <returns>Une liste de clients simple</returns>
+        public static List<User> ClientsNoProjects()
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("All", "yes");
+
+            var response = hc.GetAsync(BASE_URL + "/CLIENT/read").Result;
+
+            // On vérifie que le code de retour est bien 200 => OK
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                User[] persons = js.Deserialize<User[]>(a);
+
+                List<User> clients = new List<User>();
+
+                foreach (User item in persons)
+                {
+                    //item.Projets = ProjectsForUser(item);
                     clients.Add(item);
                 }
 

@@ -32,17 +32,24 @@ namespace WavContact.DB
                 {
                     sftp.Connect();
 
-                    var files = sftp.ListDirectory(remoteDirectory + project.Id);
-
-                    foreach (var file in files)
+                    if (!sftp.Exists(remoteDirectory + project.Id))
                     {
-                        if (file.Name != "." && file.Name != "..")
-                        {
-                            WavFiles.Add(new WavFile(file.Name, file.FullName, null));
-                            Debug.WriteLine(file.Name);
-                        }
-
+                        sftp.CreateDirectory(remoteDirectory + project.Id);
                     }
+                    else
+                    {
+                        var files = sftp.ListDirectory(remoteDirectory + project.Id);
+
+                        foreach (var file in files)
+                        {
+                            if (file.Name != "." && file.Name != "..")
+                            {
+                                WavFiles.Add(new WavFile(file.Name, file.FullName, null));
+                                Debug.WriteLine(file.Name);
+                            }
+
+                        }
+                    }  
 
                     sftp.Disconnect();
                     return WavFiles;

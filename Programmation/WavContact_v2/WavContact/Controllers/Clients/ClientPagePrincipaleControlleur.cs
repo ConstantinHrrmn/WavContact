@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using WavContact;
+using WavContact.Chat;
 using WavContact.Models;
 using WavContact.Views.Client;
 using WavContact.Views.Member;
@@ -45,6 +47,17 @@ namespace WavContact.Controllers.Clients
         {
             FrmWaviewProject frm = new FrmWaviewProject(p, this.ConnectedUser);
             frm.Show();
+        }
+
+        public void UpdateChatCount()
+        {
+            Thread t = new Thread(() =>
+            {
+                int amount = WavChatPDO.GetUnreadMessagesCount(this.ConnectedUser);
+                this._form.UpdateChatCount(amount);
+            });
+
+            t.Start();
         }
 
         public FrmClientPagePrincipale Form { get => _form; set => _form = value; }

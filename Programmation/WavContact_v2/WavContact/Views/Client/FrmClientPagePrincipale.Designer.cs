@@ -29,22 +29,22 @@ namespace WavContact.Views.Client
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSwitchMode = new System.Windows.Forms.Button();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.lstProjet = new System.Windows.Forms.ListBox();
             this.lblRecapProjet = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnChat = new System.Windows.Forms.Button();
-            this.btnProjet = new System.Windows.Forms.Button();
-            this.btnParametre = new System.Windows.Forms.Button();
+            this.TimerCheckNewMessages = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnSwitchMode
             // 
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
-            this.btnSwitchMode.Location = new System.Drawing.Point(919, 14);
-            this.btnSwitchMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSwitchMode.Location = new System.Drawing.Point(437, 14);
+            this.btnSwitchMode.Margin = new System.Windows.Forms.Padding(4);
             this.btnSwitchMode.Name = "btnSwitchMode";
             this.btnSwitchMode.Size = new System.Drawing.Size(214, 58);
             this.btnSwitchMode.TabIndex = 30;
@@ -92,7 +92,7 @@ namespace WavContact.Views.Client
             // 
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(1141, 14);
+            this.btnLogout.Location = new System.Drawing.Point(660, 14);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(214, 58);
@@ -106,48 +106,26 @@ namespace WavContact.Views.Client
             this.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChat.ForeColor = System.Drawing.Color.White;
             this.btnChat.Location = new System.Drawing.Point(13, 14);
-            this.btnChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChat.Margin = new System.Windows.Forms.Padding(4);
             this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(214, 58);
+            this.btnChat.Size = new System.Drawing.Size(374, 58);
             this.btnChat.TabIndex = 40;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = true;
             this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
             // 
-            // btnProjet
+            // TimerCheckNewMessages
             // 
-            this.btnProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProjet.ForeColor = System.Drawing.Color.White;
-            this.btnProjet.Location = new System.Drawing.Point(234, 14);
-            this.btnProjet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnProjet.Name = "btnProjet";
-            this.btnProjet.Size = new System.Drawing.Size(215, 58);
-            this.btnProjet.TabIndex = 41;
-            this.btnProjet.Text = "Projet";
-            this.btnProjet.UseVisualStyleBackColor = true;
-            this.btnProjet.Click += new System.EventHandler(this.btnProjet_Click);
-            // 
-            // btnParametre
-            // 
-            this.btnParametre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParametre.ForeColor = System.Drawing.Color.White;
-            this.btnParametre.Location = new System.Drawing.Point(456, 14);
-            this.btnParametre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnParametre.Name = "btnParametre";
-            this.btnParametre.Size = new System.Drawing.Size(214, 58);
-            this.btnParametre.TabIndex = 42;
-            this.btnParametre.Text = "Paramètre";
-            this.btnParametre.UseVisualStyleBackColor = true;
-            this.btnParametre.Click += new System.EventHandler(this.btnParametre_Click);
+            this.TimerCheckNewMessages.Enabled = true;
+            this.TimerCheckNewMessages.Interval = 2500;
+            this.TimerCheckNewMessages.Tick += new System.EventHandler(this.TimerCheckNewMessages_Tick);
             // 
             // FrmClientPagePrincipale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1372, 1186);
-            this.Controls.Add(this.btnParametre);
-            this.Controls.Add(this.btnProjet);
+            this.ClientSize = new System.Drawing.Size(889, 1186);
             this.Controls.Add(this.btnChat);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblRecapProjet);
@@ -156,7 +134,7 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.btnSwitchMode);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmClientPagePrincipale";
             this.Text = "Waview Client";
@@ -174,7 +152,6 @@ namespace WavContact.Views.Client
         private System.Windows.Forms.Label lblRecapProjet;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnChat;
-        private System.Windows.Forms.Button btnProjet;
-        private System.Windows.Forms.Button btnParametre;
+        private System.Windows.Forms.Timer TimerCheckNewMessages;
     }
 }

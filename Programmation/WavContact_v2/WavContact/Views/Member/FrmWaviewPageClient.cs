@@ -130,7 +130,7 @@ namespace WavContact.Views.Member
 
         private void btnChat_Click(object sender, EventArgs e)
         {
-            FrmWaviewChat chat = new FrmWaviewChat();
+            FrmWaviewChat chat = new FrmWaviewChat(this.Client);
             chat.ShowDialog();
         }
 

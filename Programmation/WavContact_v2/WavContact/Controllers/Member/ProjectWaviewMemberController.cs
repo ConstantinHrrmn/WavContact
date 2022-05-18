@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WavContact.Chat;
 using WavContact.DB;
 using WavContact.Models;
 using WavContact.Views.Member;
@@ -175,5 +176,7 @@ namespace WavContact.Controllers
         {
             return WavFTP.OpenProjectFolder(this.project);
         }
+
+        
     }
 }

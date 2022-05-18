@@ -12,6 +12,7 @@ using WavContact.Models;
 using WavContact.Views.Member;
 using WavContact.DB;
 using System.Threading;
+using WavContact.Chat;
 #endregion
 
 namespace WavContact.Controllers
@@ -72,6 +73,17 @@ namespace WavContact.Controllers
         {
             this.clients = WavContact.DB.WavContactPDO.Clients();
             this.frm.LoadClients(this.clients);
+        }
+
+        public void UpdateChatCount()
+        {
+            Thread t = new Thread(() =>
+            {
+                int amount = WavChatPDO.GetUnreadMessagesCount(this.connectedUser);
+                this.frm.UpdateChatCount(amount);
+            });
+
+            t.Start();
         }
 
     }

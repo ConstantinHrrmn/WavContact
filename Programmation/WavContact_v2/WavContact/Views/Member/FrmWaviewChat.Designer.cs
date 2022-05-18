@@ -29,71 +29,113 @@ namespace WavContact.Views.Member
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtListeMessage = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.lstListeClient = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxInput = new System.Windows.Forms.TextBox();
             this.btnEnvoye = new System.Windows.Forms.Button();
+            this.tbxMEssages = new System.Windows.Forms.TextBox();
+            this.ChatTimer = new System.Windows.Forms.Timer(this.components);
+            this.IncomeTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblChat = new System.Windows.Forms.Label();
+            this.btnMode = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // txtListeMessage
-            // 
-            this.txtListeMessage.BackColor = System.Drawing.Color.Black;
-            this.txtListeMessage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtListeMessage.ForeColor = System.Drawing.Color.White;
-            this.txtListeMessage.Location = new System.Drawing.Point(337, 20);
-            this.txtListeMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtListeMessage.Multiline = true;
-            this.txtListeMessage.Name = "txtListeMessage";
-            this.txtListeMessage.ReadOnly = true;
-            this.txtListeMessage.Size = new System.Drawing.Size(597, 1151);
-            this.txtListeMessage.TabIndex = 8;
             // 
             // lstListeClient
             // 
             this.lstListeClient.BackColor = System.Drawing.Color.Black;
             this.lstListeClient.ForeColor = System.Drawing.Color.White;
             this.lstListeClient.FormattingEnabled = true;
-            this.lstListeClient.ItemHeight = 25;
-            this.lstListeClient.Location = new System.Drawing.Point(17, 20);
-            this.lstListeClient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lstListeClient.ItemHeight = 30;
+            this.lstListeClient.Location = new System.Drawing.Point(20, 24);
+            this.lstListeClient.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lstListeClient.Name = "lstListeClient";
-            this.lstListeClient.Size = new System.Drawing.Size(310, 1279);
+            this.lstListeClient.Size = new System.Drawing.Size(371, 1534);
             this.lstListeClient.TabIndex = 10;
+            this.lstListeClient.SelectedIndexChanged += new System.EventHandler(this.lstListeClient_SelectedIndexChanged);
             // 
-            // textBox1
+            // tbxInput
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(337, 1248);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(464, 51);
-            this.textBox1.TabIndex = 11;
+            this.tbxInput.BackColor = System.Drawing.Color.Black;
+            this.tbxInput.Location = new System.Drawing.Point(404, 1395);
+            this.tbxInput.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbxInput.Multiline = true;
+            this.tbxInput.Name = "tbxInput";
+            this.tbxInput.Size = new System.Drawing.Size(556, 163);
+            this.tbxInput.TabIndex = 11;
             // 
             // btnEnvoye
             // 
             this.btnEnvoye.BackColor = System.Drawing.Color.Black;
             this.btnEnvoye.ForeColor = System.Drawing.Color.White;
-            this.btnEnvoye.Location = new System.Drawing.Point(811, 1248);
-            this.btnEnvoye.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEnvoye.Location = new System.Drawing.Point(973, 1468);
+            this.btnEnvoye.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnEnvoye.Name = "btnEnvoye";
-            this.btnEnvoye.Size = new System.Drawing.Size(124, 53);
+            this.btnEnvoye.Size = new System.Drawing.Size(149, 90);
             this.btnEnvoye.TabIndex = 12;
             this.btnEnvoye.Text = "Envoyer";
             this.btnEnvoye.UseVisualStyleBackColor = false;
+            this.btnEnvoye.Click += new System.EventHandler(this.btnEnvoye_Click);
+            // 
+            // tbxMEssages
+            // 
+            this.tbxMEssages.Location = new System.Drawing.Point(404, 77);
+            this.tbxMEssages.Multiline = true;
+            this.tbxMEssages.Name = "tbxMEssages";
+            this.tbxMEssages.ReadOnly = true;
+            this.tbxMEssages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbxMEssages.Size = new System.Drawing.Size(718, 1309);
+            this.tbxMEssages.TabIndex = 13;
+            // 
+            // ChatTimer
+            // 
+            this.ChatTimer.Enabled = true;
+            this.ChatTimer.Interval = 1500;
+            this.ChatTimer.Tick += new System.EventHandler(this.ChatTimer_Tick);
+            // 
+            // IncomeTimer
+            // 
+            this.IncomeTimer.Enabled = true;
+            this.IncomeTimer.Interval = 2000;
+            this.IncomeTimer.Tick += new System.EventHandler(this.IncomeTimer_Tick);
+            // 
+            // lblChat
+            // 
+            this.lblChat.AutoSize = true;
+            this.lblChat.Font = new System.Drawing.Font("Segoe UI", 15.85714F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblChat.ForeColor = System.Drawing.Color.White;
+            this.lblChat.Location = new System.Drawing.Point(404, 24);
+            this.lblChat.Name = "lblChat";
+            this.lblChat.Size = new System.Drawing.Size(225, 50);
+            this.lblChat.TabIndex = 14;
+            this.lblChat.Text = "CHAT NAME";
+            // 
+            // btnMode
+            // 
+            this.btnMode.BackColor = System.Drawing.Color.Black;
+            this.btnMode.ForeColor = System.Drawing.Color.White;
+            this.btnMode.Location = new System.Drawing.Point(973, 1395);
+            this.btnMode.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnMode.Name = "btnMode";
+            this.btnMode.Size = new System.Drawing.Size(149, 61);
+            this.btnMode.TabIndex = 15;
+            this.btnMode.Text = "Public";
+            this.btnMode.UseVisualStyleBackColor = false;
+            this.btnMode.Click += new System.EventHandler(this.btnMode_Click);
             // 
             // FrmWaviewChat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(964, 1050);
+            this.ClientSize = new System.Drawing.Size(1157, 1579);
+            this.Controls.Add(this.btnMode);
+            this.Controls.Add(this.lblChat);
+            this.Controls.Add(this.tbxMEssages);
             this.Controls.Add(this.btnEnvoye);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxInput);
             this.Controls.Add(this.lstListeClient);
-            this.Controls.Add(this.txtListeMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewChat";
             this.ShowIcon = false;
@@ -107,9 +149,13 @@ namespace WavContact.Views.Member
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtListeMessage;
         private System.Windows.Forms.ListBox lstListeClient;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxInput;
         private System.Windows.Forms.Button btnEnvoye;
+        private System.Windows.Forms.TextBox tbxMEssages;
+        private System.Windows.Forms.Timer ChatTimer;
+        private System.Windows.Forms.Timer IncomeTimer;
+        private System.Windows.Forms.Label lblChat;
+        private System.Windows.Forms.Button btnMode;
     }
 }

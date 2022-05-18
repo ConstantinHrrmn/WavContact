@@ -164,7 +164,7 @@ namespace WavContact.Views
 
         private void btnChats_Click(object sender, EventArgs e)
         {
-            FrmWaviewChat chat = new FrmWaviewChat();
+            FrmWaviewChat chat = new FrmWaviewChat(this.ctrl.ConnectedUser);
             chat.ShowDialog();
         }
 
@@ -210,6 +210,7 @@ namespace WavContact.Views
                 Debug.WriteLine(frm.NouveauProjet);
                 WavContactPDO.CreateProject(frm.NouveauProjet, this.lstListeClients.SelectedItem as User);
                 this.LoadProjectsForClient(this.ctrl.GetProjectsForUser(this.lstListeClients.SelectedItem as User));
+                WavActivity.CreationProjet(this.ctrl.ConnectedUser, frm.NouveauProjet);
             }
         }
 
@@ -217,6 +218,23 @@ namespace WavContact.Views
         {
             this.ctrl.LoadActivityMonitor();
 
+        }
+
+        private void MessageTimer_Tick(object sender, EventArgs e)
+        {
+            this.ctrl.UpdateChatCount();
+        }
+
+        public void UpdateChatCount(int amount)
+        {
+            try
+            {
+                this.btnChats.Invoke(() => this.btnChats.Text = "Chats (" + amount + ")");
+            }
+            catch (Exception)
+            {
+            }
+            
         }
     }
 }

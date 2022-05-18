@@ -46,6 +46,7 @@ namespace WavContact.Views
             this.btnAdmin = new System.Windows.Forms.Button();
             this.lbActivity = new System.Windows.Forms.ListBox();
             this.ActivityTimer = new System.Windows.Forms.Timer(this.components);
+            this.MessageTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnLogout
@@ -231,6 +232,7 @@ namespace WavContact.Views
             // 
             // lbActivity
             // 
+            this.lbActivity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbActivity.BackColor = System.Drawing.Color.Black;
             this.lbActivity.ForeColor = System.Drawing.Color.White;
             this.lbActivity.FormattingEnabled = true;
@@ -248,10 +250,16 @@ namespace WavContact.Views
             this.ActivityTimer.Interval = 15000;
             this.ActivityTimer.Tick += new System.EventHandler(this.ActivityTimer_Tick);
             // 
+            // MessageTimer
+            // 
+            this.MessageTimer.Enabled = true;
+            this.MessageTimer.Interval = 3000;
+            this.MessageTimer.Tick += new System.EventHandler(this.MessageTimer_Tick);
+            // 
             // FrmWaviewPagePrincipale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(2057, 1566);
             this.Controls.Add(this.lbActivity);
@@ -299,5 +307,6 @@ namespace WavContact.Views
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.ListBox lbActivity;
         private System.Windows.Forms.Timer ActivityTimer;
+        private System.Windows.Forms.Timer MessageTimer;
     }
 }

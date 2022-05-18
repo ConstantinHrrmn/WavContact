@@ -74,6 +74,18 @@ namespace WavContact.Views.Client
             this.ctrl.UpdateProjects();
         }
 
+        public void UpdateChatCount(int amount)
+        {
+            try
+            {
+                this.btnChat.Invoke(() => this.btnChat.Text = "Chat (" + amount + ")");
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
         public void UpdateProjectList(List<Project> projets)
         {
             this.lstProjet.Items.Clear();
@@ -95,7 +107,7 @@ namespace WavContact.Views.Client
 
         private void btnChat_Click(object sender, EventArgs e)
         {
-            FrmClientChat frm = new FrmClientChat();
+            FrmClientChat frm = new FrmClientChat(this.ctrl.ConnectedUser);
             frm.ShowDialog();
         }
 
@@ -117,6 +129,11 @@ namespace WavContact.Views.Client
             {
                 this.ctrl.LoadProjectPage(this.lstProjet.SelectedItem as Project);
             }
+        }
+
+        private void TimerCheckNewMessages_Tick(object sender, EventArgs e)
+        {
+            this.ctrl.UpdateChatCount();
         }
     }
 }

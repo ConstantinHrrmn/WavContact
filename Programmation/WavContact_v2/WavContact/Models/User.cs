@@ -18,6 +18,8 @@ namespace WavContact.Models
 
         private List<Project> projets;
 
+        private int unread;
+
         public User()
         {
 
@@ -50,6 +52,7 @@ namespace WavContact.Models
         public string Email { get => email; set => email = value; }
         public int Id { get => id; set => id = value; }
         public string Phone { get => phone; set => phone = value; }
+        public int Unread { get => unread; set => unread = value; }
 
         public void AddProject(Project p)
         {
@@ -59,6 +62,11 @@ namespace WavContact.Models
         public override string ToString()
         {
             return this.First_name + " " + this.Last_name;
+        }
+
+        public string ToChatList()
+        {
+            return this.First_name + " " + this.Last_name + (this.unread > 0 ? " ("+this.unread+")" : "") ;
         }
     }
 }

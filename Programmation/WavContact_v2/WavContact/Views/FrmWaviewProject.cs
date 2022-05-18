@@ -108,12 +108,12 @@ namespace WavContact.Views.Member
         {
             if (this.isAdmin)
             {
-                FrmWaviewChat frmChat = new FrmWaviewChat();
+                FrmWaviewChat frmChat = new FrmWaviewChat(this.loggedUser);
                 frmChat.Show();
             }
             else
             {
-                FrmClientChat frm = new FrmClientChat();
+                FrmClientChat frm = new FrmClientChat(this.loggedUser);
                 frm.Show();
             }
             
