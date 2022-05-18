@@ -47,6 +47,21 @@ namespace WavContact.Views
             this.lbActivity = new System.Windows.Forms.ListBox();
             this.ActivityTimer = new System.Windows.Forms.Timer(this.components);
             this.MessageTimer = new System.Windows.Forms.Timer(this.components);
+            this.lbDay1 = new System.Windows.Forms.ListBox();
+            this.lblDay1 = new System.Windows.Forms.Label();
+            this.lblDay2 = new System.Windows.Forms.Label();
+            this.lbDay2 = new System.Windows.Forms.ListBox();
+            this.lbDay4 = new System.Windows.Forms.ListBox();
+            this.lblDay4 = new System.Windows.Forms.Label();
+            this.lbDay3 = new System.Windows.Forms.ListBox();
+            this.lblDay3 = new System.Windows.Forms.Label();
+            this.lbDay6 = new System.Windows.Forms.ListBox();
+            this.lblDay6 = new System.Windows.Forms.Label();
+            this.lbDay7 = new System.Windows.Forms.ListBox();
+            this.lblDay7 = new System.Windows.Forms.Label();
+            this.lbDay5 = new System.Windows.Forms.ListBox();
+            this.lblDay5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -237,11 +252,11 @@ namespace WavContact.Views
             this.lbActivity.ForeColor = System.Drawing.Color.White;
             this.lbActivity.FormattingEnabled = true;
             this.lbActivity.ItemHeight = 30;
-            this.lbActivity.Location = new System.Drawing.Point(890, 1020);
+            this.lbActivity.Location = new System.Drawing.Point(901, 1092);
             this.lbActivity.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lbActivity.Name = "lbActivity";
             this.lbActivity.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbActivity.Size = new System.Drawing.Size(1153, 454);
+            this.lbActivity.Size = new System.Drawing.Size(1142, 454);
             this.lbActivity.TabIndex = 22;
             // 
             // ActivityTimer
@@ -256,12 +271,207 @@ namespace WavContact.Views
             this.MessageTimer.Interval = 3000;
             this.MessageTimer.Tick += new System.EventHandler(this.MessageTimer_Tick);
             // 
+            // lbDay1
+            // 
+            this.lbDay1.BackColor = System.Drawing.Color.Black;
+            this.lbDay1.ForeColor = System.Drawing.Color.White;
+            this.lbDay1.FormattingEnabled = true;
+            this.lbDay1.ItemHeight = 30;
+            this.lbDay1.Location = new System.Drawing.Point(901, 206);
+            this.lbDay1.Name = "lbDay1";
+            this.lbDay1.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay1.Size = new System.Drawing.Size(1140, 214);
+            this.lbDay1.TabIndex = 0;
+            // 
+            // lblDay1
+            // 
+            this.lblDay1.AutoSize = true;
+            this.lblDay1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay1.ForeColor = System.Drawing.Color.White;
+            this.lblDay1.Location = new System.Drawing.Point(901, 152);
+            this.lblDay1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay1.Name = "lblDay1";
+            this.lblDay1.Size = new System.Drawing.Size(152, 51);
+            this.lblDay1.TabIndex = 23;
+            this.lblDay1.Text = "Demain";
+            // 
+            // lblDay2
+            // 
+            this.lblDay2.AutoSize = true;
+            this.lblDay2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay2.ForeColor = System.Drawing.Color.White;
+            this.lblDay2.Location = new System.Drawing.Point(918, 449);
+            this.lblDay2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay2.Name = "lblDay2";
+            this.lblDay2.Size = new System.Drawing.Size(100, 51);
+            this.lblDay2.TabIndex = 24;
+            this.lblDay2.Text = "xx.yy";
+            // 
+            // lbDay2
+            // 
+            this.lbDay2.BackColor = System.Drawing.Color.Black;
+            this.lbDay2.ForeColor = System.Drawing.Color.White;
+            this.lbDay2.FormattingEnabled = true;
+            this.lbDay2.ItemHeight = 30;
+            this.lbDay2.Location = new System.Drawing.Point(901, 503);
+            this.lbDay2.Name = "lbDay2";
+            this.lbDay2.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay2.Size = new System.Drawing.Size(352, 214);
+            this.lbDay2.TabIndex = 25;
+            // 
+            // lbDay4
+            // 
+            this.lbDay4.BackColor = System.Drawing.Color.Black;
+            this.lbDay4.ForeColor = System.Drawing.Color.White;
+            this.lbDay4.FormattingEnabled = true;
+            this.lbDay4.ItemHeight = 30;
+            this.lbDay4.Location = new System.Drawing.Point(1689, 503);
+            this.lbDay4.Name = "lbDay4";
+            this.lbDay4.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay4.Size = new System.Drawing.Size(352, 214);
+            this.lbDay4.TabIndex = 27;
+            // 
+            // lblDay4
+            // 
+            this.lblDay4.AutoSize = true;
+            this.lblDay4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay4.ForeColor = System.Drawing.Color.White;
+            this.lblDay4.Location = new System.Drawing.Point(1706, 449);
+            this.lblDay4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay4.Name = "lblDay4";
+            this.lblDay4.Size = new System.Drawing.Size(100, 51);
+            this.lblDay4.TabIndex = 26;
+            this.lblDay4.Text = "xx.yy";
+            // 
+            // lbDay3
+            // 
+            this.lbDay3.BackColor = System.Drawing.Color.Black;
+            this.lbDay3.ForeColor = System.Drawing.Color.White;
+            this.lbDay3.FormattingEnabled = true;
+            this.lbDay3.ItemHeight = 30;
+            this.lbDay3.Location = new System.Drawing.Point(1294, 503);
+            this.lbDay3.Name = "lbDay3";
+            this.lbDay3.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay3.Size = new System.Drawing.Size(352, 214);
+            this.lbDay3.TabIndex = 29;
+            // 
+            // lblDay3
+            // 
+            this.lblDay3.AutoSize = true;
+            this.lblDay3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay3.ForeColor = System.Drawing.Color.White;
+            this.lblDay3.Location = new System.Drawing.Point(1311, 449);
+            this.lblDay3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay3.Name = "lblDay3";
+            this.lblDay3.Size = new System.Drawing.Size(100, 51);
+            this.lblDay3.TabIndex = 28;
+            this.lblDay3.Text = "xx.yy";
+            // 
+            // lbDay6
+            // 
+            this.lbDay6.BackColor = System.Drawing.Color.Black;
+            this.lbDay6.ForeColor = System.Drawing.Color.White;
+            this.lbDay6.FormattingEnabled = true;
+            this.lbDay6.ItemHeight = 30;
+            this.lbDay6.Location = new System.Drawing.Point(1294, 780);
+            this.lbDay6.Name = "lbDay6";
+            this.lbDay6.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay6.Size = new System.Drawing.Size(352, 214);
+            this.lbDay6.TabIndex = 35;
+            // 
+            // lblDay6
+            // 
+            this.lblDay6.AutoSize = true;
+            this.lblDay6.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay6.ForeColor = System.Drawing.Color.White;
+            this.lblDay6.Location = new System.Drawing.Point(1311, 726);
+            this.lblDay6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay6.Name = "lblDay6";
+            this.lblDay6.Size = new System.Drawing.Size(100, 51);
+            this.lblDay6.TabIndex = 34;
+            this.lblDay6.Text = "xx.yy";
+            // 
+            // lbDay7
+            // 
+            this.lbDay7.BackColor = System.Drawing.Color.Black;
+            this.lbDay7.ForeColor = System.Drawing.Color.White;
+            this.lbDay7.FormattingEnabled = true;
+            this.lbDay7.ItemHeight = 30;
+            this.lbDay7.Location = new System.Drawing.Point(1689, 780);
+            this.lbDay7.Name = "lbDay7";
+            this.lbDay7.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay7.Size = new System.Drawing.Size(352, 214);
+            this.lbDay7.TabIndex = 33;
+            // 
+            // lblDay7
+            // 
+            this.lblDay7.AutoSize = true;
+            this.lblDay7.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay7.ForeColor = System.Drawing.Color.White;
+            this.lblDay7.Location = new System.Drawing.Point(1706, 726);
+            this.lblDay7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay7.Name = "lblDay7";
+            this.lblDay7.Size = new System.Drawing.Size(100, 51);
+            this.lblDay7.TabIndex = 32;
+            this.lblDay7.Text = "xx.yy";
+            // 
+            // lbDay5
+            // 
+            this.lbDay5.BackColor = System.Drawing.Color.Black;
+            this.lbDay5.ForeColor = System.Drawing.Color.White;
+            this.lbDay5.FormattingEnabled = true;
+            this.lbDay5.ItemHeight = 30;
+            this.lbDay5.Location = new System.Drawing.Point(901, 780);
+            this.lbDay5.Name = "lbDay5";
+            this.lbDay5.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbDay5.Size = new System.Drawing.Size(352, 214);
+            this.lbDay5.TabIndex = 31;
+            // 
+            // lblDay5
+            // 
+            this.lblDay5.AutoSize = true;
+            this.lblDay5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDay5.ForeColor = System.Drawing.Color.White;
+            this.lblDay5.Location = new System.Drawing.Point(918, 726);
+            this.lblDay5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDay5.Name = "lblDay5";
+            this.lblDay5.Size = new System.Drawing.Size(100, 51);
+            this.lblDay5.TabIndex = 30;
+            this.lblDay5.Text = "xx.yy";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(901, 1035);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 51);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Activité";
+            // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(2057, 1566);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbDay6);
+            this.Controls.Add(this.lblDay6);
+            this.Controls.Add(this.lbDay7);
+            this.Controls.Add(this.lblDay7);
+            this.Controls.Add(this.lbDay5);
+            this.Controls.Add(this.lblDay5);
+            this.Controls.Add(this.lbDay3);
+            this.Controls.Add(this.lblDay3);
+            this.Controls.Add(this.lbDay4);
+            this.Controls.Add(this.lblDay4);
+            this.Controls.Add(this.lbDay2);
+            this.Controls.Add(this.lblDay2);
+            this.Controls.Add(this.lblDay1);
+            this.Controls.Add(this.lbDay1);
             this.Controls.Add(this.lbActivity);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnGestionMateriel);
@@ -308,5 +518,20 @@ namespace WavContact.Views
         private System.Windows.Forms.ListBox lbActivity;
         private System.Windows.Forms.Timer ActivityTimer;
         private System.Windows.Forms.Timer MessageTimer;
+        private System.Windows.Forms.ListBox lbDay1;
+        private System.Windows.Forms.Label lblDay1;
+        private System.Windows.Forms.Label lblDay2;
+        private System.Windows.Forms.ListBox lbDay2;
+        private System.Windows.Forms.ListBox lbDay4;
+        private System.Windows.Forms.Label lblDay4;
+        private System.Windows.Forms.ListBox lbDay3;
+        private System.Windows.Forms.Label lblDay3;
+        private System.Windows.Forms.ListBox lbDay6;
+        private System.Windows.Forms.Label lblDay6;
+        private System.Windows.Forms.ListBox lbDay7;
+        private System.Windows.Forms.Label lblDay7;
+        private System.Windows.Forms.ListBox lbDay5;
+        private System.Windows.Forms.Label lblDay5;
+        private System.Windows.Forms.Label label1;
     }
 }

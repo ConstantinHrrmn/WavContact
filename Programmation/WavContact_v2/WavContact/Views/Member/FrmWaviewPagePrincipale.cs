@@ -24,6 +24,9 @@ namespace WavContact.Views
     {
         #region Variables privées
         private WaviewMemberController ctrl;
+
+        List<ListBox> boxes = new List<ListBox>();
+        List<Label> labels = new List<Label>();
         #endregion
 
         /// <summary>
@@ -43,6 +46,26 @@ namespace WavContact.Views
             this.lblWelcome.Text = string.Format("Hello {0} !", this.ctrl.ConnectedUser);
             // On met a jour le theme de la page en fonction de l'enregistrement de l'utilisateur
             this.SwitchMode();
+
+            this.boxes.Add(this.lbDay1);
+            this.boxes.Add(this.lbDay2);
+            this.boxes.Add(this.lbDay3);
+            this.boxes.Add(this.lbDay4);
+            this.boxes.Add(this.lbDay5);
+            this.boxes.Add(this.lbDay6);
+            this.boxes.Add(this.lbDay7);
+
+            this.labels.Add(this.lblDay1);
+            this.labels.Add(this.lblDay2);
+            this.labels.Add(this.lblDay3);
+            this.labels.Add(this.lblDay4);
+            this.labels.Add(this.lblDay5);
+            this.labels.Add(this.lblDay6);
+            this.labels.Add(this.lblDay7);
+            
+
+            this.ctrl.UpdateCalendar();
+            
         }
 
         #region MouseMoving
@@ -138,14 +161,22 @@ namespace WavContact.Views
 
         public void UpdateActivityMonitor(List<Activity> activites)
         {
-            this.lbActivity.Invoke(() => this.lbActivity.Items.Clear());
-            if (activites != null)
+            try
             {
-                foreach (Activity a in activites)
+                this.lbActivity.Invoke(() => this.lbActivity.Items.Clear());
+                if (activites != null)
                 {
-                    this.lbActivity.Invoke(() => this.lbActivity.Items.Add(a.MainActivity()));
+                    foreach (Activity a in activites)
+                    {
+                        this.lbActivity.Invoke(() => this.lbActivity.Items.Add(a.MainActivity()));
+                    }
                 }
             }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         /// <summary>
@@ -235,6 +266,27 @@ namespace WavContact.Views
             {
             }
             
+        }
+
+        public void UpdateCalendar(DateTime startingDate, Calendat[][] calendar)
+        {
+
+            for (int i = 0; i < calendar.Length; i++)
+            {
+                this.boxes[i].Items.Clear();
+                DateTime date = startingDate.AddDays(i);
+
+                this.labels[i].Text = this.FormatDate(date);
+                for (int x = 0; x < calendar[i].Length; x++)
+                {
+                    this.boxes[i].Items.Add(calendar[i][x].ToString(date));
+                }
+            }
+        }
+
+        public string FormatDate(DateTime date)
+        {
+            return date.ToString("dd.MM");
         }
     }
 }

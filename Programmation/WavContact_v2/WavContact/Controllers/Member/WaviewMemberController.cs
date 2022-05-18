@@ -47,6 +47,8 @@ namespace WavContact.Controllers
             tActivity.Start();
         }
 
+        
+
         public List<Project> GetProjectsForUser(User u)
         {
             u.Projets = WavContact.DB.WavContactPDO.ProjectsForUser(u);
@@ -84,6 +86,12 @@ namespace WavContact.Controllers
             });
 
             t.Start();
+        }
+
+        public void UpdateCalendar()
+        {
+            this.frm.UpdateCalendar(DateTime.Now, WavContactPDO.GetCalendar(DateTime.Now));
+            
         }
 
     }
