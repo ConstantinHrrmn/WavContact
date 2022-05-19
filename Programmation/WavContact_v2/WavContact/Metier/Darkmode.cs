@@ -20,6 +20,15 @@ namespace WavContact.Metier
                 item.BackColor = backcolor;
                 item.ForeColor = invertedColor;
 
+                if (item is GroupBox)
+                {
+                    foreach (Control control in item.Controls)
+                    {
+                        control.BackColor = backcolor;
+                        control.ForeColor = invertedColor;
+                    }
+                }
+
                 if (item.Name == "btnClose")
                 {
                     item.ForeColor = Color.Red;

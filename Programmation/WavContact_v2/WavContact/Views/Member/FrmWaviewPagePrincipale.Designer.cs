@@ -43,7 +43,6 @@ namespace WavContact.Views
             this.btnNewProject = new System.Windows.Forms.Button();
             this.btnInfosClients = new System.Windows.Forms.Button();
             this.btnGestionMateriel = new System.Windows.Forms.Button();
-            this.btnAdmin = new System.Windows.Forms.Button();
             this.lbActivity = new System.Windows.Forms.ListBox();
             this.ActivityTimer = new System.Windows.Forms.Timer(this.components);
             this.MessageTimer = new System.Windows.Forms.Timer(this.components);
@@ -235,19 +234,6 @@ namespace WavContact.Views
             this.btnGestionMateriel.Text = "Gestion du matériel";
             this.btnGestionMateriel.UseVisualStyleBackColor = true;
             this.btnGestionMateriel.Click += new System.EventHandler(this.btnGestionMateriel_Click);
-            // 
-            // btnAdmin
-            // 
-            this.btnAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnAdmin.Location = new System.Drawing.Point(955, 18);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(214, 58);
-            this.btnAdmin.TabIndex = 21;
-            this.btnAdmin.Text = "Administration";
-            this.btnAdmin.UseVisualStyleBackColor = true;
             // 
             // lbActivity
             // 
@@ -521,7 +507,6 @@ namespace WavContact.Views
             this.Controls.Add(this.lblDay1);
             this.Controls.Add(this.lbDay1);
             this.Controls.Add(this.lbActivity);
-            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnGestionMateriel);
             this.Controls.Add(this.btnInfosClients);
             this.Controls.Add(this.btnNewProject);
@@ -563,7 +548,6 @@ namespace WavContact.Views
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Button btnInfosClients;
         private System.Windows.Forms.Button btnGestionMateriel;
-        private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.ListBox lbActivity;
         private System.Windows.Forms.Timer ActivityTimer;
         private System.Windows.Forms.Timer MessageTimer;

@@ -30,6 +30,9 @@ namespace WavContact.Views.Member
 
         public User LoggedUser { get => loggedUser; set => loggedUser = value; }
 
+        Tournage selectedTournage = null;
+        WavFile selectedFile = null;
+        
         public FrmWaviewProject(Project p, User u )
         {
             InitializeComponent();
@@ -127,10 +130,22 @@ namespace WavContact.Views.Member
 
         private void lbDocuments_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             WavFile file = this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex);
-            this.ctrl.DownloadFile(file);
 
-            this.ctrl.OpenFolderInExplorer();
+            if (this.selectedFile == null || this.selectedFile != file)
+            {
+                this.selectedFile = file;
+            }
+            else
+            {
+                this.selectedFile = null;
+                
+                this.ctrl.DownloadFile(file);
+
+                this.ctrl.OpenFolderInExplorer();
+            }
+            
         }
 
         private void btnFolderOpen_Click(object sender, EventArgs e)
@@ -223,7 +238,16 @@ namespace WavContact.Views.Member
                 this.btnRemoveDate.Visible = true;
                 Tournage selectedDate = this.lstDateTournages.SelectedItem as Tournage;
 
-                this.ctrl.UpdateDate(selectedDate);
+                if (this.selectedTournage == null || this.selectedTournage != selectedDate)
+                {
+                    this.selectedTournage = selectedDate;
+                }
+                else
+                {
+                    this.ctrl.UpdateDate(selectedDate);
+                }
+
+                
             }
         }
     }

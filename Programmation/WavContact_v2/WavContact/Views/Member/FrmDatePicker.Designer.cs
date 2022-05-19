@@ -121,6 +121,7 @@
             this.Name = "FrmDatePicker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestion de la date";
+            this.Load += new System.EventHandler(this.FrmDatePicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

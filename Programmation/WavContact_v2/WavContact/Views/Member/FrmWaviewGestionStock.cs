@@ -19,6 +19,8 @@ namespace WavContact.Views.Member
     {
         private WavfiewMaterielController ctrl;
 
+        private bool newMaterial = false;
+
         public FrmWaviewGestionStock()
         {
             InitializeComponent();
@@ -68,6 +70,11 @@ namespace WavContact.Views.Member
 
             this.cmbCategorie.SelectedIndex = indexCate;
 
+            this.ChangeFields(false);
+            this.newMaterial = false;
+
+            this.lblId.Text = "ID : " + m.Id.ToString();
+
         }
 
         private void lbMateriel_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,8 +85,6 @@ namespace WavContact.Views.Member
             Materiel m = t.Item1;
             CategorieMateriel cm = t.Item2;
             int index = t.Item3;
-
-            Debug.WriteLine(t);
 
             if (m != null)
             {
@@ -104,15 +109,22 @@ namespace WavContact.Views.Member
             this.tbxPrix.Text = "";
             this.tbxQuantite.Text = "";
             this.cmbCategorie.SelectedIndex = 0;
-            this.btnSaveNew.Visible = true;
-
-            // Make all fileds editable
-            this.tbxName.ReadOnly = false;
-            this.tbxDescription.ReadOnly = false;
-            this.tbxPrix.ReadOnly = false;
-            this.tbxQuantite.ReadOnly = false;
-            this.cmbCategorie.Enabled = true;
             
+
+            this.newMaterial = true;
+
+            this.ChangeFields(false);
+        }
+
+       private void ChangeFields(bool hidden)
+        {
+            // Make all fileds editable
+            this.tbxName.ReadOnly = hidden;
+            this.tbxDescription.ReadOnly = hidden;
+            this.tbxPrix.ReadOnly = hidden;
+            this.tbxQuantite.ReadOnly = hidden;
+            this.cmbCategorie.Enabled = !hidden;
+            this.btnSaveNew.Visible = !hidden;
         }
 
         private void btnSaveNew_Click(object sender, EventArgs e)
@@ -125,16 +137,32 @@ namespace WavContact.Views.Member
                 {
                     if (q > 0)
                     {
-                        CategorieMateriel categorieMateriel = this.cmbCategorie.SelectedItem as CategorieMateriel;
-                        Materiel m = new Materiel(-1, categorieMateriel.Id, this.tbxName.Text, this.tbxDescription.Text, Convert.ToDouble(this.tbxPrix.Text), Convert.ToInt32(this.tbxQuantite.Text));
+                        if (this.newMaterial)
+                        {
+                            CategorieMateriel categorieMateriel = this.cmbCategorie.SelectedItem as CategorieMateriel;
+                            Materiel m = new Materiel(-1, categorieMateriel.Id, this.tbxName.Text, this.tbxDescription.Text, Convert.ToDouble(this.tbxPrix.Text), Convert.ToInt32(this.tbxQuantite.Text));
 
-                        // Save materiel in database
-                        WavContact.DB.WavContactPDO.CreateMaterial(m);
+                            // Save materiel in database
+                            WavContact.DB.WavContactPDO.CreateMaterial(m);
+                            MessageBox.Show("Le matériel a été ajouté avec succès", "Ajout matériel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            CategorieMateriel categorieMateriel = this.cmbCategorie.SelectedItem as CategorieMateriel;
+                            Materiel mm = this.lbMateriel.SelectedItem as Materiel;
+                            Materiel m = new Materiel(mm.Id, categorieMateriel.Id, this.tbxName.Text, this.tbxDescription.Text, Convert.ToDouble(this.tbxPrix.Text), Convert.ToInt32(this.tbxQuantite.Text));
+
+                            // Save materiel in database
+                            WavContact.DB.WavContactPDO.UpdateMaterial(m);
+                            MessageBox.Show("Le matériel a été modifié avec succès", "Modification matériel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.ShowMateriel(m, categorieMateriel.Id);
+                        }
+                        
 
                         //Update Materiel list
                         this.ctrl.UpdateMateriel();
 
-                        MessageBox.Show("Le matériel a été ajouté avec succès", "Ajout matériel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                     }
                     else
                     {
@@ -155,7 +183,18 @@ namespace WavContact.Views.Member
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-
+            if (this.lbMateriel.SelectedIndex != -1)
+            {
+                this.ctrl.DeleteMateriel(this.lbMateriel.SelectedItem as Materiel);
+                this.ChangeFields(true);
+                this.tbxName.Text = "";
+                this.tbxDescription.Text = "";
+                this.tbxPrix.Text = "";
+                this.tbxQuantite.Text = "";
+                this.cmbCategorie.SelectedIndex = 0;
+                this.lblId.Text = "-";
+            }
+            
         }
     }
 }

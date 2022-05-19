@@ -90,6 +90,12 @@ namespace WavContact.Controllers.Member
            
         }
 
+        public void DeleteMateriel(Materiel m)
+        {
+            WavContactPDO.DeleteMaterial(m);
+            this.UpdateMateriel();
+        }
+
         public FrmWaviewGestionStock Frame { get => _frame; set => _frame = value; }
         private List<Materiel> Materiels { get => _materiels; set => _materiels = value; }
         private List<CategorieMateriel> Categories { get => _categories; set => _categories = value; }
