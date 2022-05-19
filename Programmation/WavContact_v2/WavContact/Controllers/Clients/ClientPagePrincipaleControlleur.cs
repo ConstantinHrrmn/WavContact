@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using WavContact;
 using WavContact.Chat;
+using WavContact.DB;
 using WavContact.Models;
 using WavContact.Views.Client;
 using WavContact.Views.Member;
@@ -60,6 +61,26 @@ namespace WavContact.Controllers.Clients
             t.Start();
         }
 
+        public void UpdateCalendar()
+        {
+            Thread t = new Thread(() =>
+            {
+                this._form.UpdateCalendar(DateTime.Now, WavContactPDO.GetCalendarClient(DateTime.Now, this.ConnectedUser));
+            });
+
+            t.Start();
+        }
+
+        public void UpdateCalendar(DateTime firstDay)
+        {
+            Thread t = new Thread(() =>
+            {
+                this._form.UpdateCalendar(firstDay, WavContactPDO.GetCalendarClient(firstDay, this.ConnectedUser));
+            });
+
+            t.Start();
+        }
+        
         public FrmClientPagePrincipale Form { get => _form; set => _form = value; }
         public User ConnectedUser { get => _connectedUser; set => _connectedUser = value; }
     }

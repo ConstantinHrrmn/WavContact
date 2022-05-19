@@ -583,6 +583,35 @@ namespace WavContact.DB
             return null;
         }
 
+        public static Calendat[][] GetCalendarClient(DateTime baseDate, User u)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Do", Convert.ToString(baseDate.Year + "-" + baseDate.Month + "-" + baseDate.Day));
+            hc.DefaultRequestHeaders.Add("Id", u.Id.ToString());
+            
+            var response = hc.GetAsync(BASE_URL + "/TOURNAGE/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                string a = response.Content.ReadAsStringAsync().Result;
+
+                a.Replace("-", "/");
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Calendat[][] tournages = js.Deserialize<Calendat[][]>(a);
+
+                if (tournages != null)
+                {
+                    return tournages;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region ACTIVITY_LOG
