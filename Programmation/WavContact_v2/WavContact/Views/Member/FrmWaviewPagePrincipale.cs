@@ -40,10 +40,104 @@ namespace WavContact.Views
             InitializeComponent();
             // Initialisation du controlleur
             this.ctrl = new WaviewMemberController(this, u);
+            
+            int h = Screen.PrimaryScreen.WorkingArea.Height;
+            int w = Screen.PrimaryScreen.WorkingArea.Width;
+
+            if (w < 2000 || h < 1200)
+            {
+                Debug.WriteLine("Small screen");
+                this.SmallScreen();
+            }
+            else
+            {
+                Debug.WriteLine("Big screen");
+            }
         }
+
+        #region RESIZE_FORM
+        
+        private void SmallScreen()
+        {
+            
+            MessageBox.Show("En raison de la taille de votre écran, certaines fonctionnalités de l'application peuvent ne pas fonctionner correctement. Nous vous conseillons de règler la taille de votre écran à 100% pour une utilisation optimale de l'application.", "Petit réglage...");
+            int h = Screen.PrimaryScreen.WorkingArea.Height;
+            int w = Screen.PrimaryScreen.WorkingArea.Width;
+
+            this.Width = w - 70;
+            this.Height = h - 70;
+
+            //this.lbActivity.Visible = false;
+            //this.lblActivity.Visible = false;
+
+            
+            int heightMagicalValue = 320;
+            int widthMagicalValue = 1659;
+            
+            this.lstListeProjets.Height = this.Height - heightMagicalValue;
+            this.lstListeProjets.Width = this.Width - widthMagicalValue;
+            this.lstListeClients.Height = this.Height - heightMagicalValue;
+            this.lstListeClients.Width = this.Width - widthMagicalValue;
+
+            this.lstListeProjets.Location = new Point(this.lstListeClients.Location.X + this.lstListeClients.Width + 10, this.lstListeProjets.Location.Y);
+            this.lblProjets.Location = new Point(this.lstListeProjets.Location.X, this.lblProjets.Location.Y);
+
+            // Réglage des boutons de l'application
+            this.btnNewClient.Width = this.lstListeClients.Width / 2 - 2;
+            this.btnInfosClients.Width = this.lstListeClients.Width / 2 - 2;
+
+            this.btnNewClient.Location = new Point(this.lstListeClients.Location.X + this.lstListeClients.Width / 2 + 4 , this.btnNewClient.Location.Y);
+            this.btnInfosClients.Location = new Point(this.lstListeClients.Location.X, this.btnInfosClients.Location.Y);
+
+            this.btnNewProject.Width = this.lstListeProjets.Width;
+            this.btnNewProject.Location = new Point(this.lstListeProjets.Location.X, this.btnNewProject.Location.Y);
+
+            //w : 2081 - 1140 = 961
+            //h : 1492 - 214 = 1278
+            this.lbDay1.Width = this.Width - 941;
+            
+            this.lblDay1.Location = new Point(this.Width - 30 - this.lbDay1.Width, this.lblDay1.Location.Y);
+            this.lbDay1.Location = new Point(this.Width - 30 - this.lbDay1.Width, this.lbDay1.Location.Y);
+
+            int size = this.lbDay1.Width / 3 - 2;
+            this.lbDay2.Width = size;
+            this.lbDay3.Width = size;
+            this.lbDay4.Width = size;
+            this.lbDay5.Width = size;
+            this.lbDay6.Width = size;
+            this.lbDay7.Width = size;
+            
+            this.lbDay2.Location = new Point(this.lbDay1.Location.X, this.lbDay2.Location.Y);
+            this.lbDay5.Location = new Point(this.lbDay1.Location.X, this.lbDay5.Location.Y);
+            
+            this.lbDay4.Location = new Point(this.lbDay1.Location.X + size + 4, this.lbDay4.Location.Y);
+            this.lbDay6.Location = new Point(this.lbDay1.Location.X + size + 4, this.lbDay6.Location.Y);
+
+            this.lbDay3.Location = new Point(this.lbDay4.Location.X + size + 4, this.lbDay3.Location.Y);
+            this.lbDay7.Location = new Point(this.lbDay4.Location.X + size + 4, this.lbDay7.Location.Y);
+
+            this.lblDay2.Location = new Point(this.lbDay2.Location.X, this.lblDay2.Location.Y);
+            this.lblDay3.Location = new Point(this.lbDay3.Location.X, this.lblDay3.Location.Y);
+            this.lblDay4.Location = new Point(this.lbDay4.Location.X, this.lblDay4.Location.Y);
+            this.lblDay5.Location = new Point(this.lbDay5.Location.X, this.lblDay5.Location.Y);
+            this.lblDay6.Location = new Point(this.lbDay6.Location.X, this.lblDay6.Location.Y);
+            this.lblDay7.Location = new Point(this.lbDay7.Location.X, this.lblDay7.Location.Y);
+
+            int activityWidth = (this.lblDay1.Location.X - 10) - (this.lstListeProjets.Location.X + this.lstListeProjets.Width + 10);
+            int activityHeight = this.lstListeProjets.Height;
+
+            this.lbActivity.Location = new Point(this.lstListeProjets.Location.X + this.lstListeProjets.Width + 10, this.lstListeProjets.Location.Y);
+            this.lbActivity.Width = activityWidth;
+            this.lbActivity.Height = activityHeight;
+
+            this.lblActivity.Location = new Point(this.lbActivity.Location.X, this.lblProjets.Location.Y);
+        }
+
+        #endregion
 
         private void FrmWaviewMember_Load(object sender, EventArgs e)
         {
+            
             // Affichage du nom de la personne dans la ligne en haut
             this.lblWelcome.Text = string.Format("Hello {0} !", this.ctrl.ConnectedUser);
             // On met a jour le theme de la page en fonction de l'enregistrement de l'utilisateur
@@ -320,7 +414,7 @@ namespace WavContact.Views
                 case "Sunday":
                     return "Dimanche";
                 default:
-                    return "";
+                    return english;
             }
         }
 

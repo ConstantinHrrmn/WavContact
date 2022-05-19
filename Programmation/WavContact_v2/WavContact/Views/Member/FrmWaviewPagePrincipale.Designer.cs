@@ -61,7 +61,7 @@ namespace WavContact.Views
             this.lblDay7 = new System.Windows.Forms.Label();
             this.lbDay5 = new System.Windows.Forms.ListBox();
             this.lblDay5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblActivity = new System.Windows.Forms.Label();
             this.btnNextWeek = new System.Windows.Forms.Button();
             this.btnPreviusWeek = new System.Windows.Forms.Button();
             this.btnToday = new System.Windows.Forms.Button();
@@ -69,6 +69,7 @@ namespace WavContact.Views
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
             this.btnLogout.Location = new System.Drawing.Point(1827, 18);
@@ -94,6 +95,7 @@ namespace WavContact.Views
             // 
             // btnSwitchMode
             // 
+            this.btnSwitchMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
             this.btnSwitchMode.Location = new System.Drawing.Point(1615, 18);
@@ -119,7 +121,7 @@ namespace WavContact.Views
             this.lstListeClients.Location = new System.Drawing.Point(15, 152);
             this.lstListeClients.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lstListeClients.Name = "lstListeClients";
-            this.lstListeClients.Size = new System.Drawing.Size(422, 1322);
+            this.lstListeClients.Size = new System.Drawing.Size(422, 1172);
             this.lstListeClients.TabIndex = 8;
             this.lstListeClients.SelectedIndexChanged += new System.EventHandler(this.lbClients_SelectedIndexChanged);
             // 
@@ -157,15 +159,16 @@ namespace WavContact.Views
             this.lstListeProjets.Location = new System.Drawing.Point(454, 152);
             this.lstListeProjets.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lstListeProjets.Name = "lstListeProjets";
-            this.lstListeProjets.Size = new System.Drawing.Size(422, 1322);
+            this.lstListeProjets.Size = new System.Drawing.Size(422, 1172);
             this.lstListeProjets.TabIndex = 13;
             this.lstListeProjets.SelectedIndexChanged += new System.EventHandler(this.lbProjets_SelectedIndexChanged);
             // 
             // btnChats
             // 
+            this.btnChats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChats.ForeColor = System.Drawing.Color.White;
-            this.btnChats.Location = new System.Drawing.Point(1402, 16);
+            this.btnChats.Location = new System.Drawing.Point(1403, 18);
             this.btnChats.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnChats.Name = "btnChats";
             this.btnChats.Size = new System.Drawing.Size(202, 58);
@@ -176,13 +179,13 @@ namespace WavContact.Views
             // 
             // btnNewClient
             // 
-            this.btnNewClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewClient.ForeColor = System.Drawing.Color.White;
-            this.btnNewClient.Location = new System.Drawing.Point(295, 1488);
+            this.btnNewClient.Location = new System.Drawing.Point(275, 1336);
             this.btnNewClient.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnNewClient.Name = "btnNewClient";
-            this.btnNewClient.Size = new System.Drawing.Size(144, 58);
+            this.btnNewClient.Size = new System.Drawing.Size(162, 77);
             this.btnNewClient.TabIndex = 17;
             this.btnNewClient.Text = "Nouveau";
             this.btnNewClient.UseVisualStyleBackColor = true;
@@ -190,14 +193,15 @@ namespace WavContact.Views
             // 
             // btnNewProject
             // 
-            this.btnNewProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewProject.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnNewProject.Enabled = false;
             this.btnNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewProject.ForeColor = System.Drawing.Color.White;
-            this.btnNewProject.Location = new System.Drawing.Point(734, 1488);
+            this.btnNewProject.Location = new System.Drawing.Point(454, 1336);
             this.btnNewProject.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnNewProject.Name = "btnNewProject";
-            this.btnNewProject.Size = new System.Drawing.Size(144, 58);
+            this.btnNewProject.Size = new System.Drawing.Size(422, 77);
             this.btnNewProject.TabIndex = 18;
             this.btnNewProject.Text = "Nouveau";
             this.btnNewProject.UseVisualStyleBackColor = true;
@@ -205,14 +209,14 @@ namespace WavContact.Views
             // 
             // btnInfosClients
             // 
-            this.btnInfosClients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInfosClients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnInfosClients.Enabled = false;
             this.btnInfosClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfosClients.ForeColor = System.Drawing.Color.White;
-            this.btnInfosClients.Location = new System.Drawing.Point(15, 1488);
+            this.btnInfosClients.Location = new System.Drawing.Point(15, 1336);
             this.btnInfosClients.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnInfosClients.Name = "btnInfosClients";
-            this.btnInfosClients.Size = new System.Drawing.Size(269, 58);
+            this.btnInfosClients.Size = new System.Drawing.Size(250, 77);
             this.btnInfosClients.TabIndex = 19;
             this.btnInfosClients.Text = "Informations";
             this.btnInfosClients.UseVisualStyleBackColor = true;
@@ -220,9 +224,10 @@ namespace WavContact.Views
             // 
             // btnGestionMateriel
             // 
+            this.btnGestionMateriel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGestionMateriel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionMateriel.ForeColor = System.Drawing.Color.White;
-            this.btnGestionMateriel.Location = new System.Drawing.Point(1179, 16);
+            this.btnGestionMateriel.Location = new System.Drawing.Point(1179, 18);
             this.btnGestionMateriel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnGestionMateriel.Name = "btnGestionMateriel";
             this.btnGestionMateriel.Size = new System.Drawing.Size(214, 58);
@@ -233,9 +238,10 @@ namespace WavContact.Views
             // 
             // btnAdmin
             // 
+            this.btnAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnAdmin.Location = new System.Drawing.Point(957, 16);
+            this.btnAdmin.Location = new System.Drawing.Point(955, 18);
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(214, 58);
@@ -245,11 +251,12 @@ namespace WavContact.Views
             // 
             // lbActivity
             // 
+            this.lbActivity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbActivity.BackColor = System.Drawing.Color.Black;
             this.lbActivity.ForeColor = System.Drawing.Color.White;
             this.lbActivity.FormattingEnabled = true;
             this.lbActivity.ItemHeight = 30;
-            this.lbActivity.Location = new System.Drawing.Point(901, 1092);
+            this.lbActivity.Location = new System.Drawing.Point(899, 959);
             this.lbActivity.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lbActivity.Name = "lbActivity";
             this.lbActivity.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -313,7 +320,7 @@ namespace WavContact.Views
             this.lbDay2.Location = new System.Drawing.Point(901, 503);
             this.lbDay2.Name = "lbDay2";
             this.lbDay2.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbDay2.Size = new System.Drawing.Size(352, 214);
+            this.lbDay2.Size = new System.Drawing.Size(352, 154);
             this.lbDay2.TabIndex = 25;
             // 
             // lbDay4
@@ -325,7 +332,7 @@ namespace WavContact.Views
             this.lbDay4.Location = new System.Drawing.Point(1689, 503);
             this.lbDay4.Name = "lbDay4";
             this.lbDay4.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbDay4.Size = new System.Drawing.Size(352, 214);
+            this.lbDay4.Size = new System.Drawing.Size(352, 154);
             this.lbDay4.TabIndex = 27;
             // 
             // lblDay4
@@ -349,7 +356,7 @@ namespace WavContact.Views
             this.lbDay3.Location = new System.Drawing.Point(1294, 503);
             this.lbDay3.Name = "lbDay3";
             this.lbDay3.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbDay3.Size = new System.Drawing.Size(352, 214);
+            this.lbDay3.Size = new System.Drawing.Size(352, 154);
             this.lbDay3.TabIndex = 29;
             // 
             // lblDay3
@@ -370,10 +377,10 @@ namespace WavContact.Views
             this.lbDay6.ForeColor = System.Drawing.Color.White;
             this.lbDay6.FormattingEnabled = true;
             this.lbDay6.ItemHeight = 30;
-            this.lbDay6.Location = new System.Drawing.Point(1294, 780);
+            this.lbDay6.Location = new System.Drawing.Point(1294, 723);
             this.lbDay6.Name = "lbDay6";
             this.lbDay6.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbDay6.Size = new System.Drawing.Size(352, 214);
+            this.lbDay6.Size = new System.Drawing.Size(352, 154);
             this.lbDay6.TabIndex = 35;
             // 
             // lblDay6
@@ -381,7 +388,7 @@ namespace WavContact.Views
             this.lblDay6.AutoSize = true;
             this.lblDay6.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDay6.ForeColor = System.Drawing.Color.White;
-            this.lblDay6.Location = new System.Drawing.Point(1311, 726);
+            this.lblDay6.Location = new System.Drawing.Point(1311, 669);
             this.lblDay6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDay6.Name = "lblDay6";
             this.lblDay6.Size = new System.Drawing.Size(100, 51);
@@ -394,10 +401,10 @@ namespace WavContact.Views
             this.lbDay7.ForeColor = System.Drawing.Color.White;
             this.lbDay7.FormattingEnabled = true;
             this.lbDay7.ItemHeight = 30;
-            this.lbDay7.Location = new System.Drawing.Point(1689, 780);
+            this.lbDay7.Location = new System.Drawing.Point(1689, 723);
             this.lbDay7.Name = "lbDay7";
             this.lbDay7.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbDay7.Size = new System.Drawing.Size(352, 214);
+            this.lbDay7.Size = new System.Drawing.Size(352, 154);
             this.lbDay7.TabIndex = 33;
             // 
             // lblDay7
@@ -405,7 +412,7 @@ namespace WavContact.Views
             this.lblDay7.AutoSize = true;
             this.lblDay7.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDay7.ForeColor = System.Drawing.Color.White;
-            this.lblDay7.Location = new System.Drawing.Point(1706, 726);
+            this.lblDay7.Location = new System.Drawing.Point(1706, 669);
             this.lblDay7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDay7.Name = "lblDay7";
             this.lblDay7.Size = new System.Drawing.Size(100, 51);
@@ -418,10 +425,10 @@ namespace WavContact.Views
             this.lbDay5.ForeColor = System.Drawing.Color.White;
             this.lbDay5.FormattingEnabled = true;
             this.lbDay5.ItemHeight = 30;
-            this.lbDay5.Location = new System.Drawing.Point(901, 780);
+            this.lbDay5.Location = new System.Drawing.Point(901, 723);
             this.lbDay5.Name = "lbDay5";
             this.lbDay5.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbDay5.Size = new System.Drawing.Size(352, 214);
+            this.lbDay5.Size = new System.Drawing.Size(352, 154);
             this.lbDay5.TabIndex = 31;
             // 
             // lblDay5
@@ -429,27 +436,28 @@ namespace WavContact.Views
             this.lblDay5.AutoSize = true;
             this.lblDay5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDay5.ForeColor = System.Drawing.Color.White;
-            this.lblDay5.Location = new System.Drawing.Point(918, 726);
+            this.lblDay5.Location = new System.Drawing.Point(918, 669);
             this.lblDay5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDay5.Name = "lblDay5";
             this.lblDay5.Size = new System.Drawing.Size(100, 51);
             this.lblDay5.TabIndex = 30;
             this.lblDay5.Text = "xx.yy";
             // 
-            // label1
+            // lblActivity
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(901, 1035);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 51);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Activité";
+            this.lblActivity.AutoSize = true;
+            this.lblActivity.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblActivity.ForeColor = System.Drawing.Color.White;
+            this.lblActivity.Location = new System.Drawing.Point(901, 898);
+            this.lblActivity.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblActivity.Name = "lblActivity";
+            this.lblActivity.Size = new System.Drawing.Size(147, 51);
+            this.lblActivity.TabIndex = 36;
+            this.lblActivity.Text = "Activité";
             // 
             // btnNextWeek
             // 
+            this.btnNextWeek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNextWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNextWeek.ForeColor = System.Drawing.Color.White;
             this.btnNextWeek.Location = new System.Drawing.Point(1962, 139);
@@ -463,6 +471,7 @@ namespace WavContact.Views
             // 
             // btnPreviusWeek
             // 
+            this.btnPreviusWeek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPreviusWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPreviusWeek.ForeColor = System.Drawing.Color.White;
             this.btnPreviusWeek.Location = new System.Drawing.Point(1661, 139);
@@ -476,6 +485,7 @@ namespace WavContact.Views
             // 
             // btnToday
             // 
+            this.btnToday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToday.ForeColor = System.Drawing.Color.White;
             this.btnToday.Location = new System.Drawing.Point(1750, 139);
@@ -489,14 +499,13 @@ namespace WavContact.Views
             // 
             // FrmWaviewPagePrincipale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(2057, 1566);
+            this.ClientSize = new System.Drawing.Size(2057, 1428);
             this.Controls.Add(this.btnToday);
             this.Controls.Add(this.btnPreviusWeek);
             this.Controls.Add(this.btnNextWeek);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblActivity);
             this.Controls.Add(this.lbDay6);
             this.Controls.Add(this.lblDay6);
             this.Controls.Add(this.lbDay7);
@@ -572,7 +581,7 @@ namespace WavContact.Views
         private System.Windows.Forms.Label lblDay7;
         private System.Windows.Forms.ListBox lbDay5;
         private System.Windows.Forms.Label lblDay5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblActivity;
         private System.Windows.Forms.Button btnNextWeek;
         private System.Windows.Forms.Button btnPreviusWeek;
         private System.Windows.Forms.Button btnToday;

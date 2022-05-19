@@ -333,8 +333,9 @@ namespace WavContact.Views.Member
             // 
             // FrmWaviewProject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1492, 1122);
             this.Controls.Add(this.lblCommentaires);

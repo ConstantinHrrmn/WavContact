@@ -37,6 +37,36 @@ namespace WavContact.Views.Member
             this.btnMode.Text = "Visible";
             
             this.wcc.LoadClients();
+
+            int h = Screen.PrimaryScreen.WorkingArea.Height;
+            int w = Screen.PrimaryScreen.WorkingArea.Width;
+
+            if (w < 2000 || h < 1200)
+            {
+                Debug.WriteLine("Small screen");
+                this.SmallScreen();
+            }
+            else
+            {
+                Debug.WriteLine("Big screen");
+            }
+        }
+
+        private void SmallScreen()
+        {
+            int h = Screen.PrimaryScreen.WorkingArea.Height;
+            int w = Screen.PrimaryScreen.WorkingArea.Width;
+
+            this.Height = h - 100;
+
+            this.lstListeClient.Height = this.Height - this.lstListeClient.Top - 50;
+            
+
+            this.tbxInput.Location = new Point(this.tbxMEssages.Location.X, this.Height - this.tbxInput.Height - 50);
+            this.btnMode.Location = new Point(this.tbxInput.Location.X + this.tbxInput.Width + 10, this.tbxInput.Location.Y);            
+            this.btnEnvoye.Location = new Point(this.tbxInput.Location.X + this.tbxInput.Width + 10, this.btnMode.Location.Y + this.btnMode.Height + 10);
+
+            this.tbxMEssages.Height = (this.tbxInput.Location.Y - this.tbxMEssages.Top - 10);
         }
 
 
