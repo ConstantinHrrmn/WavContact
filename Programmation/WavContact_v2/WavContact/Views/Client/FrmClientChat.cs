@@ -89,7 +89,8 @@ namespace WavContact.Views.Client
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            System.Windows.Forms.Application.ExitThread();
+            //this.Close();
         }
 
         private void ChatTimer_Tick(object sender, EventArgs e)

@@ -177,7 +177,8 @@ namespace WavContact.Views.Client
         private void btnChat_Click(object sender, EventArgs e)
         {
             FrmClientChat frm = new FrmClientChat(this.ctrl.ConnectedUser);
-            frm.ShowDialog();
+            frm.Show();
+            frm = null;
         }
 
         private void btnProjet_Click(object sender, EventArgs e)
