@@ -33,12 +33,16 @@ namespace WavContact.DB
 
         public string ToString(DateTime actual)
         {
-            if (this.Debut.Date >= actual.Date)
+            if (this.Debut.Date >= actual.Date && this.Fin.Date > actual.Date)
             {
                 return string.Format("[Début : {0}] {1}", this.Debut.ToShortTimeString(), this.Projet);
-            }else if(this.Fin.Date <= actual.Date)
+            }else if(this.Fin.Date <= actual.Date && this.Debut.Date < this.Fin.Date)
             {
                 return string.Format("[Fin : {0}] {1}", this.Fin.ToShortTimeString(), this.Projet);
+            }
+            else if(this.Debut.Date == actual.Date && this.Fin.Date == actual.Date)
+            {
+                return string.Format("[{0} - {1}] {2}", this.Debut.ToShortTimeString(), this.Fin.ToShortTimeString(), this.Projet);
             }
             else
             {

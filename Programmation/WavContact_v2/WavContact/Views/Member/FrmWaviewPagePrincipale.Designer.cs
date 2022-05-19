@@ -62,11 +62,13 @@ namespace WavContact.Views
             this.lbDay5 = new System.Windows.Forms.ListBox();
             this.lblDay5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnNextWeek = new System.Windows.Forms.Button();
+            this.btnPreviusWeek = new System.Windows.Forms.Button();
+            this.btnToday = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogout
             // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Red;
             this.btnLogout.Location = new System.Drawing.Point(1827, 18);
@@ -92,7 +94,6 @@ namespace WavContact.Views
             // 
             // btnSwitchMode
             // 
-            this.btnSwitchMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitchMode.ForeColor = System.Drawing.Color.White;
             this.btnSwitchMode.Location = new System.Drawing.Point(1615, 18);
@@ -162,7 +163,6 @@ namespace WavContact.Views
             // 
             // btnChats
             // 
-            this.btnChats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChats.ForeColor = System.Drawing.Color.White;
             this.btnChats.Location = new System.Drawing.Point(1402, 16);
@@ -220,7 +220,6 @@ namespace WavContact.Views
             // 
             // btnGestionMateriel
             // 
-            this.btnGestionMateriel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGestionMateriel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionMateriel.ForeColor = System.Drawing.Color.White;
             this.btnGestionMateriel.Location = new System.Drawing.Point(1179, 16);
@@ -234,7 +233,6 @@ namespace WavContact.Views
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.ForeColor = System.Drawing.Color.White;
             this.btnAdmin.Location = new System.Drawing.Point(957, 16);
@@ -247,7 +245,6 @@ namespace WavContact.Views
             // 
             // lbActivity
             // 
-            this.lbActivity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbActivity.BackColor = System.Drawing.Color.Black;
             this.lbActivity.ForeColor = System.Drawing.Color.White;
             this.lbActivity.FormattingEnabled = true;
@@ -451,12 +448,54 @@ namespace WavContact.Views
             this.label1.TabIndex = 36;
             this.label1.Text = "Activité";
             // 
+            // btnNextWeek
+            // 
+            this.btnNextWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextWeek.ForeColor = System.Drawing.Color.White;
+            this.btnNextWeek.Location = new System.Drawing.Point(1962, 139);
+            this.btnNextWeek.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnNextWeek.Name = "btnNextWeek";
+            this.btnNextWeek.Size = new System.Drawing.Size(79, 58);
+            this.btnNextWeek.TabIndex = 37;
+            this.btnNextWeek.Text = ">";
+            this.btnNextWeek.UseVisualStyleBackColor = true;
+            this.btnNextWeek.Click += new System.EventHandler(this.btnNextWeek_Click);
+            // 
+            // btnPreviusWeek
+            // 
+            this.btnPreviusWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviusWeek.ForeColor = System.Drawing.Color.White;
+            this.btnPreviusWeek.Location = new System.Drawing.Point(1661, 139);
+            this.btnPreviusWeek.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnPreviusWeek.Name = "btnPreviusWeek";
+            this.btnPreviusWeek.Size = new System.Drawing.Size(79, 58);
+            this.btnPreviusWeek.TabIndex = 38;
+            this.btnPreviusWeek.Text = "<";
+            this.btnPreviusWeek.UseVisualStyleBackColor = true;
+            this.btnPreviusWeek.Click += new System.EventHandler(this.btnPreviusWeek_Click);
+            // 
+            // btnToday
+            // 
+            this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToday.ForeColor = System.Drawing.Color.White;
+            this.btnToday.Location = new System.Drawing.Point(1750, 139);
+            this.btnToday.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(202, 58);
+            this.btnToday.TabIndex = 39;
+            this.btnToday.Text = "Aujourd\'hui";
+            this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
+            // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(2057, 1566);
+            this.Controls.Add(this.btnToday);
+            this.Controls.Add(this.btnPreviusWeek);
+            this.Controls.Add(this.btnNextWeek);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbDay6);
             this.Controls.Add(this.lblDay6);
@@ -488,6 +527,7 @@ namespace WavContact.Views
             this.Controls.Add(this.btnLogout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.MaximizeBox = false;
             this.Name = "FrmWaviewPagePrincipale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Waview Membre";
@@ -533,5 +573,8 @@ namespace WavContact.Views
         private System.Windows.Forms.ListBox lbDay5;
         private System.Windows.Forms.Label lblDay5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnNextWeek;
+        private System.Windows.Forms.Button btnPreviusWeek;
+        private System.Windows.Forms.Button btnToday;
     }
 }

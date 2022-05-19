@@ -48,7 +48,7 @@ namespace WavContact.Views.Member
             this.rbAdmin = new System.Windows.Forms.RadioButton();
             this.rbClient = new System.Windows.Forms.RadioButton();
             this.rbPhoto = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRole = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNomClient
@@ -273,17 +273,17 @@ namespace WavContact.Views.Member
             this.rbPhoto.Text = "Photographe";
             this.rbPhoto.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblRole
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(35, 247);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 30);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Role";
+            this.lblRole.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRole.AutoSize = true;
+            this.lblRole.ForeColor = System.Drawing.Color.White;
+            this.lblRole.Location = new System.Drawing.Point(35, 247);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(53, 30);
+            this.lblRole.TabIndex = 29;
+            this.lblRole.Text = "Role";
             // 
             // FrmWaviewPageClient
             // 
@@ -291,7 +291,7 @@ namespace WavContact.Views.Member
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(744, 796);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblRole);
             this.Controls.Add(this.rbPhoto);
             this.Controls.Add(this.rbClient);
             this.Controls.Add(this.rbAdmin);
@@ -342,6 +342,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.RadioButton rbAdmin;
         private System.Windows.Forms.RadioButton rbClient;
         private System.Windows.Forms.RadioButton rbPhoto;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRole;
     }
 }

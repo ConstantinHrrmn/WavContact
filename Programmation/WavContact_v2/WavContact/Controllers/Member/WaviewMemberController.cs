@@ -90,8 +90,22 @@ namespace WavContact.Controllers
 
         public void UpdateCalendar()
         {
-            this.frm.UpdateCalendar(DateTime.Now, WavContactPDO.GetCalendar(DateTime.Now));
-            
+            Thread t = new Thread(() =>
+            {
+                this.frm.UpdateCalendar(DateTime.Now, WavContactPDO.GetCalendar(DateTime.Now));
+            });
+
+            t.Start();
+        }
+        
+        public void UpdateCalendar(DateTime firstDay)
+        {
+            Thread t = new Thread(() =>
+            {
+                this.frm.UpdateCalendar(firstDay, WavContactPDO.GetCalendar(firstDay));
+            });
+
+            t.Start();
         }
 
     }

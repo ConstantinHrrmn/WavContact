@@ -57,7 +57,13 @@ namespace WavContact.Views.Member
 
         private void FrmWaviewPageClient_Load(object sender, EventArgs e)
         {
-            
+            if (!this.newClient)
+            {
+                this.lblRole.Visible = false;
+                this.rbAdmin.Visible = false;
+                this.rbClient.Visible = false;
+                this.rbPhoto.Visible = false;
+            }
         }
 
         #region SWTICHMODE

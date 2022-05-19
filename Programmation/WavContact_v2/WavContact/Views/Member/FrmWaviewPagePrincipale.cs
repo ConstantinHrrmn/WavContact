@@ -27,6 +27,8 @@ namespace WavContact.Views
 
         List<ListBox> boxes = new List<ListBox>();
         List<Label> labels = new List<Label>();
+
+        private int weekMultiplier = 0;
         #endregion
 
         /// <summary>
@@ -249,6 +251,16 @@ namespace WavContact.Views
         {
             this.ctrl.LoadActivityMonitor();
 
+            if (this.weekMultiplier != 0)
+            {
+                this.ctrl.UpdateCalendar(DateTime.Now.AddDays(this.weekMultiplier * 7));
+            }
+            else
+            {
+                this.ctrl.UpdateCalendar();
+            }
+            
+
         }
 
         private void MessageTimer_Tick(object sender, EventArgs e)
@@ -270,23 +282,64 @@ namespace WavContact.Views
 
         public void UpdateCalendar(DateTime startingDate, Calendat[][] calendar)
         {
-
+            
             for (int i = 0; i < calendar.Length; i++)
             {
-                this.boxes[i].Items.Clear();
+                this.boxes[i].Invoke(() => this.boxes[i].Items.Clear());
                 DateTime date = startingDate.AddDays(i);
 
-                this.labels[i].Text = this.FormatDate(date);
+                this.labels[i].Invoke(() => this.labels[i].Text = this.FormatDate(date));
                 for (int x = 0; x < calendar[i].Length; x++)
                 {
-                    this.boxes[i].Items.Add(calendar[i][x].ToString(date));
+                    this.boxes[i].Invoke(() => this.boxes[i].Items.Add(calendar[i][x].ToString(date)));
                 }
             }
         }
 
         public string FormatDate(DateTime date)
         {
-            return date.ToString("dd.MM");
+            return date.ToString("dd.MM") + " (" + this.GetDayNameFrench(date.ToString("dddd")) + ")";
+        }
+
+        public string GetDayNameFrench(string english)
+        {
+            switch (english)
+            {
+                case "Monday":
+                    return "Lundi";
+                case "Tuesday":
+                    return "Mardi";
+                case "Wednesday":
+                    return "Mercredi";
+                case "Thursday":
+                    return "Jeudi";
+                case "Friday":
+                    return "Vendredi";
+                case "Saturday":
+                    return "Samedi";
+                case "Sunday":
+                    return "Dimanche";
+                default:
+                    return "";
+            }
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+            this.ctrl.UpdateCalendar();
+            this.weekMultiplier = 0;
+        }
+
+        private void btnPreviusWeek_Click(object sender, EventArgs e)
+        {
+            this.weekMultiplier--;
+            this.ctrl.UpdateCalendar(DateTime.Now.AddDays(this.weekMultiplier * 7));
+        }
+
+        private void btnNextWeek_Click(object sender, EventArgs e)
+        {
+            this.weekMultiplier++;
+            this.ctrl.UpdateCalendar(DateTime.Now.AddDays(this.weekMultiplier * 7));
         }
     }
 }
