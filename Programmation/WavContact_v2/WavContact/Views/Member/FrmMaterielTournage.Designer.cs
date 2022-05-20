@@ -219,6 +219,7 @@
             this.btnPrint.TabIndex = 57;
             this.btnPrint.Text = "Imprimer liste";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // label2
             // 

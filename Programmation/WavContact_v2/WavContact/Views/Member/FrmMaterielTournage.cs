@@ -84,10 +84,12 @@ namespace WavContact.Views.Member
             {
                 this.gbSelectionMateriel.Enabled = true;
                 this.Ctrl.Update(this.cmbDate.SelectedItem as Tournage);
+                this.btnPrint.Enabled = true;
             }
             else
             {
                 this.gbSelectionMateriel.Enabled = false;
+                this.btnPrint.Enabled = false;
             }
         }
 
@@ -209,6 +211,11 @@ namespace WavContact.Views.Member
         private void cmbFiltreSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Ctrl.FiltrerSelected(this.cmbFiltreSelect.SelectedIndex);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            WavPDFWriter.WritePDF(this.Ctrl.Projet, this.Ctrl.SelectedDate, this.Ctrl.MaterielsTournage, this.Ctrl.Categories);
         }
     }
 }
