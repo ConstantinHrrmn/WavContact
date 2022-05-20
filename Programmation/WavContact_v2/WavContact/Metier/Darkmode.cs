@@ -24,6 +24,14 @@ namespace WavContact.Metier
                 {
                     foreach (Control control in item.Controls)
                     {
+                        if (control is GroupBox)
+                        {
+                            foreach (Control c in control.Controls)
+                            {
+                                c.BackColor = backcolor;
+                                c.ForeColor = invertedColor;
+                            }
+                        }
                         control.BackColor = backcolor;
                         control.ForeColor = invertedColor;
                     }

@@ -177,6 +177,10 @@ namespace WavContact.Controllers
             return WavFTP.OpenProjectFolder(this.project);
         }
 
+        public Project GetProject()
+        {
+            return this.project;
+        }
         
     }
 }

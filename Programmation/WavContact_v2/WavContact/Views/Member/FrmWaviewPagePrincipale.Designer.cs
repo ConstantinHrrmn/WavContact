@@ -245,9 +245,9 @@ namespace WavContact.Views
             this.lbActivity.Location = new System.Drawing.Point(899, 959);
             this.lbActivity.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lbActivity.Name = "lbActivity";
-            this.lbActivity.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbActivity.Size = new System.Drawing.Size(1142, 454);
             this.lbActivity.TabIndex = 22;
+            this.lbActivity.SelectedIndexChanged += new System.EventHandler(this.lbActivity_SelectedIndexChanged);
             // 
             // ActivityTimer
             // 

@@ -123,10 +123,11 @@ namespace WavContact.Views
             this.lblDay6.Location = new Point(this.lbDay6.Location.X, this.lblDay6.Location.Y);
             this.lblDay7.Location = new Point(this.lbDay7.Location.X, this.lblDay7.Location.Y);
 
-            int activityWidth = (this.lblDay1.Location.X - 10) - (this.lstListeProjets.Location.X + this.lstListeProjets.Width + 10);
-            int activityHeight = this.lstListeProjets.Height;
-
             this.lbActivity.Location = new Point(this.lstListeProjets.Location.X + this.lstListeProjets.Width + 10, this.lstListeProjets.Location.Y);
+
+            int activityWidth = (this.lblDay1.Location.X - 10) - (this.lstListeProjets.Location.X + this.lstListeProjets.Width + 10);
+            int activityHeight = this.lbDay5.Bottom - this.lbActivity.Top;
+            
             this.lbActivity.Width = activityWidth;
             this.lbActivity.Height = activityHeight;
 
@@ -434,6 +435,11 @@ namespace WavContact.Views
         {
             this.weekMultiplier++;
             this.ctrl.UpdateCalendar(DateTime.Now.AddDays(this.weekMultiplier * 7));
+        }
+
+        private void lbActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.lbActivity.SelectedItem.ToString());
         }
     }
 }
