@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using WavContact.Views.Member;
 using WavContact.DB;
 using WavContact.Models;
+using System.Threading;
 
 namespace WavContact.Controllers.Member
 {
@@ -46,6 +47,151 @@ namespace WavContact.Controllers.Member
         {
             this.Tournages = WavContactPDO.GetTournageForProject(this.Projet);
             this.Frm.UpdateTournageDates(this.Tournages);
+        }
+
+        public void UpdateMaterielPris()
+        {
+            Thread thread = new Thread(() =>
+            {
+                this.MaterielsTournage = WavContactPDO.GetMaterielForTournage(this.SelectedDate);
+                this.Frm.UpdateMaterielPris(this.MaterielsTournage);
+            });
+
+            thread.Start();
+        }
+
+        public void UpdateMaterielDispo()
+        {
+            Thread thread = new Thread(() =>
+            {
+                this.MaterielsDispos = WavContactPDO.GetAvaibleMaterielForTournage(this.SelectedDate);
+                this.Frm.UpdateMaterielDispo(this.MaterielsDispos);
+            });
+
+            thread.Start();
+        }
+
+        public void FiltrerAvaible(int index)
+        {
+            CategorieMateriel categorie = null;
+            if (index == 0)
+            {
+                this.Frm.UpdateMaterielDispo(this.MaterielsDispos);
+            }
+            else
+            {
+                categorie = this.Categories[index - 1];
+
+                List<Materiel> filtered = new List<Materiel>();
+                foreach (Materiel item in this.MaterielsDispos)
+                {
+                    if (item.IdCat == categorie.Id)
+                    {
+                        filtered.Add(item);
+                    }
+                }
+
+                this.Frm.UpdateMaterielDispo(filtered);
+            }
+        }
+
+        public void FiltrerSelected(int index)
+        {
+            CategorieMateriel categorie = null;
+            if (index == 0)
+            {
+                this.Frm.UpdateMaterielPris(this.MaterielsTournage);
+            }
+            else
+            {
+                categorie = this.Categories[index - 1];
+
+                List<Materiel> filtered = new List<Materiel>();
+                foreach (Materiel item in this.MaterielsTournage)
+                {
+                    if (item.IdCat == categorie.Id)
+                    {
+                        filtered.Add(item);
+                    }
+                }
+
+                this.Frm.UpdateMaterielPris(filtered);
+            }
+
+        }
+
+
+        private void Update()
+        {
+            this.UpdateMaterielPris();
+            this.UpdateMaterielDispo();
+        }
+
+        public void Update(Tournage t)
+        {
+            this.SelectedDate = t;
+            this.UpdateMaterielPris();
+            this.UpdateMaterielDispo();
+        }
+
+        public void UpdateReservation(Materiel m, int amount)
+        {
+            WavContactPDO.UpdateReservation(this.Projet, this.SelectedDate, m, amount);
+            this.Update();
+        }
+
+        public void NewReservation(Materiel m, int amount)
+        {
+            WavContactPDO.CreateReservation(this.Projet, this.SelectedDate, m, amount);
+            this.Update();
+        }
+
+        public void UpdateTakenReservation(Materiel m, int extraAmount)
+        {
+            int q = this.GetTakenCount(m) + extraAmount;
+            WavContactPDO.UpdateReservation(this.Projet, this.SelectedDate, m, q);
+            this.Update();
+        }
+
+        public void DeleteReservation(Materiel m)
+        {
+            WavContactPDO.DeleteReservation(this.Projet, this.SelectedDate, m);
+            this.Update();
+        }
+
+        public int AvaibleCount(Materiel toFind)
+        {
+            foreach (Materiel m in this.MaterielsDispos)
+            {
+                if (m.Id == toFind.Id)
+                {
+                    return m.Quantite;
+                }
+            }
+            return 0;
+        }
+
+        public bool IsAllReadyTaken(Materiel m)
+        {
+            foreach (Materiel m2 in this.MaterielsTournage)
+            {
+                if (m2.Id == m.Id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public int GetTakenCount(Materiel m){
+            foreach (Materiel m2 in this.MaterielsTournage)
+            {
+                if (m2.Id == m.Id)
+                {
+                    return m2.Quantite;
+                }
+            }
+            return 0;
         }
     }
 }

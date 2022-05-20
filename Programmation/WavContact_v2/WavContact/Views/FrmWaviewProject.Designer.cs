@@ -31,7 +31,6 @@ namespace WavContact.Views.Member
         {
             this.lbActivity = new System.Windows.Forms.ListBox();
             this.lbDocuments = new System.Windows.Forms.ListBox();
-            this.btnOpenChatWaview = new System.Windows.Forms.Button();
             this.lblProjectName = new System.Windows.Forms.Label();
             this.btnMateriel = new System.Windows.Forms.Button();
             this.gpbProjet = new System.Windows.Forms.GroupBox();
@@ -80,19 +79,6 @@ namespace WavContact.Views.Member
             this.lbDocuments.TabIndex = 13;
             this.lbDocuments.SelectedIndexChanged += new System.EventHandler(this.lbDocuments_SelectedIndexChanged);
             // 
-            // btnOpenChatWaview
-            // 
-            this.btnOpenChatWaview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenChatWaview.ForeColor = System.Drawing.Color.White;
-            this.btnOpenChatWaview.Location = new System.Drawing.Point(1264, 13);
-            this.btnOpenChatWaview.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnOpenChatWaview.Name = "btnOpenChatWaview";
-            this.btnOpenChatWaview.Size = new System.Drawing.Size(214, 58);
-            this.btnOpenChatWaview.TabIndex = 12;
-            this.btnOpenChatWaview.Text = "Ouvrir chat";
-            this.btnOpenChatWaview.UseVisualStyleBackColor = true;
-            this.btnOpenChatWaview.Click += new System.EventHandler(this.btnOpenChatWaview_Click);
-            // 
             // lblProjectName
             // 
             this.lblProjectName.AutoSize = true;
@@ -109,7 +95,7 @@ namespace WavContact.Views.Member
             // 
             this.btnMateriel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMateriel.ForeColor = System.Drawing.Color.White;
-            this.btnMateriel.Location = new System.Drawing.Point(1041, 13);
+            this.btnMateriel.Location = new System.Drawing.Point(1264, 15);
             this.btnMateriel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnMateriel.Name = "btnMateriel";
             this.btnMateriel.Size = new System.Drawing.Size(214, 58);
@@ -349,7 +335,6 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.btnMateriel);
             this.Controls.Add(this.lbActivity);
             this.Controls.Add(this.lbDocuments);
-            this.Controls.Add(this.btnOpenChatWaview);
             this.Controls.Add(this.lblProjectName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -369,7 +354,6 @@ namespace WavContact.Views.Member
 
         private System.Windows.Forms.ListBox lbActivity;
         private System.Windows.Forms.ListBox lbDocuments;
-        private System.Windows.Forms.Button btnOpenChatWaview;
         private System.Windows.Forms.Label lblProjectName;
         private System.Windows.Forms.Button btnMateriel;
         private System.Windows.Forms.GroupBox gpbProjet;

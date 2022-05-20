@@ -30,9 +30,10 @@
         {
             this.gbSelectionMateriel = new System.Windows.Forms.GroupBox();
             this.gbQuantite = new System.Windows.Forms.GroupBox();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.cbAmount = new System.Windows.Forms.ComboBox();
             this.btnAction = new System.Windows.Forms.Button();
-            this.tbxName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblQuantiteDisponible = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFiltreSelect = new System.Windows.Forms.ComboBox();
             this.lbSelect = new System.Windows.Forms.ListBox();
@@ -66,15 +67,40 @@
             // 
             // gbQuantite
             // 
+            this.gbQuantite.Controls.Add(this.btnRemove);
+            this.gbQuantite.Controls.Add(this.cbAmount);
             this.gbQuantite.Controls.Add(this.btnAction);
-            this.gbQuantite.Controls.Add(this.tbxName);
-            this.gbQuantite.Controls.Add(this.label3);
+            this.gbQuantite.Controls.Add(this.lblQuantiteDisponible);
             this.gbQuantite.Location = new System.Drawing.Point(521, 109);
             this.gbQuantite.Name = "gbQuantite";
             this.gbQuantite.Size = new System.Drawing.Size(510, 215);
             this.gbQuantite.TabIndex = 55;
             this.gbQuantite.TabStop = false;
             this.gbQuantite.Text = "Quantité";
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRemove.BackColor = System.Drawing.Color.Black;
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Location = new System.Drawing.Point(418, 129);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(84, 58);
+            this.btnRemove.TabIndex = 57;
+            this.btnRemove.Text = "X";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Visible = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // cbAmount
+            // 
+            this.cbAmount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAmount.Location = new System.Drawing.Point(47, 56);
+            this.cbAmount.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.cbAmount.Name = "cbAmount";
+            this.cbAmount.Size = new System.Drawing.Size(368, 38);
+            this.cbAmount.TabIndex = 56;
             // 
             // btnAction
             // 
@@ -88,30 +114,19 @@
             this.btnAction.TabIndex = 56;
             this.btnAction.Text = "Ajouter";
             this.btnAction.UseVisualStyleBackColor = false;
+            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
-            // tbxName
+            // lblQuantiteDisponible
             // 
-            this.tbxName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbxName.BackColor = System.Drawing.Color.Black;
-            this.tbxName.ForeColor = System.Drawing.Color.White;
-            this.tbxName.Location = new System.Drawing.Point(47, 56);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.tbxName.Name = "tbxName";
-            this.tbxName.ReadOnly = true;
-            this.tbxName.Size = new System.Drawing.Size(368, 35);
-            this.tbxName.TabIndex = 52;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(433, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 30);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "/ 0";
+            this.lblQuantiteDisponible.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblQuantiteDisponible.AutoSize = true;
+            this.lblQuantiteDisponible.ForeColor = System.Drawing.Color.White;
+            this.lblQuantiteDisponible.Location = new System.Drawing.Point(433, 59);
+            this.lblQuantiteDisponible.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblQuantiteDisponible.Name = "lblQuantiteDisponible";
+            this.lblQuantiteDisponible.Size = new System.Drawing.Size(38, 30);
+            this.lblQuantiteDisponible.TabIndex = 54;
+            this.lblQuantiteDisponible.Text = "/ 0";
             // 
             // label1
             // 
@@ -132,6 +147,7 @@
             this.cmbFiltreSelect.Name = "cmbFiltreSelect";
             this.cmbFiltreSelect.Size = new System.Drawing.Size(424, 38);
             this.cmbFiltreSelect.TabIndex = 50;
+            this.cmbFiltreSelect.SelectedIndexChanged += new System.EventHandler(this.cmbFiltreSelect_SelectedIndexChanged);
             // 
             // lbSelect
             // 
@@ -144,6 +160,7 @@
             this.lbSelect.Name = "lbSelect";
             this.lbSelect.Size = new System.Drawing.Size(492, 604);
             this.lbSelect.TabIndex = 49;
+            this.lbSelect.SelectedIndexChanged += new System.EventHandler(this.lbSelect_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -164,6 +181,7 @@
             this.cmbFiltreDisponible.Name = "cmbFiltreDisponible";
             this.cmbFiltreDisponible.Size = new System.Drawing.Size(424, 38);
             this.cmbFiltreDisponible.TabIndex = 47;
+            this.cmbFiltreDisponible.SelectedIndexChanged += new System.EventHandler(this.cmbFiltreDisponible_SelectedIndexChanged);
             // 
             // lbDisponible
             // 
@@ -176,6 +194,7 @@
             this.lbDisponible.Name = "lbDisponible";
             this.lbDisponible.Size = new System.Drawing.Size(492, 604);
             this.lbDisponible.TabIndex = 46;
+            this.lbDisponible.SelectedIndexChanged += new System.EventHandler(this.lbDisponible_SelectedIndexChanged);
             // 
             // cmbDate
             // 
@@ -242,7 +261,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbSelectionMateriel;
-        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFiltreSelect;
         private System.Windows.Forms.ListBox lbSelect;
@@ -250,10 +268,12 @@
         private System.Windows.Forms.ComboBox cmbFiltreDisponible;
         private System.Windows.Forms.ListBox lbDisponible;
         private System.Windows.Forms.ComboBox cmbDate;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblQuantiteDisponible;
         private System.Windows.Forms.GroupBox gbQuantite;
         private System.Windows.Forms.Button btnAction;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbAmount;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

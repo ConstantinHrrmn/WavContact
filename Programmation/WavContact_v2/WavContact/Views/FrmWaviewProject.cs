@@ -83,27 +83,40 @@ namespace WavContact.Views.Member
 
         public void UpdateDocumentList(List<WavFile> files)
         {
-            this.lbDocuments.Invoke(() => this.lbDocuments.Items.Clear());
-            if (files != null)
+            try
             {
-                foreach (WavFile f in files)
+                this.lbDocuments.Invoke(() => this.lbDocuments.Items.Clear());
+                if (files != null)
                 {
-                    this.lbDocuments.Invoke(() => this.lbDocuments.Items.Add(f.Name));
-                }
+                    foreach (WavFile f in files)
+                    {
+                        this.lbDocuments.Invoke(() => this.lbDocuments.Items.Add(f.Name));
+                    }
 
-                this.btnSupprimerDocument.Invoke(() => this.btnSupprimerDocument.Enabled = true);
+                    this.btnSupprimerDocument.Invoke(() => this.btnSupprimerDocument.Enabled = true);
+                }
             }
+            catch (Exception)
+            {
+            }
+            
         }
 
         public void UpdateActivityList(List<Activity> activites)
         {
-            this.lbActivity.Invoke(() => this.lbActivity.Items.Clear());
-            if (activites != null)
+            try
             {
-                foreach (Activity a in activites)
+                this.lbActivity.Invoke(() => this.lbActivity.Items.Clear());
+                if (activites != null)
                 {
-                    this.lbActivity.Invoke(() => this.lbActivity.Items.Add(a));
+                    foreach (Activity a in activites)
+                    {
+                        this.lbActivity.Invoke(() => this.lbActivity.Items.Add(a));
+                    }
                 }
+            }
+            catch (Exception)
+            {
             }
         }
 
@@ -210,14 +223,22 @@ namespace WavContact.Views.Member
 
         public void UpdateDateList(List<Tournage> tournages)
         {
-            this.lstDateTournages.Invoke(() => this.lstDateTournages.Items.Clear());
-            if (tournages != null)
+            try
             {
-                foreach (Tournage a in tournages)
+                this.lstDateTournages.Invoke(() => this.lstDateTournages.Items.Clear());
+                if (tournages != null)
                 {
-                    this.lstDateTournages.Invoke(() => this.lstDateTournages.Items.Add(a));
+                    foreach (Tournage a in tournages)
+                    {
+                        this.lstDateTournages.Invoke(() => this.lstDateTournages.Items.Add(a));
+                    }
                 }
             }
+            catch (Exception)
+            {
+            }
+           
+            
         }
 
         private void btnAddDate_Click(object sender, EventArgs e)

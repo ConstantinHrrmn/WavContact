@@ -133,6 +133,18 @@ namespace WavContact.DB
             return null;
         }
 
+        public static void CreateReservation(Project p, Tournage t, Materiel m, int q)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Tournage", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Projet", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Materiel", m.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Quantite", q.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/RESERVATION/create").Result;
+        }
+
         /// <summary>
         /// Cération d'un projet pour un utilistateur
         /// </summary>
@@ -188,6 +200,18 @@ namespace WavContact.DB
 
         #region UPDATE
 
+        public static void UpdateReservation(Project p, Tournage t, Materiel m, int q)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Tournage", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Projet", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Materiel", m.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Quantite", q.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/RESERVATION/update").Result;
+        }
+        
         /// <summary>
         /// Met a jour l'utilistateur avec les nouvelles informations
         /// </summary>
@@ -301,6 +325,17 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/TOURNAGE/delete").Result;
         } 
 
+        public static void DeleteReservation(Project p, Tournage t, Materiel m)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Tournage", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Projet", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("Materiel", m.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/RESERVATION/delete").Result;
+        }
+        
         #endregion
 
         #region GET
@@ -611,6 +646,72 @@ namespace WavContact.DB
 
             return null;
         }
+
+
+        public static List<Materiel> GetMaterielForTournage(Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Tournage", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("What", "Taken");
+            
+            var response = hc.GetAsync(BASE_URL + "/RESERVATION/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Materiel[] matos = js.Deserialize<Materiel[]>(a);
+                //User[] persons = js.Deserialize<User[]>(a);
+
+                //List<User> clients = new List<User>();
+                List<Materiel> materiel = new List<Materiel>();
+
+                if (matos != null)
+                {
+                    foreach (Materiel item in matos)
+                        materiel.Add(item);
+                }
+                
+
+                return materiel;
+            }
+
+            return null;
+        }
+
+        public static List<Materiel> GetAvaibleMaterielForTournage(Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Tournage", t.Id.ToString());
+            hc.DefaultRequestHeaders.Add("What", "Avaible");
+            hc.DefaultRequestHeaders.Add("Start", t.Debut.ToString("yyyy-MM-dd HH-mm-ss"));
+            hc.DefaultRequestHeaders.Add("End", t.Fin.ToString("yyyy-MM-dd HH-mm-ss"));
+
+            var response = hc.GetAsync(BASE_URL + "/RESERVATION/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Materiel[] matos = js.Deserialize<Materiel[]>(a);
+                //User[] persons = js.Deserialize<User[]>(a);
+
+                //List<User> clients = new List<User>();
+                List<Materiel> materiel = new List<Materiel>();
+
+                if (matos != null)
+                {
+                    foreach (Materiel item in matos)
+                        materiel.Add(item);
+                }
+
+
+                return materiel;
+            }
+
+            return null;
+        }
+
 
         #endregion
 
