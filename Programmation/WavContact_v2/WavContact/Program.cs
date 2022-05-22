@@ -8,6 +8,7 @@ using WavContact.DB;
 using WavContact.Models;
 using System.Diagnostics;
 using WavContact.Views.Client;
+using WavContact.Views.Member;
 
 namespace WavContact
 {
@@ -42,7 +43,20 @@ namespace WavContact
                 {
                     if (u.IdRole == 1)
                     {
-                        Application.Run(new FrmWaviewPagePrincipale(u));
+                        int h = Screen.PrimaryScreen.WorkingArea.Height;
+                        int w = Screen.PrimaryScreen.WorkingArea.Width;
+
+                        if (w < 2000 || h < 1200)
+                        {
+                            Debug.WriteLine("Small screen");
+                            Application.Run(new FrmWaviewPagePrincipale1080(u));
+                        }
+                        else
+                        {
+                            Debug.WriteLine("Big screen");
+                            Application.Run(new FrmWaviewPagePrincipale(u));
+                        }
+                        
                     }
                     else if (u.IdRole == 2)
                     {

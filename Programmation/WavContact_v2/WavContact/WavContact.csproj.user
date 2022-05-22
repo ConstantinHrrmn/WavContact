@@ -40,5 +40,8 @@
     <Compile Update="Views\FrmWaviewProject.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Member\FrmWaviewPagePrincipale1080.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -41,18 +41,7 @@ namespace WavContact.Views
             // Initialisation du controlleur
             this.ctrl = new WaviewMemberController(this, u);
             
-            int h = Screen.PrimaryScreen.WorkingArea.Height;
-            int w = Screen.PrimaryScreen.WorkingArea.Width;
-
-            if (w < 2000 || h < 1200)
-            {
-                Debug.WriteLine("Small screen");
-                this.SmallScreen();
-            }
-            else
-            {
-                Debug.WriteLine("Big screen");
-            }
+            
         }
 
         #region RESIZE_FORM
