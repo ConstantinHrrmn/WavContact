@@ -47,8 +47,31 @@ namespace WavContact.Views.Member
 
         private void FrmWaviewPagePrincipale1080_Load(object sender, EventArgs e)
         {
+            // Affichage du nom de la personne dans la ligne en haut
+            this.lblWelcome.Text = string.Format("Hello {0} !", this.ctrl.ConnectedUser);
+            // On met a jour le theme de la page en fonction de l'enregistrement de l'utilisateur
+            this.SwitchMode();
 
+            this.boxes.Add(this.lbDay1);
+            this.boxes.Add(this.lbDay2);
+            this.boxes.Add(this.lbDay3);
+            this.boxes.Add(this.lbDay4);
+            this.boxes.Add(this.lbDay5);
+            this.boxes.Add(this.lbDay6);
+            this.boxes.Add(this.lbDay7);
+
+            this.labels.Add(this.lblDay1);
+            this.labels.Add(this.lblDay2);
+            this.labels.Add(this.lblDay3);
+            this.labels.Add(this.lblDay4);
+            this.labels.Add(this.lblDay5);
+            this.labels.Add(this.lblDay6);
+            this.labels.Add(this.lblDay7);
+
+
+            this.ctrl.UpdateCalendar();
         }
+
 
         #region Buttons
         private void btnClose_Click(object sender, EventArgs e)

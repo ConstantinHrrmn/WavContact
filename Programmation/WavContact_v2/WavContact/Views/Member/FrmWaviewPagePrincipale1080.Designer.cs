@@ -73,6 +73,7 @@
             this.btnInfosClients.TabIndex = 27;
             this.btnInfosClients.Text = "Informations";
             this.btnInfosClients.UseVisualStyleBackColor = true;
+            this.btnInfosClients.Click += new System.EventHandler(this.btnInfosClients_Click);
             // 
             // btnNewProject
             // 
@@ -88,6 +89,7 @@
             this.btnNewProject.TabIndex = 26;
             this.btnNewProject.Text = "Nouveau";
             this.btnNewProject.UseVisualStyleBackColor = true;
+            this.btnNewProject.Click += new System.EventHandler(this.btnNewProject_Click);
             // 
             // btnNewClient
             // 
@@ -101,6 +103,7 @@
             this.btnNewClient.TabIndex = 25;
             this.btnNewClient.Text = "Nouveau";
             this.btnNewClient.UseVisualStyleBackColor = true;
+            this.btnNewClient.Click += new System.EventHandler(this.btnNewClient_Click);
             // 
             // lstListeProjets
             // 
@@ -114,6 +117,7 @@
             this.lstListeProjets.Name = "lstListeProjets";
             this.lstListeProjets.Size = new System.Drawing.Size(269, 512);
             this.lstListeProjets.TabIndex = 24;
+            this.lstListeProjets.SelectedIndexChanged += new System.EventHandler(this.lbProjets_SelectedIndexChanged);
             // 
             // lblProjets
             // 
@@ -155,6 +159,7 @@
             this.lstListeClients.Name = "lstListeClients";
             this.lstListeClients.Size = new System.Drawing.Size(269, 512);
             this.lstListeClients.TabIndex = 21;
+            this.lstListeClients.SelectedIndexChanged += new System.EventHandler(this.lbClients_SelectedIndexChanged);
             // 
             // lblWelcome
             // 
@@ -180,6 +185,7 @@
             this.btnGestionMateriel.TabIndex = 31;
             this.btnGestionMateriel.Text = "Gestion du matériel";
             this.btnGestionMateriel.UseVisualStyleBackColor = true;
+            this.btnGestionMateriel.Click += new System.EventHandler(this.btnGestionMateriel_Click);
             // 
             // btnChats
             // 
@@ -193,6 +199,7 @@
             this.btnChats.TabIndex = 30;
             this.btnChats.Text = "Chats";
             this.btnChats.UseVisualStyleBackColor = true;
+            this.btnChats.Click += new System.EventHandler(this.btnChats_Click);
             // 
             // btnSwitchMode
             // 
@@ -206,6 +213,7 @@
             this.btnSwitchMode.TabIndex = 29;
             this.btnSwitchMode.Text = "Clair";
             this.btnSwitchMode.UseVisualStyleBackColor = true;
+            this.btnSwitchMode.Click += new System.EventHandler(this.btnSwitchMode_Click);
             // 
             // btnLogout
             // 
@@ -219,6 +227,7 @@
             this.btnLogout.TabIndex = 28;
             this.btnLogout.Text = "Déconnexion";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lbActivity
             // 
@@ -232,6 +241,7 @@
             this.lbActivity.Name = "lbActivity";
             this.lbActivity.Size = new System.Drawing.Size(985, 154);
             this.lbActivity.TabIndex = 37;
+            this.lbActivity.Click += new System.EventHandler(this.lbActivity_SelectedIndexChanged);
             // 
             // lbDay6
             // 
@@ -382,13 +392,14 @@
             this.btnToday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToday.ForeColor = System.Drawing.Color.White;
-            this.btnToday.Location = new System.Drawing.Point(1234, 167);
+            this.btnToday.Location = new System.Drawing.Point(1295, 119);
             this.btnToday.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(328, 58);
+            this.btnToday.Size = new System.Drawing.Size(206, 154);
             this.btnToday.TabIndex = 54;
             this.btnToday.Text = "Aujourd\'hui";
             this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnPreviusWeek
             // 
@@ -398,23 +409,25 @@
             this.btnPreviusWeek.Location = new System.Drawing.Point(1234, 120);
             this.btnPreviusWeek.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnPreviusWeek.Name = "btnPreviusWeek";
-            this.btnPreviusWeek.Size = new System.Drawing.Size(328, 35);
+            this.btnPreviusWeek.Size = new System.Drawing.Size(51, 154);
             this.btnPreviusWeek.TabIndex = 53;
             this.btnPreviusWeek.Text = "<";
             this.btnPreviusWeek.UseVisualStyleBackColor = true;
+            this.btnPreviusWeek.Click += new System.EventHandler(this.btnPreviusWeek_Click);
             // 
             // btnNextWeek
             // 
             this.btnNextWeek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNextWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNextWeek.ForeColor = System.Drawing.Color.White;
-            this.btnNextWeek.Location = new System.Drawing.Point(1234, 237);
+            this.btnNextWeek.Location = new System.Drawing.Point(1511, 121);
             this.btnNextWeek.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnNextWeek.Name = "btnNextWeek";
-            this.btnNextWeek.Size = new System.Drawing.Size(328, 37);
+            this.btnNextWeek.Size = new System.Drawing.Size(51, 154);
             this.btnNextWeek.TabIndex = 52;
             this.btnNextWeek.Text = ">";
             this.btnNextWeek.UseVisualStyleBackColor = true;
+            this.btnNextWeek.Click += new System.EventHandler(this.btnNextWeek_Click);
             // 
             // lblDay1
             // 

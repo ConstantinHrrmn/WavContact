@@ -173,6 +173,7 @@ namespace WavContact.Views
         }
         #endregion
 
+        
         #region Buttons
         private void btnClose_Click(object sender, EventArgs e)
         {
