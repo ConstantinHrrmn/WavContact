@@ -64,6 +64,7 @@ namespace WavContact.Views
             this.btnNextWeek = new System.Windows.Forms.Button();
             this.btnPreviusWeek = new System.Windows.Forms.Button();
             this.btnToday = new System.Windows.Forms.Button();
+            this.btnReviewClients = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -252,7 +253,7 @@ namespace WavContact.Views
             // ActivityTimer
             // 
             this.ActivityTimer.Enabled = true;
-            this.ActivityTimer.Interval = 15000;
+            this.ActivityTimer.Interval = 10000;
             this.ActivityTimer.Tick += new System.EventHandler(this.ActivityTimer_Tick);
             // 
             // MessageTimer
@@ -483,11 +484,27 @@ namespace WavContact.Views
             this.btnToday.UseVisualStyleBackColor = true;
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
+            // btnReviewClients
+            // 
+            this.btnReviewClients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReviewClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReviewClients.ForeColor = System.Drawing.Color.White;
+            this.btnReviewClients.Location = new System.Drawing.Point(1078, 18);
+            this.btnReviewClients.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnReviewClients.Name = "btnReviewClients";
+            this.btnReviewClients.Size = new System.Drawing.Size(91, 58);
+            this.btnReviewClients.TabIndex = 56;
+            this.btnReviewClients.Text = "-";
+            this.btnReviewClients.UseVisualStyleBackColor = true;
+            this.btnReviewClients.Visible = false;
+            this.btnReviewClients.Click += new System.EventHandler(this.btnReviewClients_Click);
+            // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(2057, 1428);
+            this.Controls.Add(this.btnReviewClients);
             this.Controls.Add(this.btnToday);
             this.Controls.Add(this.btnPreviusWeek);
             this.Controls.Add(this.btnNextWeek);
@@ -569,5 +586,6 @@ namespace WavContact.Views
         private System.Windows.Forms.Button btnNextWeek;
         private System.Windows.Forms.Button btnPreviusWeek;
         private System.Windows.Forms.Button btnToday;
+        private System.Windows.Forms.Button btnReviewClients;
     }
 }

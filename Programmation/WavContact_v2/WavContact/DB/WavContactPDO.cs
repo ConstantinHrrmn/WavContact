@@ -128,6 +128,7 @@ namespace WavContact.DB
             hc.DefaultRequestHeaders.Add("Tel", user.Phone);
             hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour" + user.Email));
             hc.DefaultRequestHeaders.Add("Role", user.IdRole.ToString());
+            hc.DefaultRequestHeaders.Add("Active", "1");
 
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/create").Result;
             return null;
@@ -227,6 +228,17 @@ namespace WavContact.DB
             hc.DefaultRequestHeaders.Add("Firstname", user.First_name);
             hc.DefaultRequestHeaders.Add("Phone", user.Phone);
             hc.DefaultRequestHeaders.Add("Role", user.IdRole.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/update").Result;
+        }
+
+        public static void ActivateUser(User user)
+        {
+            // Update user
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Active", "yes");
+            hc.DefaultRequestHeaders.Add("Id", user.Id.ToString());
 
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/update").Result;
         }
@@ -408,6 +420,38 @@ namespace WavContact.DB
                 }
 
                 return clients;
+            }
+
+            return null;
+        }
+
+        public static List<User> UnactiveCLients()
+        {
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Unactive", "yes");
+
+            var response = hc.GetAsync(BASE_URL + "/PERSONNE/read").Result;
+
+            // On vérifie que le code de retour est bien 200 => OK
+            if (response.IsSuccessStatusCode)
+            {
+                var a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                User[] persons = js.Deserialize<User[]>(a);
+
+                List<User> clients = new List<User>();
+
+                if (persons != null)
+                {
+                    foreach (User item in persons)
+                    {
+                        clients.Add(item);
+                    }
+
+                    return clients;
+                }
+
+                
             }
 
             return null;
@@ -647,7 +691,6 @@ namespace WavContact.DB
             return null;
         }
 
-
         public static List<Materiel> GetMaterielForTournage(Tournage t)
         {
             HttpClient hc = new HttpClient();
@@ -721,10 +764,18 @@ namespace WavContact.DB
         {
             HttpClient hc = new HttpClient();
 
-            a_log = a_log.Replace("'", "\\'");
+            a_log = a_log.Replace("'", "\\'").Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
 
             hc.DefaultRequestHeaders.Add("User", a_user.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Project", a_project.Id.ToString());
+            if (a_project == null)
+            {
+                hc.DefaultRequestHeaders.Add("Project", "0");
+            }
+            else
+            {
+                hc.DefaultRequestHeaders.Add("Project", a_project.Id.ToString());
+            }
+            
             hc.DefaultRequestHeaders.Add("Activity", a_log);
 
             var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
@@ -793,20 +844,15 @@ namespace WavContact.DB
         /// </summary>
         /// <param name="len">la longueur du nom</param>
         /// <returns>le nom généré</returns>
-        public static string GenerateName(int len)
+        public static string GeneratePass(int len)
         {
             Random r = new Random();
-            string[] consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "q", "r", "s", "sh", "zh", "t", "v", "w", "x" };
-            string[] vowels = { "a", "e", "i", "o", "u", "ae", "y" };
+            string[] consonants = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
             string Name = "";
-            Name += consonants[r.Next(consonants.Length)].ToUpper();
-            Name += vowels[r.Next(vowels.Length)];
-            int b = 2; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
+            int b = 0; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
             while (b < len)
             {
                 Name += consonants[r.Next(consonants.Length)];
-                b++;
-                Name += vowels[r.Next(vowels.Length)];
                 b++;
             }
 

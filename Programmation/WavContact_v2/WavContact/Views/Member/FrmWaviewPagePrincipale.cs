@@ -151,7 +151,7 @@ namespace WavContact.Views
             
 
             this.ctrl.UpdateCalendar();
-            
+            this.ctrl.UpdateUnactive();
         }
 
         #region MouseMoving
@@ -294,6 +294,7 @@ namespace WavContact.Views
             if (dr == DialogResult.OK)
             {
                 Debug.WriteLine(frmC.Client);
+                this.ctrl.UpdateClient(frmC.Client);
             }
         }
 
@@ -344,8 +345,15 @@ namespace WavContact.Views
             {
                 this.ctrl.UpdateCalendar();
             }
-            
 
+            this.ctrl.UpdateUnactive();
+
+        }
+
+        public void UpdateUnactiveCount(int count)
+        {
+            this.btnReviewClients.Invoke(() => this.btnReviewClients.Text = count.ToString());
+            this.btnReviewClients.Invoke(() => this.btnReviewClients.Visible = count > 0);            
         }
 
         private void MessageTimer_Tick(object sender, EventArgs e)
@@ -430,6 +438,14 @@ namespace WavContact.Views
         private void lbActivity_SelectedIndexChanged(object sender, EventArgs e)
         {
             MessageBox.Show(this.lbActivity.SelectedItem.ToString());
+        }
+
+        private void btnReviewClients_Click(object sender, EventArgs e)
+        {
+            FrmReviewClients frc = new FrmReviewClients();
+            frc.ShowDialog();
+
+            this.ctrl.UpdateClients();
         }
     }
 }

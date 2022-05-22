@@ -77,6 +77,14 @@ namespace WavContact.Controllers
             this.frm.LoadClients(this.clients);
         }
 
+        public void UpdateClient(User client)
+        {
+            
+            WavContactPDO.UpdateUser(client);
+            this.UpdateClients();
+            WavActivity.AjoutActiviteCustom(this.connectedUser, null, "Modification des informations de : " + client.ToString());
+        }
+
         public void UpdateChatCount()
         {
             Thread t = new Thread(() =>
@@ -107,6 +115,21 @@ namespace WavContact.Controllers
 
             t.Start();
         }
+
+        public void UpdateUnactive()
+        {
+            Thread t = new Thread(() =>
+            {
+
+                int count = WavContactPDO.UnactiveCLients() != null ? WavContactPDO.UnactiveCLients().Count : 0;
+                
+                this.frm.UpdateUnactiveCount(count);
+            });
+
+            t.Start();
+        }
+
+        
 
     }
 }

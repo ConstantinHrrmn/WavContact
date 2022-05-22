@@ -91,6 +91,7 @@ namespace WavContact.Views.Member
             // 
             this.lblAdresseRue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAdresseRue.AutoSize = true;
+            this.lblAdresseRue.Enabled = false;
             this.lblAdresseRue.ForeColor = System.Drawing.Color.White;
             this.lblAdresseRue.Location = new System.Drawing.Point(35, 516);
             this.lblAdresseRue.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -103,6 +104,7 @@ namespace WavContact.Views.Member
             // 
             this.lblAdresseCP.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAdresseCP.AutoSize = true;
+            this.lblAdresseCP.Enabled = false;
             this.lblAdresseCP.ForeColor = System.Drawing.Color.White;
             this.lblAdresseCP.Location = new System.Drawing.Point(35, 574);
             this.lblAdresseCP.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -115,6 +117,7 @@ namespace WavContact.Views.Member
             // 
             this.lblAdresseVille.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAdresseVille.AutoSize = true;
+            this.lblAdresseVille.Enabled = false;
             this.lblAdresseVille.ForeColor = System.Drawing.Color.White;
             this.lblAdresseVille.Location = new System.Drawing.Point(364, 574);
             this.lblAdresseVille.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -188,6 +191,7 @@ namespace WavContact.Views.Member
             // 
             this.tbxAdresseRue.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbxAdresseRue.BackColor = System.Drawing.Color.Black;
+            this.tbxAdresseRue.Enabled = false;
             this.tbxAdresseRue.ForeColor = System.Drawing.Color.White;
             this.tbxAdresseRue.Location = new System.Drawing.Point(220, 510);
             this.tbxAdresseRue.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -199,6 +203,7 @@ namespace WavContact.Views.Member
             // 
             this.tbxAdresseCP.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbxAdresseCP.BackColor = System.Drawing.Color.Black;
+            this.tbxAdresseCP.Enabled = false;
             this.tbxAdresseCP.ForeColor = System.Drawing.Color.White;
             this.tbxAdresseCP.Location = new System.Drawing.Point(220, 568);
             this.tbxAdresseCP.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -210,6 +215,7 @@ namespace WavContact.Views.Member
             // 
             this.tbxAdresseVille.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbxAdresseVille.BackColor = System.Drawing.Color.Black;
+            this.tbxAdresseVille.Enabled = false;
             this.tbxAdresseVille.ForeColor = System.Drawing.Color.White;
             this.tbxAdresseVille.Location = new System.Drawing.Point(424, 568);
             this.tbxAdresseVille.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);

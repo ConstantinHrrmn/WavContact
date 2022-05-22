@@ -44,5 +44,31 @@ namespace WavContact.Metier
             smtp.Send(mail);
 
         }
+
+        public static void SendMessage(string to, string obj, string msg)
+        {
+            SmtpClient smtp = new SmtpClient
+            {
+                Host = "smtp-relay.sendinblue.com",
+                Port = 587,
+
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+
+                Credentials = new System.Net.NetworkCredential("cocoh2012@gmail.com", "6rgL1WRN4zJdfmMv")
+            };
+            
+            MailMessage mail = new MailMessage();
+
+            mail.From = new MailAddress("wavcontact@waview.ch", "WavContact");
+            mail.To.Add(new MailAddress(to));
+            mail.Subject = obj;
+            mail.Body = msg;
+
+
+            smtp.Send(mail);
+
+        }
     }
 }

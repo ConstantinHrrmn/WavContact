@@ -193,6 +193,7 @@ namespace WavContact.Views.Member
             if (dr == DialogResult.OK)
             {
                 Debug.WriteLine(frmC.Client);
+                this.ctrl.UpdateClient(frmC.Client);
             }
         }
 
@@ -244,7 +245,14 @@ namespace WavContact.Views.Member
                 this.ctrl.UpdateCalendar();
             }
 
+            this.ctrl.UpdateUnactive();
 
+        }
+
+        public void UpdateUnactiveCount(int count)
+        {
+            this.btnReviewClients.Invoke(() => this.btnReviewClients.Text = count.ToString());
+            this.btnReviewClients.Invoke(() => this.btnReviewClients.Visible = count > 0);
         }
 
         private void MessageTimer_Tick(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnInfosClients = new System.Windows.Forms.Button();
             this.btnNewProject = new System.Windows.Forms.Button();
             this.btnNewClient = new System.Windows.Forms.Button();
@@ -58,6 +59,9 @@
             this.btnNextWeek = new System.Windows.Forms.Button();
             this.lblDay1 = new System.Windows.Forms.Label();
             this.lbDay1 = new System.Windows.Forms.ListBox();
+            this.btnReviewClients = new System.Windows.Forms.Button();
+            this.ActivityTimer = new System.Windows.Forms.Timer(this.components);
+            this.MessageTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnInfosClients
@@ -453,12 +457,39 @@
             this.lbDay1.Size = new System.Drawing.Size(649, 154);
             this.lbDay1.TabIndex = 50;
             // 
+            // btnReviewClients
+            // 
+            this.btnReviewClients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReviewClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReviewClients.ForeColor = System.Drawing.Color.White;
+            this.btnReviewClients.Location = new System.Drawing.Point(594, 9);
+            this.btnReviewClients.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnReviewClients.Name = "btnReviewClients";
+            this.btnReviewClients.Size = new System.Drawing.Size(96, 47);
+            this.btnReviewClients.TabIndex = 55;
+            this.btnReviewClients.Text = "-";
+            this.btnReviewClients.UseVisualStyleBackColor = true;
+            this.btnReviewClients.Visible = false;
+            // 
+            // ActivityTimer
+            // 
+            this.ActivityTimer.Enabled = true;
+            this.ActivityTimer.Interval = 10000;
+            this.ActivityTimer.Tick += new System.EventHandler(this.ActivityTimer_Tick);
+            // 
+            // MessageTimer
+            // 
+            this.MessageTimer.Enabled = true;
+            this.MessageTimer.Interval = 3000;
+            this.MessageTimer.Tick += new System.EventHandler(this.MessageTimer_Tick);
+            // 
             // FrmWaviewPagePrincipale1080
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1576, 836);
+            this.Controls.Add(this.btnReviewClients);
             this.Controls.Add(this.btnToday);
             this.Controls.Add(this.btnPreviusWeek);
             this.Controls.Add(this.btnNextWeek);
@@ -532,5 +563,8 @@
         private System.Windows.Forms.Button btnNextWeek;
         private System.Windows.Forms.Label lblDay1;
         private System.Windows.Forms.ListBox lbDay1;
+        private System.Windows.Forms.Button btnReviewClients;
+        private System.Windows.Forms.Timer ActivityTimer;
+        private System.Windows.Forms.Timer MessageTimer;
     }
 }
