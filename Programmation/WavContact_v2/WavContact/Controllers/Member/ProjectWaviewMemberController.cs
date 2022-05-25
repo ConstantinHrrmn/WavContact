@@ -30,10 +30,12 @@ namespace WavContact.Controllers
             Thread tActivity = new Thread(new ThreadStart(GetActivity));
             Thread tDocuments = new Thread(new ThreadStart(DisplayDocuments));
             Thread tDates = new Thread(new ThreadStart(GetDates));
+            Thread tPlaces = new Thread(new ThreadStart(GetPlaces));
 
             tActivity.Start();
             tDocuments.Start();
             tDates.Start();
+            tPlaces.Start();
         }
 
         public void UpdateProjectDescription(string description)
@@ -109,7 +111,12 @@ namespace WavContact.Controllers
         {
             this.frm.UpdateDateList(WavContactPDO.GetTournageForProject(this.project));
         }
-        
+
+        public void GetPlaces()
+        {
+            this.frm.UpdateLieuxList(WavContactPDO.GetLieuxPourProjet(this.project));
+        }
+
         public void DisplayDocuments()
         {
             this.files = WavFTP.listFiles(this.project);

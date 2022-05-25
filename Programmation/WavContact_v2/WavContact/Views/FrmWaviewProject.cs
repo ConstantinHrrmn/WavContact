@@ -102,6 +102,23 @@ namespace WavContact.Views.Member
             
         }
 
+        public void UpdateLieuxList(List<Lieu> lieux)
+        {
+            try
+            {
+                this.lstLieux.Invoke(() => this.lstLieux.Items.Clear());
+                if (lieux != null)
+                {
+                    foreach (Lieu l in lieux)
+                    {
+                        this.lstLieux.Invoke(() => this.lstLieux.Items.Add(l));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
         public void UpdateActivityList(List<Activity> activites)
         {
             try
@@ -273,6 +290,14 @@ namespace WavContact.Views.Member
 
                 
             }
+        }
+
+        private void lstLieux_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Lieu l = this.lstLieux.SelectedItem as Lieu;
+            Debug.WriteLine(l.ToMaps());
+            Clipboard.SetText(l.ToMaps());
+            MessageBox.Show("URL copié ! \n \n" + l.ToMaps(), "URL GoogleMaps du lieu");
         }
     }
 }

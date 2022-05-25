@@ -205,6 +205,7 @@ namespace WavContact.Views.Member
             this.lstLieux.Name = "lstLieux";
             this.lstLieux.Size = new System.Drawing.Size(612, 124);
             this.lstLieux.TabIndex = 8;
+            this.lstLieux.SelectedIndexChanged += new System.EventHandler(this.lstLieux_SelectedIndexChanged);
             // 
             // lblLieu
             // 

@@ -352,8 +352,15 @@ namespace WavContact.Views
 
         public void UpdateUnactiveCount(int count)
         {
-            this.btnReviewClients.Invoke(() => this.btnReviewClients.Text = count.ToString());
-            this.btnReviewClients.Invoke(() => this.btnReviewClients.Visible = count > 0);            
+            try
+            {
+                this.btnReviewClients.Invoke(() => this.btnReviewClients.Text = count.ToString());
+                this.btnReviewClients.Invoke(() => this.btnReviewClients.Visible = count > 0);
+            }
+            catch (Exception)
+            {
+            }
+                 
         }
 
         private void MessageTimer_Tick(object sender, EventArgs e)

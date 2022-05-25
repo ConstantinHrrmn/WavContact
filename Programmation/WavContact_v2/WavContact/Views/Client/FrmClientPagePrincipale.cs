@@ -113,18 +113,24 @@ namespace WavContact.Views.Client
 
         public void UpdateCalendar(DateTime startingDate, Calendat[][] calendar)
         {
-
-            for (int i = 0; i < calendar.Length; i++)
+            try
             {
-                this.boxes[i].Invoke(() => this.boxes[i].Items.Clear());
-                DateTime date = startingDate.AddDays(i);
-
-                this.labels[i].Invoke(() => this.labels[i].Text = this.FormatDate(date));
-                for (int x = 0; x < calendar[i].Length; x++)
+                for (int i = 0; i < calendar.Length; i++)
                 {
-                    this.boxes[i].Invoke(() => this.boxes[i].Items.Add(calendar[i][x].ToString(date)));
+                    this.boxes[i].Invoke(() => this.boxes[i].Items.Clear());
+                    DateTime date = startingDate.AddDays(i);
+
+                    this.labels[i].Invoke(() => this.labels[i].Text = this.FormatDate(date));
+                    for (int x = 0; x < calendar[i].Length; x++)
+                    {
+                        this.boxes[i].Invoke(() => this.boxes[i].Items.Add(calendar[i][x].ToString(date)));
+                    }
                 }
             }
+            catch (Exception)
+            {
+            }
+            
         }
 
         public string FormatDate(DateTime date)

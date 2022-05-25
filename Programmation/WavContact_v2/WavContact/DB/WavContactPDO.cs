@@ -134,6 +134,13 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Création d'une réservation de materiel pour un tournage d'un projet
+        /// </summary>
+        /// <param name="p">Le projet</param>
+        /// <param name="t">Le tournage du projet auquel on souhaite réserver le matériel</param>
+        /// <param name="m">Le matériel que l'on souhaite réserver</param>
+        /// <param name="q">La quantité</param>
         public static void CreateReservation(Project p, Tournage t, Materiel m, int q)
         {
             HttpClient hc = new HttpClient();
@@ -180,6 +187,11 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/create").Result;
         }
 
+        /// <summary>
+        /// Création d'un tournage pour un projet
+        /// </summary>
+        /// <param name="p">Le projet auquel on souhaite ajouter le tournage</param>
+        /// <param name="t">Le tournage que l'on souhaite ajouter au projet</param>
         public static void CreateDateForProject(Project p, Tournage t)
         {
             HttpClient hc = new HttpClient();
@@ -201,6 +213,13 @@ namespace WavContact.DB
 
         #region UPDATE
 
+        /// <summary>
+        /// Permet de mettre à jour une réservation de matériel
+        /// </summary>
+        /// <param name="p">Le projet</param>
+        /// <param name="t">Le tournage</param>
+        /// <param name="m">Le matériel</param>
+        /// <param name="q">La quantité</param>
         public static void UpdateReservation(Project p, Tournage t, Materiel m, int q)
         {
             HttpClient hc = new HttpClient();
@@ -232,6 +251,10 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/update").Result;
         }
 
+        /// <summary>
+        /// Permet d'activer le compte d'un client
+        /// </summary>
+        /// <param name="user">Le client que l'on souhaite activer</param>
         public static void ActivateUser(User user)
         {
             // Update user
@@ -243,7 +266,10 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/PERSONNE/update").Result;
         }
 
-        // Update project
+        /// <summary>
+        /// Permet de mettre a jour les informations d'un projet
+        /// </summary>
+        /// <param name="p">Le projet que l'on souhaite mettre à jour</param>
         public static void UpdateProject(Project p)
         {
             string description = p.Description.Replace("\'", "\\'");
@@ -281,6 +307,10 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/update").Result;
         }
 
+        /// <summary>
+        /// Permet de mettre a jour les informations d'un tournage
+        /// </summary>
+        /// <param name="t">Le tournage avec les nouvelles informations</param>
         public static void UpdateTournage(Tournage t)
         {
             HttpClient hc = new HttpClient();
@@ -328,6 +358,10 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/MATERIEL/delete").Result;
         }
 
+        /// <summary>
+        /// Suppression d'une date de tournage
+        /// </summary>
+        /// <param name="t">Le tournage que l'on souhaite supprimer</param>
         public static void DeleteDate(Tournage t)
         {
             HttpClient hc = new HttpClient();
@@ -337,6 +371,12 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/TOURNAGE/delete").Result;
         } 
 
+        /// <summary>
+        /// Suppression d'une réservation de materiel pour un tournage d'un projet
+        /// </summary>
+        /// <param name="p">Le projet</param>
+        /// <param name="t">Le tournage</param>
+        /// <param name="m">Le matériel</param>
         public static void DeleteReservation(Project p, Tournage t, Materiel m)
         {
             HttpClient hc = new HttpClient();
@@ -425,6 +465,10 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère une liste de tous les clients inactifs
+        /// </summary>
+        /// <returns>Une liste de clients avec le paramètre ACTIV a false</returns>
         public static List<User> UnactiveCLients()
         {
             HttpClient hc = new HttpClient();
@@ -635,6 +679,71 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère les lieux pour un projet
+        /// </summary>
+        /// <param name="p">Le projet en question</param>
+        /// <returns>Une liste de lieux pour le projet</returns>
+        public static List<Lieu> GetLieuxPourProjet(Project p)
+        {
+            List<Tournage> tournages = GetTournageForProject(p);
+
+            return GetLieuxPourProjet(p, tournages);
+        }
+
+        /// <summary>
+        /// Récupère les lieux pour un projet
+        /// </summary>
+        /// <param name="p">Le projet en question</param>
+        /// <returns>Une liste de lieux pour le projet</returns>
+        public static List<Lieu> GetLieuxPourProjet(Project p, List<Tournage> tournages)
+        {
+
+            HttpClient hc = new HttpClient();
+            hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/LIEU/read").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                string a = response.Content.ReadAsStringAsync().Result;
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Lieu[] lieux = js.Deserialize<Lieu[]>(a);
+
+                List<Lieu> lieuxList = new List<Lieu>();
+
+                if (lieux != null)
+                {
+                    foreach (Lieu item in lieux)
+                    {
+                        foreach (Tournage tournage in tournages)
+                        {
+                            if (item.IdTournage == tournage.Id)
+                            {
+                                item.Horaires = tournage;
+                                break;
+                            }
+                        }
+
+                        lieuxList.Add(item);
+                    }
+                    return lieuxList;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Récupère tous évenements sur 7 jours (a partir de la date de base) pour un collaborateur
+        /// </summary>
+        /// <param name="baseDate">La date de base (de départ)</param>
+        /// <returns>Un double tableau avec les comme index 1 le numéro du jour (0 -> aujourd'hui, 1 -> demain, etc.) et en index 2 l'évenement (0 -> evenement 1, 1 -> evenement 2, etc.) </returns>
         public static Calendat[][] GetCalendar(DateTime baseDate)
         {
             HttpClient hc = new HttpClient();
@@ -662,6 +771,12 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère tous évenements sur 7 jours (a partir de la date de base) pour un client
+        /// </summary>
+        /// <param name="baseDate">La date de base</param>
+        /// <param name="u">Le client pour lequel on veut récupérer le calendrier</param>
+        /// <returns>Un double tableau avec les comme index 1 le numéro du jour (0 -> aujourd'hui, 1 -> demain, etc.) et en index 2 l'évenement (0 -> evenement 1, 1 -> evenement 2, etc.) </returns>
         public static Calendat[][] GetCalendarClient(DateTime baseDate, User u)
         {
             HttpClient hc = new HttpClient();
@@ -691,6 +806,11 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère la liste de matériel réservée pour le tournage
+        /// </summary>
+        /// <param name="t">Le tournage en question</param>
+        /// <returns>La liste du materiel ainsi que les quantité reservées</returns>
         public static List<Materiel> GetMaterielForTournage(Tournage t)
         {
             HttpClient hc = new HttpClient();
@@ -722,6 +842,11 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère le materiel disponible pour un tournage
+        /// </summary>
+        /// <param name="t">Le tournage en question</param>
+        /// <returns>Une liste de matériel contenant le materiel ainsi que la quantité disponibles pour les dates du tournage</returns>
         public static List<Materiel> GetAvaibleMaterielForTournage(Tournage t)
         {
             HttpClient hc = new HttpClient();
@@ -755,11 +880,16 @@ namespace WavContact.DB
             return null;
         }
 
-
         #endregion
 
         #region ACTIVITY_LOG
 
+        /// <summary>
+        /// Ajouter un évenement dans les logs
+        /// </summary>
+        /// <param name="a_user">L'utilisateur qui a fait le log</param>
+        /// <param name="a_project">Le projet concerné par le log</param>
+        /// <param name="a_log">La description du log</param>
         public static void AddActivityLog(User a_user, Project a_project, string a_log)
         {
             HttpClient hc = new HttpClient();
@@ -781,6 +911,11 @@ namespace WavContact.DB
             var response = hc.GetAsync(BASE_URL + "/ACTIVITY").Result;
         }
 
+        /// <summary>
+        /// Récupère une liste de logs pour un projet
+        /// </summary>
+        /// <param name="p">Le projet</param>
+        /// <returns>Une liste de logs (Activity)</returns>
         public static List<Activity> GetActivitiesForProject(Project p)
         {
             HttpClient hc = new HttpClient();
@@ -808,6 +943,11 @@ namespace WavContact.DB
             return null;
         }
 
+        /// <summary>
+        /// Récupère toutes les dernières activités / logs 
+        /// </summary>
+        /// <param name="amount">Le nombre de logs que l'on souhaite récupérer</param>
+        /// <returns>Une liste de logs (Activity)</returns>
         public static List<Activity> GetLastActivites(int amount)
         {
             HttpClient hc = new HttpClient();
