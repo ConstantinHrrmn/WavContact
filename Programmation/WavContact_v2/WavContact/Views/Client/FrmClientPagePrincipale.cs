@@ -157,7 +157,7 @@ namespace WavContact.Views.Client
                 case "Sunday":
                     return "Dimanche";
                 default:
-                    return "";
+                    return english;
             }
         }
         
