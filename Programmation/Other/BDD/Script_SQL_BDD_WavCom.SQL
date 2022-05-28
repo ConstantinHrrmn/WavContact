@@ -482,6 +482,9 @@ ALTER TABLE COMPREND
 # -----------------------------------------------------------------------------
 #      INSERTIONS
 # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+#       TABLE : CATEGORIE
+# -----------------------------------------------------------------------------
 
 -- ALTER TABLE `CATEGORIE` AUTO_INCREMENT=1;      --> A METTRE POUR FAIRE RAPARTIR LA BDD � 1 SI ON SUPPRIME LA TABLE OU QU'ON DOIT TOUT REMETTRE
 
@@ -497,6 +500,10 @@ INSERT INTO `CATEGORIE`(`CATEGORIE_NOM`) VALUES ('Rig et machinerie');
 INSERT INTO `CATEGORIE`(`CATEGORIE_NOM`) VALUES ('Audio');
 INSERT INTO `CATEGORIE`(`CATEGORIE_NOM`) VALUES ('Divers');
 
+
+# -----------------------------------------------------------------------------
+#       TABLE : MATERIEL
+# -----------------------------------------------------------------------------
 -- ALTER TABLE `MATERIEL` AUTO_INCREMENT=1;      --> A METTRE POUR FAIRE RAPARTIR LA BDD � 1 SI ON SUPPRIME LA TABLE OU QU'ON DOIT TOUT REMETTRE
 INSERT INTO `MATERIEL`(`FK_CATEGORIE_ID`, `MATERIEL_NOM`, `MATERIEL_DESCRIPTION`, `MATERIEL_PRIX`, `MATERIEL_QUANTITE`) VALUES (1, "Ursa", "Ursa Mini Pro 4.6K", 0.0, 1);
 INSERT INTO `MATERIEL`(`FK_CATEGORIE_ID`, `MATERIEL_NOM`, `MATERIEL_DESCRIPTION`, `MATERIEL_PRIX`, `MATERIEL_QUANTITE`) VALUES (1, "Pocket", "Pocket Cinema Camera 4K", 0.0, 1);
@@ -576,3 +583,13 @@ INSERT INTO `MATERIEL`(`FK_CATEGORIE_ID`, `MATERIEL_NOM`, `MATERIEL_DESCRIPTION`
 INSERT INTO `MATERIEL`(`FK_CATEGORIE_ID`, `MATERIEL_NOM`, `MATERIEL_DESCRIPTION`, `MATERIEL_PRIX`, `MATERIEL_QUANTITE`) VALUES (10, "Tascam", "Tascam DR-60D MKII", 0.0, 1);
 INSERT INTO `MATERIEL`(`FK_CATEGORIE_ID`, `MATERIEL_NOM`, `MATERIEL_DESCRIPTION`, `MATERIEL_PRIX`, `MATERIEL_QUANTITE`) VALUES (10, "Rode X", "Rode Videomic pro X", 0.0, 1);
 INSERT INTO `MATERIEL`(`FK_CATEGORIE_ID`, `MATERIEL_NOM`, `MATERIEL_DESCRIPTION`, `MATERIEL_PRIX`, `MATERIEL_QUANTITE`) VALUES (10, "C�ble XLR 3m", "XRL 3m", 0.0, 2);
+
+
+# -----------------------------------------------------------------------------
+#       TABLE : ROLE
+# -----------------------------------------------------------------------------
+INSERT INTO `ROLE`(`ROLE_NAME`) VALUES ('Collaborateur');
+INSERT INTO `ROLE`(`ROLE_NAME`) VALUES ('Client');
+INSERT INTO `ROLE`(`ROLE_NAME`) VALUES ('Photographe');
+INSERT INTO `ROLE`(`ROLE_NAME`) VALUES ('Administrateur');
+INSERT INTO `ROLE`(`ROLE_NAME`) VALUES ('Unknown');

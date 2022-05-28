@@ -182,6 +182,23 @@ INSERT INTO `TAG`(`FK_CATEGORIE_ID`, `TAG_NOM`, `NB_SELECTION`) VALUES (1, 'Parc
 # -----------------------------------------------------------------------------
 INSERT INTO `LIEU`(`FK_LIEU_STATUT`, `LIEU_NOM`, `LIEU_DESCRIPTION`, `LIEU_LAT`, `LIEU_LON`) VALUES (2, 'Waview SNC', 'Une entreprise de production audio visuelle', '46.22035712513052', '6.0792356990189');
 INSERT INTO `LIEU`(`FK_LIEU_STATUT`, `LIEU_NOM`, `LIEU_DESCRIPTION`, `LIEU_LAT`, `LIEU_LON`) VALUES (2, 'HEG', 'La Haute école de gestion de Genève (HEG) est une école de niveau universitaire spécialisée dans le domaine commercial. Cette école est rattachée à la HES-SO.', '46.174807', '6.139837');
-INSERT INTO `LIEU`(`FK_LIEU_STATUT`, `LIEU_NOM`, `LIEU_DESCRIPTION`, `LIEU_LAT`, `LIEU_LON`) VALUES (2, 'Jet d'eau de Genève', 'Le jet d'eau de Genève est un monument emblématique du canton de Genève. Il mesure 140 mètres et se situe sur la rade dans le lac Léman. C'est un lieu touristique depuis sa création en 1891.', '46.206020', '6.157360');
+INSERT INTO `LIEU`(`FK_LIEU_STATUT`, `LIEU_NOM`, `LIEU_DESCRIPTION`, `LIEU_LAT`, `LIEU_LON`) VALUES (2, 'Jet d\'eau de Genève', 'Le jet deau de Genève est un monument emblématique du canton de Genève. Il mesure 140 mètres et se situe sur la rade dans le lac Léman. C\'est un lieu touristique depuis sa création en 1891.', '46.206020', '6.157360');
 INSERT INTO `LIEU`(`FK_LIEU_STATUT`, `LIEU_NOM`, `LIEU_DESCRIPTION`, `LIEU_LAT`, `LIEU_LON`) VALUES (2, 'Parc de la Nymphe', 'Ce parc se trouve à Collonge-Bellerive. Le nom de ce parc est donné par la statut se trouvant dans le lac : la nymphe.', '46.259176', '6.196433');
 INSERT INTO `LIEU`(`FK_LIEU_STATUT`, `LIEU_NOM`, `LIEU_DESCRIPTION`, `LIEU_LAT`, `LIEU_LON`) VALUES (2, 'Plage des Eaux-Vives', 'Cette plage se trouve au coeur de la ville dans le quartier des Eaux-Vives. Conviviale et gratuite, cette réelle oasis au cœur de la ville comprenant 400 mètres de plage et un parc de deux hectares accolé à une zone nature est le lieu idéal pour les baigneurs et promeneurs.', '46.2086821', '6.1611387');
+
+
+# -----------------------------------------------------------------------------
+#       TABLE : LIEU_HAS_TAG
+# -----------------------------------------------------------------------------
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (1, 14);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (1, 15);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (2, 14);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (2, 17);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (3, 18);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (3, 19);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (4, 19);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (4, 22);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (5, 11);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (5, 19);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (5, 20);
+INSERT INTO `LIEU_HAS_TAG`(`PK_FK_LIEU_ID`, `PK_FK_TAG_ID`) VALUES (5, 22);
