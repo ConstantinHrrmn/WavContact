@@ -193,5 +193,34 @@ namespace WavContact.Controllers.Member
             }
             return 0;
         }
+
+        public void DisplayMateriel()
+        {
+            this.Frm.UpdateMaterielDispo(this.MaterielsDispos);
+            this.Frm.UpdateMaterielPris(this.MaterielsTournage);
+        }
+
+        public void Search(string search)
+        {
+            List<Materiel> filtered = new List<Materiel>();
+            foreach (Materiel m in this.MaterielsDispos)
+            {
+                if (m.Nom.ToLower().Contains(search.ToLower()))
+                {
+                    filtered.Add(m);
+                }
+            }
+            this.Frm.UpdateMaterielDispo(filtered);
+
+            filtered = new List<Materiel>();
+            foreach (Materiel m in this.MaterielsTournage)
+            {
+                if (m.Nom.ToLower().Contains(search.ToLower()))
+                {
+                    filtered.Add(m);
+                }
+            }
+            this.Frm.UpdateMaterielPris(filtered);
+        }
     }
 }

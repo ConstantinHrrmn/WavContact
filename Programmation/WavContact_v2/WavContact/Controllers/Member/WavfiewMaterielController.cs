@@ -31,6 +31,11 @@ namespace WavContact.Controllers.Member
             this.Frame.UpdateMateriel(this.Materiels);
         }
 
+        public void DisplayMateriel()
+        {
+            this.Frame.UpdateMateriel(this.Materiels);
+        }
+
         public Tuple<Materiel, CategorieMateriel, int> SelectMateriel(Materiel m)
         {
                 CategorieMateriel cm = GetCategorie(m);
@@ -94,6 +99,20 @@ namespace WavContact.Controllers.Member
         {
             WavContactPDO.DeleteMaterial(m);
             this.UpdateMateriel();
+        }
+
+        public void Search(string search)
+        {
+            List<Materiel> filtered = new List<Materiel>();
+            foreach (Materiel item in this.Materiels)
+            {
+                if (item.Nom.ToLower().Contains(search.ToLower()))
+                {
+                    filtered.Add(item);
+                }
+            }
+
+            this.Frame.UpdateMateriel(filtered);
         }
 
         public FrmWaviewGestionStock Frame { get => _frame; set => _frame = value; }

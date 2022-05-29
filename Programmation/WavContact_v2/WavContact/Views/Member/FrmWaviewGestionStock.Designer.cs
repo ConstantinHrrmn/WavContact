@@ -46,6 +46,7 @@ namespace WavContact.Views.Member
             this.cmbCategorie = new System.Windows.Forms.ComboBox();
             this.btnSaveNew = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
+            this.tbxRecherche = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblGestionStock
@@ -255,12 +256,27 @@ namespace WavContact.Views.Member
             this.lblId.Text = "-";
             this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // tbxRecherche
+            // 
+            this.tbxRecherche.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbxRecherche.BackColor = System.Drawing.Color.Black;
+            this.tbxRecherche.ForeColor = System.Drawing.Color.White;
+            this.tbxRecherche.Location = new System.Drawing.Point(700, 20);
+            this.tbxRecherche.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbxRecherche.Name = "tbxRecherche";
+            this.tbxRecherche.PlaceholderText = "Recherche";
+            this.tbxRecherche.Size = new System.Drawing.Size(485, 35);
+            this.tbxRecherche.TabIndex = 41;
+            this.tbxRecherche.TextChanged += new System.EventHandler(this.tbxRecherche_TextChanged);
+            this.tbxRecherche.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxRecherche_KeyPress);
+            // 
             // FrmWaviewGestionStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1209, 802);
+            this.Controls.Add(this.tbxRecherche);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.btnSaveNew);
             this.Controls.Add(this.label5);
@@ -309,5 +325,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.ComboBox cmbCategorie;
         private System.Windows.Forms.Button btnSaveNew;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox tbxRecherche;
     }
 }

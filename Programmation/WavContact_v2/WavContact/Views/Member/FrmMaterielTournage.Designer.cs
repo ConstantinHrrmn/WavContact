@@ -43,12 +43,14 @@
             this.cmbDate = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbxRecherche = new System.Windows.Forms.TextBox();
             this.gbSelectionMateriel.SuspendLayout();
             this.gbQuantite.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSelectionMateriel
             // 
+            this.gbSelectionMateriel.Controls.Add(this.tbxRecherche);
             this.gbSelectionMateriel.Controls.Add(this.gbQuantite);
             this.gbSelectionMateriel.Controls.Add(this.label1);
             this.gbSelectionMateriel.Controls.Add(this.cmbFiltreSelect);
@@ -232,6 +234,20 @@
             this.label2.TabIndex = 56;
             this.label2.Text = "Sélection de la date";
             // 
+            // tbxRecherche
+            // 
+            this.tbxRecherche.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbxRecherche.BackColor = System.Drawing.Color.Black;
+            this.tbxRecherche.ForeColor = System.Drawing.Color.White;
+            this.tbxRecherche.Location = new System.Drawing.Point(523, 59);
+            this.tbxRecherche.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tbxRecherche.Name = "tbxRecherche";
+            this.tbxRecherche.PlaceholderText = "Recherche";
+            this.tbxRecherche.Size = new System.Drawing.Size(510, 35);
+            this.tbxRecherche.TabIndex = 56;
+            this.tbxRecherche.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxRecherche.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxRecherche_KeyPress);
+            // 
             // FrmMaterielTournage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -276,5 +292,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbAmount;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.TextBox tbxRecherche;
     }
 }

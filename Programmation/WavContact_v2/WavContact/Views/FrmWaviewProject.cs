@@ -173,17 +173,6 @@ namespace WavContact.Views.Member
                 this.ctrl.OpenFolderInExplorer();
 
             }
-            /*
-            if (this.selectedFile == null || this.selectedFile != file)
-            {
-                this.selectedFile = file;
-            }
-            else
-            {
-                this.selectedFile = null;
-                
-                
-            }*/
             
         }
 

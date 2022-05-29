@@ -196,5 +196,24 @@ namespace WavContact.Views.Member
             }
             
         }
+
+        private void tbxRecherche_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxRecherche_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string txt = this.tbxRecherche.Text.Trim();
+            
+            if (txt != "" && txt.Length > 0)
+            {
+                this.ctrl.Search(txt);
+            }
+            else
+            {
+                this.ctrl.DisplayMateriel();
+            }
+        }
     }
 }

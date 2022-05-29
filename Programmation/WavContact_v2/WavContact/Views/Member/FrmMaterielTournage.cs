@@ -198,8 +198,8 @@ namespace WavContact.Views.Member
             {
                 MessageBox.Show("Veuillez entrer une valeur supérieur à 0.");
             }
-            
 
+            this.tbxRecherche.Text = "";
             
         }
 
@@ -216,6 +216,20 @@ namespace WavContact.Views.Member
         private void btnPrint_Click(object sender, EventArgs e)
         {
             WavPDFWriter.WritePDF(this.Ctrl.Projet, this.Ctrl.SelectedDate, this.Ctrl.MaterielsTournage, this.Ctrl.Categories);
+        }
+
+        private void tbxRecherche_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string txt = this.tbxRecherche.Text.Trim();
+
+            if (txt != "" && txt.Length > 0)
+            {
+                this.Ctrl.Search(txt);
+            }
+            else
+            {
+                this.Ctrl.DisplayMateriel();
+            }
         }
     }
 }
