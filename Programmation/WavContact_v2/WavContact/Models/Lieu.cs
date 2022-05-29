@@ -13,6 +13,8 @@ namespace WavContact.Models
         private double _latitude;
         private double _longitude;
         private int _idTournage;
+        private string _description;
+        private string _pathImage;
 
         private Tournage _horaires;
 
@@ -35,10 +37,20 @@ namespace WavContact.Models
         public double Lon { get => _longitude; set => _longitude = value; }
         public Tournage Horaires { get => _horaires; set => _horaires = value; }
         public int IdTournage { get => _idTournage; set => _idTournage = value; }
+        public string Description { get => _description; set => _description = value; }
+        public string PathImage { get => _pathImage; set => _pathImage = value; }
 
         public override string ToString()
         {
-            return String.Format("{0} [{1} - {2}]", this.Nom, this.Horaires.Debut.ToShortDateString(), this.Horaires.Fin.ToShortDateString());
+            if (this.Horaires == null)
+            {
+                return String.Format("{0}", this.Nom);
+            }
+            else
+            {
+                return String.Format("{0} [{1} - {2}]", this.Nom, this.Horaires.Debut.ToShortDateString(), this.Horaires.Fin.ToShortDateString());
+            }
+            
         }
 
         public string ToMaps()

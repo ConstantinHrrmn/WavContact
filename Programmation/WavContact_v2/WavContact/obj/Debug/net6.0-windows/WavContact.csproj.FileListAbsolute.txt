@@ -100,3 +100,4 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavC
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net6.0-windows\WavContact.Views.Member.FrmWaviewPagePrincipale1080.resources
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net6.0-windows\WavContact.Views.FrmReviewClients.resources
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net6.0-windows\WavContact.Views.PlaceBox.resources

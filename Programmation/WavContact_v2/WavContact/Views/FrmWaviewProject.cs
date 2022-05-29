@@ -166,6 +166,14 @@ namespace WavContact.Views.Member
             
             WavFile file = this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex);
 
+            if (MessageBox.Show("Voulez-vous télécharger le fichier ?", "Téléchargement", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.ctrl.DownloadFile(file);
+
+                this.ctrl.OpenFolderInExplorer();
+
+            }
+            /*
             if (this.selectedFile == null || this.selectedFile != file)
             {
                 this.selectedFile = file;
@@ -174,10 +182,8 @@ namespace WavContact.Views.Member
             {
                 this.selectedFile = null;
                 
-                this.ctrl.DownloadFile(file);
-
-                this.ctrl.OpenFolderInExplorer();
-            }
+                
+            }*/
             
         }
 
@@ -297,7 +303,17 @@ namespace WavContact.Views.Member
             Lieu l = this.lstLieux.SelectedItem as Lieu;
             Debug.WriteLine(l.ToMaps());
             Clipboard.SetText(l.ToMaps());
-            MessageBox.Show("URL copié ! \n \n" + l.ToMaps(), "URL GoogleMaps du lieu");
+            PlaceBox pb = new PlaceBox(l);
+
+            if (pb.ShowDialog() == DialogResult.Yes)
+            {
+                if (MessageBox.Show("Voulez-vous vraiment supprimer le lieu du projet ?", "Supprimer ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.ctrl.DeletePlace(pb.SelectedLieu);
+                }
+            }
+            
+            //MessageBox.Show("URL copié ! \n \n" + l.ToMaps(), "URL GoogleMaps du lieu");
         }
     }
 }

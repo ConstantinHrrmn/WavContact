@@ -36,6 +36,8 @@ namespace WavContact.Controllers
             tDocuments.Start();
             tDates.Start();
             tPlaces.Start();
+
+            WavFTP.CreateProjectDirectory(this.project);
         }
 
         public void UpdateProjectDescription(string description)
@@ -136,7 +138,6 @@ namespace WavContact.Controllers
 
         public void DownloadFile(WavFile file)
         {
-            WavFTP.CreateProjectDirectory(this.project);
             
             Thread th = new Thread(new ThreadStart(() =>
             {
@@ -158,6 +159,16 @@ namespace WavContact.Controllers
             }
             ));
             th.Start();
+        }
+
+        public void DeletePlace(Lieu lieu)
+        {
+            Tournage t = new Tournage();
+            t.Id = lieu.IdTournage;
+            WavContactPDO.DeletePlaceForProject(lieu, this.project, t);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, this.project, "Suppression d'un lieu ("+lieu.Nom+")");
+            this.GetActivity();
+            this.GetPlaces();
         }
 
         public void DeleteFile(WavFile file)

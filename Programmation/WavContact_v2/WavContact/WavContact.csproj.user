@@ -46,5 +46,8 @@
     <Compile Update="Views\Member\FrmWaviewPagePrincipale1080.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\PlaceBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

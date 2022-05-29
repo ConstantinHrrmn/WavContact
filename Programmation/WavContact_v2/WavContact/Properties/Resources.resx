@@ -205,4 +205,7 @@
   <data name="Illustration_sans_titre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Illustration_sans_titre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="no-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\no-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

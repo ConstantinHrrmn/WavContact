@@ -372,6 +372,23 @@ namespace WavContact.DB
         } 
 
         /// <summary>
+        /// Permet de supprimer un lieu de tournage pour un projet
+        /// </summary>
+        /// <param name="l">Le lieu que l'on souhaite supprimer</param>
+        /// <param name="p">le projet auquel il est affilié</param>
+        /// <param name="t">le tournage auquel il est affilié</param>
+        public static void DeletePlaceForProject(Lieu l, Project p, Tournage t)
+        {
+            HttpClient hc = new HttpClient();
+            
+            hc.DefaultRequestHeaders.Add("IdLieu", l.Id.ToString());
+            hc.DefaultRequestHeaders.Add("IdProjet", p.Id.ToString());
+            hc.DefaultRequestHeaders.Add("IdTournage", t.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/LIEU/delete").Result;
+        }
+
+        /// <summary>
         /// Suppression d'une réservation de materiel pour un tournage d'un projet
         /// </summary>
         /// <param name="p">Le projet</param>
@@ -716,6 +733,7 @@ namespace WavContact.DB
                 {
                     foreach (Lieu item in lieux)
                     {
+                        item.Horaires = null;
                         foreach (Tournage tournage in tournages)
                         {
                             if (item.IdTournage == tournage.Id)
@@ -725,7 +743,12 @@ namespace WavContact.DB
                             }
                         }
 
-                        lieuxList.Add(item);
+                        if (item.Horaires != null)
+                        {
+                            lieuxList.Add(item);
+                        }
+
+                        
                     }
                     return lieuxList;
                 }
