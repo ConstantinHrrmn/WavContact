@@ -8,6 +8,7 @@ using WavContact.Views.Member;
 using WavContact.DB;
 using WavContact.Models;
 using System.Threading;
+using WavContact.Metier;
 
 namespace WavContact.Controllers.Member
 {
@@ -199,6 +200,20 @@ namespace WavContact.Controllers.Member
             this.Frm.UpdateMaterielDispo(this.MaterielsDispos);
             this.Frm.UpdateMaterielPris(this.MaterielsTournage);
         }
+
+        public void PrintList(bool export) 
+        {
+            WavPDFWriter.WritePDF(this.Projet, this.SelectedDate, this.MaterielsTournage, this.Categories, export);
+
+            if (export)
+            {
+                User u = new User();
+                u.Id = 0;
+                WavActivity.AjoutDocument(u, this.Projet, " Liste de tournage [" + this.SelectedDate.Debut.ToShortDateString() + " - " + this.SelectedDate.Fin.ToShortDateString() + "]");
+            }
+            
+        }
+            
 
         public void Search(string search)
         {

@@ -11,15 +11,19 @@ using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using WavContact.DB;
 using WavContact.Models;
 
 namespace WavContact.Metier
 {
     public class WavPDFWriter
     {
-        public static void WritePDF(Project p, Tournage t, List<Materiel> materiels, List<CategorieMateriel> categories)
+        public static void WritePDF(Project p, Tournage t, List<Materiel> materiels, List<CategorieMateriel> categories, bool export)
         {
-            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)) + "\\" + p.Name + "_"  + t.Id +".pdf"));
+            string path = WavFTP.downloadFolder + "\\" + p.Id.ToString();
+            string file_path = path + "\\" + p.Name + "_" + t.Id.ToString() + ".pdf";
+
+            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(file_path));
             Document doc = new Document(pdfDoc);
 
             doc.Add(new Paragraph(String.Format("PROJET : {0}", p.Name)));
@@ -49,7 +53,13 @@ namespace WavContact.Metier
 
             doc.Close();
 
-            Process.Start("Explorer.exe", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)) + "\\" + p.Name + "_" + t.Id + ".pdf");
+            if (export)
+            {
+                WavFTP.UploadFile(file_path, p);
+
+            }
+            
+            Process.Start("Explorer.exe", file_path);
         }
     }
 }

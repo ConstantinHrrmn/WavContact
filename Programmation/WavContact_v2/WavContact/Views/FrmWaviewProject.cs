@@ -154,11 +154,11 @@ namespace WavContact.Views.Member
 
         private void btnMateriel_Click(object sender, EventArgs e)
         {
-            //FrmWaviewGestionStock frmMateriel = new FrmWaviewGestionStock();
-            //frmMateriel.Show();
-
             FrmMaterielTournage frmMaterielTournage = new FrmMaterielTournage(this.ctrl.GetProject());
-            frmMaterielTournage.Show();
+            frmMaterielTournage.ShowDialog();
+
+            this.ctrl.GetActivity();
+            this.ctrl.DisplayDocuments();
         }
 
         private void lbDocuments_SelectedIndexChanged(object sender, EventArgs e)

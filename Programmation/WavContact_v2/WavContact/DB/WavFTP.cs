@@ -20,7 +20,7 @@ namespace WavContact.DB
         static string password = @"ssh_waview.ch";
         static string remoteDirectory = "/customers/3/8/4/waview.ch/httpd.www/wavcontact/projects/";
 
-        static string downloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + "\\Projects";
+        public static string downloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + "\\Projects";
 
         public static List<WavFile> listFiles(Project project)
         {

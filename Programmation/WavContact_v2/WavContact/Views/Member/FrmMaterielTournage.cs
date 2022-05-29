@@ -215,7 +215,10 @@ namespace WavContact.Views.Member
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            WavPDFWriter.WritePDF(this.Ctrl.Projet, this.Ctrl.SelectedDate, this.Ctrl.MaterielsTournage, this.Ctrl.Categories);
+            DialogResult dr = MessageBox.Show("Voulez-vous exporter automatiquement le document sur le serveur ?", "Exportation", MessageBoxButtons.YesNo);
+
+            this.Ctrl.PrintList(dr == DialogResult.Yes);
+
         }
 
         private void tbxRecherche_KeyPress(object sender, KeyPressEventArgs e)
