@@ -29,6 +29,7 @@ namespace WavContact.Views.Member
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewProject));
             this.lbActivity = new System.Windows.Forms.ListBox();
             this.lbDocuments = new System.Windows.Forms.ListBox();
             this.lblProjectName = new System.Windows.Forms.Label();
@@ -338,6 +339,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.lbDocuments);
             this.Controls.Add(this.lblProjectName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewProject";

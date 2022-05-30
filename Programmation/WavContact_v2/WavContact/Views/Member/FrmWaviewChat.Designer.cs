@@ -30,6 +30,7 @@ namespace WavContact.Views.Member
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewChat));
             this.lstListeClient = new System.Windows.Forms.ListBox();
             this.tbxInput = new System.Windows.Forms.TextBox();
             this.btnEnvoye = new System.Windows.Forms.Button();
@@ -135,6 +136,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.tbxInput);
             this.Controls.Add(this.lstListeClient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewChat";

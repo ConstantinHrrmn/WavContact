@@ -30,6 +30,7 @@ namespace WavContact.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewPagePrincipale));
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnSwitchMode = new System.Windows.Forms.Button();
@@ -273,6 +274,7 @@ namespace WavContact.Views
             this.lbDay1.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbDay1.Size = new System.Drawing.Size(1140, 214);
             this.lbDay1.TabIndex = 0;
+            this.lbDay1.SelectedIndexChanged += new System.EventHandler(this.lbDay1_SelectedIndexChanged);
             // 
             // lblDay1
             // 
@@ -537,6 +539,7 @@ namespace WavContact.Views
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnLogout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewPagePrincipale";

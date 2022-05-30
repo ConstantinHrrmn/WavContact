@@ -461,5 +461,10 @@ namespace WavContact.Views
 
             this.ctrl.UpdateClients();
         }
+
+        private void lbDay1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace WavContact.Views.Client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientPagePrincipale));
             this.btnSwitchMode = new System.Windows.Forms.Button();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.lstProjet = new System.Windows.Forms.ListBox();
@@ -382,6 +383,7 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.btnSwitchMode);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmClientPagePrincipale";

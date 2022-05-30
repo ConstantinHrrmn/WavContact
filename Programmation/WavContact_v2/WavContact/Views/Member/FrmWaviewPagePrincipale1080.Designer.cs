@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewPagePrincipale1080));
             this.btnInfosClients = new System.Windows.Forms.Button();
             this.btnNewProject = new System.Windows.Forms.Button();
             this.btnNewClient = new System.Windows.Forms.Button();
@@ -521,6 +522,7 @@
             this.Controls.Add(this.lstListeClients);
             this.Controls.Add(this.lblWelcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmWaviewPagePrincipale1080";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

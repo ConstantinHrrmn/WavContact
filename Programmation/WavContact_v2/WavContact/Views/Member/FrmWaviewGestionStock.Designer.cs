@@ -29,6 +29,7 @@ namespace WavContact.Views.Member
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewGestionStock));
             this.lblGestionStock = new System.Windows.Forms.Label();
             this.lbMateriel = new System.Windows.Forms.ListBox();
             this.btnAjouter = new System.Windows.Forms.Button();
@@ -296,6 +297,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.lblGestionStock);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmWaviewGestionStock";

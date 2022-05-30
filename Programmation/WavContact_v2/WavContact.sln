@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WavContact", "WavContact\Wa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{628E4103-FF53-4E6D-963F-4B7AFE7F4148}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WavContactSetup", "WavContactSetup\WavContactSetup.vdproj", "{4D691CFE-FAF6-402B-B8DA-F30092D7C4D8}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WavSetup", "WavSetup\WavSetup.vdproj", "{62359D14-E849-4DEF-945E-B8267CADFCFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,11 +20,10 @@ Global
 		{B8D13D36-EB35-4B6B-B359-2528DEEE3709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D13D36-EB35-4B6B-B359-2528DEEE3709}.Release|Any CPU.Build.0 = Release|Any CPU
 		{628E4103-FF53-4E6D-963F-4B7AFE7F4148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{628E4103-FF53-4E6D-963F-4B7AFE7F4148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{628E4103-FF53-4E6D-963F-4B7AFE7F4148}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{628E4103-FF53-4E6D-963F-4B7AFE7F4148}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D691CFE-FAF6-402B-B8DA-F30092D7C4D8}.Debug|Any CPU.ActiveCfg = Debug
-		{4D691CFE-FAF6-402B-B8DA-F30092D7C4D8}.Release|Any CPU.ActiveCfg = Release
+		{62359D14-E849-4DEF-945E-B8267CADFCFD}.Debug|Any CPU.ActiveCfg = Debug
+		{62359D14-E849-4DEF-945E-B8267CADFCFD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

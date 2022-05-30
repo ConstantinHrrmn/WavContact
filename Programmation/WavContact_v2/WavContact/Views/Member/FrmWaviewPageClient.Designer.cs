@@ -29,6 +29,7 @@ namespace WavContact.Views.Member
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewPageClient));
             this.lblNomClient = new System.Windows.Forms.Label();
             this.lblNomMandant = new System.Windows.Forms.Label();
             this.lblTelephone = new System.Windows.Forms.Label();
@@ -318,6 +319,7 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.lblNomMandant);
             this.Controls.Add(this.lblNomClient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FrmWaviewPageClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,6 +30,7 @@ namespace WavContact.Views.Client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientChat));
             this.tbxMEssages = new System.Windows.Forms.TextBox();
             this.btnEnvoye = new System.Windows.Forms.Button();
             this.tbxInput = new System.Windows.Forms.TextBox();
@@ -86,6 +87,7 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.tbxInput);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FrmClientChat";

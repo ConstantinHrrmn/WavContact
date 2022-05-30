@@ -29,6 +29,7 @@ namespace WavContact.Views.Member
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWaviewNewProject));
             this.btnSauvegarder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxNom = new System.Windows.Forms.TextBox();
@@ -110,7 +111,8 @@ namespace WavContact.Views.Member
             this.Controls.Add(this.tbxDescription);
             this.Controls.Add(this.lblNomMandant);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmWaviewNewProject";

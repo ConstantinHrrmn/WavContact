@@ -29,6 +29,7 @@ namespace WavContact.Views.Client
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMotDePasseOublie));
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.tbxMdp1 = new System.Windows.Forms.TextBox();
@@ -48,7 +49,7 @@ namespace WavContact.Views.Client
             this.tbxEmail.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.tbxEmail.ForeColor = System.Drawing.Color.White;
             this.tbxEmail.Location = new System.Drawing.Point(197, 184);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmail.Multiline = true;
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.PlaceholderText = "exemple@gmail.com";
@@ -75,7 +76,7 @@ namespace WavContact.Views.Client
             this.tbxMdp1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.tbxMdp1.ForeColor = System.Drawing.Color.White;
             this.tbxMdp1.Location = new System.Drawing.Point(197, 448);
-            this.tbxMdp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxMdp1.Margin = new System.Windows.Forms.Padding(4);
             this.tbxMdp1.Multiline = true;
             this.tbxMdp1.Name = "tbxMdp1";
             this.tbxMdp1.PlaceholderText = "veuillez saisir votre nouveau mot de passe";
@@ -103,7 +104,7 @@ namespace WavContact.Views.Client
             this.tbxMdp2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.tbxMdp2.ForeColor = System.Drawing.Color.White;
             this.tbxMdp2.Location = new System.Drawing.Point(197, 540);
-            this.tbxMdp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxMdp2.Margin = new System.Windows.Forms.Padding(4);
             this.tbxMdp2.Multiline = true;
             this.tbxMdp2.Name = "tbxMdp2";
             this.tbxMdp2.PlaceholderText = "veuillez saisir le mot de passe précédent";
@@ -172,7 +173,7 @@ namespace WavContact.Views.Client
             this.tbxCode.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.tbxCode.ForeColor = System.Drawing.Color.White;
             this.tbxCode.Location = new System.Drawing.Point(200, 354);
-            this.tbxCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxCode.Margin = new System.Windows.Forms.Padding(4);
             this.tbxCode.Multiline = true;
             this.tbxCode.Name = "tbxCode";
             this.tbxCode.PlaceholderText = "Code reçu par email";
@@ -211,7 +212,8 @@ namespace WavContact.Views.Client
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblMotDePasseOublie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmMotDePasseOublie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

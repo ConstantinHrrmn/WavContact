@@ -29,6 +29,7 @@ namespace WavContact.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParametre));
             this.lblParametre = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -77,9 +78,9 @@ namespace WavContact.Views
             this.groupBox1.Enabled = false;
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(16, 119);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(857, 229);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
@@ -89,7 +90,7 @@ namespace WavContact.Views
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(401, 107);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(423, 38);
             this.comboBox1.TabIndex = 2;
@@ -115,9 +116,9 @@ namespace WavContact.Views
             this.groupBox2.Controls.Add(this.lblAncienMDP);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(16, 371);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(857, 311);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
@@ -128,7 +129,7 @@ namespace WavContact.Views
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.ForeColor = System.Drawing.Color.White;
             this.btnEnregistrer.Location = new System.Drawing.Point(611, 230);
-            this.btnEnregistrer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEnregistrer.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(214, 58);
             this.btnEnregistrer.TabIndex = 42;
@@ -149,7 +150,7 @@ namespace WavContact.Views
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBox3.Location = new System.Drawing.Point(401, 178);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(423, 32);
             this.textBox3.TabIndex = 4;
@@ -159,7 +160,7 @@ namespace WavContact.Views
             // 
             this.txtNouveauMdp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtNouveauMdp.Location = new System.Drawing.Point(401, 115);
-            this.txtNouveauMdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNouveauMdp.Margin = new System.Windows.Forms.Padding(4);
             this.txtNouveauMdp.Name = "txtNouveauMdp";
             this.txtNouveauMdp.Size = new System.Drawing.Size(423, 32);
             this.txtNouveauMdp.TabIndex = 3;
@@ -169,7 +170,7 @@ namespace WavContact.Views
             // 
             this.txtAncienMdp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.txtAncienMdp.Location = new System.Drawing.Point(401, 58);
-            this.txtAncienMdp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAncienMdp.Margin = new System.Windows.Forms.Padding(4);
             this.txtAncienMdp.Name = "txtAncienMdp";
             this.txtAncienMdp.Size = new System.Drawing.Size(423, 32);
             this.txtAncienMdp.TabIndex = 2;
@@ -208,9 +209,9 @@ namespace WavContact.Views
             this.groupBox3.Enabled = false;
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(16, 708);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(857, 229);
             this.groupBox3.TabIndex = 44;
             this.groupBox3.TabStop = false;
@@ -219,7 +220,7 @@ namespace WavContact.Views
             // tbxEmail
             // 
             this.tbxEmail.Location = new System.Drawing.Point(575, 145);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(249, 35);
             this.tbxEmail.TabIndex = 50;
@@ -237,7 +238,7 @@ namespace WavContact.Views
             // tbxNumTelephone
             // 
             this.tbxNumTelephone.Location = new System.Drawing.Point(184, 145);
-            this.tbxNumTelephone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxNumTelephone.Margin = new System.Windows.Forms.Padding(4);
             this.tbxNumTelephone.Name = "tbxNumTelephone";
             this.tbxNumTelephone.Size = new System.Drawing.Size(244, 35);
             this.tbxNumTelephone.TabIndex = 48;
@@ -255,7 +256,7 @@ namespace WavContact.Views
             // tbxPrenom
             // 
             this.tbxPrenom.Location = new System.Drawing.Point(575, 77);
-            this.tbxPrenom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPrenom.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPrenom.Name = "tbxPrenom";
             this.tbxPrenom.Size = new System.Drawing.Size(249, 35);
             this.tbxPrenom.TabIndex = 46;
@@ -273,7 +274,7 @@ namespace WavContact.Views
             // tbxNom
             // 
             this.tbxNom.Location = new System.Drawing.Point(184, 77);
-            this.tbxNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxNom.Margin = new System.Windows.Forms.Padding(4);
             this.tbxNom.Name = "tbxNom";
             this.tbxNom.Size = new System.Drawing.Size(244, 35);
             this.tbxNom.TabIndex = 2;
@@ -311,7 +312,8 @@ namespace WavContact.Views
             this.Controls.Add(this.lblParametre);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmParametre";
             this.Text = "Paramètres";
             this.Load += new System.EventHandler(this.FrmParametre_Load);
