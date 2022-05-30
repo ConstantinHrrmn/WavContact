@@ -6,7 +6,6 @@ if (!isset($_SESSION['user'])) {
   exit;
 }
 else{
-  echo json_encode("");
-  // echo json_encode($_SESSION['user']);
+  echo json_encode('');
 }
 ?>

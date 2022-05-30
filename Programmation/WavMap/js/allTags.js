@@ -1,14 +1,16 @@
-//allTags.js détient l'ensemble des tags de la BDD à travers allTags.php
-fetch("https://waview.ch/wavcontact/map/php/allTags.php")  // Lien qui contient les données
-  .then(res=>res.json())  // réponse en format json
-  .then(res=>{
-    //console.log(res);
-    let cboTag = ``;
+//allTags.js va prendre l'ensemble des lieux de la BDD à travers allTags.php et créer des marqueurs
+fetch("https://waview.ch/wavcontact/map/php/allTags.php")  // Boucle sur l'URL qui contient les données
+    .then(res=>res.json())  // réponse en format json
+    .then(res=>{
+      let frmAddPlace = ``;
+      let frmProposalPlace = ``;
+      // Boucle sur l'ensemble des résultats pour la création des checkboxs
+      for(var i = 0; i < res.length; i++){
+        frmAddPlace += `<label name="lblTagNom" for="${res[i]['TAG_NOM']}"><input type="checkbox" id="${res[i]['TAG_NOM']}" class="divCheckboxesTagAddPlaceForm" name="check_list[]" value="${res[i]['TAG_NOM']}"/>${res[i]['TAG_NOM']}</label>`;
+        frmProposalPlace += `<label name="lblTagNom" for="${res[i]['TAG_NOM']}"><input type="checkbox" id="${res[i]['TAG_NOM']}" class="divCheckboxesTagAddPlaceFormClient" name="check_list[]" value="${res[i]['TAG_NOM']}"/>${res[i]['TAG_NOM']}</label>`;
 
-    // Boucle sur l'ensemble des tags
-    for (var i = 0; i < res.length; i++) {
-      cboTag += `<option>${res[i]['TAG_NOM']}</option>`; // Tag
-    }
-    //si on veut testé mettre "test" et appelé URL https://waview.ch/wavcontact/map/test.html
-    document.getElementById("cboTag").innerHTML = cboTag;
-  });
+      }
+      // Ajout dans les divs des formulaires
+      document.getElementById("divCheckboxesTagAddPlaceForm").innerHTML = frmAddPlace;
+      document.getElementById("divCheckboxesTagAddPlaceFormClient").innerHTML = frmProposalPlace;
+    });
