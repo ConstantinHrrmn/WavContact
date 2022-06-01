@@ -50,7 +50,6 @@ namespace WavContact
             this.tbxEmail.PlaceholderText = "Adresse email";
             this.tbxEmail.Size = new System.Drawing.Size(416, 45);
             this.tbxEmail.TabIndex = 1;
-            this.tbxEmail.Text = "constantin@waview.ch";
             this.tbxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxEmail.TextChanged += new System.EventHandler(this.textBoxes_TextChanged);
             // 
@@ -65,9 +64,10 @@ namespace WavContact
             this.tbxPassword.PlaceholderText = "Mot de passe";
             this.tbxPassword.Size = new System.Drawing.Size(416, 45);
             this.tbxPassword.TabIndex = 2;
-            this.tbxPassword.Text = "motdepasse";
             this.tbxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxPassword.UseSystemPasswordChar = true;
+            this.tbxPassword.TextChanged += new System.EventHandler(this.tbxPassword_TextChanged);
+            this.tbxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPassword_KeyPress);
             // 
             // btnLogin
             // 

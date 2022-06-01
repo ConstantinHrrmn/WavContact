@@ -115,5 +115,18 @@ namespace WavContact
             Views.Client.FrmMotDePasseOublie frm = new Views.Client.FrmMotDePasseOublie();
             frm.ShowDialog();
         }
+
+        private void tbxPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.PerformLogin();
+            }
+        }
     }
 }

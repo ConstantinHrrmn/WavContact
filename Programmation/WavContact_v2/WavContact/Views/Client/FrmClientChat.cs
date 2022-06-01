@@ -116,6 +116,11 @@ namespace WavContact.Views.Client
 
         private void btnEnvoye_Click(object sender, EventArgs e)
         {
+            this.SendMessage();
+        }
+
+        private void SendMessage()
+        {
             this.ctrl.SendMessage(this.tbxInput.Text);
             this.tbxInput.Text = "";
         }
@@ -123,6 +128,20 @@ namespace WavContact.Views.Client
         private void FrmClientChat_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.Continue;
+        }
+
+        private void tbxInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                this.SendMessage();
+            }
+        }
+
+        private void tbxInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

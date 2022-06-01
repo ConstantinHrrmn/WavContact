@@ -6,6 +6,7 @@ using WavContact.Models;
 using WavContact.Views.Member;
 using WavContact.Views.Client;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Tests
 {
@@ -48,36 +49,6 @@ namespace Tests
         }
 
         [TestMethod]
-        //Create a client in the database
-        public void CreateUpdateDeleteClient()
-        {
-            WavContactPDO.CreateClient(clientBaseTest, "Bonjour");
-            
-            List<User> clients = WavContactPDO.Clients();
-
-            // find client by email
-            User client = clients.Find(x => x.Email == clientBaseTest.Email);
-
-            Assert.IsNotNull(client);
-
-            client.First_name = "UNIT";
-            client.Last_name = "Update";
-            client.IdRole = 3;
-
-            WavContactPDO.UpdateUser(client);
-
-            User clientUpdated = WavContactPDO.Login(client.Email, "Bonjour");
-
-            Assert.IsTrue(clientUpdated.First_name == "UNIT" && clientUpdated.Last_name == "Update");
-
-            WavContactPDO.DeleteUser(clientUpdated);
-
-            User clientDeleted = WavContactPDO.Login(client.Email, "Bonjour");
-
-            Assert.IsNull(clientDeleted);
-        }
-
-        [TestMethod]
         // Find client by email
         public void FindClienbyEmaillFail()
         {
@@ -91,18 +62,6 @@ namespace Tests
             Assert.IsNull(client);
         }
 
-        [TestMethod]
-        // Find client by email
-        public void FindClienbyEmaill()
-        {
-            // Get all clients
-            List<User> clients = WavContactPDO.Clients();
-
-            // find client by email
-            User client = clients.Find(x => x.Email == "aurelie@hes.ch");
-
-            Assert.IsNotNull(client);
-        }
 
         [TestMethod]
         public void UserExists()
@@ -112,13 +71,6 @@ namespace Tests
             Assert.IsTrue(yes);
         }
 
-        [TestMethod]
-        public void ResetUserPassword()
-        {
-            bool yes = WavContactPDO.ResetUserPassword("luna@waview.ch", "yesyes");            
-
-            Assert.IsTrue(yes);
-        }
 
         #endregion
 
@@ -131,32 +83,6 @@ namespace Tests
             Assert.IsNotNull(categories);
         }
 
-        // Create project for user
-        [TestMethod]
-        public void CreateProject()
-        {
-            string searchName = "TestProject";
-
-            Project p = new Project();
-            p.Name = searchName;
-            p.Description = "Test";
-            p.Valider = 1;
-
-            User u = WavContactPDO.GetUserByEmail("aurelie@hes.ch");
-
-            WavContactPDO.CreateProject(p, u);
-
-            // break the test for 1 seconde
-            System.Threading.Thread.Sleep(1000);
-            
-            List<Project> projects = WavContactPDO.ProjectsForUser(u);
-
-            // find a project in list with a specific name 
-            Project project = projects.Find(x => x.Name == searchName);
-
-            Assert.IsNotNull(project);
-        }
-
         #region MATERIEL
         // Get All materiel
         [TestMethod]
@@ -165,8 +91,8 @@ namespace Tests
             List<Materiel> materiels = WavContactPDO.GetMateriel();
 
             Assert.IsNotNull(materiels);
-        }        
-        
+        }
+
         [TestMethod]
         public void FindAMaterialInList()
         {
@@ -199,7 +125,7 @@ namespace Tests
         public void CreateMaterial()
         {
             Materiel m = new Materiel(-1, 11, "AutoTest", "This is a test", 1234.56, 1);
-            
+
             WavContactPDO.CreateMaterial(m);
 
             // break the test for 1 seconde

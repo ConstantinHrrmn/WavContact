@@ -143,8 +143,13 @@ namespace WavContact.Views.Member
 
         private void btnEnvoye_Click(object sender, EventArgs e)
         {
+            this.SendMessage();
+        }
+
+        private void SendMessage()
+        {
             this.wcc.SendMessage(this.tbxInput.Text);
-            this.tbxInput.Text = "";
+            this.tbxInput.Clear();
         }
 
         private void IncomeTimer_Tick(object sender, EventArgs e)
@@ -186,9 +191,15 @@ namespace WavContact.Views.Member
             
         }
 
-        private void tbxInput_TextChanged(object sender, EventArgs e)
+        private void tbxInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                this.SendMessage();
+                this.tbxInput.Clear();
+                
+            }
         }
     }
 }

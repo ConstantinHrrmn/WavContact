@@ -69,6 +69,8 @@ namespace WavContact.Views.Client
             this.tbxInput.Name = "tbxInput";
             this.tbxInput.Size = new System.Drawing.Size(881, 163);
             this.tbxInput.TabIndex = 1;
+            this.tbxInput.TextChanged += new System.EventHandler(this.tbxInput_TextChanged);
+            this.tbxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxInput_KeyPress);
             // 
             // ChatTimer
             // 
