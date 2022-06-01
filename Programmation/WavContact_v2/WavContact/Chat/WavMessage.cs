@@ -24,21 +24,34 @@ namespace WavContact.Chat
         public string Content { 
             get => _content; 
             set {
-                _content = value;
 
                 string fv = "";
                 
-                string[] data = this._content.Split("\\r\\n");
+                string[] data = value.Split("\\r\\n");
+                
                 if (data.Length > 1)
                 {
                     foreach (string item in data)
                     {
                         if (item.Length > 0)
-                            fv += item + Environment.NewLine;
+                        {
+                            if (item.Split("\\").Length > 0)
+                            {
+                                fv += "OLALLAALLA :" + item;
+                            }
+                            else
+                                fv += item + Environment.NewLine;
+                        }
+                            
                     }
-
-                    _content = fv;
                 }
+                else
+                    fv = value;
+
+                if (fv.Contains("\'"))
+                    fv = fv.Replace("\\\'", "\'");
+
+                _content = fv;
             }
             
         }
