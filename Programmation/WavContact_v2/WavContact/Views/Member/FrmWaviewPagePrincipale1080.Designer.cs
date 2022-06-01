@@ -188,7 +188,7 @@
             this.btnGestionMateriel.Name = "btnGestionMateriel";
             this.btnGestionMateriel.Size = new System.Drawing.Size(214, 47);
             this.btnGestionMateriel.TabIndex = 31;
-            this.btnGestionMateriel.Text = "Gestion du matériel";
+            this.btnGestionMateriel.Text = "Matériel";
             this.btnGestionMateriel.UseVisualStyleBackColor = true;
             this.btnGestionMateriel.Click += new System.EventHandler(this.btnGestionMateriel_Click);
             // 

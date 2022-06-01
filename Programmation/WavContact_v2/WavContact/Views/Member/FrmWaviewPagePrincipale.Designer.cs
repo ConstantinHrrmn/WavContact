@@ -233,7 +233,7 @@ namespace WavContact.Views
             this.btnGestionMateriel.Name = "btnGestionMateriel";
             this.btnGestionMateriel.Size = new System.Drawing.Size(214, 58);
             this.btnGestionMateriel.TabIndex = 20;
-            this.btnGestionMateriel.Text = "Gestion du matériel";
+            this.btnGestionMateriel.Text = "Matériel";
             this.btnGestionMateriel.UseVisualStyleBackColor = true;
             this.btnGestionMateriel.Click += new System.EventHandler(this.btnGestionMateriel_Click);
             // 
