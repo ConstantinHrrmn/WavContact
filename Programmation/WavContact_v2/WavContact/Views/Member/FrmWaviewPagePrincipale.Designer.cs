@@ -66,6 +66,7 @@ namespace WavContact.Views
             this.btnPreviusWeek = new System.Windows.Forms.Button();
             this.btnToday = new System.Windows.Forms.Button();
             this.btnReviewClients = new System.Windows.Forms.Button();
+            this.NotificationIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // btnLogout
@@ -501,6 +502,13 @@ namespace WavContact.Views
             this.btnReviewClients.Visible = false;
             this.btnReviewClients.Click += new System.EventHandler(this.btnReviewClients_Click);
             // 
+            // NotificationIcon
+            // 
+            this.NotificationIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotificationIcon.Icon")));
+            this.NotificationIcon.Text = "HEY ! GOT A NOTIFICATION";
+            this.NotificationIcon.Visible = true;
+            this.NotificationIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // FrmWaviewPagePrincipale
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -590,5 +598,6 @@ namespace WavContact.Views
         private System.Windows.Forms.Button btnPreviusWeek;
         private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnReviewClients;
+        public System.Windows.Forms.NotifyIcon NotificationIcon;
     }
 }

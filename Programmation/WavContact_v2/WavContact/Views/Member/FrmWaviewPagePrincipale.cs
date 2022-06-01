@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 #region WAVCONTACT using
 using WavContact.Controllers;
@@ -40,8 +41,6 @@ namespace WavContact.Views
             InitializeComponent();
             // Initialisation du controlleur
             this.ctrl = new WaviewMemberController(this, u);
-            
-            
         }
 
         #region RESIZE_FORM
@@ -152,6 +151,11 @@ namespace WavContact.Views
 
             this.ctrl.UpdateCalendar();
             this.ctrl.UpdateUnactive();
+
+            //NotificationIcon.BalloonTipText = "This is the message";
+            //NotificationIcon.BalloonTipTitle = "Waview";
+            //NotificationIcon.ShowBalloonTip(1000);
+
         }
 
         #region MouseMoving
@@ -464,6 +468,11 @@ namespace WavContact.Views
         }
 
         private void lbDay1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
         }

@@ -56,6 +56,14 @@
               "target": "Package",
               "version": "[5.2.7, )"
             },
+            "Microsoft.Toolkit": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "Microsoft.Toolkit.Uwp.Notifications": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Nancy": {
               "target": "Package",
               "version": "[2.0.0, )"
