@@ -124,7 +124,11 @@ namespace WavContact.Views.Member
 
         public void AppendMessage(WavMessage message)
         {
-            this.tbxMEssages.Invoke(() => this.tbxMEssages.AppendText(message + Environment.NewLine));
+            if (message != null)
+            {
+                this.tbxMEssages.Invoke(() => this.tbxMEssages.AppendText(message + Environment.NewLine));
+            }
+            
         }
 
         private void lstListeClient_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,6 +184,11 @@ namespace WavContact.Views.Member
             }
             
             
+        }
+
+        private void tbxInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

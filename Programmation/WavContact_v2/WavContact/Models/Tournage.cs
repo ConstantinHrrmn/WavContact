@@ -29,7 +29,7 @@ namespace WavContact.Models
 
         public override string ToString()
         {
-            return "Début : " + _debut.ToString("dd/MM/yyyy H:mm") + " --> Fin :" + _fin.ToString("dd/MM/yyyy H:mm");
+            return "Début : " + _debut.ToString("dd/MM/yyyy H:mm") +" --> Fin :" + _fin.ToString("dd/MM/yyyy H:mm");
         }
     }
 }

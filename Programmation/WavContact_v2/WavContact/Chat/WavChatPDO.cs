@@ -164,25 +164,26 @@ namespace WavContact.Chat
             message = message.Replace("\'", "\\'");
             message = message.Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
 
-            
-            string url = WavContactPDO.BASE_URL + "/CHAT/send";
-
-            HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Sender", sender.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Group", client.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Content", message);
-
-            var response = hc.GetAsync(url).Result;
-
-            if (response.IsSuccessStatusCode)
+            if (message.Length > 0 )
             {
-                var a = response.Content.ReadAsStringAsync().Result;
-                JavaScriptSerializer js = new JavaScriptSerializer();
+                string url = WavContactPDO.BASE_URL + "/CHAT/send";
 
-                int id = js.Deserialize<Int32>(a);
-                return GetMessageById(id);
+                HttpClient hc = new HttpClient();
+                hc.DefaultRequestHeaders.Add("Sender", sender.Id.ToString());
+                hc.DefaultRequestHeaders.Add("Group", client.Id.ToString());
+                hc.DefaultRequestHeaders.Add("Content", message);
+
+                var response = hc.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var a = response.Content.ReadAsStringAsync().Result;
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+
+                    int id = js.Deserialize<Int32>(a);
+                    return GetMessageById(id);
+                }
             }
-
             return null;
         }
 
@@ -191,24 +192,28 @@ namespace WavContact.Chat
             message = message.Replace("\'", "\\'");
             message = message.Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
 
-            string url = WavContactPDO.BASE_URL + "/CHAT/send";
-
-            HttpClient hc = new HttpClient();
-            hc.DefaultRequestHeaders.Add("Sender", sender.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Group", client.Id.ToString());
-            hc.DefaultRequestHeaders.Add("Content", message);
-            hc.DefaultRequestHeaders.Add("Hidden", "Hidden");
-
-            var response = hc.GetAsync(url).Result;
-
-            if (response.IsSuccessStatusCode)
+            if (message.Length > 0)
             {
-                var a = response.Content.ReadAsStringAsync().Result;
-                JavaScriptSerializer js = new JavaScriptSerializer();
+                string url = WavContactPDO.BASE_URL + "/CHAT/send";
 
-                int id = js.Deserialize<Int32>(a);
-                return GetMessageById(id);
+                HttpClient hc = new HttpClient();
+                hc.DefaultRequestHeaders.Add("Sender", sender.Id.ToString());
+                hc.DefaultRequestHeaders.Add("Group", client.Id.ToString());
+                hc.DefaultRequestHeaders.Add("Content", message);
+                hc.DefaultRequestHeaders.Add("Hidden", "Hidden");
+
+                var response = hc.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var a = response.Content.ReadAsStringAsync().Result;
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+
+                    int id = js.Deserialize<Int32>(a);
+                    return GetMessageById(id);
+                }
             }
+            
 
             return null;
         }

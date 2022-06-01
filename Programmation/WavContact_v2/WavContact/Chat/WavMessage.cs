@@ -21,7 +21,27 @@ namespace WavContact.Chat
         public int GroupId { get => _groupId; set => _groupId = value; }
         public int SenderId { get => _senderId; set => _senderId = value; }
         public string DeliveryTime { get => _deliveryTime; set => _deliveryTime = value; }
-        public string Content { get => _content; set => _content = value; }
+        public string Content { 
+            get => _content; 
+            set {
+                _content = value;
+
+                string fv = "";
+                
+                string[] data = this._content.Split("\\r\\n");
+                if (data.Length > 1)
+                {
+                    foreach (string item in data)
+                    {
+                        if (item.Length > 0)
+                            fv += item + Environment.NewLine;
+                    }
+
+                    _content = fv;
+                }
+            }
+            
+        }
         public string Prenom { get => _prenom; set => _prenom = value; }
 
         public WavMessage(int id, int groupId, int senderId, string deliveryTime, string content, string prenom)
@@ -30,7 +50,11 @@ namespace WavContact.Chat
             GroupId = groupId;
             SenderId = senderId;
             DeliveryTime = deliveryTime;
+            
             Content = content;
+
+            
+            
             Prenom = prenom;
         }
 

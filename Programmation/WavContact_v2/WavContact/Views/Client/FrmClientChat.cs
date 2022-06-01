@@ -49,7 +49,11 @@ namespace WavContact.Views.Client
 
         public void AppendMessage(WavMessage message)
         {
-            this.tbxMEssages.Invoke(() => this.tbxMEssages.AppendText(message + Environment.NewLine));
+            if (message != null)
+            {
+                this.tbxMEssages.Invoke(() => this.tbxMEssages.AppendText(message + Environment.NewLine));
+            }
+            
         }
 
         
