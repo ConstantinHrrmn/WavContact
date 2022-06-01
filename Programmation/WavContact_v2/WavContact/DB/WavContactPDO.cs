@@ -118,7 +118,7 @@ namespace WavContact.DB
         /// </summary>
         /// <param name="user">L'utilistateur à ajouter dans la BDD</param>
         /// <returns>NULL</returns>
-        public static User CreateClient(User user)
+        public static User CreateClient(User user, string password)
         {
             HttpClient hc = new HttpClient();
 
@@ -126,7 +126,7 @@ namespace WavContact.DB
             hc.DefaultRequestHeaders.Add("Prenom", user.First_name);
             hc.DefaultRequestHeaders.Add("Email", user.Email);
             hc.DefaultRequestHeaders.Add("Tel", user.Phone);
-            hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash("Bonjour" + user.Email));
+            hc.DefaultRequestHeaders.Add("Password", WavHash.ComputeSha256Hash(password + user.Email));
             hc.DefaultRequestHeaders.Add("Role", user.IdRole.ToString());
             hc.DefaultRequestHeaders.Add("Active", "1");
 
@@ -161,6 +161,8 @@ namespace WavContact.DB
         public static void CreateProject(Project p, User owner)
         {
             HttpClient hc = new HttpClient();
+
+            p.Description = p.Description.Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
 
             hc.DefaultRequestHeaders.Add("Nom", p.Name);
             hc.DefaultRequestHeaders.Add("Description", p.Description);
@@ -272,9 +274,9 @@ namespace WavContact.DB
         /// <param name="p">Le projet que l'on souhaite mettre à jour</param>
         public static void UpdateProject(Project p)
         {
-            string description = p.Description.Replace("\'", "\\'");
-            string commentaire = p.Commentaire.Replace("\'", "\\'");
-            commentaire = commentaire.Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
+            string description = p.Description.Replace("\'", "\\'").Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
+            string commentaire = p.Commentaire.Replace("\'", "\\'").Replace("\r\n", "\\r\\n").Replace("é", "e").Replace("è", "e").Replace("ê", "e").Replace("à", "a").Replace("â", "a").Replace("ô", "o").Replace("î", "i").Replace("ç", "c");
+
 
             HttpClient hc = new HttpClient();
 
@@ -404,7 +406,34 @@ namespace WavContact.DB
 
             var response = hc.GetAsync(BASE_URL + "/RESERVATION/delete").Result;
         }
-        
+
+        /// <summary>
+        /// Suppression d'un projet
+        /// ATTENTION : Action irréversible
+        /// </summary>
+        /// <param name="p">Le projet que l'on souhaite supprimer</param>
+        public static void DeleteProject(Project p)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Id", p.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/PROJET/delete").Result;
+        }
+
+        /// <summary>
+        /// Supprimer un client
+        /// ATTENTION : Action irréversible
+        /// </summary>
+        /// <param name="u">Le client a supprimer</param>
+        public static void DeleteClient(User u)
+        {
+            HttpClient hc = new HttpClient();
+
+            hc.DefaultRequestHeaders.Add("Id", u.Id.ToString());
+
+            var response = hc.GetAsync(BASE_URL + "/CLIENT/delete").Result;
+        }
         #endregion
 
         #region GET

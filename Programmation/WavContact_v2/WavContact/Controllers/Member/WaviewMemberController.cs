@@ -73,7 +73,7 @@ namespace WavContact.Controllers
 
         public void UpdateClients()
         {
-            this.clients = WavContact.DB.WavContactPDO.Clients();
+            this.clients = WavContactPDO.Clients();
             this.frm.LoadClients(this.clients);
         }
 
@@ -81,8 +81,15 @@ namespace WavContact.Controllers
         {
             
             WavContactPDO.UpdateUser(client);
-            this.UpdateClients();
             WavActivity.AjoutActiviteCustom(this.connectedUser, null, "Modification des informations de : " + client.ToString());
+        }
+        
+        public void CreateClient(User client)
+        {
+            string password = WavContactPDO.GeneratePass(6);
+            Mailing.SendMessage(client.Email, "Création de votre compte", "Bonjour \n\r Un administrateur Waview vient de vous créer un compte. Vous pouvez à présent profiter de WavContact et Wavmap. \n\r Votre mot de passe est : " + password + "\n\r Bonne journée ! \n\r L'équipe Waview");
+            WavContactPDO.CreateClient(client, password);
+            WavActivity.AjoutActiviteCustom(this.connectedUser, null, "Création du client : " + client.ToString());
         }
 
         public void UpdateChatCount()

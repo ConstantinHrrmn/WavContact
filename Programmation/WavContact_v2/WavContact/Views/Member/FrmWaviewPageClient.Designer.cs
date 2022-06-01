@@ -50,6 +50,7 @@ namespace WavContact.Views.Member
             this.rbClient = new System.Windows.Forms.RadioButton();
             this.rbPhoto = new System.Windows.Forms.RadioButton();
             this.lblRole = new System.Windows.Forms.Label();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNomClient
@@ -292,12 +293,27 @@ namespace WavContact.Views.Member
             this.lblRole.TabIndex = 29;
             this.lblRole.Text = "Role";
             // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSupprimer.BackColor = System.Drawing.Color.Black;
+            this.btnSupprimer.ForeColor = System.Drawing.Color.White;
+            this.btnSupprimer.Location = new System.Drawing.Point(256, 648);
+            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(216, 58);
+            this.btnSupprimer.TabIndex = 30;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = false;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
             // FrmWaviewPageClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(744, 796);
+            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.rbPhoto);
             this.Controls.Add(this.rbClient);
@@ -351,5 +367,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.RadioButton rbClient;
         private System.Windows.Forms.RadioButton rbPhoto;
         private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Button btnSupprimer;
     }
 }

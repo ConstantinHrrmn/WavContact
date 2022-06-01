@@ -46,6 +46,7 @@ namespace WavContact.Views.Member
             }
 
             this.btnMateriel.Visible = this.isAdmin;
+            this.btnDeleteProject.Visible = this.isAdmin;
             this.btnSupprimerDocument.Enabled = false;
         }
 
@@ -303,6 +304,15 @@ namespace WavContact.Views.Member
             }
             
             //MessageBox.Show("URL copié ! \n \n" + l.ToMaps(), "URL GoogleMaps du lieu");
+        }
+
+        private void btnDeleteProject_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous vraiment supprimer le projet ? \n Cette action est irréverssible.", "Supprimer ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.ctrl.DeleteProject();
+                this.Close();
+            }
         }
     }
 }

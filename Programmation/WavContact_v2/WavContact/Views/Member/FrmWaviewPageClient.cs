@@ -45,6 +45,8 @@ namespace WavContact.Views.Member
             this.tbxPrenom.Text = u.First_name;
             this.tbxMail.Text = u.Email;
             this.tbxTel.Text = u.Phone;
+           
+            
             this.SwitchMode();
         }
 
@@ -63,7 +65,10 @@ namespace WavContact.Views.Member
                 this.rbAdmin.Visible = false;
                 this.rbClient.Visible = false;
                 this.rbPhoto.Visible = false;
+                
             }
+
+            this.btnSupprimer.Visible = !this.newClient;
         }
 
         #region SWTICHMODE
@@ -152,6 +157,17 @@ namespace WavContact.Views.Member
         private void tbx_change(object sender, EventArgs e)
         {
             this.btnSauvegarder.Enabled = this.tbxNom.Text.Trim().Length > 0 && this.tbxPrenom.Text.Trim().Length > 0 && this.tbxMail.Text.Trim().Length > 0;
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous vraiment supprimer le client ? Tous les projets seront également supprimés. \n Cette action est irréverssible.", "Supprimer le client", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                Mailing.SendMessage(this.ctrl.SelectedClient.Email, "Suppression de votre compte", "Bonjour, \n\r Votre compte a été supprimé. \n\r Merci d'avoir utilisé WavContact. \n\r L'équipe WavContact");
+                this.ctrl.DeleteClient();
+                MessageBox.Show("Client supprimé.");
+                this.DialogResult = DialogResult.None;
+                this.Close();
+            }
         }
     }
 }

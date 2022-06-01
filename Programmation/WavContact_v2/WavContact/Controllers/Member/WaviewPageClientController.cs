@@ -10,6 +10,7 @@ using WavContact.Metier;
 using WavContact.Views.Member;
 using WavContact.Models;
 using WavContact.Views;
+using WavContact.DB;
 #endregion
 
 namespace WavContact.Controllers.Waview
@@ -48,6 +49,12 @@ namespace WavContact.Controllers.Waview
         {
             FrmWaviewProject frm = new FrmWaviewProject(p, this.client);
             frm.Show();
+        }
+
+        public void DeleteClient()
+        {
+            WavContactPDO.DeleteClient(this.client);
+            WavActivity.AjoutActiviteCustom("Client supprimé : " + this.client);
         }
     }
 }

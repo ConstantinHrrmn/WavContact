@@ -16,12 +16,30 @@ namespace WavContact.DB
 
         public static void AjoutActiviteCustom(User u, Project p, string activite)
         {
-            WavContactPDO.AddActivityLog(u, p, "Log : " + activite);
+            WavContactPDO.AddActivityLog(u, p, activite);
+        }
+
+        public static void AjoutActiviteCustom(User u, string activite)
+        {
+            Project p = new Project();
+            p.Id = 0;
+            WavContactPDO.AddActivityLog(u, p, activite);
+        }
+
+        public static void AjoutActiviteCustom(string activite)
+        {
+            User u = new User();
+            u.Id = 0;
+            Project p = new Project();
+            p.Id = 0;
+            WavContactPDO.AddActivityLog(u, p, activite);
         }
 
         public static void CreationProjet(User u, Project p)
         {
             WavContactPDO.AddActivityLog(u, p, CREATION+ ": " + p.Name);
+            p.Id = 0;
+            WavContactPDO.AddActivityLog(u, p, CREATION + ": " + p.Name);
         }
 
         public static void AjoutDocument(User u, Project p, string d)

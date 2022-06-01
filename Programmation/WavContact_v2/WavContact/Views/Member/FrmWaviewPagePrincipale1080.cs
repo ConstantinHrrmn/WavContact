@@ -192,9 +192,10 @@ namespace WavContact.Views.Member
 
             if (dr == DialogResult.OK)
             {
-                Debug.WriteLine(frmC.Client);
                 this.ctrl.UpdateClient(frmC.Client);
             }
+
+            this.ctrl.UpdateClients();
         }
 
         private void btnGestionMateriel_Click(object sender, EventArgs e)
@@ -210,11 +211,10 @@ namespace WavContact.Views.Member
 
             if (dr == DialogResult.OK)
             {
-                WavContactPDO.CreateClient(frmC.Client);
-
-                this.ctrl.UpdateClients();
-                Debug.WriteLine(frmC.Client);
+                this.ctrl.CreateClient(frmC.Client);
             }
+
+            this.ctrl.UpdateClients();
 
         }
 

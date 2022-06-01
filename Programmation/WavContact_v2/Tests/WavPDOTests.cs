@@ -51,7 +51,7 @@ namespace Tests
         //Create a client in the database
         public void CreateUpdateDeleteClient()
         {
-            WavContactPDO.CreateClient(clientBaseTest);
+            WavContactPDO.CreateClient(clientBaseTest, "Bonjour");
             
             List<User> clients = WavContactPDO.Clients();
 

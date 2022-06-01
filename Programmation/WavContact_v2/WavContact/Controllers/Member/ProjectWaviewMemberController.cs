@@ -199,6 +199,12 @@ namespace WavContact.Controllers
         {
             return this.project;
         }
-        
+
+        public void DeleteProject()
+        {
+            WavContactPDO.DeleteProject(this.project);
+            WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, "Suppression du projet : " + this.project.Name);
+        }
+
     }
 }

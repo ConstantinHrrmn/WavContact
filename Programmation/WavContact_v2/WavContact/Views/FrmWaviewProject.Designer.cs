@@ -51,6 +51,7 @@ namespace WavContact.Views.Member
             this.btnSaveCommentary = new System.Windows.Forms.Button();
             this.btnSaveDescription = new System.Windows.Forms.Button();
             this.lblCommentaires = new System.Windows.Forms.Label();
+            this.btnDeleteProject = new System.Windows.Forms.Button();
             this.gpbProjet.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -319,6 +320,19 @@ namespace WavContact.Views.Member
             this.lblCommentaires.TabIndex = 44;
             this.lblCommentaires.Text = "Commentaires";
             // 
+            // btnDeleteProject
+            // 
+            this.btnDeleteProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteProject.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteProject.Location = new System.Drawing.Point(1040, 15);
+            this.btnDeleteProject.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnDeleteProject.Name = "btnDeleteProject";
+            this.btnDeleteProject.Size = new System.Drawing.Size(214, 58);
+            this.btnDeleteProject.TabIndex = 45;
+            this.btnDeleteProject.Text = "Supprimer le projet";
+            this.btnDeleteProject.UseVisualStyleBackColor = true;
+            this.btnDeleteProject.Click += new System.EventHandler(this.btnDeleteProject_Click);
+            // 
             // FrmWaviewProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -326,6 +340,7 @@ namespace WavContact.Views.Member
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1492, 1122);
+            this.Controls.Add(this.btnDeleteProject);
             this.Controls.Add(this.lblCommentaires);
             this.Controls.Add(this.btnSaveDescription);
             this.Controls.Add(this.btnSaveCommentary);
@@ -376,5 +391,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.Label lblCommentaires;
         private System.Windows.Forms.Button btnRemoveDate;
         private System.Windows.Forms.Button btnAddDate;
+        private System.Windows.Forms.Button btnDeleteProject;
     }
 }

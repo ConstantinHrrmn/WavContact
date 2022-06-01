@@ -293,9 +293,10 @@ namespace WavContact.Views
 
             if (dr == DialogResult.OK)
             {
-                Debug.WriteLine(frmC.Client);
                 this.ctrl.UpdateClient(frmC.Client);
             }
+
+            this.ctrl.UpdateClients();
         }
 
         private void btnGestionMateriel_Click(object sender, EventArgs e)
@@ -311,12 +312,11 @@ namespace WavContact.Views
 
             if (dr == DialogResult.OK)
             {
-                WavContactPDO.CreateClient(frmC.Client);
-
-                this.ctrl.UpdateClients();
-                Debug.WriteLine(frmC.Client);
+                this.ctrl.CreateClient(frmC.Client);
             }
-            
+
+            this.ctrl.UpdateClients();
+
         }
 
         private void btnNewProject_Click(object sender, EventArgs e)
@@ -451,7 +451,8 @@ namespace WavContact.Views
 
         private void lbActivity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(this.lbActivity.SelectedItem.ToString());
+            if (lbActivity.SelectedIndex != -1)
+                MessageBox.Show(this.lbActivity.SelectedItem.ToString());
         }
 
         private void btnReviewClients_Click(object sender, EventArgs e)
