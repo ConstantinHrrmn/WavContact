@@ -155,7 +155,7 @@ namespace WavContact.Views.Member
                             // Save materiel in database
                             WavContact.DB.WavContactPDO.UpdateMaterial(m);
                             MessageBox.Show("Le matériel a été modifié avec succès", "Modification matériel", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.ShowMateriel(m, categorieMateriel.Id);
+                            this.ShowMateriel(m, categorieMateriel.Id-1);
                         }
                         
 
