@@ -50,14 +50,14 @@ namespace WavContact.Views.Member
             this.lstListeClient.Location = new System.Drawing.Point(20, 24);
             this.lstListeClient.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.lstListeClient.Name = "lstListeClient";
-            this.lstListeClient.Size = new System.Drawing.Size(371, 1534);
+            this.lstListeClient.Size = new System.Drawing.Size(371, 1414);
             this.lstListeClient.TabIndex = 10;
             this.lstListeClient.SelectedIndexChanged += new System.EventHandler(this.lstListeClient_SelectedIndexChanged);
             // 
             // tbxInput
             // 
             this.tbxInput.BackColor = System.Drawing.Color.Black;
-            this.tbxInput.Location = new System.Drawing.Point(404, 1395);
+            this.tbxInput.Location = new System.Drawing.Point(404, 1278);
             this.tbxInput.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tbxInput.Multiline = true;
             this.tbxInput.Name = "tbxInput";
@@ -69,7 +69,7 @@ namespace WavContact.Views.Member
             // 
             this.btnEnvoye.BackColor = System.Drawing.Color.Black;
             this.btnEnvoye.ForeColor = System.Drawing.Color.White;
-            this.btnEnvoye.Location = new System.Drawing.Point(973, 1468);
+            this.btnEnvoye.Location = new System.Drawing.Point(970, 1351);
             this.btnEnvoye.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnEnvoye.Name = "btnEnvoye";
             this.btnEnvoye.Size = new System.Drawing.Size(149, 90);
@@ -85,7 +85,7 @@ namespace WavContact.Views.Member
             this.tbxMEssages.Name = "tbxMEssages";
             this.tbxMEssages.ReadOnly = true;
             this.tbxMEssages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxMEssages.Size = new System.Drawing.Size(718, 1309);
+            this.tbxMEssages.Size = new System.Drawing.Size(718, 1192);
             this.tbxMEssages.TabIndex = 13;
             // 
             // ChatTimer
@@ -115,7 +115,7 @@ namespace WavContact.Views.Member
             // 
             this.btnMode.BackColor = System.Drawing.Color.Black;
             this.btnMode.ForeColor = System.Drawing.Color.White;
-            this.btnMode.Location = new System.Drawing.Point(973, 1395);
+            this.btnMode.Location = new System.Drawing.Point(970, 1278);
             this.btnMode.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnMode.Name = "btnMode";
             this.btnMode.Size = new System.Drawing.Size(149, 61);
@@ -129,7 +129,7 @@ namespace WavContact.Views.Member
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1157, 1579);
+            this.ClientSize = new System.Drawing.Size(1138, 1457);
             this.Controls.Add(this.btnMode);
             this.Controls.Add(this.lblChat);
             this.Controls.Add(this.tbxMEssages);

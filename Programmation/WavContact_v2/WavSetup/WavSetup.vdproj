@@ -734,7 +734,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AEBE58EDE3884CF3BE1B3946C5B0470A"
             {
-            "SourcePath" = "8:..\\WavContact\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\WavContact\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_25B709A7B0D944EB8C5E2789D54A669E"
