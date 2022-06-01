@@ -314,5 +314,14 @@ namespace WavContact.Views.Member
                 this.Close();
             }
         }
+
+        private void lbActivity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbActivity.SelectedIndex != -1)
+            {
+                Activity log = lbActivity.SelectedItem as Activity;
+                MessageBox.Show(log.ToString());
+            }
+        }
     }
 }

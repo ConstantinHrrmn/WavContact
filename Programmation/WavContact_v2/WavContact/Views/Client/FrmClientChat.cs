@@ -19,6 +19,8 @@ namespace WavContact.Views.Client
 {
     public partial class FrmClientChat : Form
     {
+
+        private static FrmClientChat instance;
         private ClientChatController ctrl;
         
         public FrmClientChat(User u)
@@ -45,6 +47,15 @@ namespace WavContact.Views.Client
                     this.AppendMessage(item);
                 }
             }
+        }
+
+        public static FrmClientChat GetInstance(User u)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new FrmClientChat(u);
+            }
+            return instance;
         }
 
         public void AppendMessage(WavMessage message)
@@ -107,6 +118,11 @@ namespace WavContact.Views.Client
         {
             this.ctrl.SendMessage(this.tbxInput.Text);
             this.tbxInput.Text = "";
+        }
+
+        private void FrmClientChat_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.Continue;
         }
     }
 }

@@ -21,7 +21,8 @@ namespace WavContact.DB
         static string remoteDirectory = "/customers/3/8/4/waview.ch/httpd.www/wavcontact/projects/";
 
         public static string downloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + "\\Projects";
-
+        //public static string downloadFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Projects";
+        
         public static List<WavFile> listFiles(Project project)
         {
             List<WavFile> WavFiles = new List<WavFile>();

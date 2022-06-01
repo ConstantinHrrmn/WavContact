@@ -21,6 +21,8 @@ namespace WavContact.Views.Client
         List<ListBox> boxes = new List<ListBox>();
         List<Label> labels = new List<Label>();
 
+        FrmClientChat fcc;
+
         private int weekMultiplier = 0;        
         
         public FrmClientPagePrincipale(User u)
@@ -182,9 +184,9 @@ namespace WavContact.Views.Client
 
         private void btnChat_Click(object sender, EventArgs e)
         {
-            FrmClientChat frm = new FrmClientChat(this.ctrl.ConnectedUser);
-            frm.Show();
-            frm = null;
+            fcc = FrmClientChat.GetInstance(this.ctrl.ConnectedUser);
+            fcc.Show();
+            fcc.Focus();
         }
 
         private void btnProjet_Click(object sender, EventArgs e)
