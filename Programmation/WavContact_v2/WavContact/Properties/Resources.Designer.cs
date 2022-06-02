@@ -151,6 +151,16 @@ namespace WavContact.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] certificat_wavcontact {
+            get {
+                object obj = ResourceManager.GetObject("certificat_wavcontact", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string Email {

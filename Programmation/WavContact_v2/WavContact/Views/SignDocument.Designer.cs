@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSign = new System.Windows.Forms.Button();
             this.lblPath = new System.Windows.Forms.Label();
+            this.btnHowTo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -96,11 +97,22 @@
             this.lblPath.Size = new System.Drawing.Size(0, 30);
             this.lblPath.TabIndex = 5;
             // 
+            // btnHowTo
+            // 
+            this.btnHowTo.Location = new System.Drawing.Point(12, 245);
+            this.btnHowTo.Name = "btnHowTo";
+            this.btnHowTo.Size = new System.Drawing.Size(213, 40);
+            this.btnHowTo.TabIndex = 6;
+            this.btnHowTo.Text = "Comment faire ?";
+            this.btnHowTo.UseVisualStyleBackColor = true;
+            this.btnHowTo.Click += new System.EventHandler(this.btnHowTo_Click);
+            // 
             // SignDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 297);
+            this.ClientSize = new System.Drawing.Size(422, 300);
+            this.Controls.Add(this.btnHowTo);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.btnSign);
             this.Controls.Add(this.label2);
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSign;
         private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.Button btnHowTo;
     }
 }

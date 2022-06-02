@@ -86,6 +86,8 @@ namespace WavContact.Views.Client
             // 
             // lstProjet
             // 
+            this.lstProjet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lstProjet.BackColor = System.Drawing.Color.Black;
             this.lstProjet.ForeColor = System.Drawing.Color.White;
             this.lstProjet.FormattingEnabled = true;

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,39 @@ namespace WavContact.Views
             this.certificatePassword = tbxPassword.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void btnHowTo_Click(object sender, EventArgs e)
+        {
+            //Convert The resource Data into Byte[]
+
+            byte[] PDF = Properties.Resources.certificat_wavcontact;
+
+
+
+            MemoryStream ms = new MemoryStream(PDF);
+
+
+
+            //Create PDF File From Binary of resources folders help.pdf
+
+            FileStream f = new FileStream("help.pdf", FileMode.OpenOrCreate);
+
+
+
+            //Write Bytes into Our Created help.pdf
+
+            ms.WriteTo(f);
+
+            f.Close();
+
+            ms.Close();
+
+
+
+            // Finally Show the Created PDF from resources
+
+            Process.Start("Explorer.exe", "help.pdf");
         }
     }
 }
