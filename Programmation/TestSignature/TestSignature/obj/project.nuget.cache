@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "2r7LO6EC1zxs7kBMfA4EyOU5HwXBE2uiM5L3IoY5xnr8ChHEk1RbS7P8VFQPlDF+vwPvj/A2qoWI60gz3ew9fg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\TestSignature\\TestSignature\\TestSignature.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Constantin\\.nuget\\packages\\freespire.pdf\\8.2.0\\freespire.pdf.8.2.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\select.pdf\\22.1.0\\select.pdf.22.1.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

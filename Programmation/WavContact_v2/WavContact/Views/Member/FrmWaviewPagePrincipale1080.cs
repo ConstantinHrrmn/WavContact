@@ -187,15 +187,18 @@ namespace WavContact.Views.Member
 
         private void btnInfosClients_Click(object sender, EventArgs e)
         {
-            FrmWaviewPageClient frmC = new FrmWaviewPageClient(this.lstListeClients.SelectedItem as User);
-            DialogResult dr = frmC.ShowDialog();
-
-            if (dr == DialogResult.OK)
+            if (this.lstListeClients.SelectedItem != null)
             {
-                this.ctrl.UpdateClient(frmC.Client);
-            }
+                FrmWaviewPageClient frmC = new FrmWaviewPageClient(this.lstListeClients.SelectedItem as User);
+                DialogResult dr = frmC.ShowDialog();
 
-            this.ctrl.UpdateClients();
+                if (dr == DialogResult.OK)
+                {
+                    this.ctrl.UpdateClient(frmC.Client);
+                }
+
+                this.ctrl.UpdateClients();
+            }
         }
 
         private void btnGestionMateriel_Click(object sender, EventArgs e)

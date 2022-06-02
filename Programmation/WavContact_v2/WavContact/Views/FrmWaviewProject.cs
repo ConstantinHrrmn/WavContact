@@ -28,6 +28,7 @@ namespace WavContact.Views.Member
 
         private User loggedUser;
 
+
         public User LoggedUser { get => loggedUser; set => loggedUser = value; }
 
         Tournage selectedTournage = null;
@@ -73,6 +74,8 @@ namespace WavContact.Views.Member
 
             lstDateTournages.BackColor = backcolor;
             lstDateTournages.ForeColor = invertedColor;
+
+            this.btnSign.ForeColor = Color.Green;
         }
 
         public void ShowData(Project p)
@@ -164,17 +167,32 @@ namespace WavContact.Views.Member
 
         private void lbDocuments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            WavFile file = this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex);
-
-            if (MessageBox.Show("Voulez-vous télécharger le fichier ?", "Téléchargement", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (this.lbDocuments.SelectedIndex != -1)
             {
-                this.ctrl.DownloadFile(file);
+                WavFile file = this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex);
 
-                this.ctrl.OpenFolderInExplorer();
+                if (this.selectedFile == null || this.selectedFile != file)
+                {
+                    this.selectedFile = file;
+                }
+                else
+                {
+                    this.selectedFile = null;
 
+
+                    if (MessageBox.Show("Voulez-vous télécharger le fichier ?", "Téléchargement", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        this.ctrl.DownloadFile(file);
+                        this.ctrl.OpenFolderInExplorer();
+                    }
+
+
+                }
+
+                this.btnSign.Visible = (file.Name.Contains("pdf") && !file.Name.Contains("signed") && this.loggedUser.IdRole == 2);
             }
             
+
         }
 
         private void btnFolderOpen_Click(object sender, EventArgs e)
@@ -193,6 +211,8 @@ namespace WavContact.Views.Member
                 string sourcePath = this.odf.FileName;
 
                 this.ctrl.UploadFile(sourcePath);
+
+                MessageBox.Show("Suivant la taille du fichier , le téléchargement peut prendre un certain temps.\n\nVous pouvez continuer a utiliser l'application");
             }
         }
 
@@ -321,6 +341,34 @@ namespace WavContact.Views.Member
             {
                 Activity log = lbActivity.SelectedItem as Activity;
                 MessageBox.Show(log.ToString());
+            }
+        }
+
+        private void btnSign_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous signer le document ?", "Signature", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                SignDocument sd = new SignDocument();
+
+                if (sd.ShowDialog() == DialogResult.OK)
+                {
+                    string path = sd.certificatePath;
+                    string pass = sd.certificatePassword;
+
+                    WavFile file = this.ctrl.SelectedFile(this.lbDocuments.SelectedIndex);
+
+                    if (this.ctrl.SignDocument(this.loggedUser, file, path, pass))
+                    {
+                        MessageBox.Show("Le document a été signé avec succès");
+                        this.ctrl.DisplayDocuments();
+                        this.ctrl.GetActivity();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Une erreur est survenue lors de la signature du document");
+                    }
+
+                }
             }
         }
     }

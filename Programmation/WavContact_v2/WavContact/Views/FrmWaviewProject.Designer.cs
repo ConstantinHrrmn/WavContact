@@ -52,6 +52,7 @@ namespace WavContact.Views.Member
             this.btnSaveDescription = new System.Windows.Forms.Button();
             this.lblCommentaires = new System.Windows.Forms.Label();
             this.btnDeleteProject = new System.Windows.Forms.Button();
+            this.btnSign = new System.Windows.Forms.Button();
             this.gpbProjet.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -333,6 +334,20 @@ namespace WavContact.Views.Member
             this.btnDeleteProject.UseVisualStyleBackColor = true;
             this.btnDeleteProject.Click += new System.EventHandler(this.btnDeleteProject_Click);
             // 
+            // btnSign
+            // 
+            this.btnSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSign.ForeColor = System.Drawing.Color.White;
+            this.btnSign.Location = new System.Drawing.Point(651, 1054);
+            this.btnSign.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnSign.Name = "btnSign";
+            this.btnSign.Size = new System.Drawing.Size(214, 60);
+            this.btnSign.TabIndex = 46;
+            this.btnSign.Text = "Signer";
+            this.btnSign.UseVisualStyleBackColor = true;
+            this.btnSign.Visible = false;
+            this.btnSign.Click += new System.EventHandler(this.btnSign_Click);
+            // 
             // FrmWaviewProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -340,6 +355,7 @@ namespace WavContact.Views.Member
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1492, 1122);
+            this.Controls.Add(this.btnSign);
             this.Controls.Add(this.btnDeleteProject);
             this.Controls.Add(this.lblCommentaires);
             this.Controls.Add(this.btnSaveDescription);
@@ -392,5 +408,6 @@ namespace WavContact.Views.Member
         private System.Windows.Forms.Button btnRemoveDate;
         private System.Windows.Forms.Button btnAddDate;
         private System.Windows.Forms.Button btnDeleteProject;
+        private System.Windows.Forms.Button btnSign;
     }
 }

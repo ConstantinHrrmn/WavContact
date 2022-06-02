@@ -103,3 +103,6 @@ C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavC
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net6.0-windows\ref\WavContact.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\Microsoft.Toolkit.dll
 C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\Spire.License.dll
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\bin\Debug\net6.0-windows\Spire.Pdf.dll
+C:\Users\Constantin\Documents\GitHub\WavContact\Programmation\WavContact_v2\WavContact\obj\Debug\net6.0-windows\WavContact.Views.SignDocument.resources

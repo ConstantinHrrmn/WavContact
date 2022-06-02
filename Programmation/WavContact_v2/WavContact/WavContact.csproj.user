@@ -49,5 +49,8 @@
     <Compile Update="Views\PlaceBox.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\SignDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

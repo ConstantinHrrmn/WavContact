@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using WavContact.Chat;
 using WavContact.DB;
 using WavContact.Models;
+using WavContact.Signature;
 using WavContact.Views.Member;
 
 namespace WavContact.Controllers
@@ -199,12 +200,17 @@ namespace WavContact.Controllers
         {
             return this.project;
         }
-
+        
         public void DeleteProject()
         {
             WavContactPDO.DeleteProject(this.project);
             WavActivity.AjoutActiviteCustom(this.frm.LoggedUser, "Suppression du projet : " + this.project.Name);
         }
 
+        
+        public bool SignDocument(User u, WavFile file, string cert, string pass)
+        {
+            return WavSign.SignerDocument(u, file, this.project, cert, pass);
+        }
     }
 }

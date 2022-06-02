@@ -39,8 +39,7 @@ namespace WavContact.Controllers
 
                 if (loggedInUser.IdRole == 1)
                 {
-                    FrmWaviewPagePrincipale viewMember = new FrmWaviewPagePrincipale(loggedInUser);
-                    viewMember.Show();
+                    OpenApp.OpenLogged(loggedInUser);
                     return true;
                 }
                 else if(loggedInUser.IdRole == 2)
@@ -52,7 +51,7 @@ namespace WavContact.Controllers
             }
             else
             {
-                this.frm.DisplayMessage("Mot de passe ou utilisateur éronné...");
+                this.frm.DisplayMessage("Mot de passe ou utilisateur erroné...");
                 return false;
             }
 
