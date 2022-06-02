@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WavContact.DB;
 using WavContact.Metier;
 
 namespace WavContact.Views
@@ -58,7 +59,7 @@ namespace WavContact.Views
 
             byte[] PDF = Properties.Resources.certificat_wavcontact;
 
-
+            string filepath = WavFTP.downloadFolder + "\\help.pdf";
 
             MemoryStream ms = new MemoryStream(PDF);
 
@@ -66,7 +67,7 @@ namespace WavContact.Views
 
             //Create PDF File From Binary of resources folders help.pdf
 
-            FileStream f = new FileStream("help.pdf", FileMode.OpenOrCreate);
+            FileStream f = new FileStream(filepath, FileMode.OpenOrCreate);
 
 
 
@@ -82,7 +83,7 @@ namespace WavContact.Views
 
             // Finally Show the Created PDF from resources
 
-            Process.Start("Explorer.exe", "help.pdf");
+            Process.Start("Explorer.exe", filepath);
         }
     }
 }
