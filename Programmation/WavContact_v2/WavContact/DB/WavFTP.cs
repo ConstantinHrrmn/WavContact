@@ -21,7 +21,6 @@ namespace WavContact.DB
         static string remoteDirectory = "/customers/3/8/4/waview.ch/httpd.www/wavcontact/projects/";
 
         public static string downloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)) + "\\Projects";
-        //public static string downloadFolder = AppDomain.CurrentDomain.BaseDirectory + "\\Projects";
         
         public static List<WavFile> listFiles(Project project)
         {
@@ -79,6 +78,10 @@ namespace WavContact.DB
             }
         }
 
+        /// <summary>
+        /// Create a directory for the project
+        /// </summary>
+        /// <param name="project"> the project </param>
         public static void CreateProjectDirectory(Project project)
         {
             string path = downloadFolder + "\\" + project.Id.ToString();
@@ -88,6 +91,11 @@ namespace WavContact.DB
             }
         }
 
+        /// <summary>
+        /// Upload a file to the server
+        /// </summary>
+        /// <param name="filePath">Local file path</param>
+        /// <param name="project">Project for the file</param>
         public static void UploadFile(string filePath, Project project)
         {
             string destination = remoteDirectory + project.Id.ToString();
@@ -163,6 +171,11 @@ namespace WavContact.DB
             
         }
 
+        /// <summary>
+        /// Aupprimer un fichier sur le serveur FTP
+        /// </summary>
+        /// <param name="fileToDelete">Le fichier a supprimer</param>
+        /// <param name="project">Le projet auquel appartient le fichier</param>
         public static void DeleteFile(WavFile fileToDelete, Project project)
         {
             using (SftpClient sftp = new SftpClient(host, username, password))

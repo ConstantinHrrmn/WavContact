@@ -17,6 +17,10 @@ namespace WavContact.Controllers.Member
         private List<Materiel> _materiels;
         private List<CategorieMateriel> _categories;
 
+        public FrmWaviewGestionStock Frame { get => _frame; set => _frame = value; }
+        private List<Materiel> Materiels { get => _materiels; set => _materiels = value; }
+        private List<CategorieMateriel> Categories { get => _categories; set => _categories = value; }
+
         public WavfiewMaterielController(FrmWaviewGestionStock a_frame)
         {
             this.Frame = a_frame;
@@ -115,8 +119,6 @@ namespace WavContact.Controllers.Member
             this.Frame.UpdateMateriel(filtered);
         }
 
-        public FrmWaviewGestionStock Frame { get => _frame; set => _frame = value; }
-        private List<Materiel> Materiels { get => _materiels; set => _materiels = value; }
-        private List<CategorieMateriel> Categories { get => _categories; set => _categories = value; }
+        
     }
 }
