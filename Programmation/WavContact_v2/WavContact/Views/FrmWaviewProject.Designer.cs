@@ -325,10 +325,10 @@ namespace WavContact.Views.Member
             // 
             this.btnDeleteProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteProject.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteProject.Location = new System.Drawing.Point(1040, 15);
+            this.btnDeleteProject.Location = new System.Drawing.Point(942, 15);
             this.btnDeleteProject.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnDeleteProject.Name = "btnDeleteProject";
-            this.btnDeleteProject.Size = new System.Drawing.Size(214, 58);
+            this.btnDeleteProject.Size = new System.Drawing.Size(312, 58);
             this.btnDeleteProject.TabIndex = 45;
             this.btnDeleteProject.Text = "Supprimer le projet";
             this.btnDeleteProject.UseVisualStyleBackColor = true;

@@ -144,6 +144,7 @@ namespace WavContact.Views.Member
             // 
             this.btnSauvegarder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSauvegarder.BackColor = System.Drawing.Color.Black;
+            this.btnSauvegarder.Enabled = false;
             this.btnSauvegarder.ForeColor = System.Drawing.Color.White;
             this.btnSauvegarder.Location = new System.Drawing.Point(492, 648);
             this.btnSauvegarder.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
