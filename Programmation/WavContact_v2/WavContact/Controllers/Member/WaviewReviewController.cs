@@ -40,7 +40,7 @@ namespace WavContact.Controllers.Member
         public void ActivateUser(User u)
         {
             string pass = WavContactPDO.GeneratePass(5);
-            Mailing.SendMessage(u.Email, "Votre compte a été approuvé...", "Bonjour, votre compte a été approuvé par l'administrateur. Vous pouvez désormais vous connecter. \n Votre mot de passe est : " + pass +"\n\n" + "Lien pour télécharger l'application WavContact : https://waview.ch/client/download \n Lien pour WavMap : https://waview.ch/wavcontact/map \n\n Nous avons hâte de commencer vos projets ! \n L'équipe Waview" );
+            Mailing.SendMessage(u.Email, "Votre compte a été approuvé...", "Bonjour, votre compte a été approuvé par l'administrateur. Vous pouvez désormais vous connecter. \n\n Votre mot de passe est : " + pass +"\n\n" + "Lien pour télécharger l'application WavContact : https://waview.ch/client/download \n Lien pour WavMap : https://waview.ch/wavcontact/map \n\n Nous avons hâte de commencer vos projets ! \n L'équipe Waview" );
             WavContactPDO.ActivateUser(u);
             WavContactPDO.ResetUserPassword(u.Email, pass);
             WavActivity.AjoutActiviteCustom(u, null, "Compte activé !");
