@@ -10,6 +10,9 @@ function CreateTag(){
   $nom = $_POST['inputNomAddTagFormCollab'];
   $nbSelection = 0;
 
+  // Permet de mettre tout les mots en minuscule et la 1er lettre du 1er mot en majuscule (initcap)
+  $nom = ucfirst(strtolower($nom));
+
   $pdo=database(); // initialisation de la base de donnée
 
   // ============== Select pour obtenir l'id de la categorie ==============

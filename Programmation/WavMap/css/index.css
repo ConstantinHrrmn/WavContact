@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+html{
+  scroll-behavior: smooth;
+}
+
+#headerSession{
+  height:25px;
+}
 /*
 --------------------------------------------------------------------------
 ------ Parti générale (body, header)
@@ -11,6 +18,7 @@ body{
   margin:0;
   background-color: white;
   opacity: 1;
+  scroll-behavior: smooth;
 
   /* Variable qui permet de modifier l'affichage de tout les formulaires en même temps*/
   /* Pour les TXT, INPUT, SELECT, etc */
@@ -20,14 +28,16 @@ body{
   --formMarginTop : 2%;
   --formBackgroundColor : #E7EEF9;
   --formPaddingTop:10%;
+  --marginTopHeader:1%;
 }
 
 header{
-  height:12%;
+  /* height:12%; */
   background-image: url("../image/im2.jpg");
-  background-size:cover;
+  background-size:
+  cover;
   opacity: 1;
-  margin-top: -20px;
+  margin-top: -10px;
   z-index:10;
 }
 
@@ -39,8 +49,156 @@ p{
 /* Permet de dire qu'on ne peu changer la taille d'aucune textarea */
 textarea{
   resize:none;
+  font-family: "Open Sans", arial, sans-serif;
+  border-width: 2px;
 }
 
+/* Design pour tout les boutons du site */
+.buttonCSS {
+  margin-top: 5px;
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-weight: 500;
+  height: 35px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+.buttonCSS:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+.buttonCSS:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+.buttonCSS:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+.buttonCSS:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+.buttonCSS:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+.buttonCSS:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+.buttonCSS:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+.buttonCSS:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+
+/* Design pour tout les inputs du site */
+.inputCSS {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-weight: 500;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  padding-left:15px;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+.inputCSS:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+.inputCSS:active {
+  outline: none;
+}
+.inputCSS:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+
+/* Design pour tout les selects du site */
+.selectCSS {
+  align-items: center;
+  background-color: #fff;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-weight: 500;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  padding-left:15px;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+.selectCSS:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+.selectCSS:active {
+  outline: none;
+}
+.selectCSS:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
 
 /*
 --------------------------------------------------------------------------
@@ -50,9 +208,13 @@ textarea{
 /* Div contenant le logo */
 #divLogo{
   width: 33%;
-  height:auto;
-  position:absolute;
+  /* height:
+  auto; */
+  position:
+  absolute;
   text-align: left;
+  top: 12px;
+  left: 10px;
   overflow: hidden;
 }
 #imgLogo{
@@ -61,11 +223,16 @@ textarea{
 
 /* Div contenant le titre WavMap */
 #divTitreHeader{
-  width: 33%;
   height:auto;
   text-align: center;
   left: 33%;
-  position:absolute;
+  position:relative;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:2;
+  width: 33%;
+  margin-top: var(--marginTopHeader);
 }
 #pTitleHeader{
   color:white;
@@ -73,6 +240,7 @@ textarea{
   margin-block-start: 0;
   padding-top: 9%;
   font-size: 32px;
+  z-index:1;
 }
 
 /* Div contenant le bouton de logout */
@@ -82,7 +250,8 @@ textarea{
   left: 64%;
   position:absolute;
   text-align: right;
-  margin-top:2%;
+  margin-top:var(--marginTopHeader);
+  z-index:10;
 }
 #aLogout{ /* Bouton de deconnexion */
   color:grey;
@@ -90,6 +259,7 @@ textarea{
 }
 #aLogout:hover{ /* CSS mis en place quand on passe la souris sur le bouton */
   color:white;
+  cursor: pointer;
 }
 
 
@@ -105,9 +275,10 @@ textarea{
   opacity: :1;
 }
 #divNom{
-  height: 20%;
+  height: 230px;
   width:60%;
-  position:absolute;
+  position:
+  absolute;
   left: 2%;
 }
 #txtBonjour{
@@ -117,17 +288,19 @@ textarea{
 
 /* Div contenant la liste des tags actifs */
 #divTagActif{
-  height: 20%;
+  height: 230px;
   width:40%;
   left:60%;
-  position:absolute;
+  position:
+  absolute;
   font-size:20px;
 }
 #divTitleTagActif{
   width: 100%;
-  height: 20%;
+  /* height: 50px; */
   margin-top: 0;
   position: relative;
+  margin-bottom: 10px;
 }
 #txtTitleTagActif{
   margin-block-end: 0;
@@ -136,20 +309,26 @@ textarea{
 #divTagUniqueActif{ /* Div de la liste des tags actifs */
   width: 100%;
   height: 70%;
-  position:absolute;
+  position:
+  absolute;
   overflow: auto;
+  /* top: 20px; */
+  /* margin-top: -2%; */
 }
 #ulTagActif{ /* Mise en page de chaque ligne pour chaque tag actif */
   margin-block-end: 0;
-  margin-block-start: 3%;
+  margin-block-start: 0;
   list-style: none;
   border-radius: 5px;
-  background-color: grey;
+}
+#ulTagActif li{ /* Mise en page de chaque ligne pour chaque tag actif */
+  background-color: white;
+  cursor: pointer;
 }
 #ulTagActif li::before {
   content: "\002716"; color: #AAB7B8;  /* la croix */
   display: inline-block; width: 2.5em;
-  margin-left: -1.5em
+  margin-left: -1.5em;
 }
 
 /* Image de la barre de séparation */
@@ -157,7 +336,7 @@ textarea{
   width:100%;
   height:10%;
   position: relative;
-  margin-top: -1%;
+  margin-top: 50px;
   margin-block-end: -1%;
   opacity:1;
 }
@@ -189,7 +368,8 @@ Div contenant 3 petites div pour l'affichage des Tags
 
 /* Div pour l'affichage de la barre de recherche */
 #divRecherche{
-  position:relative;
+  position:
+  relative;
   width: 90%;
   height: 15%;
   left:5%;
@@ -199,25 +379,32 @@ Div contenant 3 petites div pour l'affichage des Tags
   margin:0;
   font-weight: bold;
 }
+#inputRecherche{
+  margin-top:10px;
+}
 #divListeTagsRecherches{
   width: 100%;
   height: auto;
-  position:relative;
-  overflow: scroll;
+  position:
+  relative;
+  overflow: auto;
   padding-top: 5%;
 }
 #ulLstTagTrouve {
   /* Remove default list styling */
   list-style-type: none;
   margin: 0;
+  cursor: pointer;
 }
 
 /* Div pour l'affichage de la liste des 10 tag favoris */
 #divTagFavoris{
-  position:relative;
+  position:
+  relative;
   width: 92%;
-  height: 45%;
+  height: auto;
   left:5%;
+  top: 3%;
 }
 #txtTitleTagFavoris{
   margin:0;
@@ -225,6 +412,8 @@ Div contenant 3 petites div pour l'affichage des Tags
 }
 #ulTagFavoris{
   column-count: 2;
+  padding: 0px 0px 0px 0px;
+  margin: 2% 0px;
 }
 
 /* Div pour l'affichage de la liste complete des tags */
@@ -233,19 +422,24 @@ Div contenant 3 petites div pour l'affichage des Tags
   width: 90%;
   height:38%;
   left:5%;
+  top: 5%;
 }
 #txtTitleTagListe{
   margin:0;
   font-weight: bold;
 }
 #divScroll{
-  background-color: : red;
-  position:relative;lblImgAddPlaceForm
+  position:
+  relative;lblImgAddPlaceForm
   width: 90%;
-  height: 90%;
-  overflow: scroll;
+  height: 100%;
+  overflow: auto;
 }
-
+.liTagList{
+  list-style: none;
+  margin-left: 0em;
+  cursor:pointer;
+}
 
 /*
 --------------------------------------------------------------------------
@@ -258,6 +452,69 @@ Div contenant 3 petites div pour l'affichage des Tags
   width: 100%;
   top: 10px;
   opacity:1;
+}
+.gm-ui-hover-effect{
+  height: 60px;
+  width: 3vw;
+}
+
+.btnMarker{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  background-color: #fff;
+  /* border-style: none; */
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  padding-left:15px;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+.btnMarker:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+.btnMarker:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+.btnMarker:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+.btnMarker:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+.btnMarker:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+.btnMarker:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+.btnMarker:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+.btnMarker:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
 }
 
 
@@ -273,11 +530,13 @@ Div contenant 3 petites div pour l'affichage des Tags
   z-index: 9;
   background-image: url("../image/fondForm2.webp");
   background-size: cover;
-  left: 25vw;
   width:535px;
   text-align:center;
   opacity:1;
   border-radius:10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* CSS pour la div des 2 boutons de chaque formulaire */
@@ -368,6 +627,8 @@ Div contenant 3 petites div pour l'affichage des Tags
   margin-top: var(--formMarginTop);
   width: var(--formWidth);
   margin-right: var(--formMarginRight);
+  height: auto;
+
 }
 
 /* Parti tag correspondant */
@@ -387,7 +648,7 @@ Div contenant 3 petites div pour l'affichage des Tags
   margin-right: var(--formMarginRight);
 }
 #divCheckboxesTagAddPlaceFormClient {
-  border: 1px #dadada solid;
+  /* border: 1px #dadada solid; */
   margin-left: var(--formMarginLeft);
   margin-top: var(--formMarginTop);
   width: var(--formWidth);
@@ -397,7 +658,7 @@ Div contenant 3 petites div pour l'affichage des Tags
   display: block;
 }
 #divCheckboxesTagAddPlaceFormClient label:hover {
-  background-color: #1e90ff;
+  background-color: #F6F9FE;
 }
 #txtareaTagCorrespLieuFormClient{
   position: relative;
@@ -516,6 +777,7 @@ Div contenant 3 petites div pour l'affichage des Tags
   margin-top: var(--formMarginTop);
   width: var(--formWidth);
   margin-right: var(--formMarginRight);
+  z-index: 1;
 }
 
 /* Parti description */
@@ -526,12 +788,14 @@ Div contenant 3 petites div pour l'affichage des Tags
 #lblDescriptionAddPlaceForm{
   padding-top: var(--formPaddingTop);
   vertical-align: top;
+  z-index: 9;
 }
 #inputDescriptionAddPlaceForm{
   margin-left: var(--formMarginLeft);
   margin-top: var(--formMarginTop);
   width: var(--formWidth);
   margin-right: var(--formMarginRight);
+  height: auto;
 }
 
 /* Parti lattitude */
@@ -575,13 +839,13 @@ Div contenant 3 petites div pour l'affichage des Tags
 #btnBoxMultiSelectTagAddPlaceForm {
   margin-left: 5%;
   margin-top: var(--formMarginTop);
-  width: 30%;
+  /* width: 30%; */
   margin-right: var(--formMarginRight);
 }
 
 #divCheckboxesTagAddPlaceForm {
   display: none;
-  border: 1px #dadada solid;
+  /* border: 1px #dadada solid; */
   margin-left: var(--formMarginLeft);
   margin-top: var(--formMarginTop);
   width: var(--formWidth);
@@ -590,9 +854,7 @@ Div contenant 3 petites div pour l'affichage des Tags
 #divCheckboxesTagAddPlaceForm label {
   display: block;
 }
-#divCheckboxesTagAddPlaceForm label:hover {
-  background-color: #1e90ff;
-}
+
 
 /* Parti sélection image */
 #divImgAddPlaceForm{
@@ -619,13 +881,26 @@ Div contenant 3 petites div pour l'affichage des Tags
 --------------------------------------------------------------------------
 */
 @media only screen and (max-width: 620px) {
+  .buttonCSS{
+    height:7vw;
+    padding: -1px 0px;
+    /* width:32%; */
+    margin-top: 2%;
+    font-size:3vw;
+  }
+
+  .inputCSS{
+    font-size:3vw;
+    height:7vw;
+  }
+
 /* Parti header */
   #imgLogo{
     width:28%;
   }
 
   #pTitleHeader{
-      font-size:4vw;
+    font-size:4vw;
   }
 
   #aLogout{
@@ -644,15 +919,23 @@ Div contenant 3 petites div pour l'affichage des Tags
     font-size:4vw;
   }
 
+  #btnAjouterCategorie{
+    margin-top: 1px;
+  }
+
   #divTagActif{
     width: 80%;
-    position:relative;
-    height: 70%;
+    position: relative;
+    height: 100px;
     left: 7%;
     font-size: 3vw;
   }
   #divTagUniqueActif{
       height:80%;
+  }
+
+  #imgSeparator{
+    margin-top: 100px;
   }
 
 
@@ -699,7 +982,6 @@ Div contenant 3 petites div pour l'affichage des Tags
 
 /* Parti formulaire */
   .formCSS{
-    left:5vw;
     width:90vw;
   }
   .formTitre{
@@ -764,7 +1046,6 @@ Div contenant 3 petites div pour l'affichage des Tags
 
 /* Parti formulaire */
   .formCSS{
-    left:25vw;
     width:50vw;
   }
   .formTitre{

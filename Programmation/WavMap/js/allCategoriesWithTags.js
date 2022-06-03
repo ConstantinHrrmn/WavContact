@@ -14,7 +14,7 @@ fetch("https://waview.ch/wavcontact/map/php/allCategoriesWithTags.php")  // Bouc
 
 
     // liste de tag dans la liste de tag avec categorie
-    let divScroll = `<details close><summary id='summary${categorie}'>${categorie}</summary><ul id='ul${categorie}' data-nom='ul${categorie}'>`;
+    let divScroll = `<details close><summary id='summary${categorie}' style="cursor:pointer;">${categorie}</summary><ul id='ul${categorie}' data-nom='ul${categorie}' style="margin:5px 0px;">`;
     let readCategoriesForFormAddTag = `<option class=categories id=${categorie}>${categorie}</option>`;
     // liste de tag de la recherche
     let readSearchBar = ``;
@@ -27,15 +27,15 @@ fetch("https://waview.ch/wavcontact/map/php/allCategoriesWithTags.php")  // Bouc
       // Condition pour savoir si on a déjà affiché la catégorie
       if(!lstCategorie.includes(categorie)){
         lstCategorie.push(categorie);
-        divScroll += `</ul></details><details><summary id='summary${categorie}'>${categorie}</summary><ul id='ul${categorie}'>`;
-        readCategoriesForFormAddTag += `<option class=categories id=${categorie}>${categorie}</option>`;
+        divScroll += `</ul></details><details><summary id='summary${categorie}' style="cursor:pointer;">${categorie}</summary><ul id='ul${categorie}' style="margin:5px 0px;">`;
+        readCategoriesForFormAddTag += `<option class=categories id=${categorie}>${categorie}</option>  `;
       }
 
       // Ajout des li dans les listes
-      //divScroll += `<li value='${res[i]['TAG_NOM']}' onclick="hello(${res[i]['TAG_NOM']})" data-nom='${res[i]['TAG_NOM']}' style="list-style: none; margin-left: -1em;">${res[i]['TAG_NOM']}</li>`;
-      divScroll += `<li value='${res[i]['TAG_NOM']}' id='${res[i]['TAG_NOM']}' data-nom='${res[i]['TAG_NOM']}' style="list-style: none; margin-left: -1em;">${res[i]['TAG_NOM']}</li>`;
-
-      readSearchBar += `<li data-nom='${res[i]['TAG_NOM']}' style="list-style: none; margin-left: -1em;">${res[i]['TAG_NOM']}</li>`;
+      if(res[i]['TAG_NOM'] != null){
+        divScroll += `<li class="liTagList" value='${res[i]['TAG_NOM']}' id='${res[i]['TAG_NOM']}' data-nom='${res[i]['TAG_NOM']}'>${res[i]['TAG_NOM']}</li>`;
+        readSearchBar += `<li class="liSearchBar" data-nom='${res[i]['TAG_NOM']}'>${res[i]['TAG_NOM']}</li>`;
+      }
     }
     divScroll += `</ul></details>`;
 
@@ -44,7 +44,6 @@ fetch("https://waview.ch/wavcontact/map/php/allCategoriesWithTags.php")  // Bouc
     document.getElementById("ulLstTagTrouve").innerHTML = readSearchBar;
     document.getElementById("selectCatAddTagFormCollab").innerHTML = readCategoriesForFormAddTag;
 
-
     // ================================= EVENEMENTS POUR AFFICHAGE DE TAG ACTIF =================================
     // Boucle sur liste des categories pour ajouter dans liste des tags actifs
     //for(var i = 0; i < lstCategorie.sort().length; i++){
@@ -52,111 +51,60 @@ fetch("https://waview.ch/wavcontact/map/php/allCategoriesWithTags.php")  // Bouc
 
       // Evenement clic de la liste des tags par categorie
       document.getElementById(`ul${lstCategorie[i]}`).addEventListener("click", evenement=>{
-        hideMarkers(); // cacher tous les markers sans les supprimer
-        document.getElementById('ulTagActif').innerHTML = "";
-         // Condition pour savoir si le tag a déjà été sélectionné
-         if(!tagsActifs.includes(evenement.target.dataset.nom)){
-          tagsActifs.push(evenement.target.dataset.nom);
-          tagsActifs.sort();
-
-          // Condition pour assigner le nombre de clic sur les tags dans le localStorage
-          if(localStorage.getItem(evenement.target.dataset.nom) == null){
-
-            localStorage.setItem(evenement.target.dataset.nom, 1);
-          }
-          else {
-            localStorage.setItem(evenement.target.dataset.nom, parseInt(localStorage.getItem(evenement.target.dataset.nom)) + 1);
-          }
-
-          //console.log(localStorage);
+        if(evenement.target.dataset.nom != null){
+          hideMarkers(); // cacher tous les markers sans les supprimer
+          document.getElementById('ulTagActif').innerHTML = "";
+           // Condition pour savoir si le tag a déjà été sélectionné
+           if(!tagsActifs.includes(evenement.target.dataset.nom)){
+              tagsActifs.push(evenement.target.dataset.nom);
+              tagsActifs.sort();
+             }
+           // Affichage des tags sélectionnés
+           for(var i = 0; i < tagsActifs.length; i++){
+             showMarker(`${tagsActifs[i]}`);
+             document.getElementById('ulTagActif').innerHTML += `<li data-nom='${tagsActifs[i]}'>${tagsActifs[i]}</li>`;
+           }
          }
-         // Affichage des tags sélectionnés
-         for(var i = 0; i < tagsActifs.length; i++){
-           showMarker(`${tagsActifs[i]}`);
-          document.getElementById('ulTagActif').innerHTML += `<li>${tagsActifs[i]}</li>`;
-         }
-
       });
     }
 
 
     // Evenement clic de la liste des tags pour la barre de recherche
     document.getElementById('ulLstTagTrouve').addEventListener("click", evenement=>{
-      hideMarkers(); // cacher tous les markers sans les supprimer
+      if(evenement.target.dataset.nom != null){
+        hideMarkers(); // cacher tous les markers sans les supprimer
         document.getElementById('ulTagActif').innerHTML = "";
-       // Condition pour savoir si le tag a déjà été sélectionné
-       if(!tagsActifs.includes(evenement.target.dataset.nom)){
-        tagsActifs.push(evenement.target.dataset.nom);
-        tagsActifs.sort();
-        // Condition pour assigner le nombre de clic sur les tags dans le localStorage
-        if(localStorage.getItem(evenement.target.dataset.nom) == null){
-          localStorage.setItem(evenement.target.dataset.nom, 1);
+         // Condition pour savoir si le tag a déjà été sélectionné
+         if(!tagsActifs.includes(evenement.target.dataset.nom)){
+          tagsActifs.push(evenement.target.dataset.nom);
+          tagsActifs.sort();
         }
-        else {
-          localStorage.setItem(evenement.target.dataset.nom, parseInt(localStorage.getItem(evenement.target.dataset.nom)) + 1);
+        // Affichage des tags sélectionnés
+        for(var i = 0; i < tagsActifs.length; i++){
+          showMarker(`${tagsActifs[i]}`);
+         document.getElementById('ulTagActif').innerHTML += `<li data-nom='${tagsActifs[i]}'>${tagsActifs[i]}</li>`;
         }
-        $.ajax({
-            url: '../php/addCountFavoris.php',
-            type: 'POST',
-            //dataType: 'json',
-            data: {nameTag : liActuel, number : parseInt(localStorage.getItem(evenement.target.dataset.nom)) + 1},
-            //data: data,
-            success: function() {
-             alert('Element retourné de AJAX : ' + liActuel);
-            },
-           error: function() {
-             alert('There was some error performing the AJAX call!');
-           }
-        });
-      }
-      // Affichage des tags sélectionnés
-      for(var i = 0; i < tagsActifs.length; i++){
-        showMarker(`${tagsActifs[i]}`);
-       document.getElementById('ulTagActif').innerHTML += `<li>${tagsActifs[i]}</li>`;
       }
     });
 
 
     // Evenement clic de la liste des tags favoris
     document.getElementById('ulTagFavoris').addEventListener("click", evenement=>{
-
-    //let hellov = 'hello';
-    //console.log(hellov);
-    // Envoi des données du localStorage dans le PDO
-
-
-
-     // let data = {helloAttribut: 'hello'};
-     // data = JSON.stringify(data);
-     //console.log(data);
-      // let xhr = new XMLHttpRequest();
-      // let url = './php/addCountFavoris.php';
-      // xhr.open('POST', url);
-      // xhr.setRequestHeader('Content-type', 'application/json');
-      // xhr.send(JSON.stringify(data));
-
+      if(evenement.target.dataset.nom != null){
       hideMarkers(); // cacher tous les markers sans les supprimer
-        document.getElementById('ulTagActif').innerHTML = "";
+      document.getElementById('ulTagActif').innerHTML = "";
        // Condition pour savoir si le tag a déjà été sélectionné
-       if(!tagsActifs.includes(evenement.target.dataset.nom)){
-        tagsActifs.push(evenement.target.dataset.nom);
-        tagsActifs.sort();
+         if(!tagsActifs.includes(evenement.target.dataset.nom)){
+            tagsActifs.push(evenement.target.dataset.nom);
+            tagsActifs.sort();
+          }
 
-        // Condition pour assigner le nombre de clic sur les tags dans le localStorage
-        if(localStorage.getItem(evenement.target.dataset.nom) == null){
-          localStorage.setItem(evenement.target.dataset.nom, 1);
+          // Affichage des tags sélectionnés
+          for(var i = 0; i < tagsActifs.length; i++){
+            showMarker(`${tagsActifs[i]}`);
+           document.getElementById('ulTagActif').innerHTML += `<li data-nom='${tagsActifs[i]}'>${tagsActifs[i]}</li>`;
+          }
         }
-        else {
-          localStorage.setItem(evenement.target.dataset.nom, parseInt(localStorage.getItem(evenement.target.dataset.nom)) + 1);
-        }
-
-      }
-      // Affichage des tags sélectionnés
-      for(var i = 0; i < tagsActifs.length; i++){
-        showMarker(`${tagsActifs[i]}`);
-       document.getElementById('ulTagActif').innerHTML += `<li>${tagsActifs[i]}</li>`;
-      }
-
     });
 
 
@@ -164,11 +112,10 @@ fetch("https://waview.ch/wavcontact/map/php/allCategoriesWithTags.php")  // Bouc
     // ================================= EVENEMENT POUR SUPPRESSION DE TAG ACTIF =================================
     // Evénement clic -> suppression de la liste des tags actifs
     document.getElementById('ulTagActif').addEventListener("click", evenement=>{
-      //TODO : evenement.target.dataset.nom = undefined donc indexOf = -1 donc marche pass
       if (evenement.target !=evenement.currentTarget){
-        const index = tagsActifs.indexOf(evenement.target.value);
-        tagsActifs.splice(index);
+        tagsActifs.splice(tagsActifs.indexOf(evenement.target.dataset.nom), 1); // supprimera l'élément dans tagsActifs
         document.getElementById('ulTagActif').removeChild(evenement.target); // Supprimera que le li (enfant) et pas le ul (parent)
+        tagsActifs.sort();
       }
       // Si la liste est vide, alors on affiche l'ensemble des marqueurs
       if(tagsActifs.length === 0){
@@ -176,23 +123,31 @@ fetch("https://waview.ch/wavcontact/map/php/allCategoriesWithTags.php")  // Bouc
       }
     });
 
-
+    // ================================= EVENEMENT POUR AJOUT DU COMPTEUR POUR LE TAG EN QUESTION =================================
     $('.liTagFavoris').click(function(){
       liActuel = $(this).html();
       $.ajax({
           url: './php/addCountFavoris.php',
           type: 'POST',
-          //dataType: 'json',
-          data: {nameTag : liActuel, number : parseInt(localStorage.getItem(evenement.target.dataset.nom)) + 1},
-          //data: data,
-          success: function() {
-           alert('Element retourné de AJAX : ' + liActuel);
-          },
-         error: function() {
-           alert('There was some error performing the AJAX call!');
-         }
+          data: {nameTag : liActuel},
       });
     });
 
+    $('.liSearchBar').click(function(){
+      liActuel = $(this).html();
+      $.ajax({
+          url: './php/addCountFavoris.php',
+          type: 'POST',
+          data: {nameTag : liActuel},
+      });
+    });
 
+    $('.liTagList').click(function(){
+      liActuel = $(this).html();
+      $.ajax({
+          url: './php/addCountFavoris.php',
+          type: 'POST',
+          data: {nameTag : liActuel},
+      });
+    });
   });

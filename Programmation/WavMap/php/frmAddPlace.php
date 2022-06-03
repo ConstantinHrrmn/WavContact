@@ -16,6 +16,10 @@ function CreateLieu($data_post, $idImage){
   $latitude = str_replace(',', '.', $_POST['inputLatitudeAddPlaceForm']);
   $description = $_POST['inputDescriptionAddPlaceForm'];
 
+  // Permet de mettre tout les mots en minuscule et la 1er lettre du 1er mot en majuscule (initcap)
+  $nom = ucfirst(strtolower($nom));
+  $description = ucfirst(strtolower($description));
+
   // Tableau des éléments
   $data = [$nom, $numStatut, $longitude, $latitude, $description];
   // Préparation de la requête

@@ -6,6 +6,7 @@ let dicoMarkersTag = {}; // Liste des tags avec ses marqueurs. Clé : tag & vale
 let tags = []; // Liste des tags
 var infoopened = "undefined";  // infoWindow actuellement ouverte. Initialisation en "undefined"
 
+
 // Fonction permettant d'initialiser notre carte et la position de l'utilisateur
 function initMap() {
   // Position de départ souhaité. Ici, Genève
@@ -34,9 +35,16 @@ function userLocation(){
   locationButton.style.height = "8%";
   locationButton.style.marginRight = 6;
   locationButton.style.marginTop = 8;
+  locationButton.style.cursor = "pointer";
+  var infoWindow = new google.maps.InfoWindow();
+
   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
   // Si on clique sur la balise, une infoWindow va s'afficher sur la position actuelle de l'utilisateur
   locationButton.addEventListener("click", () => {
+    if(infoopened != "undefined"){ // Permet de fermer le marqueur ouvert si on veux l'affichage de le géolocalisation
+      infoopened.close();
+    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -44,12 +52,13 @@ function userLocation(){
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          infowindow = new google.maps.InfoWindow({
+          infoWindow = new google.maps.InfoWindow({
             position: pos,
             content: "Vous êtes ici !",
             map: map,
             center: pos
           });
+          infoopened = infoWindow;
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -78,7 +87,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function addMarker(latitude, longitude, name, description, tag, image, id){
   //Initialisation de l'infoWindow
   // infoWindow contient les informations de notre fenêtre pour un marqueur
-  var infoWindow = new google.maps.InfoWindow();
+   var infoWindow = new google.maps.InfoWindow();
+   infoWindow.setSize(50);
 
   //Initialisation du nouveau marqueur
   var marker = new google.maps.Marker({
@@ -101,14 +111,14 @@ function addMarker(latitude, longitude, name, description, tag, image, id){
           // Le style mieux en % mais ne marche pas sur téléphone du coup
          }
          // Contenu de l'infoWindow
-         let contentString = '<div id="content">' +
+         let contentString = '<div id="content" style="z-index:10;">' +
                               '<div id="siteNotice"></div>' +
                               '<h1>' +name + '</h1>' +
                               '<div id="bodyContent">' +
                               '<p>' + description + '</p>' +
                               imageString +
                               '<div id="lienContent">' +
-                              `<button type="button" onclick="ouvertureFrmAddPlaceInProject(${id})"><img src="../map/image/imagePlus.png" height="2%" width="2%">Ajouter à votre projet</button>` +
+                              `<button type="button" class="btnMarker" onclick="ouvertureFrmAddPlaceInProject(${id})"><img src="../map/image/imagePlus.png" height="2%" width="2%"><a href="#headerSession" style="text-decoration:none; color:black;">Ajouter à votre projet</a></button>` +
                               '</div>' +
                               "</div>" +
                               "</div>";
@@ -135,12 +145,18 @@ function hideMarkers() {
   for(var i = 0; i < markers.length; i++){
     markers[i].setVisible(false);
   }
+  if(infoopened != 'undefined') {
+    infoopened.close();
+  }
 }
 
 // Affiche tous les marqueurs
 function showMarkers() {
   for(var i = 0; i < markers.length; i++){
     markers[i].setVisible(true);
+  }
+  if(infoopened != 'undefined') {
+    infoopened.close();
   }
 }
 
@@ -152,9 +168,7 @@ function showMarker(tagChoosen) {
       arrayMarker[i].setVisible(true);
     }
   }
+  if(infoopened != 'undefined') {
+    infoopened.close();
+  }
 }
-
-
-// module.exports = {
-//   map
-// };

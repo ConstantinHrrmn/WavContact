@@ -11,10 +11,10 @@ $subject = "Nouveau lieu proposé";
 $mail = "Bonjour, \r\n ".$_SESSION['user']['first_name']. " vous propose un nouveau lieu. Afin de l'accepter, veuillez cliquer sur le lien suivant : \r\n".$url;
 $mail = $mail." \r\n Voici les informations du lieu : ";
 $mail = $mail." \r\n Identifiant : ". $idLieu;
-$mail = $mail." \r\n Nom : ". $_POST['lieu'];
+$mail = $mail." \r\n Nom : ". ucfirst(strtolower($_POST['lieu']));
 $mail = $mail." \r\n Longitude : ". str_replace(',', '.', $_POST['logitude']);
 $mail = $mail." \r\n Latitude : ". str_replace(',', '.', $_POST['latitude']);
-$mail = $mail." \r\n Description : ". $_POST['description'];
+$mail = $mail." \r\n Description : ". ucfirst(strtolower($_POST['description']));
 $mail = $mail." \r\n Photo : ". $target_file;
 
 $headers = 'From: wavmap@waview.ch' . "\r\n" .
@@ -34,6 +34,10 @@ function CreateLieu($data_post, $idImage){
   $longitude = str_replace(',', '.', $_POST['logitude']);
   $latitude = str_replace(',', '.', $_POST['latitude']);
   $description = $_POST['description'];
+
+  // Permet de mettre tout les mots en minuscule et la 1er lettre du 1er mot en majuscule (initcap)
+  $nom = ucfirst(strtolower($nom));
+  $description = ucfirst(strtolower($description));
 
   // Tableau des éléments
   $data = [$nom, $numStatut, $longitude, $latitude, $description];

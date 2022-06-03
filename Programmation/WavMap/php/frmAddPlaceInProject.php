@@ -20,6 +20,9 @@ function GetDateTime(){
 }
 
 function NewActivity($user, $project, $text, $time){
+  // Permet de mettre tout les mots en minuscule et la 1er lettre du 1er mot en majuscule (initcap)
+  $text = ucfirst(strtolower($text));
+
   $req = "INSERT INTO `ACTIVITE`(`ACTIVITE_PERSONNE_FK`, `ACTIVITE_PROJET_FK`, `ACTIVITY_CONTENT`, `ACTIVITE_MAJ`) VALUES ('$user', '$project', '$text', '$time')";
   $query = wavcontact()->prepare($req);
   $query->execute();

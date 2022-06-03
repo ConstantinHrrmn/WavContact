@@ -8,6 +8,7 @@ include_once "session.php";
   <head>
     <!-- Lien sur la stylisation du code en langage CSS -->
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="shortcut icon" href="image/logo_wavmap_v2.ico" />
     <!-- Responsive html-->
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,6 +25,7 @@ include_once "session.php";
     <script src="js/allProject.js"></script>
     <script src="js/allProject.js"></script>
     <script src="js/allShootsByProject.js"></script>
+    <script src="js/allTagFavoris.js"></script>
 
     <script src="js/testAjax.js"></script>
 
@@ -48,8 +50,6 @@ include_once "session.php";
 
     <!-- Barre de recherche -->
     <script src="js/searchBar.js"></script>
-
-
     <!-- Appel des tests -->
     <!-- <script src="js/map.test.js"></script> -->
   </head>
@@ -58,17 +58,21 @@ include_once "session.php";
   <body id="body">
     <!-- Partie du haut avec image de fond + logo Waview + Nom de l'application : WAVMAP + bouton Déconnexion -->
     <header id="header">
+      <div id="headerSession"></div>
+
       <div id="divLogo">
-        <img src="image/wav2.png" id="imgLogo" alt="">
+        <img src="image/logo_wavmap_noback_v2.png" id="imgLogo" alt="">
+      </div>
+
+      <div id="btnLogout">
+        <a id="aLogout" onclick="window.location.href='https://waview.ch/wavcontact/map/logout.php'">Deconnexion</a>
       </div>
 
       <div id="divTitreHeader">
         <p id="pTitleHeader">WAVMAP</p>
       </div>
 
-      <div id="btnLogout">
-        <a id="aLogout" onclick="window.location.href='https://waview.ch/wavcontact/map/logout.php'">Deconnexion</a>
-      </div>
+
     </header>
 
     <!-- Partie du haut avec message de bienvenue : "Bonjour UTILISATEUR" + boutons formulaires + Liste des tags actuellement actifs -->
@@ -80,13 +84,13 @@ include_once "session.php";
           // Condition servant à afficher les boutons des formulaires adéquats selon si l'utilisateur est un collaborateur ou non
           if($_SESSION['user']['roleName'] == "Collaborateur"){
             echo '
-            <button type="button" id="btnAjouterCategorie" onclick="ouvertureFrmAddCategorie()">Ajouter une catégorie</button>
-            <button type="button" id="btnAjouterTag" onclick="ouvertureAddTagForm()">Ajouter un tag</button>
-            <button type="button" id="btnAjouterLieu" onclick="ouvertureAddPlaceForm()">Ajouter un lieu</button>
+            <button type="button" id="btnAjouterCategorie" class="buttonCSS" onclick="ouvertureFrmAddCategorie()">Ajouter une catégorie</button>
+            <button type="button" id="btnAjouterTag" class="buttonCSS" onclick="ouvertureAddTagForm()">Ajouter un tag</button>
+            <button type="button" id="btnAjouterLieu" class="buttonCSS" onclick="ouvertureAddPlaceForm()">Ajouter un lieu</button>
             ';
           }
           else{
-            echo '<button type="button" onclick="ouvertrureLocationProposalForm()">Proposer un nouveau lieu</button>';
+            echo '<button type="button" class="buttonCSS" onclick="ouvertrureLocationProposalForm()">Proposer un nouveau lieu</button>';
           }
          ?>
       </div>
@@ -107,7 +111,7 @@ include_once "session.php";
     <div id="divTagContainer">
       <div id="divRecherche">
         <p id="txtTitleTagRecherche">Recherche de tag</p>
-          <input id="inputRecherche" type="text" name="inputRecherche" placeholder="ex : Paradis" onkeyup="search()"/>
+          <input id="inputRecherche" class="inputCSS" type="text" name="inputRecherche" placeholder="ex : Paradis" onkeyup="search()"/>
         <div id="divListeTagsRecherches" style="display : block;">
           <ul id="ulLstTagTrouve" style="display : none;"></ul>
         </div>
@@ -116,18 +120,7 @@ include_once "session.php";
       <!-- Tag favoris -->
       <div id="divTagFavoris" style="display : block;">
         <p id="txtTitleTagFavoris"> Tag favoris </p>
-        <ul id="ulTagFavoris">
-          <li id="Plage" class="liTagFavoris" data-nom='Plage' style="list-style: none;">Plage</li>
-          <li class="liTagFavoris" data-nom='Montagne' style="list-style: none;">Montagne</li>
-          <li class="liTagFavoris" data-nom='Lac' style="list-style: none;">Lac</li>
-          <li class="liTagFavoris" data-nom='Forêt' style="list-style: none;">Forêt</li>
-          <li class="liTagFavoris" data-nom='Champ' style="list-style: none;" >Champ</li>
-          <li class="liTagFavoris" data-nom='Ecole' style="list-style: none;" >Ecole</li>
-          <li class="liTagFavoris" data-nom='Monument' style="list-style: none;">Monument</li>
-          <li class="liTagFavoris" data-nom='Piscine' style="list-style: none;">Piscine</li>
-          <li class="liTagFavoris" data-nom='Maison' style="list-style: none;">Maison</li>
-          <li class="liTagFavoris" data-nom='Villa' style="list-style: none;">Villa</li>
-        </ul>
+        <ul id="ulTagFavoris"></ul>
       </div>
 
       <!-- Liste des tags -->
@@ -153,40 +146,40 @@ include_once "session.php";
         <div id="divGeneralFormLieuClient">
           <div id="divNomLieuFormClient">
             <label id="lblNomLieuClient" class="formLabel" for="nomLieuLabel"><b>Nom du lieu</b></label>
-            <input type="text" id="inputNomLieuClient" name="lieu" required>
+            <input type="text" class="inputCSS" id="inputNomLieuClient" name="lieu" placeholder="Maximum 60 caractères" required>
           </div>
 
           <div id="divLatitudeLieuFormClient">
             <label id="lblLatitudeLieuFormClient" class="formLabel" for="latitudeLabel"><b>Latitude</b></label>
-            <input type="number" placeholder="Ex: 46.2050242" id="inputLatitudeLieuFormClient" step="0.000001" name="latitude" required>
+            <input type="number" placeholder="Ex: 46.2050242" class="inputCSS" id="inputLatitudeLieuFormClient" step="0.000001" name="latitude" required>
           </div>
 
           <div id="divLongituteLieuFormClient">
             <label id="lblLongitudeLieuFormClient" class="formLabel" for="longitudeLabel"><b>Longitude</b></label>
-            <input type="number" placeholder="Ex: 6.1090692" id="inputLongitudeLieuFormClient" step="0.000001" name="logitude" required>
+            <input type="number" placeholder="Ex: 6.1090692" class="inputCSS" id="inputLongitudeLieuFormClient" step="0.000001" name="logitude" required>
           </div>
 
           <div id="divDescriptionLieuFormClient">
             <label id="lblDescriptionLieuFormClient" class="formLabel" for="descriptionLabel"><b>Description</b></label>
-            <textarea type="text" id="txtareaDescriptionLieuFormClient" rows="4" name="description" required></textarea>
+            <textarea type="text" id="txtareaDescriptionLieuFormClient" class="inputCSS" rows="4" name="description" placeholder="Maximum 500 caractères" required></textarea>
           </div>
 
           <div id="divTagCorrespLieuFormClient">
             <label id="lblTagCorrespLieuFormClient" class="formLabel" for="tagCorrsepondantLabel"><b>Sélectionner tag correspondant</b></label>
-            <button id="btnBoxMultiSelectTagAddPlaceFormClient" type="button" onclick="showCheckboxesClient()">Sélectionner vos tags</button>
+            <button id="btnBoxMultiSelectTagAddPlaceFormClient" class="buttonCSS" type="button" onclick="showCheckboxesClient()">Sélectionner vos tags</button>
             <div id="divCheckboxesTagAddPlaceFormClient" style="display: none"></div>
           </div>
 
           <div id="divImgAddPlaceForm">
             <label id="lblImgAddPlaceForm" class="formLabel" for="lblImgAddPlaceForm"><b>Ajouter une image</b></label>
-            <input type="file" class="form-control-file" id="inputImgAddPlaceForm" name="photo" accept="image/jpeg, image/x-png">
+            <input type="file" class="form-control-file" class="inputCSS" id="inputImgAddPlaceForm" name="photo" accept="image/jpeg, image/x-png">
           </div>
 
-          <input type="hidden" name="actif" value="3">
+          <input type="hidden" class="inputCSS" name="actif" value="3">
 
           <div id="divBtn">
-            <button id="btnAjouter" type="submit" class="btn">Envoyer</button>
-            <button id="btnFermer" type="button" class="btn cancel" onclick="fermetureLocationProposalForm()">Annuler</button>
+            <button id="btnAjouter" type="submit" class="buttonCSS" >Envoyer</button>
+            <button id="btnFermer" type="button" class="buttonCSS" onclick="fermetureLocationProposalForm()">Annuler</button>
           </div>
         </div>
       </form>
@@ -199,12 +192,12 @@ include_once "session.php";
         <div id="divGeneralFormAddCategorieCollab">
           <div id="divNomFormAddCategorieCollab">
             <label id="lblNomFormAddCategorieCollab" class="formLabel" for="lblNomCategorie"><b>Nom de la catégorie </b></label>
-            <input type="text" id="inputNomFormAddCategorieCollab" name="inputNomFormAddCategorieCollab" required>
+            <input type="text" id="inputNomFormAddCategorieCollab" class="inputCSS" name="inputNomFormAddCategorieCollab" placeholder="Maximum 60 caractères" required>
           </div>
 
           <div id="divBtn">
-            <button id="btnAjouter" type="submit" class="btn">Ajouter</button>
-            <button id="btnFermer" type="button" class="btn cancel" onclick="fermetureFrmAddCategorie()">Annuler</button>
+            <button id="btnAjouter" type="submit" class="buttonCSS" >Ajouter</button>
+            <button id="btnFermer" type="button" class="buttonCSS"  onclick="fermetureFrmAddCategorie()">Annuler</button>
           </div>
         </div>
       </form>
@@ -218,17 +211,17 @@ include_once "session.php";
         <div id="divGeneralAddTagFormCollab">
           <div id="divSelectCatAddTagFormCollab">
             <label id="lblSelectCatAddTagFormCollab" class="formLabel" for="lblSelectCatAddTagFormCollab"><b>Sélectionner la catégorie </b></label>
-            <select id="selectCatAddTagFormCollab" name="selectCatAddTagFormCollab"></select>
+            <select id="selectCatAddTagFormCollab" class="selectCSS" name="selectCatAddTagFormCollab"></select>
           </div>
 
           <div id="divNomAddTagFormCollab">
             <label id="lblNomAddTagFormCollab" class="formLabel" for="lblNomAddTagFormCollab"><b>Nom tag </b></label>
-            <input type="text" id="inputNomAddTagFormCollab" name="inputNomAddTagFormCollab" required>
+            <input type="text" id="inputNomAddTagFormCollab" class="inputCSS" name="inputNomAddTagFormCollab" placeholder="Maximum 60 caractères" required>
           </div>
 
           <div id="divBtn">
-            <button id="btnAjouter" type="submit" class="btn">Ajouter</button>
-            <button id="btnFermer" type="button" class="btn cancel" onclick="fermetureAddTagForm()">Annuler</button>
+            <button id="btnAjouter" type="submit" class="buttonCSS" >Ajouter</button>
+            <button id="btnFermer" type="button" class="buttonCSS"  onclick="fermetureAddTagForm()">Annuler</button>
           </div>
         </div>
       </form>
@@ -241,40 +234,40 @@ include_once "session.php";
         <div id="divGeneralAddPlaceForm">
           <div id="divNomAddPlaceForm">
             <label id="lblNomAddPlaceForm" class="formLabel" for="lblNomAddPlaceForm"><b>Nom du lieu</b></label>
-            <input type="text" id="inputNomAddPlaceForm" name="inputNomAddPlaceForm" required>
+            <input type="text" id="inputNomAddPlaceForm" class="inputCSS" name="inputNomAddPlaceForm" placeholder="Maximum 60 caractères" required>
           </div>
 
           <div id="divDescriptionAddPlaceForm">
             <label id="lblDescriptionAddPlaceForm" class="formLabel" for="lblDescriptionAddPlaceForm"><b>Description du lieu </b></label>
-            <textarea type="text" id="inputDescriptionAddPlaceForm" name="inputDescriptionAddPlaceForm" rows="4" required></textarea>
+            <textarea type="text" id="inputDescriptionAddPlaceForm" class="inputCSS" name="inputDescriptionAddPlaceForm" rows="4" placeholder="Maximum 500 caractères" required></textarea>
           </div>
 
           <div id="divLatitudeAddPlaceForm">
             <label id="lblLatitudeAddPlaceForm" class="formLabel" for="lblLatitudeAddPlaceForm"><b>Latitude</b></label>
-            <input type="number" placeholder="Ex: 46.2050242" id="inputLatitudeAddPlaceForm" name="inputLatitudeAddPlaceForm" step="0.0000001" required>
+            <input type="number" placeholder="Ex: 46.2050242" class="inputCSS" id="inputLatitudeAddPlaceForm" name="inputLatitudeAddPlaceForm" step="0.0000001" required>
           </div>
 
           <div id="divLongitudeAddPlaceForm">
             <label id="lblLongitudeAddPlaceForm" class="formLabel" for="lblLongitudeAddPlaceForm"><b>Longitude</b></label>
-            <input type="number" placeholder="Ex: 6.1090692" id="inputLongitudeAddPlaceForm" name="inputLongitudeAddPlaceForm" step="0.0000001" required>
+            <input type="number" placeholder="Ex: 6.1090692" class="inputCSS" id="inputLongitudeAddPlaceForm" name="inputLongitudeAddPlaceForm" step="0.0000001" required>
           </div>
 
           <div id="divMultiSelectTagAddPlaceForm">
             <label id="lblMultiSelectTagAddPlaceForm" class="formLabel" for="lblMultiSelectTagAddPlaceForm"><b>Tags</b></label>
-            <button id="btnBoxMultiSelectTagAddPlaceForm" type="button" onclick="showCheckboxesCollab()">Sélectionner vos tags</button>
+            <button id="btnBoxMultiSelectTagAddPlaceForm" class="buttonCSS" type="button" onclick="showCheckboxesCollab()">Sélectionner vos tags</button>
             <div id="divCheckboxesTagAddPlaceForm"></div>
           </div>
 
           <div id="divImgAddPlaceForm">
             <label id="lblImgAddPlaceForm" class="formLabel" for="lblImgAddPlaceForm"><b>Ajouter une image</b></label>
-            <input type="file" class="form-control-file" id="inputImgAddPlaceForm" name="photo" accept="image/jpeg, image/x-png">
+            <input type="file" class="form-control-file" class="inputCSS" id="inputImgAddPlaceForm" name="photo" accept="image/jpeg, image/x-png">
           </div>
 
-          <input type="hidden" name="actif" value="2">
+          <input type="hidden" class="inputCSS" name="actif" value="2">
 
           <div id="divBtn">
-            <button id="btnAjouter" type="submit" class="btn">Ajouter</button>
-            <button id="btnFermer" type="button" class="btn cancel" onclick="fermetureAddPlaceForm()">Annuler</button>
+            <button id="btnAjouter" type="submit" class="buttonCSS" >Ajouter</button>
+            <button id="btnFermer" type="button" class="buttonCSS"  onclick="fermetureAddPlaceForm()">Annuler</button>
           </div>
         </div>
       </form>
@@ -290,7 +283,7 @@ include_once "session.php";
 
         <div id="divGeneralFormAddPlaceInProject">
           <div id="selectProjet" class="formSelectProject">
-            <select name="cboProjet" id="cboProjet">
+            <select name="cboProjet" id="cboProjet" class="selectCSS" >
               <option value="">Sélectionner un projet</option>
             </select>
           </div>
@@ -298,8 +291,8 @@ include_once "session.php";
           <div id="selectTournage" class="formSelectTournage"></div>
 
           <div id="divBtn">
-            <button id="btnAjouter" type="submit" class="btn">Ajouter</button>
-            <button id="btnFermer" type="button" class="btn cancel" onclick="fermetureFrmAddPlaceInProject()">Annuler</button>
+            <button id="btnAjouter" type="submit" class="buttonCSS">Ajouter</button>
+            <button id="btnFermer" type="button" class="buttonCSS" onclick="fermetureFrmAddPlaceInProject()">Annuler</button>
           </div>
         </div>
       </form>
