@@ -8466,24 +8466,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ausau\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Constantin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\Tests\\Tests.csproj",
-      "packagesPath": "C:\\Users\\ausau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\Tests\\obj\\",
+      "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\Tests\\Tests.csproj",
+      "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\Tests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ausau\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8497,8 +8492,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj": {
-              "projectPath": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj"
+            "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj": {
+              "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj"
             }
           }
         }
@@ -8553,7 +8548,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
