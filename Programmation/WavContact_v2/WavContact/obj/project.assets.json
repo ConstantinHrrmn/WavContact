@@ -7036,19 +7036,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Constantin\\.nuget\\packages\\": {}
+    "C:\\Users\\ausau\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
+      "projectUniqueName": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
       "projectName": "WavContact",
-      "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
-      "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\obj\\",
+      "projectPath": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\WavContact.csproj",
+      "packagesPath": "C:\\Users\\ausau\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ausau\\Documents\\GitHub\\WavContact\\Programmation\\WavContact_v2\\WavContact\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ausau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7137,7 +7142,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

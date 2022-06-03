@@ -5,7 +5,12 @@
       "ProjectGuid": "b8d13d36-eb35-4b6b-b359-2528deee3709",
       "DisplayName": "WavContact",
       "ColorIndex": 0
+    },
+    "628e4103-ff53-4e6d-963f-4b7afe7f4148": {
+      "ProjectGuid": "628e4103-ff53-4e6d-963f-4b7afe7f4148",
+      "DisplayName": "Tests",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
