@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Views\Client\FrmClientChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Client\FrmClientPagePrincipale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmParametre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmMotDePasseOublie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmReviewClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmDatePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmMaterielTournage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewGestionStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewNewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewPageClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewPagePrincipale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmWaviewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Member\FrmWaviewPagePrincipale1080.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\PlaceBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SignDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
